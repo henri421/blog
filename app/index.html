@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#f7f7f6" />
+    <link rel="icon" href="./icone.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="./icone-192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <!-- Aucun texte en dur : tout vient du dictionnaire (CDC ET3), via main.ts. -->
+    <nav class="barre">
+      <div class="barre-corps">
+        <span class="barre-nom" data-cle="site.titre"></span>
+        <a class="barre-lien" href="https://henri421.github.io/WebAedificium/" target="_blank" rel="noopener"
+          ><span data-cle="site.suite"></span> &#8599;</a
+        >
+      </div>
+    </nav>
+    <header>
+      <h1 data-cle="site.titre"></h1>
+      <p class="sous-titre" data-cle="site.sous-titre"></p>
+    </header>
+    <main>
+      <p class="avertissement" data-cle="site.chantier"></p>
+    </main>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
