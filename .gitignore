@@ -19,3 +19,4 @@ CDC-*.md
 
 # Pages produites par app/construire a partir de contenu/articles
 app/*.html
+PLAN-*.md
