@@ -29,6 +29,7 @@ describe('articles', () => {
       'fleche',
       'armatures-minimales',
       'materiaux',
+      'flexion',
     ]);
   });
 
