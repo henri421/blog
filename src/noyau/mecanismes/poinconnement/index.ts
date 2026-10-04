@@ -6,9 +6,17 @@
  * Unites : kN, mm, MPa ; sections d armatures en mm2 par metre.
  *
  * Premiere generation : 6.4.4 et 6.4.5(3), controle a 2d (u_1) et au nu (u_0).
- * Deuxieme generation : 8.4, controle a d_v/2 (b_0,5), deux niveaux :
- *   1. d_v dans le terme d echelle ;
- *   2. a_pd, tire de la distance au point de moment nul, a la place de d_v.
+ * Deuxieme generation : 8.4, controle a d_v/2 (b_0,5), trois niveaux :
+ *   1. resistance minimale tau_Rdc,min (8.4.1(2) a)), qui dispense de la
+ *      verification avancee et n exige pas le ferraillage ;
+ *   2. tau_Rd,c avec d_v dans le terme d echelle (8.4.3(1)) ;
+ *   3. a_pd, tire de la distance au point de moment nul, a la place de d_v,
+ *      permis seulement si a_p < 8 d_v (8.4.3(2)).
+ *
+ * beta_e = 1,15 est la valeur approchee du tableau 8.3, permise seulement si
+ * la stabilite laterale ne repose pas sur le portique dalle-poteaux, si les
+ * travees voisines different d au plus 25 % et sous charges reparties
+ * (8.4.2(6)). L outil le declare dans l hypothese des niveaux.
  *
  * Domaine de l outil : chaque cote du poteau au plus egal a 3 d. Au-dela, les
  * deux generations ne retiennent qu une partie du perimetre, regle non codee.
@@ -19,7 +27,7 @@ import type { Cellule } from '../../model/resultat';
 import type { Mecanisme } from '../../moteur/mecanisme';
 import type { DefinitionNiveau } from '../../moteur/niveaux';
 import { calculee, recommandee } from '../../moteur/grandeurs';
-import { GAMMA_C_2004, GAMMA_V_2023, ddg2023, fcd2004, positif } from '../../materiaux';
+import { GAMMA_C_2004, GAMMA_S_2023, GAMMA_V_2023, ddg2023, fcd2004, positif } from '../../materiaux';
 
 export interface EntreePoinconnement {
   VEd?: number;
@@ -33,6 +41,8 @@ export interface EntreePoinconnement {
   Asx?: number;
   Asy?: number;
   fck?: number;
+  /** Limite d elasticite des armatures de flexion (MPa), pour tau_Rdc,min. */
+  fyk?: number;
   Dlower?: number;
   /** Distances du centre du poteau aux lignes de moment nul (mm). */
   apx?: number;
@@ -55,6 +65,7 @@ const R = {
   Asx: { champ: 'Asx', libelle: 'champ.Asx' },
   Asy: { champ: 'Asy', libelle: 'champ.Asy' },
   fck: { champ: 'fck', libelle: 'champ.fck' },
+  fyk: { champ: 'fyk', libelle: 'champ.fyk' },
   Dlower: { champ: 'Dlower', libelle: 'champ.Dlower' },
   apx: { champ: 'apx', libelle: 'champ.apx' },
   apy: { champ: 'apy', libelle: 'champ.apy' },
@@ -67,6 +78,24 @@ function domaine(e: EntreePoinconnement): Cle | null {
   const d = ((e.dx as number) + (e.dy as number)) / 2;
   if (Math.max(e.c1 as number, e.c2 as number) > 3 * d) return 'motif.poteau-allonge';
   return null;
+}
+
+/** La deuxieme generation exclut les betons dont D_lower < 8 mm (1.1(3)). */
+function domaine2023(e: EntreePoinconnement): Cle | null {
+  if ((e.Dlower as number) < 8) return 'motif.dlower-inf-8';
+  return domaine(e);
+}
+
+/** a_p = max(sqrt(a_p,x a_p,y) ; d_v) (8.98). */
+function longueurAp(e: EntreePoinconnement): number {
+  const dv = ((e.dx as number) + (e.dy as number)) / 2;
+  return Math.max(Math.sqrt((e.apx as number) * (e.apy as number)), dv);
+}
+
+/** a_pd ne remplace d_v que si a_p < 8 d_v (8.4.3(2)). */
+function conditionAp(e: EntreePoinconnement): Cle | null {
+  const dv = ((e.dx as number) + (e.dy as number)) / 2;
+  return longueurAp(e) < 8 * dv ? null : 'motif.ap-sup-8dv';
 }
 
 function verifier(e: Complete): void {
@@ -151,7 +180,7 @@ function poinconnement2023(e: Complete, affine: boolean): Calcul {
   if (affine) {
     positif(e.apx, 'apx', 'mm');
     positif(e.apy, 'apy', 'mm');
-    const ap = Math.max(Math.sqrt(e.apx * e.apy), dv);
+    const ap = longueurAp(e);
     longueur = Math.sqrt((ap * dv) / 8);
     extra.a_p = calculee(ap, 'mm');
     extra.a_pd = calculee(longueur, 'mm');
@@ -180,7 +209,43 @@ function poinconnement2023(e: Complete, affine: boolean): Calcul {
       'τ_Rd,c': calculee(tau, 'MPa'),
       V_Rd: calculee(VRd, 'kN'),
     },
-    clauses: affine ? ['8.4.3', '(8.94)', '(8.97)', '(8.98)'] : ['8.4.3', '(8.94)', '(8.95)', '(8.96)'],
+    clauses: affine ? ['8.4.3(2)', '(8.94)', '(8.97)', '(8.98)'] : ['8.4.3(1)', '(8.94)', '(8.95)', '(8.96)'],
+  };
+}
+
+/**
+ * Niveau 1 : tau_Ed <= tau_Rdc,min au contour b_0,5 dispense de la
+ * verification avancee (8.4.1(2) a), (8.87)) ; tau_Rdc,min selon (8.20), avec
+ * d = d_v.
+ */
+export function poinconnement2023TauMin(e: Complete): Calcul {
+  positif(e.VEd, 'VEd', 'kN');
+  positif(e.c1, 'c1', 'mm');
+  positif(e.c2, 'c2', 'mm');
+  positif(e.dx, 'dx', 'mm');
+  positif(e.dy, 'dy', 'mm');
+  positif(e.fyk, 'fyk', 'MPa');
+  const dv = (e.dx + e.dy) / 2;
+  const b05 = 2 * (e.c1 + e.c2) + Math.PI * dv;
+  const ddg = ddg2023(e.fck, e.Dlower);
+  const fyd = e.fyk / GAMMA_S_2023;
+  const tau = (11 / GAMMA_V_2023) * Math.sqrt(((e.fck / fyd) * ddg) / dv);
+  const VRd = (tau * b05 * dv) / BETA_INTERIEUR / N_PAR_KN;
+  return {
+    statut: { etat: 'calcule' },
+    sollicitation: e.VEd,
+    resistance: VRd,
+    intermediaires: {
+      'β_e': recommandee(BETA_INTERIEUR, '-'),
+      'γ_V': recommandee(GAMMA_V_2023, '-'),
+      d_v: calculee(dv, 'mm'),
+      'b_0,5': calculee(b05, 'mm'),
+      d_dg: calculee(ddg, 'mm'),
+      'τ_Ed': calculee((BETA_INTERIEUR * e.VEd * N_PAR_KN) / (b05 * dv), 'MPa'),
+      'τ_Rdc,min': calculee(tau, 'MPa'),
+      V_Rd: calculee(VRd, 'kN'),
+    },
+    clauses: ['8.4.1(2)', '(8.87)', '(8.20)'],
   };
 }
 
@@ -202,23 +267,33 @@ const niveaux2004: DefinitionNiveau<EntreePoinconnement>[] = [
 
 const niveaux2023: DefinitionNiveau<EntreePoinconnement>[] = [
   {
-    id: 'hauteur-utile',
+    id: 'tau-min',
     ordre: 1,
-    clause: '8.4.3',
+    clause: '8.4.1(2)',
+    hypothese: 'niveau.poin.2023.tau-min',
+    donneesRequises: [R.VEd, R.c1, R.c2, R.dx, R.dy, R.fck, R.fyk, R.Dlower],
+    domaine: domaine2023,
+    conditions: () => null,
+    calculer: (e) => poinconnement2023TauMin(e as Complete),
+  },
+  {
+    id: 'hauteur-utile',
+    ordre: 2,
+    clause: '8.4.3(1)',
     hypothese: 'niveau.poin.2023.hauteur-utile',
     donneesRequises: [...communs, R.Dlower],
-    domaine,
+    domaine: domaine2023,
     conditions: () => null,
     calculer: (e) => poinconnement2023Niveau1(e as Complete),
   },
   {
     id: 'moment-nul',
-    ordre: 2,
-    clause: '8.4.3',
+    ordre: 3,
+    clause: '8.4.3(2)',
     hypothese: 'niveau.poin.2023.moment-nul',
     donneesRequises: [...communs, R.Dlower, R.apx, R.apy],
-    domaine,
-    conditions: () => null,
+    domaine: domaine2023,
+    conditions: conditionAp,
     calculer: (e) => poinconnement2023Niveau2(e as Complete),
   },
 ];
@@ -236,6 +311,7 @@ export const poinconnement: Mecanisme<EntreePoinconnement> = {
     { type: 'nombre', id: 'Asx', libelle: 'champ.Asx', symbole: 'A_s,x', unite: 'mm²/m' },
     { type: 'nombre', id: 'Asy', libelle: 'champ.Asy', symbole: 'A_s,y', unite: 'mm²/m' },
     { type: 'nombre', id: 'fck', libelle: 'champ.fck', symbole: 'f_ck', unite: 'MPa' },
+    { type: 'nombre', id: 'fyk', libelle: 'champ.fyk', symbole: 'f_yk', unite: 'MPa', facultatif: true },
     { type: 'nombre', id: 'Dlower', libelle: 'champ.Dlower', symbole: 'D_lower', unite: 'mm', facultatif: true },
     { type: 'nombre', id: 'apx', libelle: 'champ.apx', symbole: 'a_p,x', unite: 'mm', facultatif: true },
     { type: 'nombre', id: 'apy', libelle: 'champ.apy', symbole: 'a_p,y', unite: 'mm', facultatif: true },

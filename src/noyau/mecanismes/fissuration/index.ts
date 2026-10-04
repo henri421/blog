@@ -10,8 +10,8 @@
  *
  * Premiere generation : 7.3.4, s_r,max = 3,4 c + 0,425 k1 k2 phi / rho_p,eff.
  * Deuxieme generation : 9.2.3, w_k,cal = k_w k_1/r s_r,m,cal (eps_sm - eps_cm).
- * Choix de l outil, en deuxieme generation : x_g = h/2 (centre de gravite de
- * la section brute, acier neglige) dans k_fl.
+ * En deuxieme generation, la section rectangulaire en flexion simple donne
+ * k_fl = (h - h_c,eff) / h (9.16).
  */
 
 import type { Cle } from '../../../i18n/cle';
@@ -144,8 +144,8 @@ export function fissuration2004(e: Complete): Calcul {
 
 /** k_b pour une barre en bonne condition d adherence (9.2.3). */
 export const KB_2023 = 0.9;
-/** Coefficient de passage de l espacement moyen a l ouverture caracteristique (9.2.3). */
-export const KW_2023 = 1.3;
+/** Coefficient de passage de l ouverture moyenne a l ouverture calculee, k_w = 1,7 (9.2.3(2), NOTE 1). */
+export const KW_2023 = 1.7;
 
 /** 9.2.3 : w_k,cal = k_w k_1/r s_r,m,cal (eps_sm - eps_cm). */
 export function fissuration2023(e: Complete): Calcul {
@@ -154,8 +154,7 @@ export function fissuration2023(e: Complete): Calcul {
   const hceff = Math.min(ay + 5 * e.phi, 10 * e.phi, 3.5 * ay, e.h - sf.x, e.h / 2);
   const bceff = e.s > 10 * e.phi ? (e.b * 10 * e.phi) / e.s : e.b;
   const rhoEff = sf.As / (bceff * hceff);
-  const xg = e.h / 2;
-  const kfl = Math.max(0.5 * (1 + (e.h - xg - hceff) / (e.h - xg)), 0.5);
+  const kfl = (e.h - hceff) / e.h;
   const srm = Math.min(1.5 * e.c + ((kfl * KB_2023) / 7.2) * (e.phi / rhoEff), (1.3 * (e.h - sf.x)) / KW_2023);
   const k1r = (e.h - sf.x) / (e.h - ay - sf.x);
   const fct = fctm2023(e.fck);
@@ -182,7 +181,7 @@ export function fissuration2023(e: Complete): Calcul {
       's_r,m,cal': calculee(srm, 'mm'),
       'w_k,cal': calculee(wk, 'mm'),
     },
-    clauses: ['9.2.3', '(9.8)', '(9.9)', '(9.11)', '(9.15)', '(9.17)'],
+    clauses: ['9.2.3', '(9.8)', '(9.9)', '(9.11)', '(9.15)', '(9.16)'],
   };
 }
 

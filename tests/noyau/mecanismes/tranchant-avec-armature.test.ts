@@ -41,16 +41,22 @@ describe('effort tranchant avec armatures, bielle determinante', () => {
 });
 
 describe('effort tranchant avec armatures, acier determinant', () => {
-  it('les trois cellules donnent 270,37 kN a cot = 2,5', () => {
+  it('nu = 0,5 : les cellules 2004 et 2023 niveau 1 donnent 270,37 kN a cot = 2,5', () => {
     for (const [g, n] of [
       ['ec2-2004', 'base'],
       ['ec2-2023', 'nu-constant'],
-      ['ec2-2023', 'nu-variable'],
     ]) {
       const c = cel(peuArmee(), g, n);
       expect(c.intermediaires['cot θ'].valeur, n).toBeCloseTo(2.5, 6);
       expect(c.resistance, n).toBeCloseTo(270.37, 2);
     }
+  });
+
+  it('nu variable : cot depasse 2,5 (8.2.3(7)), cot = 2,657, V_Rd = 287,3 kN', () => {
+    const c = cel(peuArmee(), 'ec2-2023', 'nu-variable');
+    expect(c.intermediaires['cot θ'].valeur).toBeCloseTo(2.657, 2);
+    expect(c.intermediaires['ν'].valeur).toBeCloseTo(0.34525, 3);
+    expect(c.resistance).toBeCloseTo(287.34, 1);
   });
 
   it('sans armature de membrure saisie, le niveau a nu variable est non applicable', () => {

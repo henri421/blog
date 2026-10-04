@@ -1,13 +1,14 @@
 ---
 titre: Effort tranchant avec armatures d’âme
 ordre: 2
-statut: brouillon
-texte: EN 1992-1-1:2023 sans amendement ni corrigendum pris en compte ; état d’amendement à vérifier auprès de l’ILNAS avant publication.
+statut: publie
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Le treillis à inclinaison variable demeure ; la bielle perd de la résistance, et un niveau plus fin la relie à la déformation longitudinale, donc à la sollicitation.
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-04 : vérification sur le texte ; au niveau 2, cot θ peut dépasser 2,5 (8.2.3(7)), second exemple recalculé.
 ---
 
 ## Ce qui change
@@ -16,7 +17,7 @@ Le modèle reste le treillis à inclinaison variable, avec la même résistance 
 
 ## Pourquoi
 
-Dans un treillis, l’effort tranchant est porté par des bielles de béton inclinées d’un angle $\theta$ et par des armatures d’âme tendues. Plus les bielles sont couchées ($\cot\theta$ grand), plus chaque cadre est mobilisé, mais plus la bielle est comprimée. L’optimum est atteint quand les deux ruptures arrivent ensemble, dans la limite $1 \le \cot\theta \le 2.5$.
+Dans un treillis, l’effort tranchant est porté par des bielles de béton inclinées d’un angle $\theta$ et par des armatures d’âme tendues. Plus les bielles sont couchées ($\cot\theta$ grand), plus chaque cadre est mobilisé, mais plus la bielle est comprimée. L’optimum est atteint quand les deux ruptures arrivent ensemble, dans la limite $1 \le \cot\theta \le 2.5$ pour des armatures de ductilité B ou C (8.2.3(4)) ; en classe A, la borne supérieure est réduite de 20 %.
 
 Le béton d’une bielle traversée par des fissures et tendu transversalement résiste moins qu’en compression simple : c’est l’**adoucissement en compression** mis en évidence par Vecchio et Collins, repris par le Model Code 2010 à ses niveaux d’approximation supérieurs. La première génération le traduit par un coefficient forfaitaire qui ne dépend que de $f_{ck}$. La deuxième génération propose un coefficient forfaitaire plus bas et, en option, un coefficient qui dépend de la déformation longitudinale $\varepsilon_x$ : plus l’armature tendue s’allonge, plus la bielle est fissurée et moins elle porte.
 
@@ -38,7 +39,7 @@ et retiennent l’angle qui maximise cette résistance. Ce qui distingue les cel
 | 2023, niveau 1 (8.2.3) | 0,5 | $\eta_{cc}\,k_{tc}\,f_{ck}/\gamma_C$ |
 | 2023, niveau 2 (8.2.3, (8.45)) | fonction de $\varepsilon_x$ et de $\cot\theta$ | $\eta_{cc}\,k_{tc}\,f_{ck}/\gamma_C$ |
 
-Au niveau 2, la déformation $\varepsilon_x$ est la moyenne des déformations des deux membrures ; celle de la membrure tendue découle de l’effort $F_{td} = M_{Ed}/z + V_{Ed}\cot\theta/2$. Comme $\nu$ dépend de $\cot\theta$ et $\cot\theta$ de $\nu$, l’optimum se cherche par itération : le calculateur affiche le nombre d’itérations. Il néglige le raccourcissement de la membrure comprimée, ce qui majore $\varepsilon_x$ et va dans le sens de la sécurité.
+Au niveau 2, la déformation $\varepsilon_x$ est la moyenne des déformations des deux membrures ; celle de la membrure tendue découle de l’effort $F_{td} = M_{Ed}/z + V_{Ed}\cot\theta/2$. Ce niveau autorise des inclinaisons plus couchées que $\cot\theta$ = 2,5 (8.2.3(7)), toujours pour des armatures de ductilité B ou C : la réduction de $\nu$ avec $\cot^2\theta$ suffit à limiter l’angle. Comme $\nu$ dépend de $\cot\theta$ et $\cot\theta$ de $\nu$, l’optimum se cherche par itération : le calculateur affiche le nombre d’itérations. Il néglige le raccourcissement de la membrure comprimée, ce qui majore $\varepsilon_x$ et va dans le sens de la sécurité.
 
 ## L’exemple type : poutre de plancher
 
@@ -90,13 +91,17 @@ La même poutre, avec des cadres HA8 tous les 200 mm, sous $V_{Ed}$ = 250 kN et 
     "ec2-2004/base.cot θ": "2,50",
     "ec2-2004/base.resistance": "270,4",
     "ec2-2023/nu-constant.resistance": "270,4",
-    "ec2-2023/nu-variable.resistance": "270,4",
-    "ec2-2023/nu-variable.taux": "0,924"
+    "ec2-2023/nu-variable.cot θ": "2,66",
+    "ec2-2023/nu-variable.ν": "0,345",
+    "ec2-2023/nu-variable.resistance": "287,3",
+    "ec2-2023/nu-variable.taux": "0,870"
   }
 }
 ```
 
-Quand les cadres gouvernent à $\cot\theta$ = {{cadres-espaces:ec2-2004/base.cot θ}}, les trois cellules coïncident : {{cadres-espaces:ec2-2004/base.resistance}} kN. Pour une poutre de bâtiment modérément sollicitée, la nouvelle génération ne change rien ; l’écart n’apparaît que lorsque la bielle devient déterminante, c’est-à-dire avec un ferraillage d’âme dense ou une âme mince.
+Quand les cadres gouvernent à $\cot\theta$ = {{cadres-espaces:ec2-2004/base.cot θ}}, la première génération et le niveau 1 de la deuxième coïncident : {{cadres-espaces:ec2-2004/base.resistance}} kN. Pour une poutre de bâtiment modérément sollicitée, le niveau forfaitaire ne change rien ; l’écart n’apparaît que lorsque la bielle devient déterminante, c’est-à-dire avec un ferraillage d’âme dense ou une âme mince.
+
+Le niveau 2 va plus loin : libéré de la borne 2,5, il couche la bielle jusqu’à $\cot\theta$ = {{cadres-espaces:ec2-2023/nu-variable.cot θ}}, avec $\nu$ = {{cadres-espaces:ec2-2023/nu-variable.ν}}, et rend {{cadres-espaces:ec2-2023/nu-variable.resistance}} kN (taux de travail {{cadres-espaces:ec2-2023/nu-variable.taux}}). Ici, le niveau le plus fin est le plus favorable ; dans l’exemple précédent, il l’était moins. C’est le même mécanisme, avec des données différentes.
 
 {{calculateur:cadres-espaces}}
 
@@ -111,4 +116,5 @@ Quand les cadres gouvernent à $\cot\theta$ = {{cadres-espaces:ec2-2004/base.cot
 
 - La valeur de $\nu$ au niveau forfaitaire (0,5 recommandé).
 - Les bornes de $\cot\theta$ et leur modulation par l’effort normal ou la classe de ductilité.
+- Les conditions d’emploi de $\nu$ calculé, qui autorise de dépasser la borne forfaitaire de $\cot\theta$.
 - La valeur de $k_{tc}$ et ses conditions d’emploi.

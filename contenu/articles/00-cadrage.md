@@ -1,7 +1,7 @@
 ---
 titre: La deuxième génération de l’Eurocode 2 : cadrage
 ordre: 0
-statut: brouillon
+statut: publie
 texte: EN 1992-1-1:2023. Article de cadrage, indépendant de toute expression ; état d’amendement sans incidence sur son contenu.
 redige: 2026-10-04
 revise: 2026-10-04

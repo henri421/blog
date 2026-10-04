@@ -25,5 +25,9 @@ $\varepsilon_x$ = 1119,0 × 1000 / (200 000 × 1963) / 2 = 0,0014251.
 ## Poutre, cadres déterminants
 
 Cadres HA8 ($A_{sw}$ = 100,5 mm²) tous les 200 mm : $\rho_w f_{ywd}$ = 0,7283 MPa.
-Dans les trois cellules, $\cot\theta$ = 2,5 et
+En 2004 et au niveau 1 de 2023, $\cot\theta$ = 2,5 et
 $V_{Rd}$ = 0,7283 × 2,5 × 300 × 495 / 1000 = **270,37 kN**.
+
+Au niveau 2, $\cot\theta$ n’est plus borné à 2,5 (8.2.3(7)) : le balayage sur
+[1 ; 10] au pas de 10⁻⁵ donne $\cot\theta$ = 2,657, $\nu$ = 0,3453 et
+$V_{Rd}$ = **287,34 kN**.

@@ -53,7 +53,9 @@ export const fr = {
   // ---- Motifs ----
   'motif.donnees-manquantes': 'Une ou plusieurs données exigées par ce niveau ne sont pas saisies.',
   'motif.fck-sup-90': 'fck supérieur à 90 MPa : hors du domaine traité par l’outil.',
-  'motif.fck-sup-60': 'fck supérieur à 60 MPa : hors du domaine traité par l’outil pour les ancrages.',
+  'motif.dlower-inf-8': 'D_lower inférieur à 8 mm : béton hors du domaine de l’EN 1992-1-1:2023 (1.1(3)).',
+  'motif.acs-sup-4d': 'a_cs n’est pas inférieur à 4 d : le remplacement de d par a_v n’est pas permis (8.2.2(3)).',
+  'motif.ap-sup-8dv': 'a_p n’est pas inférieur à 8 d_v : le remplacement de d_v par a_pd n’est pas permis (8.4.3(2)).',
   'motif.d-sup-h': 'La hauteur utile doit être inférieure à la hauteur totale.',
   'motif.poteau-allonge':
     'Un côté du poteau dépasse 3 d : seule une partie du périmètre serait à retenir, règle non codée.',
@@ -128,15 +130,18 @@ export const fr = {
     'Résistance minimale τRdc,min : ne demande ni le ferraillage longitudinal ni le moment.',
   'niveau.tsa.2023.hauteur-utile': 'τRd,c avec la hauteur utile d comme longueur d’échelle.',
   'niveau.tsa.2023.portee-mecanique':
-    'τRd,c avec la portée mécanique av, tirée du rapport M/V dans la section.',
+    'τRd,c avec la portée mécanique av, tirée du rapport M/V dans la section, si acs < 4 d.',
   'niveau.taa.2004.base': 'Treillis à inclinaison variable, ν1 = 0,6 (1 − fck/250), 1 ≤ cot θ ≤ 2,5.',
-  'niveau.taa.2023.nu-constant': 'Treillis à inclinaison variable, ν = 0,5, 1 ≤ cot θ ≤ 2,5.',
+  'niveau.taa.2023.nu-constant': 'Treillis à inclinaison variable, ν = 0,5, 1 ≤ cot θ ≤ 2,5 (ductilité B ou C).',
   'niveau.taa.2023.nu-variable':
-    'ν tiré de la déformation longitudinale εx, elle-même fonction de M, V et cot θ ; optimum cherché par itération.',
+    'ν tiré de la déformation longitudinale εx, fonction de M, V et cot θ ; cot θ peut dépasser 2,5 ; optimum cherché par itération. Armatures de ductilité B ou C.',
   'niveau.poin.2004.base': 'Contrôle à 2d du nu (u1) et au nu (u0), β = 1,15.',
-  'niveau.poin.2023.hauteur-utile': 'Contrôle à dv/2 du nu (b0,5), βe = 1,15, longueur d’échelle dv.',
+  'niveau.poin.2023.tau-min':
+    'Résistance minimale τRdc,min au contour b0,5 : dispense de la vérification avancée, ne demande pas le ferraillage.',
+  'niveau.poin.2023.hauteur-utile':
+    'Contrôle à dv/2 du nu (b0,5), longueur d’échelle dv. βe = 1,15 : stabilité sans portique dalle-poteaux, travées à ±25 %, charges réparties.',
   'niveau.poin.2023.moment-nul':
-    'Longueur d’échelle apd tirée de la distance aux lignes de moment nul.',
+    'Longueur d’échelle apd tirée de la distance aux lignes de moment nul, si ap < 8 dv.',
   'niveau.fiss.2004.base': 'sr,max = 3,4 c + 0,17 φ/ρp,eff, sans effet de la courbure.',
   'niveau.fiss.2023.base': 'wk,cal = kw k1/r sr,m,cal (εsm − εcm) : espacement moyen et courbure.',
   'niveau.anc.2004.barre-plastifiee': 'σsd = fyd ; lb,rqd par la contrainte d’adhérence fbd, α2 seul retenu.',

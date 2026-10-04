@@ -13,9 +13,9 @@
  * Deux niveaux dans chaque generation : barre plastifiee (sigma_sd = f_yd) et
  * contrainte de calcul reelle.
  *
- * Domaine de l outil : fck <= 60 MPa. La premiere generation plafonne la
- * resistance en traction a celle d un C60/75 ; le comportement de
- * l expression de deuxieme generation au-dela n est pas traite ici.
+ * Domaine de l outil : fck <= 90 MPa. La premiere generation plafonne la
+ * resistance en traction a celle d un C60/75 (8.4.2(2)) ; la deuxieme borne le
+ * rapport 25/fck a 0,3 au moins (11.4.2(3)).
  */
 
 import type { Cle } from '../../../i18n/cle';
@@ -64,7 +64,7 @@ const R = {
 const communs = [R.phi, R.fck, R.fyk, R.adherence, R.cs, R.cx, R.cy, R.type, R.lDispo];
 
 function domaine(e: EntreeAncrage): Cle | null {
-  return (e.fck as number) > 60 ? 'motif.fck-sup-60' : null;
+  return (e.fck as number) > 90 ? 'motif.fck-sup-90' : null;
 }
 
 /** Le niveau a contrainte reelle n a de sens que si sigma_sd ne depasse pas f_yd. */
@@ -150,7 +150,7 @@ export const KLS_2023 = 1.2;
 /**
  * l_bd = 50 k_cp phi (sigma_sd/435)^(3/2) (25/fck)^(1/2) (phi/20)^(1/3) (1,5 phi / c_d)^(1/2) >= 10 phi
  * (11.4.2, (11.3)), k_cp = 1,0 en bonne adherence et 1,2 sinon,
- * c_d = min(c_s/2 ; c_x ; c_y) <= 3,75 phi, phi/20 >= 0,6 ;
+ * c_d = min(c_s/2 ; c_x ; c_y) <= 3,75 phi, phi/20 >= 0,6, 25/fck >= 0,3 ;
  * l_sd = k_ls l_bd >= 15 phi (11.5.2).
  */
 function ancrage2023(e: Complete, sigmaSd: number): Calcul {
@@ -163,7 +163,7 @@ function ancrage2023(e: Complete, sigmaSd: number): Calcul {
     kcp *
     e.phi *
     (sigmaSd / 435) ** 1.5 *
-    Math.sqrt(25 / e.fck) *
+    Math.sqrt(Math.max(25 / e.fck, 0.3)) *
     Math.max(e.phi / 20, 0.6) ** (1 / 3) *
     Math.sqrt((1.5 * e.phi) / cd);
   const lbd = Math.max(brut, 10 * e.phi);

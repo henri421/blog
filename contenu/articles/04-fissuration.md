@@ -1,24 +1,25 @@
 ---
 titre: Ouverture de fissure calculée
 ordre: 4
-statut: brouillon
-texte: EN 1992-1-1:2023 sans amendement ni corrigendum pris en compte ; état d’amendement à vérifier auprès de l’ILNAS avant publication.
+statut: publie
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: L’espacement maximal devient un espacement moyen converti par un coefficient, l’enrobage pèse moins, et la courbure de la section augmente l’ouverture en surface.
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-04 : vérification sur le texte ; k_w = 1,7 (9.2.3(2)) au lieu de 1,3, exemple recalculé ; limite liée à k_surf.
 ---
 
 ## Ce qui change
 
-L’ouverture se calcule à partir d’un espacement **moyen** des fissures, multiplié par un coefficient qui le convertit en valeur caractéristique, et non plus d’un espacement maximal. Un facteur de courbure ramène l’ouverture du niveau de l’armature à la surface tendue, et le terme d’enrobage pèse moins de moitié de ce qu’il pesait.
+L’ouverture se calcule à partir d’un espacement **moyen** des fissures, multiplié par un coefficient qui le convertit en valeur caractéristique, et non plus d’un espacement maximal. Un facteur de courbure ramène l’ouverture du niveau de l’armature à la surface tendue, le terme d’enrobage pèse moins de moitié de ce qu’il pesait, et les ouvertures limites dépendent désormais de l’enrobage réel.
 
 ## Pourquoi
 
 Dans les deux générations, l’ouverture d’une fissure est le produit d’une longueur, l’espacement des fissures, par une déformation moyenne, l’écart entre l’allongement de l’acier et celui du béton entre deux fissures. Cette déformation moyenne est calculée de la même manière : la contrainte de l’acier dans la fissure, diminuée de la participation du béton tendu entre fissures, avec un plancher.
 
-L’espacement change de nature. La première génération donne directement un espacement **maximal**, dont le terme d’enrobage (3,4 $c$) est volontairement lourd. La deuxième génération reprend la démarche du Model Code : un espacement **moyen**, fondé sur la longueur de transfert par adhérence, avec un terme d’enrobage plus faible (1,5 $c$), puis un coefficient $k_w$ qui convertit la valeur moyenne en valeur caractéristique.
+L’espacement change de nature. La première génération donne directement un espacement **maximal**, dont le terme d’enrobage (3,4 $c$) est volontairement lourd. La deuxième génération reprend la démarche du Model Code : un espacement **moyen**, fondé sur la longueur de transfert par adhérence, avec un terme d’enrobage plus faible (1,5 $c$), puis un coefficient $k_w$ = 1,7 qui convertit l’ouverture moyenne en ouverture calculée.
 
 Enfin, une fissure de flexion s’ouvre en coin : elle est plus large en surface qu’au niveau de l’armature. La première génération l’ignore ; la deuxième le prend en compte par le rapport $k_{1/r}$ entre les distances à l’axe neutre de la fibre extrême et de l’armature.
 
@@ -65,8 +66,8 @@ Dalle de 22 cm, $d$ = 190 mm, nappe inférieure HA12 tous les 15 cm, enrobage 24
     "ec2-2023/base.h_c,eff": "90",
     "ec2-2023/base.s_r,m,cal": "121",
     "ec2-2023/base.k_1/r": "1,22",
-    "ec2-2023/base.sollicitation": "0,111",
-    "ec2-2023/base.taux": "0,370"
+    "ec2-2023/base.sollicitation": "0,145",
+    "ec2-2023/base.taux": "0,484"
   }
 }
 ```
@@ -80,11 +81,11 @@ La section fissurée donne $x$ = {{dalle-service:ec2-2004/base.x}} mm et $\sigma
 | Ouverture calculée (mm) | {{dalle-service:ec2-2004/base.sollicitation}} | {{dalle-service:ec2-2023/base.sollicitation}} |
 | Taux de travail pour 0,3 mm | {{dalle-service:ec2-2004/base.taux}} | {{dalle-service:ec2-2023/base.taux}} |
 
-L’espacement moyen est près de deux fois plus court que l’espacement maximal ; la conversion par $k_w$ = 1,3 et la courbure en compensent une partie. Les deux termes de l’espacement diminuent : le terme d’enrobage, par son coefficient, et le terme d’adhérence, qui intègre $k_{fl}$ et $k_b$ et une zone tendue effective calculée autrement. Le détail de chacun est affiché par le calculateur.
+L’espacement moyen est près de deux fois plus court que l’espacement maximal, mais la conversion par $k_w$ = 1,7 et la courbure font plus que compenser : l’ouverture calculée de deuxième génération est ici supérieure à celle de la première. Les deux termes de l’espacement diminuent : le terme d’enrobage, par son coefficient, et le terme d’adhérence, qui intègre $k_{fl}$ et $k_b$ et une zone tendue effective calculée autrement. Le détail de chacun est affiché par le calculateur.
 
 {{calculateur:dalle-service}}
 
-Le balayage sur l’enrobage montre la différence de sensibilité : en première génération, chaque millimètre d’enrobage ajoute 3,4 mm à l’espacement ; en deuxième génération, 1,5 mm avant conversion.
+Le balayage sur l’enrobage montre la différence de sensibilité : en première génération, chaque millimètre d’enrobage ajoute 3,4 mm à l’espacement ; en deuxième génération, 1,5 mm avant conversion. Le résultat se compare en outre à une limite elle-même liée à l’enrobage : pour les classes XC2 à XC4, la limite de durabilité de 0,3 mm est multipliée par un facteur $k_{surf}$ compris entre 1,0 et 1,5, qui croît avec l’enrobage réel rapporté à l’enrobage minimal de durabilité. Le calculateur prend la limite saisie telle quelle ; c’est à l’ingénieur d’y intégrer $k_{surf}$.
 
 ## L’effet sur une note de calcul existante
 
@@ -94,6 +95,6 @@ Le balayage sur l’enrobage montre la différence de sensibilité : en premièr
 
 ## Ce qu’il faudra vérifier dans l’annexe nationale
 
-- Les ouvertures limites selon les classes d’exposition.
-- La valeur de $k_w$ (1,3 recommandé).
+- Les ouvertures limites selon les classes d’exposition, et la définition de $k_{surf}$.
+- La valeur de $k_w$ (1,7 recommandé).
 - Les valeurs de $k_b$ selon les conditions d’adhérence.

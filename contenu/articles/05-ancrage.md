@@ -1,13 +1,14 @@
 ---
 titre: Longueurs d’ancrage et de recouvrement
 ordre: 5
-statut: brouillon
-texte: EN 1992-1-1:2023 sans amendement ni corrigendum pris en compte ; état d’amendement à vérifier auprès de l’ILNAS avant publication.
+statut: publie
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Une contrainte d’adhérence uniforme cède la place à une expression directe où la longueur croît plus vite que la contrainte ; ancrer une barre plastifiée coûte plus, une barre peu sollicitée moins.
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-04 : vérification sur le texte ; expression et bornes confirmées (11.4.2(3)), domaine étendu à 90 MPa.
 ---
 
 ## Ce qui change
@@ -34,7 +35,7 @@ $$
 l_{bd} = 50\,k_{cp}\,\phi\left(\frac{\sigma_{sd}}{435}\right)^{3/2}\left(\frac{25}{f_{ck}}\right)^{1/2}\left(\frac{\phi}{20}\right)^{1/3}\left(\frac{1.5\,\phi}{c_d}\right)^{1/2} \ge 10\,\phi
 $$
 
-Le recouvrement vaut $l_0 = \alpha_6\,l_{bd}$ avec $\alpha_6$ = 1,5 en première génération quand toutes les barres sont recouvertes dans la même section, et $l_{sd} = k_{ls}\,l_{bd}$ avec $k_{ls}$ = 1,2 en deuxième génération.
+L’expression est bornée : $\phi/20 \ge 0.6$, $25/f_{ck} \ge 0.3$ et $c_d \le 3.75\,\phi$. Le recouvrement vaut $l_0 = \alpha_6\,l_{bd}$ avec $\alpha_6$ = 1,5 en première génération quand toutes les barres sont recouvertes dans la même section, et $l_{sd} = k_{ls}\,l_{bd} \ge 15\,\phi$ avec $k_{ls}$ = 1,2 en deuxième génération. Pour un recouvrement, la distance libre $c_s$ à retenir dans $c_d$ est celle entre recouvrements voisins.
 
 Dans les deux générations, le calculateur rend deux niveaux :
 
@@ -117,4 +118,4 @@ Le coefficient de recouvrement passe de 1,5 à 1,2 : même pour la barre plastif
 
 - Les valeurs de $k_{cp}$ selon les conditions d’adhérence.
 - La valeur de $k_{ls}$.
-- Les bornes appliquées à $c_d$, au terme de diamètre et à la résistance du béton dans l’expression de $l_{bd}$.
+- Les valeurs de $k_{lb}$ et de l’exposant de la contrainte, ainsi que le tableau simplifié de longueurs rapportées au diamètre pour une barre plastifiée.

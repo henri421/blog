@@ -55,8 +55,15 @@ describe('conditions et domaine', () => {
     });
   });
 
-  it('fck > 60 MPa est hors du domaine', () => {
-    expect(cel({ ...barre(), fck: 70 }, 'ec2-2023', 'barre-plastifiee').statut.etat).toBe('hors-domaine');
+  it('fck > 90 MPa est hors du domaine', () => {
+    expect(cel({ ...barre(), fck: 100 }, 'ec2-2023', 'barre-plastifiee').statut.etat).toBe('hors-domaine');
+  });
+
+  it('25/fck est borne a 0,3 (11.4.2(3)) : C90 et C85 donnent la meme longueur', () => {
+    const a = cel({ ...barre(), fck: 90 }, 'ec2-2023', 'contrainte-reelle').sollicitation as number;
+    const b = cel({ ...barre(), fck: 85 }, 'ec2-2023', 'contrainte-reelle').sollicitation as number;
+    expect(a).toBeCloseTo(b, 12);
+    expect(a).toBeCloseTo(380.434 * Math.sqrt(0.3), 1);
   });
 
   it('l adherence mediocre allonge les deux generations', () => {

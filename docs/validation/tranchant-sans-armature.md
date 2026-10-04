@@ -34,7 +34,7 @@ $d$ = 190 mm, $A_{sl}$ = 754 mm²/m, C25/30, B500, $D_{lower}$ = 16 mm.
 | $\tau_{Rd,c}$ niveau 3 | 0,4714 × (100 × 0,003968 × 25 × 32/108,97)^(1/3) | 0,6733 MPa |
 | $V_{Rd,c}$, trois niveaux | 0,7732 × 1000 × 171 / 1000 (le minimum gouverne) | **132,22 kN/m** |
 
-## Radier, cas non monotone
+## Radier, niveau 3 non applicable
 
 Données : $V_{Ed}$ = 400 kN/m, $M_{Ed}$ = 1000 kN·m/m, $d$ = 450 mm,
 $A_{sl}$ = 4909 mm²/m, C30/37, $D_{lower}$ = 16 mm.
@@ -44,5 +44,4 @@ $A_{sl}$ = 4909 mm²/m, C30/37, $D_{lower}$ = 16 mm.
 | $V_{Rd,c}$ 2004 ($k$ = 1,667, $\rho_l$ = 0,01091) | 287,88 kN/m |
 | $\tau_{Rdc,min}$ | 0,5504 MPa → 222,90 kN/m |
 | $\tau_{Rd,c}$ niveau 2 | 0,6247 MPa → 253,02 kN/m |
-| $a_{cs}$ = 2500 mm > 4 d ; $a_v$ = √(2500 × 450/4) | 530,33 mm |
-| $\tau_{Rd,c}$ niveau 3 | 0,5915 MPa → 239,54 kN/m |
+| $a_{cs}$ = 2500 mm ≥ 4 d = 1800 mm | niveau 3 non applicable (8.2.2(3)) |

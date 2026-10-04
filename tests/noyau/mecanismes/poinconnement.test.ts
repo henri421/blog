@@ -14,6 +14,7 @@ const plancher = (): EntreePoinconnement => ({
   Asx: 1026,
   Asy: 1026,
   fck: 30,
+  fyk: 500,
   Dlower: 16,
   apx: 1320,
   apy: 1320,
@@ -30,6 +31,21 @@ describe('poinconnement, plancher-dalle', () => {
     expect(c.intermediaires['v_Rd,c'].valeur).toBeCloseTo(0.59963, 4);
     expect(c.intermediaires['V_Rd,max (u_0)'].valeur).toBeCloseTo(870.51, 1);
     expect(c.resistance).toBeCloseTo(379.16, 1);
+  });
+
+  it('deuxieme generation, resistance minimale : tau_Rdc,min = 0,8308 MPa, V_Rd = 259,74 kN', () => {
+    const c = cel(plancher(), 'ec2-2023', 'tau-min');
+    expect(c.intermediaires['τ_Rdc,min'].valeur).toBeCloseTo(0.83077, 4);
+    expect(c.intermediaires['τ_Ed'].valeur).toBeCloseTo(1.15147, 4);
+    expect(c.resistance).toBeCloseTo(259.74, 1);
+  });
+
+  it('a_p >= 8 d_v : le niveau a_pd est non applicable (8.4.3(2))', () => {
+    expect(cel({ ...plancher(), apx: 1600, apy: 1600 }, 'ec2-2023', 'moment-nul').statut).toEqual({
+      etat: 'non-applicable',
+      motif: 'motif.ap-sup-8dv',
+      donneesManquantes: [],
+    });
   });
 
   it('deuxieme generation, niveau 1 : b_0,5 = 1820,5 mm, k_pb = 2,102, V_Rd = 383,57 kN', () => {

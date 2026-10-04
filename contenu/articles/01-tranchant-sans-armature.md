@@ -1,13 +1,14 @@
 ---
 titre: Effort tranchant sans armature d’âme
 ordre: 1
-statut: brouillon
-texte: EN 1992-1-1:2023 sans amendement ni corrigendum pris en compte ; état d’amendement à vérifier auprès de l’ILNAS avant publication.
+statut: publie
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Une expression empirique cède la place à un modèle de fissure critique ; la granulométrie entre dans le calcul, et un plancher de résistance gouverne souvent les dalles courantes.
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-04 : vérification sur le texte ; le niveau 3 n’est permis que si a_cs < 4 d (8.2.2(3)), second exemple réécrit.
 ---
 
 ## Ce qui change
@@ -52,7 +53,7 @@ $$
 a_v = \sqrt{\frac{a_{cs}\,d}{4}} \quad \text{avec} \quad a_{cs} = \left|\frac{M_{Ed}}{V_{Ed}}\right| \ge d
 $$
 
-Près d’un appui, $a_{cs}$ est petit, $a_v$ est inférieur à $d$ et la résistance augmente. Loin de l’appui, quand $a_{cs}$ dépasse $4\,d$, $a_v$ devient supérieur à $d$ : le niveau 3 rend alors une résistance **plus faible** que le niveau 2. Le second exemple le montre.
+Ce remplacement n’est permis que si $a_{cs} < 4\,d$ (8.2.2(3)). C’est exactement le domaine où $a_v$ reste inférieur à $d$ : près d’un appui ou d’une charge concentrée, le niveau 3 relève la résistance. Au-delà, le texte ferme la porte, et le calculateur affiche le niveau 3 non applicable avec ce motif. Le second exemple le montre.
 
 Le coefficient partiel $\gamma_V$ = 1,4 est propre à l’effort tranchant ; il remplace la combinaison de $\gamma_c$ et du coefficient 0,18 de la première génération.
 
@@ -99,7 +100,7 @@ Les niveaux 2 et 3 rendent une contrainte inférieure au minimum du niveau 1, et
 
 {{calculateur:dalle}}
 
-## Second exemple : quand affiner coûte
+## Second exemple : quand le raffinement n’est pas permis
 
 Radier de 50 cm fortement armé, HA25 tous les 10 cm ($A_{sl}$ = 4909 mm²/m), $d$ = 450 mm, C30/37, granulats 0/16, dans une section éloignée de l’appui : $V_{Ed}$ = 400 kN/m et $M_{Ed}$ = 1000 kN·m/m.
 
@@ -114,25 +115,21 @@ Radier de 50 cm fortement armé, HA25 tous les 10 cm ($A_{sl}$ = 4909 mm²/m), $
     "ec2-2023/tau-min.τ_Rdc,min": "0,550",
     "ec2-2023/tau-min.resistance": "222,90",
     "ec2-2023/hauteur-utile.τ_Rd,c (8.27)": "0,625",
-    "ec2-2023/hauteur-utile.resistance": "253,02",
-    "ec2-2023/portee-mecanique.a_cs": "2500",
-    "ec2-2023/portee-mecanique.a_v": "530",
-    "ec2-2023/portee-mecanique.τ_Rd,c (a_v)": "0,591",
-    "ec2-2023/portee-mecanique.resistance": "239,54"
+    "ec2-2023/hauteur-utile.resistance": "253,02"
   }
 }
 ```
 
-Ici $a_{cs}$ = {{radier:ec2-2023/portee-mecanique.a_cs}} mm dépasse $4\,d$ = 1800 mm, et la portée mécanique vaut $a_v$ = {{radier:ec2-2023/portee-mecanique.a_v}} mm, plus que $d$.
+Ici $a_{cs} = M_{Ed}/V_{Ed}$ = 2500 mm dépasse $4\,d$ = 1800 mm : le niveau 3 n’est pas permis.
 
 | Génération et niveau | Résistance (kN/m) |
 |---|---:|
 | 2004 | {{radier:ec2-2004/base.resistance}} |
 | 2023, niveau 1 ($\tau_{Rdc,min}$ = {{radier:ec2-2023/tau-min.τ_Rdc,min}} MPa) | {{radier:ec2-2023/tau-min.resistance}} |
 | 2023, niveau 2 ($\tau_{Rd,c}$ = {{radier:ec2-2023/hauteur-utile.τ_Rd,c (8.27)}} MPa) | {{radier:ec2-2023/hauteur-utile.resistance}} |
-| 2023, niveau 3 ($\tau_{Rd,c}$ = {{radier:ec2-2023/portee-mecanique.τ_Rd,c (a_v)}} MPa) | {{radier:ec2-2023/portee-mecanique.resistance}} |
+| 2023, niveau 3 | non applicable : $a_{cs} \ge 4\,d$ |
 
-Le niveau 3, qui exige une donnée de plus, rend une résistance inférieure à celle du niveau 2. Le calculateur l’affiche tel quel : il ne retient pas silencieusement le niveau le plus favorable. Savoir si le niveau 2 reste utilisable quand le niveau 3 est moins favorable est une question de lecture du texte ; elle figure dans la liste des points à vérifier du projet.
+Si le texte autorisait $a_v$ ici, il vaudrait 530 mm, plus que $d$, et rendrait une résistance plus faible que celle du niveau 2. La condition $a_{cs} < 4\,d$ écarte justement ce cas : dans le domaine où il est permis, le niveau 3 ne peut pas être moins favorable que le niveau 2. Le balayage du calculateur sur le moment le montre : le niveau 3 disparaît dès que $M_{Ed}/V_{Ed}$ atteint $4\,d$.
 
 Dans les deux générations, cette section exige des armatures d’effort tranchant (taux de travail {{radier:ec2-2004/base.taux}} en 2004).
 
@@ -149,4 +146,5 @@ Dans les deux générations, cette section exige des armatures d’effort tranch
 
 - La valeur de $\gamma_V$ (1,4 recommandé).
 - Les éventuelles conditions nationales sur l’emploi de $a_v$ en lieu et place de $d$.
+- La limite inférieure de granulométrie : la norme ne couvre pas les bétons dont $D_{lower}$ est inférieur à 8 mm, que le calculateur refuse en deuxième génération.
 - La définition de $D_{lower}$ retenue pour les granulats concassés ou recyclés.

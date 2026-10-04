@@ -39,14 +39,15 @@ describe('fissuration, dalle de logement', () => {
     expect(c.taux).toBeCloseTo(0.13345 / 0.3, 3);
   });
 
-  it('deuxieme generation : s_r,m,cal = 120,6 mm, k_1/r = 1,223, w_k,cal = 0,1112 mm', () => {
+  it('deuxieme generation : s_r,m,cal = 120,6 mm, k_1/r = 1,223, k_w = 1,7, w_k,cal = 0,1454 mm', () => {
     const c = cel(dalle(), 'ec2-2023');
     expect(c.intermediaires['h_c,eff'].valeur).toBe(90);
     expect(c.intermediaires['b_c,eff'].valeur).toBe(800);
     expect(c.intermediaires.k_fl.valeur).toBeCloseTo(0.590909, 5);
     expect(c.intermediaires['s_r,m,cal'].valeur).toBeCloseTo(120.64, 1);
     expect(c.intermediaires['k_1/r'].valeur).toBeCloseTo(1.22258, 4);
-    expect(c.sollicitation).toBeCloseTo(0.11115, 4);
+    expect(c.intermediaires.k_w.valeur).toBe(1.7);
+    expect(c.sollicitation).toBeCloseTo(0.14535, 4);
   });
 
   it('le plancher (1 - k_t) sigma_s / E_s gouverne dans les deux generations', () => {

@@ -9,7 +9,11 @@
  * cot(theta) choisi dans [1 ; 2,5] pour maximiser la resistance.
  * Ce qui change : le coefficient de reduction de la bielle nu et la valeur de
  * f_cd, et, au niveau 2 de la deuxieme generation, un nu qui depend de la
- * deformation longitudinale, donc de la sollicitation.
+ * deformation longitudinale, donc de la sollicitation ; ce niveau autorise
+ * cot(theta) au-dela de 2,5 (8.2.3(7)).
+ *
+ * Hypothese de l outil : armatures de ductilite B ou C. En classe A,
+ * cot(theta_min) serait reduit de 20 % et le niveau 2 ne serait pas permis.
  */
 
 import type { Cle } from '../../../i18n/cle';
@@ -38,7 +42,15 @@ export interface EntreeTaa {
 
 type Calcul = Omit<Cellule, 'generation' | 'niveau'>;
 const N_PAR_KN = 1000;
+/** cot(theta_min) sans effort normal, armatures de ductilite B ou C (8.2.3(4)). */
 const COT_THETA_MAX = 2.5;
+/**
+ * Borne de recherche au niveau a nu variable. Le texte y permet de depasser
+ * cot(theta) = 2,5 (8.2.3(7)) sans fixer de limite : nu decroit avec cot2 et
+ * l optimum reste fini. Cette borne est celle de l outil ; elle n est jamais
+ * atteinte sur les cas courants, et l atteindre est signale comme non-convergence.
+ */
+export const COT_THETA_RECHERCHE = 10;
 
 const R = {
   VEd: { champ: 'VEd', libelle: 'champ.VEd' },
@@ -182,8 +194,10 @@ export function taa2023NuVariable(e: Required<EntreeTaa>): Calcul {
     const { nu } = nuVariable(cot, e, z);
     return Math.min(rhoW * fywd * cot, (nu * fcd * cot) / (1 + cot * cot));
   };
-  const m = maximiserSectionDoree(tau, 1, COT_THETA_MAX, 1e-9, 200);
+  const m = maximiserSectionDoree(tau, 1, COT_THETA_RECHERCHE, 1e-9, 200);
   const v = nuVariable(m.x, e, z);
+  // Un optimum colle a la borne de recherche n est pas un optimum : signale.
+  const aLaBorne = m.x > COT_THETA_RECHERCHE - 1e-6;
   const VRd = (m.f * e.bw * z) / N_PAR_KN;
   const intermediaires = {
     z: calculee(z, 'mm'),
@@ -198,8 +212,8 @@ export function taa2023NuVariable(e: Required<EntreeTaa>): Calcul {
     'τ_Rd,max': calculee((v.nu * fcd * m.x) / (1 + m.x * m.x), 'MPa'),
     V_Rd: calculee(VRd, 'kN'),
   };
-  const clauses = ['8.2.3(4)', '(8.45)', '(8.46)', '(8.47)', '(8.51)'];
-  if (!m.converge) {
+  const clauses = ['8.2.3(7)', '(8.45)', '(8.46)', '(8.47)', '(8.51)'];
+  if (!m.converge || aLaBorne) {
     return { statut: { etat: 'non-convergent', iterations: m.iterations }, intermediaires, clauses, iterations: m.iterations };
   }
   return { statut: { etat: 'calcule' }, sollicitation: e.VEd, resistance: VRd, intermediaires, clauses, iterations: m.iterations };

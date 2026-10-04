@@ -50,14 +50,21 @@ describe('effort tranchant sans armature, dalle de logement', () => {
   });
 });
 
-describe('effort tranchant sans armature, radier : cas non monotone', () => {
-  it('le niveau 3 (a_v = 530 mm > d) est moins favorable que le niveau 2', () => {
+describe('effort tranchant sans armature, radier loin de l appui', () => {
+  it('a_cs = 2500 mm >= 4 d : le niveau 3 est non applicable et nomme la condition (8.2.2(3))', () => {
     expect(cel(radier(), 'ec2-2004', 'base').resistance).toBeCloseTo(287.88, 2);
     expect(cel(radier(), 'ec2-2023', 'tau-min').resistance).toBeCloseTo(222.90, 2);
     expect(cel(radier(), 'ec2-2023', 'hauteur-utile').resistance).toBeCloseTo(253.02, 2);
-    const n3 = cel(radier(), 'ec2-2023', 'portee-mecanique');
-    expect(n3.intermediaires.a_v.valeur).toBeCloseTo(530.33, 2);
-    expect(n3.resistance).toBeCloseTo(239.54, 2);
+    expect(cel(radier(), 'ec2-2023', 'portee-mecanique').statut).toEqual({
+      etat: 'non-applicable',
+      motif: 'motif.acs-sup-4d',
+      donneesManquantes: [],
+    });
+  });
+
+  it('juste sous 4 d, le niveau 3 redevient applicable', () => {
+    // a_cs = 1790 mm < 1800 mm
+    expect(cel({ ...radier(), MEd: 716 }, 'ec2-2023', 'portee-mecanique').statut.etat).toBe('calcule');
   });
 });
 
@@ -65,6 +72,13 @@ describe('domaine et erreurs', () => {
   it('fck > 90 MPa est hors domaine dans les deux generations', () => {
     for (const c of calculerMatrice(tranchantSansArmature, { ...dalle(), fck: 100 }).cellules) {
       expect(c.statut).toEqual({ etat: 'hors-domaine', motif: 'motif.fck-sup-90' });
+    }
+  });
+
+  it('D_lower < 8 mm est hors du domaine de la deuxieme generation seulement', () => {
+    const m = calculerMatrice(tranchantSansArmature, { ...dalle(), Dlower: 4 });
+    for (const c of m.cellules) {
+      expect(c.statut.etat).toBe(c.generation === 'ec2-2004' ? 'calcule' : 'hors-domaine');
     }
   });
 

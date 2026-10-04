@@ -9,8 +9,11 @@
  *      plus fine et n exige pas le ferraillage longitudinal ;
  *   2. tau_Rd,c avec la hauteur utile d ;
  *   3. tau_Rd,c avec la portee mecanique a_v, qui exige le moment concomitant.
- * Le niveau 3 n est pas toujours plus favorable que le niveau 2 : si
- * a_cs > 4d, a_v > d et la resistance baisse. L outil le rend tel quel.
+ * Le niveau 3 n est permis que si a_cs < 4 d (8.2.2(3)) : a_v reste alors
+ * inferieur a d et le niveau 3 ne peut pas etre moins favorable que le 2.
+ * Au-dela, il est non applicable, avec ce motif.
+ *
+ * Domaine de la deuxieme generation : D_lower >= 8 mm (1.1(3)).
  */
 
 import type { Cle } from '../../../i18n/cle';
@@ -53,6 +56,22 @@ const R = {
 
 function domaineFck(e: EntreeTsa): Cle | null {
   return (e.fck as number) > 90 ? 'motif.fck-sup-90' : null;
+}
+
+/** La deuxieme generation exclut les betons dont D_lower < 8 mm (1.1(3)). */
+function domaine2023(e: EntreeTsa): Cle | null {
+  if ((e.Dlower as number) < 8) return 'motif.dlower-inf-8';
+  return domaineFck(e);
+}
+
+/** a_cs = max(|M_Ed / V_Ed| ; d) (8.30). */
+export function longueurAcs(e: EntreeTsa): number {
+  return Math.max(Math.abs(((e.MEd as number) * N_PAR_KN) / (e.VEd as number)), e.d as number);
+}
+
+/** Le remplacement de d par a_v n est permis que si a_cs < 4 d (8.2.2(3)). */
+function conditionAcs(e: EntreeTsa): Cle | null {
+  return longueurAcs(e) < 4 * (e.d as number) ? null : 'motif.acs-sup-4d';
 }
 
 // ---------------------------------------------------------------------------
@@ -177,7 +196,7 @@ export function niveau2Tsa2023(e: Required<EntreeTsa>): Calcul {
 
 export function niveau3Tsa2023(e: Required<EntreeTsa>): Calcul {
   const c = communs2023(e);
-  const acs = Math.max(Math.abs((e.MEd * N_PAR_KN) / e.VEd), e.d);
+  const acs = longueurAcs(e);
   const av = Math.sqrt((acs * e.d) / 4);
   const t = tauRdc2023(e, c, av);
   return cellule2023(
@@ -190,7 +209,7 @@ export function niveau3Tsa2023(e: Required<EntreeTsa>): Calcul {
       a_v: calculee(av, 'mm'),
       'τ_Rd,c (a_v)': calculee(t.brut, 'MPa'),
     },
-    ['8.2.2(2)', '(8.29)', '(8.30)'],
+    ['8.2.2(3)', '(8.29)', '(8.30)'],
   );
 }
 
@@ -203,7 +222,7 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
     clause: '8.2.1(4)',
     hypothese: 'niveau.tsa.2023.tau-min',
     donneesRequises: communs,
-    domaine: domaineFck,
+    domaine: domaine2023,
     conditions: () => null,
     calculer: (e) => niveau1Tsa2023(e as Required<EntreeTsa>),
   },
@@ -213,18 +232,18 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
     clause: '8.2.2(1)',
     hypothese: 'niveau.tsa.2023.hauteur-utile',
     donneesRequises: [...communs, R.Asl],
-    domaine: domaineFck,
+    domaine: domaine2023,
     conditions: () => null,
     calculer: (e) => niveau2Tsa2023(e as Required<EntreeTsa>),
   },
   {
     id: 'portee-mecanique',
     ordre: 3,
-    clause: '8.2.2(2)',
+    clause: '8.2.2(3)',
     hypothese: 'niveau.tsa.2023.portee-mecanique',
     donneesRequises: [...communs, R.Asl, R.MEd],
-    domaine: domaineFck,
-    conditions: () => null,
+    domaine: domaine2023,
+    conditions: conditionAcs,
     calculer: (e) => niveau3Tsa2023(e as Required<EntreeTsa>),
   },
 ];

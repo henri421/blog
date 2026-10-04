@@ -7,7 +7,7 @@ Pour chaque mécanisme : ce qui change, pourquoi, les niveaux d'approximation,
 un exemple type, un calculateur qui rend côte à côte la première et la deuxième
 génération, et ce que cela implique pour une note de calcul existante.
 
-> **État : brouillons.** Six articles sont rédigés, aucun n'est publié. Un
+> **État : brouillons.** Six articles sont rédigés, vérifiés sur le texte (`docs/verification-texte.md`) ; aucun n'est publié. Un
 > article n'est publié qu'une fois vérifié l'état d'amendement du texte pour
 > les clauses qu'il traite (`docs/amendements.md`), et les expressions codées
 > contrôlées sur le texte (`docs/verification-texte.md`).
@@ -19,7 +19,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Cadrage : calendrier, périmètre, niveaux d'approximation | aucun | — |
 | Effort tranchant sans armature d'âme | `tranchant-sans-armature` | 1 / 3 |
 | Effort tranchant avec armatures d'âme | `tranchant-avec-armature` | 1 / 2 |
-| Poinçonnement, poteau intérieur | `poinconnement` | 1 / 2 |
+| Poinçonnement, poteau intérieur | `poinconnement` | 1 / 3 |
 | Ouverture de fissure | `fissuration` | 1 / 1 |
 | Longueurs d'ancrage et de recouvrement | `ancrage` | 2 / 2 |
 

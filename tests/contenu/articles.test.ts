@@ -46,8 +46,9 @@ describe('articles', () => {
         expect(a.entete.historique.length).toBeGreaterThan(0);
       });
 
-      it('reste un brouillon tant que les amendements ne sont pas verifies (CDC §2)', () => {
-        expect(a.entete.statut).toBe('brouillon');
+      it('publie, l article dit si son etat d amendement est verifie (CDC §2, decision du 2026-10-04)', () => {
+        expect(a.entete.statut).toBe('publie');
+        expect(a.entete.texte).toMatch(/amendement (non encore verifie|non encore vérifié|vérifié|sans incidence)/);
       });
     });
   }
