@@ -23,6 +23,7 @@ describe('articles', () => {
       'fissuration',
       'ancrage',
       'durabilite-enrobage',
+      'cisaillement-interfaces',
     ]);
   });
 

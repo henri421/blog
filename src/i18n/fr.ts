@@ -55,6 +55,10 @@ export const fr = {
   'motif.fck-sup-90': 'fck supérieur à 90 MPa : hors du domaine traité par l’outil.',
   'motif.dlower-inf-8': 'D_lower inférieur à 8 mm : béton hors du domaine de l’EN 1992-1-1:2023 (1.1(3)).',
   'motif.acs-sup-4d': 'a_cs n’est pas inférieur à 4 d : le remplacement de d par a_v n’est pas permis (8.2.2(3)).',
+  'motif.alpha-interface-2004': 'Angle des armatures d’interface hors de 45° à 90° (6.2.5).',
+  'motif.alpha-interface-2023': 'Angle des armatures d’interface hors de 35° à 135° (35° à 90° pour une surface très lisse) (8.2.6(5)).',
+  'motif.sigman-sup': 'Contrainte normale de compression supérieure à 0,6 fcd.',
+  'motif.cles-8-77': 'La formule (8.77) ne donne pas de coefficients pour une interface à clés (tableau 8.2).',
   'motif.ap-sup-8dv': 'a_p n’est pas inférieur à 8 d_v : le remplacement de d_v par a_pd n’est pas permis (8.4.3(2)).',
   'motif.d-sup-h': 'La hauteur utile doit être inférieure à la hauteur totale.',
   'motif.poteau-allonge':
@@ -68,6 +72,7 @@ export const fr = {
   'meca.fiss.titre': 'Ouverture de fissure',
   'meca.anc.titre': 'Longueurs d’ancrage et de recouvrement',
   'meca.enr.titre': 'Enrobage des armatures',
+  'meca.int.titre': 'Cisaillement aux interfaces',
 
   // ---- Grandeurs comparees ----
   'grandeur.effort-tranchant': 'Effort tranchant de calcul',
@@ -80,6 +85,8 @@ export const fr = {
   'grandeur.longueur-disponible': 'Longueur disponible',
   'grandeur.enrobage-requis': 'Enrobage nominal requis',
   'grandeur.enrobage-prevu': 'Enrobage nominal prévu',
+  'grandeur.cisaillement-interface': 'Contrainte de cisaillement à l’interface',
+  'grandeur.resistance-interface': 'Résistance de l’interface',
 
   // ---- Champs d entree ----
   'champ.VEd': 'Effort tranchant de calcul',
@@ -127,6 +134,14 @@ export const fr = {
   'champ.contactSol': 'Face verticale coulée contre le sol',
   'champ.deltaCdev': 'Tolérance d’exécution',
   'champ.cnomPrevu': 'Enrobage nominal prévu aux plans',
+  'champ.beta-interface': 'Part de l’effort longitudinal dans le béton de reprise',
+  'champ.z-composite': 'Bras de levier de la section composite',
+  'champ.bi': 'Largeur de l’interface',
+  'champ.rugosite': 'Rugosité de l’interface',
+  'champ.fck-interface': 'Résistance du béton le plus faible',
+  'champ.Asi': 'Armatures traversant l’interface, par mètre',
+  'champ.alpha-interface': 'Angle des armatures d’interface',
+  'champ.sigmaN': 'Contrainte normale sur l’interface (compression positive)',
 
   // ---- Options ----
   'option.duree.longue': 'longue durée (kt = 0,4)',
@@ -136,6 +151,11 @@ export const fr = {
   'option.type.ancrage': 'ancrage droit',
   'option.type.recouvrement': 'recouvrement, toutes les barres dans la même section',
   'option.oui': 'oui',
+  'option.rugosite.tres-lisse': 'très lisse (moule acier, plastique, bois préparé)',
+  'option.rugosite.lisse': 'lisse (surface libre non traitée)',
+  'option.rugosite.rugueuse': 'rugueuse (aspérités ≥ 3 mm)',
+  'option.rugosite.tres-rugueuse': 'très rugueuse (aspérités ≥ 6 mm, 2023 seulement)',
+  'option.rugosite.a-cles': 'à clés (indentations)',
   'option.non': 'non',
   'option.abrasion.aucune': 'aucune',
   'option.abrasion.XM1': 'XM1, modérée',
@@ -166,6 +186,9 @@ export const fr = {
   'niveau.anc.2004.contrainte-reelle': 'σsd de calcul saisie ; lb,rqd par fbd, α2 seul retenu.',
   'niveau.anc.2023.barre-plastifiee': 'σsd = fyd dans l’expression directe de lbd.',
   'niveau.anc.2023.contrainte-reelle': 'σsd de calcul saisie dans l’expression directe de lbd.',
+  'niveau.int.2004.base': 'c fctd + μ σn + ρ fyd (μ sin α + cos α) ≤ 0,5 ν fcd ; « très rugueuse » traitée comme « rugueuse ».',
+  'niveau.int.2023.armatures-ancrees': 'Armatures absentes ou ancrées pour fyd : cv1 √fck/γC + μv σn + ρi fyd (μv sin α + cos α) (8.76).',
+  'niveau.int.2023.ancrage-insuffisant': 'Armatures non plastifiables faute d’ancrage : cohésion réduite cv2, frottement, effet de goujon (8.77).',
   'niveau.enr.2004.base': 'cmin,dur selon la classe structurale et la classe d’exposition (saisi), couche d’abrasion, cmin,b, Δcdev.',
   'niveau.enr.2023.base': 'cmin,dur selon la classe de résistance à l’exposition, la classe d’exposition et la durée (saisi), Δc, cmin,b, Δcdev.',
 

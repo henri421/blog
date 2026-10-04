@@ -23,6 +23,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Ouverture de fissure | `fissuration` | 1 / 1 |
 | Longueurs d'ancrage et de recouvrement | `ancrage` | 2 / 2 |
 | Durabilité et enrobage | `enrobage` | 1 / 1 |
+| Cisaillement aux interfaces | `interface` | 1 / 2 |
 
 ## Principes
 

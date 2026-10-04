@@ -8,6 +8,7 @@ import type { Mecanisme } from './moteur/mecanisme';
 import { ancrage } from './mecanismes/ancrage/index';
 import { enrobage } from './mecanismes/enrobage/index';
 import { fissuration } from './mecanismes/fissuration/index';
+import { cisaillementInterface } from './mecanismes/interface/index';
 import { poinconnement } from './mecanismes/poinconnement/index';
 import { tranchantAvecArmature } from './mecanismes/tranchant-avec-armature/index';
 import { tranchantSansArmature } from './mecanismes/tranchant-sans-armature/index';
@@ -19,7 +20,7 @@ export type { Champ, Mecanisme } from './moteur/mecanisme';
 export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
-export { ancrage, enrobage, fissuration, poinconnement, tranchantAvecArmature, tranchantSansArmature };
+export { ancrage, cisaillementInterface, enrobage, fissuration, poinconnement, tranchantAvecArmature, tranchantSansArmature };
 
 /**
  * Registre des mecanismes, indexe par identifiant (montage des ilots). Le
@@ -32,4 +33,5 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [fissuration.id]: fissuration as unknown as Mecanisme<Record<string, unknown>>,
   [ancrage.id]: ancrage as unknown as Mecanisme<Record<string, unknown>>,
   [enrobage.id]: enrobage as unknown as Mecanisme<Record<string, unknown>>,
+  [cisaillementInterface.id]: cisaillementInterface as unknown as Mecanisme<Record<string, unknown>>,
 };
