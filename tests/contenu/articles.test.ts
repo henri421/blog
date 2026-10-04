@@ -24,6 +24,7 @@ describe('articles', () => {
       'ancrage',
       'durabilite-enrobage',
       'cisaillement-interfaces',
+      'ame-table',
     ]);
   });
 
