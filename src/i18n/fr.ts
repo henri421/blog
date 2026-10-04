@@ -34,6 +34,8 @@ export const fr = {
   // ---- Generations ----
   'generation.ec2-2004': 'EN 1992-1-1:2004 + A1:2014',
   'generation.ec2-2023': 'EN 1992-1-1:2023',
+  'generation-courte.ec2-2004': '2004',
+  'generation-courte.ec2-2023': '2023',
 
   // ---- Statuts d une cellule ----
   'statut.calcule': 'Calculé',
@@ -148,6 +150,9 @@ export const fr = {
   'ilot.resultats': 'Résultats par génération et par niveau',
   'ilot.generation': 'Génération',
   'ilot.niveau': 'Niveau',
+  'ilot.niveaux': 'Niveaux',
+  'ilot.agissant': 'Agissant',
+  'ilot.resistant': 'Résistant',
   'ilot.statut': 'Statut',
   'ilot.taux': 'Taux de travail',
   'ilot.detail': 'Détail',

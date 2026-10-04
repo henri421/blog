@@ -51,20 +51,127 @@ body {
   background: var(--fond);
   color: var(--texte);
   font-family: var(--sans);
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
+a { color: var(--accent); }
+
+/* ---- Barre de la suite ---- */
 .barre { border-bottom: 1px solid var(--bordure); background: var(--surface); }
 .barre-corps {
-  max-width: 46rem; margin: 0 auto; padding: 0.5rem 1rem;
+  max-width: 50rem; margin: 0 auto; padding: 0.5rem 1rem;
   display: flex; justify-content: space-between; gap: 1rem;
 }
-.barre-nom { font-weight: 600; }
+.barre-nom { font-weight: 600; color: var(--texte); text-decoration: none; }
 .barre-lien { color: var(--accent); text-decoration: none; }
 
-header, main { max-width: 46rem; margin: 0 auto; padding: 0 1rem; }
+main, .pied { max-width: 50rem; margin: 0 auto; padding: 0 1rem; }
+.pied { color: var(--texte-faible); font-size: 0.85rem; border-top: 1px solid var(--bordure-douce); margin-top: 3rem; padding-bottom: 2rem; }
 .sous-titre { color: var(--texte-doux); }
+.note { color: var(--texte-faible); font-size: 0.85rem; }
 .avertissement {
   background: var(--alerte-fond); color: var(--alerte);
-  border: 1px solid var(--bordure); padding: 0.75rem 1rem;
+  border: 1px solid var(--bordure); border-radius: var(--rayon); padding: 0.75rem 1rem;
+}
+
+/* ---- Accueil ---- */
+.cartes { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+.carte { background: var(--surface); border: 1px solid var(--bordure); border-radius: var(--rayon); padding: 0.75rem 1rem; }
+.carte > a { display: flex; gap: 0.75rem; align-items: baseline; text-decoration: none; }
+.carte-titre { font-weight: 600; font-size: 1.05rem; }
+.carte p { margin: 0.35rem 0 0; color: var(--texte-doux); }
+.carte .carte-date { color: var(--texte-faible); font-size: 0.85rem; }
+.pastille {
+  font-size: 0.75rem; color: var(--alerte); background: var(--alerte-fond);
+  border: 1px solid var(--bordure); border-radius: var(--rayon-petit); padding: 0 0.4rem; white-space: nowrap;
+}
+
+/* ---- Article ---- */
+.retour { font-size: 0.9rem; margin: 1rem 0 0; }
+.article h1 { margin: 0.5rem 0 1rem; line-height: 1.2; }
+.article h2 { margin-top: 2.25rem; border-bottom: 1px solid var(--bordure-douce); padding-bottom: 0.25rem; }
+.statut {
+  background: var(--surface); border: 1px solid var(--bordure); border-radius: var(--rayon);
+  padding: 0.75rem 1rem; font-size: 0.9rem;
+}
+.statut-brouillon { border-left: 4px solid var(--alerte); }
+.statut dl { display: grid; grid-template-columns: max-content 1fr; gap: 0.2rem 1rem; margin: 0; }
+.statut dt { color: var(--texte-faible); }
+.statut dd { margin: 0; }
+.statut details { margin-top: 0.5rem; }
+.formule { overflow-x: auto; padding: 0.25rem 0; }
+math[display="block"] { font-size: 1.1em; }
+.encadre { background: var(--surface-appui); border-radius: var(--rayon); padding: 0.25rem 1rem; margin: 1rem 0; }
+.encadre-verifier { background: var(--alerte-fond); }
+blockquote { border-left: 3px solid var(--bordure); margin: 1rem 0; padding: 0 1rem; color: var(--texte-doux); }
+code { font-family: var(--mono); font-size: 0.9em; }
+pre { background: var(--surface-appui); padding: 0.75rem; overflow-x: auto; border-radius: var(--rayon); }
+
+/* ---- Tableaux ---- */
+.table-defile { overflow-x: auto; }
+table { border-collapse: collapse; width: 100%; font-size: 0.9rem; background: var(--surface); }
+caption { text-align: left; font-weight: 600; padding: 0.25rem 0; }
+th, td { border-bottom: 1px solid var(--bordure-douce); padding: 0.3rem 0.5rem; vertical-align: top; }
+th { background: var(--surface-appui); text-align: left; font-weight: 600; }
+.nombre, td.right, th.right { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.center, th.center { text-align: center; }
+
+/* ---- Ilot de calcul ---- */
+.ilot {
+  border: 1px solid var(--bordure); border-radius: var(--rayon); background: var(--surface);
+  padding: 0.75rem 1rem; margin: 1.5rem 0;
+}
+.donnees { border: 0; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)); gap: 0.5rem 1rem; }
+.donnees legend { font-weight: 600; padding: 0; margin-bottom: 0.5rem; }
+.champ { display: flex; flex-direction: column; font-size: 0.85rem; color: var(--texte-doux); gap: 0.15rem; }
+.champ em { color: var(--texte-faible); }
+.saisie { display: flex; align-items: center; gap: 0.35rem; }
+.saisie var { min-width: 3.5rem; color: var(--texte); }
+.saisie input, .champ select, .balayage-reglages input, .balayage-reglages select {
+  font: inherit; color: var(--texte); background: var(--surface);
+  border: 1px solid var(--bordure); border-radius: var(--rayon-petit); padding: 0.2rem 0.4rem; min-width: 0;
+}
+.saisie input { width: 6rem; text-align: right; }
+.saisie input:focus, select:focus { outline: 2px solid var(--accent); outline-offset: 0; background: var(--accent-doux); }
+.unite { color: var(--texte-faible); }
+.ilot-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0.75rem 0; }
+button, .bouton {
+  font: inherit; font-size: 0.85rem; cursor: pointer; color: var(--texte);
+  background: var(--surface-appui); border: 1px solid var(--bordure); border-radius: var(--rayon-petit); padding: 0.25rem 0.6rem;
+}
+.ilot-erreur { color: var(--refus); background: var(--refus-fond); border-radius: var(--rayon); padding: 0.5rem 0.75rem; }
+.matrice tr.cellule { cursor: pointer; }
+.matrice tr.cellule:hover, .matrice tr.choisie { background: var(--accent-doux); }
+.matrice tr.etat-non-applicable td, .matrice tr.etat-hors-domaine td, .matrice tr.etat-non-convergent td { color: var(--texte-faible); }
+td.ok { color: var(--ok); font-weight: 600; }
+td.refus { color: var(--refus); font-weight: 600; }
+.legende-niveaux { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0 1.5rem; font-size: 0.8rem; color: var(--texte-doux); }
+.legende-niveaux > .note { grid-column: 1 / -1; margin-bottom: 0; }
+.legende-niveaux p { margin: 0.25rem 0 0; }
+.legende-niveaux ol { margin: 0.2rem 0; padding-left: 1.4rem; }
+.ilot-detail:not(:empty) { border-top: 1px solid var(--bordure-douce); margin-top: 0.75rem; }
+.motif { color: var(--alerte); }
+.provenance-saisie { color: var(--texte); }
+.provenance-calculee { color: var(--texte-doux); }
+.provenance-recommandee { color: var(--compression); }
+.ilot-balayage { margin-top: 0.75rem; }
+.ilot-balayage summary { cursor: pointer; font-weight: 600; }
+.balayage-reglages { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; margin: 0.5rem 0; font-size: 0.85rem; }
+
+/* ---- Courbes ---- */
+.courbes { margin: 0.5rem 0; }
+.courbes > svg { width: 100%; height: auto; }
+.courbes .grille { stroke: var(--bordure-douce); stroke-width: 1; }
+.courbes .graduation, .courbes .axe { fill: var(--texte-faible); font-size: 11px; font-family: var(--sans); }
+.courbes .taux-unitaire { stroke: var(--refus); stroke-width: 1; stroke-dasharray: 3 3; }
+.serie { fill: none; stroke-width: 2; }
+.serie-ec2-2004 { stroke: var(--neutre); }
+.serie-ec2-2023 { stroke: var(--compression); }
+.legende { list-style: none; padding: 0; font-size: 0.8rem; color: var(--texte-doux); }
+.legende svg { vertical-align: middle; }
+.ruptures { font-size: 0.85rem; }
+
+@media (max-width: 40rem) {
+  .statut dl { grid-template-columns: 1fr; }
+  .statut dt { margin-top: 0.3rem; }
 }

@@ -14,3 +14,6 @@ docs/*
 
 # Cahier des charges : conserve en local
 CDC-*.md
+
+# Pages produites par app/construire a partir de contenu/articles
+app/*.html

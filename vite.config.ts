@@ -1,5 +1,13 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import { construireSite } from './app/construire/site';
+
+// Les pages HTML sont produites a partir de contenu/articles avant que Vite ne
+// les lise : chaque page est une entree de la construction. Vitest, qui
+// reutilise ce fichier, n a pas a les produire.
+const racine = fileURLToPath(new URL('.', import.meta.url));
+const pages = process.env.VITEST ? {} : construireSite(racine);
 
 export default defineConfig({
   root: 'app',
@@ -9,10 +17,11 @@ export default defineConfig({
   build: {
     outDir: '../docs',
     emptyOutDir: false,
+    rollupOptions: { input: pages },
   },
   plugins: [
     VitePWA({
-      // Enregistrement explicite dans main.ts : `injectRegister: null` evite
+      // Enregistrement explicite dans page.ts : `injectRegister: null` evite
       // un second enregistrement du service worker par le plugin.
       injectRegister: null,
       // Une nouvelle version attend l'accord de l'utilisateur : un calcul en
