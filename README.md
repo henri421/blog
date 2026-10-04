@@ -26,6 +26,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Cisaillement aux interfaces | `interface` | 1 / 2 |
 | Cisaillement âme-table | `ame-table` | 2 / 2 |
 | Poinçonnement avec armatures | `poinconnement-arme` | 1 / 1 |
+| Flèche à long terme | `fleche` | 1 / 2 |
 
 ## Principes
 

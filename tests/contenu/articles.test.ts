@@ -26,6 +26,7 @@ describe('articles', () => {
       'cisaillement-interfaces',
       'ame-table',
       'poinconnement-arme',
+      'fleche',
     ]);
   });
 
