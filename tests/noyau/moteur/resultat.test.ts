@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import type { Cellule } from '../../src/noyau/model/resultat';
-import { estCle } from '../../src/i18n/cle';
+import type { Cellule } from '../../../src/noyau/model/resultat';
+import { estCle } from '../../../src/i18n/cle';
 
 // Cellule construite a la main : seul le contrat de forme est teste au lot 0.
 const nonApplicable: Cellule = {
