@@ -32,6 +32,7 @@ describe('articles', () => {
       'flexion',
       'pressions-localisees',
       'torsion',
+      'ancrage-crochet',
     ]);
   });
 

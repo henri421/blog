@@ -23,7 +23,7 @@ const GRECQUES: Record<string, string> = {
 
 const OPERATEURS: Record<string, string> = {
   le: '≤', leq: '≤', ge: '≥', geq: '≥', cdot: '·', times: '×', approx: '≈', neq: '≠',
-  pm: '±', to: '→', infty: '∞', lt: '<', gt: '>', ldots: '…', quad: ' ', qquad: '  ',
+  pm: '±', to: '→', infty: '∞', lt: '<', gt: '>', ldots: '…', quad: ' ', qquad: '  ', in: '∈',
 };
 
 const FONCTIONS = new Set(['min', 'max', 'ln', 'log', 'cot', 'tan', 'sin', 'cos', 'exp', 'sqrt']);
