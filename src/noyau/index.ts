@@ -15,6 +15,7 @@ import { flexion } from './mecanismes/flexion/index';
 import { materiauxBeton } from './mecanismes/materiaux/index';
 import { cisaillementInterface } from './mecanismes/interface/index';
 import { poinconnement } from './mecanismes/poinconnement/index';
+import { pressionLocalisee } from './mecanismes/pression-localisee/index';
 import { poinconnementArme } from './mecanismes/poinconnement-arme/index';
 import { tranchantAvecArmature } from './mecanismes/tranchant-avec-armature/index';
 import { tranchantSansArmature } from './mecanismes/tranchant-sans-armature/index';
@@ -26,7 +27,7 @@ export type { Champ, Mecanisme } from './moteur/mecanisme';
 export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
-export { ameTable, ancrage, cisaillementInterface, enrobage, fissuration, fissurationMinimale, fleche, flexion, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, tranchantAvecArmature, tranchantSansArmature };
+export { ameTable, ancrage, cisaillementInterface, enrobage, fissuration, fissurationMinimale, fleche, flexion, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, tranchantAvecArmature, tranchantSansArmature };
 
 /**
  * Registre des mecanismes, indexe par identifiant (montage des ilots). Le
@@ -39,6 +40,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [poinconnementArme.id]: poinconnementArme as unknown as Mecanisme<Record<string, unknown>>,
   [fissuration.id]: fissuration as unknown as Mecanisme<Record<string, unknown>>,
   [fleche.id]: fleche as unknown as Mecanisme<Record<string, unknown>>,
+  [pressionLocalisee.id]: pressionLocalisee as unknown as Mecanisme<Record<string, unknown>>,
   [flexion.id]: flexion as unknown as Mecanisme<Record<string, unknown>>,
   [materiauxBeton.id]: materiauxBeton as unknown as Mecanisme<Record<string, unknown>>,
   [nonFragilite.id]: nonFragilite as unknown as Mecanisme<Record<string, unknown>>,

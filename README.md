@@ -29,6 +29,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Flèche à long terme | `fleche` | 1 / 2 |
 | Propriétés du béton | `materiaux` | 1 / 1 |
 | Flexion simple à l'ELU | `flexion` | 2 / 1 |
+| Pressions localisées | `pression-localisee` | 1 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale` | 1 / 2 et 1 / 1 |
 
 ## Principes

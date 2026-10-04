@@ -30,6 +30,7 @@ describe('articles', () => {
       'armatures-minimales',
       'materiaux',
       'flexion',
+      'pressions-localisees',
     ]);
   });
 
