@@ -32,6 +32,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Pressions localisées | `pression-localisee` | 1 / 1 |
 | Torsion | `torsion` | 1 / 2 |
 | Ancrage par coude ou crochet | `ancrage-crochet` | 2 / 2 |
+| Élancement portée / hauteur | `elancement` | 1 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale` | 1 / 2 et 1 / 1 |
 
 ## Principes

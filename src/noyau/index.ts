@@ -9,6 +9,7 @@ import { ameTable } from './mecanismes/ame-table/index';
 import { ancrage } from './mecanismes/ancrage/index';
 import { ancrageCrochet } from './mecanismes/ancrage-crochet/index';
 import { fissurationMinimale, nonFragilite } from './mecanismes/armatures-minimales/index';
+import { elancement } from './mecanismes/elancement/index';
 import { enrobage } from './mecanismes/enrobage/index';
 import { fissuration } from './mecanismes/fissuration/index';
 import { fleche } from './mecanismes/fleche/index';
@@ -29,7 +30,7 @@ export type { Champ, Mecanisme } from './moteur/mecanisme';
 export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
-export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, enrobage, fissuration, fissurationMinimale, fleche, flexion, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, torsion, tranchantAvecArmature, tranchantSansArmature };
+export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, torsion, tranchantAvecArmature, tranchantSansArmature };
 
 /**
  * Registre des mecanismes, indexe par identifiant (montage des ilots). Le
@@ -41,6 +42,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [poinconnement.id]: poinconnement as unknown as Mecanisme<Record<string, unknown>>,
   [poinconnementArme.id]: poinconnementArme as unknown as Mecanisme<Record<string, unknown>>,
   [fissuration.id]: fissuration as unknown as Mecanisme<Record<string, unknown>>,
+  [elancement.id]: elancement as unknown as Mecanisme<Record<string, unknown>>,
   [fleche.id]: fleche as unknown as Mecanisme<Record<string, unknown>>,
   [pressionLocalisee.id]: pressionLocalisee as unknown as Mecanisme<Record<string, unknown>>,
   [torsion.id]: torsion as unknown as Mecanisme<Record<string, unknown>>,

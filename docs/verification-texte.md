@@ -109,6 +109,12 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] Limites w_lim,cal (tableaux 9.1 et 9.2) avec k_surf : signalées dans
   l'article, la limite reste une saisie.
 
+## Redistribution des moments (7.3.2) — à vérifier sur l’exemplaire papier
+
+- [ ] Formule (7.16) de δ_M : l’extraction du texte ne permet pas de lire avec
+  certitude la fraction et le symbole du dénominateur. Non codée ; à relire sur
+  l’exemplaire papier avant d’écrire l’article.
+
 ## Ancrage et recouvrement (11.4.2, 11.5.2)
 
 - [x] l_bd = k_lb k_cp φ (σ_sd/435)^n_σ (25/fck)^(1/2) (φ/20)^(1/3) (1,5 φ/c_d)^(1/2) ≥ 10 φ

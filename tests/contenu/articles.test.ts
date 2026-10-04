@@ -33,6 +33,7 @@ describe('articles', () => {
       'pressions-localisees',
       'torsion',
       'ancrage-crochet',
+      'elancement',
     ]);
   });
 
