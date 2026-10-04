@@ -25,6 +25,7 @@ describe('articles', () => {
       'durabilite-enrobage',
       'cisaillement-interfaces',
       'ame-table',
+      'poinconnement-arme',
     ]);
   });
 

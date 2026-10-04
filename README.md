@@ -25,6 +25,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Durabilité et enrobage | `enrobage` | 1 / 1 |
 | Cisaillement aux interfaces | `interface` | 1 / 2 |
 | Cisaillement âme-table | `ame-table` | 2 / 2 |
+| Poinçonnement avec armatures | `poinconnement-arme` | 1 / 1 |
 
 ## Principes
 
