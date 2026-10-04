@@ -34,6 +34,7 @@ describe('articles', () => {
       'torsion',
       'ancrage-crochet',
       'elancement',
+      'redistribution',
     ]);
   });
 

@@ -17,6 +17,7 @@ import { flexion } from './mecanismes/flexion/index';
 import { materiauxBeton } from './mecanismes/materiaux/index';
 import { cisaillementInterface } from './mecanismes/interface/index';
 import { poinconnement } from './mecanismes/poinconnement/index';
+import { redistribution } from './mecanismes/redistribution/index';
 import { pressionLocalisee } from './mecanismes/pression-localisee/index';
 import { poinconnementArme } from './mecanismes/poinconnement-arme/index';
 import { torsion } from './mecanismes/torsion/index';
@@ -30,7 +31,7 @@ export type { Champ, Mecanisme } from './moteur/mecanisme';
 export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
-export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, torsion, tranchantAvecArmature, tranchantSansArmature };
+export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantSansArmature };
 
 /**
  * Registre des mecanismes, indexe par identifiant (montage des ilots). Le
@@ -45,6 +46,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [elancement.id]: elancement as unknown as Mecanisme<Record<string, unknown>>,
   [fleche.id]: fleche as unknown as Mecanisme<Record<string, unknown>>,
   [pressionLocalisee.id]: pressionLocalisee as unknown as Mecanisme<Record<string, unknown>>,
+  [redistribution.id]: redistribution as unknown as Mecanisme<Record<string, unknown>>,
   [torsion.id]: torsion as unknown as Mecanisme<Record<string, unknown>>,
   [flexion.id]: flexion as unknown as Mecanisme<Record<string, unknown>>,
   [materiauxBeton.id]: materiauxBeton as unknown as Mecanisme<Record<string, unknown>>,

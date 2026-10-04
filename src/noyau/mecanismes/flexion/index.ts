@@ -96,7 +96,7 @@ export function remplissage(loi: Loi): { alpha: number; beta: number } {
   return { alpha, beta: 1 - brasDepuisAxe };
 }
 
-interface Equilibre {
+export interface Equilibre {
   x: number;
   sigmaS: number;
   epsS: number;
@@ -108,7 +108,7 @@ interface Equilibre {
  * Si l acier n est pas plastifie, sigma_s = E_s epsilon_cu (d - x)/x et
  * l equation devient du second degre en x.
  */
-function equilibre(e: Complete, fc: number, fyd: number, alpha: number, beta: number, ecu: number): Equilibre {
+export function equilibre(e: Pick<Complete, 'b' | 'd' | 'As'>, fc: number, fyd: number, alpha: number, beta: number, ecu: number): Equilibre {
   let x = (e.As * fyd) / (alpha * e.b * fc);
   let epsS = (ecu * (e.d - x)) / x;
   let sigmaS = fyd;

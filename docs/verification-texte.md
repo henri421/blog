@@ -109,11 +109,17 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] Limites w_lim,cal (tableaux 9.1 et 9.2) avec k_surf : signalées dans
   l'article, la limite reste une saisie.
 
-## Redistribution des moments (7.3.2) — à vérifier sur l’exemplaire papier
+## Redistribution des moments (7.3.2 ; 5.5)
 
-- [ ] Formule (7.16) de δ_M : l’extraction du texte ne permet pas de lire avec
-  certitude la fraction et le symbole du dénominateur. Non codée ; à relire sur
-  l’exemplaire papier avant d’écrire l’article.
+- [x] δ_M ≥ 1/(1 + 0,7 ε_cu E_s/f_yd) + x_u/d (7.16) : relu sur l’exemplaire
+  fourni par l’utilisateur le 2026-10-04 (l’extraction ne rendait pas la fraction).
+- [x] Bornes ≥ 0,7 (classes B, C) et ≥ 0,8 (classe A), tableau 5.5 ; portées
+  adjacentes dans un rapport de 0,5 à 2 ; flexion dominante (7.3.2(3)).
+- [x] Précontrainte : f_yd remplacé par (7.17) ; non codé.
+- [x] 2004 : k1 = 0,44, k3 = 0,54, k2 = k4 = 1,25 (0,6 + 0,0014/ε_cu2), k5 = 0,7,
+  k6 = 0,8 (5.5(4), note).
+- [ ] Vérification explicite de la rotation (7.18) à (7.24) : non codée, article
+  à venir.
 
 ## Ancrage et recouvrement (11.4.2, 11.5.2)
 
