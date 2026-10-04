@@ -22,6 +22,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Poinçonnement, poteau intérieur | `poinconnement` | 1 / 3 |
 | Ouverture de fissure | `fissuration` | 1 / 1 |
 | Longueurs d'ancrage et de recouvrement | `ancrage` | 2 / 2 |
+| Durabilité et enrobage | `enrobage` | 1 / 1 |
 
 ## Principes
 

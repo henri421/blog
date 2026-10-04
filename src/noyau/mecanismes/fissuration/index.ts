@@ -98,9 +98,13 @@ export function sectionFissuree(e: Complete): SectionFissuree {
 
 const kt = (e: Complete): number => (e.duree === 'courte' ? 0.6 : 0.4);
 
-/** eps_sm - eps_cm = max((sigma_s - k_t f_ct,eff/rho_eff (1 + alpha_e rho_eff)) / E_s ; (1 - k_t) sigma_s / E_s). */
-function ecartDeformation(sigmaS: number, k: number, fct: number, rhoEff: number, alphaE: number): number {
-  return Math.max((sigmaS - ((k * fct) / rhoEff) * (1 + alphaE * rhoEff)) / ES, ((1 - k) * sigmaS) / ES);
+/**
+ * eps_sm - eps_cm = max((sigma_s - k_t f_ct,eff/rho_eff (1 + alpha_e rho_eff)) / E_s ; plancher sigma_s / E_s).
+ * Plancher : 0,6 quelle que soit la duree en premiere generation (7.9) ;
+ * 1 - k_t en deuxieme (9.11).
+ */
+function ecartDeformation(sigmaS: number, k: number, fct: number, rhoEff: number, alphaE: number, plancher: number): number {
+  return Math.max((sigmaS - ((k * fct) / rhoEff) * (1 + alphaE * rhoEff)) / ES, (plancher * sigmaS) / ES);
 }
 
 function base(e: Complete, sf: SectionFissuree): Cellule['intermediaires'] {
@@ -120,7 +124,7 @@ export function fissuration2004(e: Complete): Calcul {
   const rhoEff = sf.As / (e.b * hcef);
   const fct = fctm2004(e.fck);
   const alphaEcm = ES / ecm2004(e.fck);
-  const de = ecartDeformation(sf.sigmaS, kt(e), fct, rhoEff, alphaEcm);
+  const de = ecartDeformation(sf.sigmaS, kt(e), fct, rhoEff, alphaEcm, 0.6);
   const espaceSerre = e.s <= 5 * (e.c + e.phi / 2);
   const srmax = espaceSerre ? 3.4 * e.c + 0.425 * 0.8 * 0.5 * (e.phi / rhoEff) : 1.3 * (e.h - sf.x);
   const wk = srmax * de;
@@ -159,7 +163,7 @@ export function fissuration2023(e: Complete): Calcul {
   const k1r = (e.h - sf.x) / (e.h - ay - sf.x);
   const fct = fctm2023(e.fck);
   const alphaEcm = ES / ecm2023(e.fck);
-  const de = ecartDeformation(sf.sigmaS, kt(e), fct, rhoEff, alphaEcm);
+  const de = ecartDeformation(sf.sigmaS, kt(e), fct, rhoEff, alphaEcm, 1 - kt(e));
   const wk = KW_2023 * k1r * srm * de;
   return {
     statut: { etat: 'calcule' },

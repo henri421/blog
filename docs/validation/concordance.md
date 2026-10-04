@@ -18,12 +18,11 @@ dans `tests/concordance/premiere-generation.test.ts` (tolérance relative 10⁻�
   cherche l’angle qui maximise la résistance. Les deux coïncident quand on
   donne à `section-uls` l’angle optimal.
 
-## Divergence à trancher
+## Divergence tranchée
 
 - **v_Rd,max au nu du poteau** (6.4.5(3)) : `poinconnement` retient
-  0,5 ν f_cd, ec2-2e-generation 0,4 ν f_cd. La valeur 0,5 est celle de la
-  rédaction initiale de 2004 ; la valeur 0,4 est la valeur recommandée
-  introduite ensuite par corrigendum. À vérifier sur le texte de 2004 en
-  vigueur et sur l’annexe nationale belge, puis à aligner dans l’un des deux
-  dépôts. Sans effet sur les exemples publiés : ce plafond n’y gouverne pas
-  (870 kN contre 379 kN au contour u_1).
+  0,5 ν f_cd, ec2-2e-generation 0,4 ν f_cd. Vérifié le 2026-10-04 sur le
+  texte de 2004 intégrant le corrigendum de 2010 : la valeur recommandée est
+  **0,4 ν f_cd**. C'est le dépôt `poinconnement` qui est à corriger. Sans effet
+  sur les exemples publiés : ce plafond n'y gouverne pas (870 kN contre 379 kN
+  au contour u_1).

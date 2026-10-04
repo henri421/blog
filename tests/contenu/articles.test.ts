@@ -14,7 +14,7 @@ const racine = fileURLToPath(new URL('../..', import.meta.url));
 const articles = lireArticles(racine);
 
 describe('articles', () => {
-  it('le cadrage et les cinq mecanismes sont presents, dans l ordre', () => {
+  it('le cadrage et les mecanismes sont presents, dans l ordre', () => {
     expect(articles.map((a) => a.slug)).toEqual([
       'cadrage',
       'tranchant-sans-armature',
@@ -22,6 +22,7 @@ describe('articles', () => {
       'poinconnement',
       'fissuration',
       'ancrage',
+      'durabilite-enrobage',
     ]);
   });
 

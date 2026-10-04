@@ -56,6 +56,12 @@ describe('fissuration, dalle de logement', () => {
     }
   });
 
+  it('courte duree : plancher 0,6 en 2004 (7.9), 1 - k_t = 0,4 en 2023 (9.11)', () => {
+    const e = { ...dalle(), duree: 'courte' };
+    expect(cel(e, 'ec2-2004').intermediaires['ε_sm − ε_cm'].valeur).toBeCloseTo((0.6 * 193.2302) / 200000, 7);
+    expect(cel(e, 'ec2-2023').intermediaires['ε_sm − ε_cm'].valeur).toBeCloseTo((0.4 * 193.2302) / 200000, 7);
+  });
+
   it('d >= h est hors du domaine', () => {
     expect(cel({ ...dalle(), d: 230 }, 'ec2-2023').statut).toEqual({ etat: 'hors-domaine', motif: 'motif.d-sup-h' });
   });

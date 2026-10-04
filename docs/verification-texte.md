@@ -9,10 +9,31 @@ Les sources d'appoint utilisées avant cette vérification (PR ouvertes de
 `fib-international/structuralcodes`, Gołdyn & Michalak 2025) se sont révélées
 fausses sur trois points, signalés ci-dessous.
 
-## Première génération (EN 1992-1-1:2004 + A1:2014)
+## Première génération (EN 1992-1-1:2004, corrigendum 2010 intégré, + A1:2014)
 
-- [ ] v_Rd,max = 0,4 ν fcd au nu du poteau (6.4.5(3)) : texte de 2004 non relu
-  dans cette passe.
+Vérifiée le 2026-10-04 sur l'EN 1992-1-1:2004 (version anglaise, repères du
+corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
+
+- [x] fcd = α_cc fck/γ_c, α_cc = 1,0 ; fctd = α_ct fctk,0,05/γ_c, α_ct = 1,0 (3.1.6).
+- [x] fctm, fctk,0,05 = 0,7 fctm, Ecm = 22 (fcm/10)^0,3 (tableau 3.1).
+- [x] Enrobage : (4.1), (4.2), c_min,b = φ (+5 mm au-delà de 32 mm), Δc_dur,γ =
+  Δc_dur,st = Δc_dur,add = 0, Δc_dev = 10 mm (4.4.1).
+- [x] **Corrigé** : la couche d'abrasion augmente c_min (4.4.1.2(13)) ; elle
+  était placée dans le max avec c_min,dur.
+- [x] Effort tranchant : (6.2.a), (6.2.b), (6.3N), C_Rd,c = 0,18/γ_c, k ≤ 2,
+  ρ_l ≤ 0,02 ; 1 ≤ cot θ ≤ 2,5 (6.7N), (6.8), (6.9), ν_1 = ν (6.6N), α_cw = 1.
+- [x] Poinçonnement : (6.47), C_Rd,c, v_min, k_1 = 0,1 ; v_Rd,max = **0,4** ν fcd
+  (6.4.5(3), note introduite par le corrigendum). Le dépôt `poinconnement`
+  retient encore 0,5.
+- [x] A1:2014 : ne touche aucune formule codée ici (poinçonnement avec
+  armatures, précontrainte, béton non armé, annexe H).
+- [x] Fissuration : (7.8), (7.9), (7.11), k_1 = 0,8, k_2 = 0,5, k_3 = 3,4,
+  k_4 = 0,425, espacement ≤ 5(c + φ/2), (7.14) ; h_c,ef (7.3.2(3)).
+- [x] **Corrigé** : le plancher de (7.9) vaut 0,6 σ_s/E_s quelle que soit la
+  durée ; il était codé (1 − k_t), faux en courte durée.
+- [x] Ancrage : (8.2) avec plafond C60/75, η_1, η_2, (8.3), (8.4), α_2 et
+  c_d (tableau 8.2, figure 8.3), l_b,min (8.6).
+- [x] Recouvrement : (8.10), l_0,min (8.11), α_6 = (ρ_1/25)^0,5 ∈ [1 ; 1,5].
 
 ## Matériaux et coefficients partiels
 

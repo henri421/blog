@@ -67,6 +67,7 @@ export const fr = {
   'meca.poin.titre': 'Poinçonnement sur poteau intérieur',
   'meca.fiss.titre': 'Ouverture de fissure',
   'meca.anc.titre': 'Longueurs d’ancrage et de recouvrement',
+  'meca.enr.titre': 'Enrobage des armatures',
 
   // ---- Grandeurs comparees ----
   'grandeur.effort-tranchant': 'Effort tranchant de calcul',
@@ -77,6 +78,8 @@ export const fr = {
   'grandeur.ouverture-limite': 'Ouverture limite',
   'grandeur.longueur-requise': 'Longueur requise',
   'grandeur.longueur-disponible': 'Longueur disponible',
+  'grandeur.enrobage-requis': 'Enrobage nominal requis',
+  'grandeur.enrobage-prevu': 'Enrobage nominal prévu',
 
   // ---- Champs d entree ----
   'champ.VEd': 'Effort tranchant de calcul',
@@ -115,6 +118,15 @@ export const fr = {
   'champ.cy': 'Enrobage inférieur ou supérieur',
   'champ.type-ancrage': 'Disposition',
   'champ.lDispo': 'Longueur disponible',
+  'champ.Dupper': 'Dimension du plus gros granulat',
+  'champ.cminDur2004': 'c_min,dur lu dans le tableau 4.4N (2004)',
+  'champ.cminDur2023': 'c_min,dur lu dans le tableau 6.3 ou 6.4 (2023)',
+  'champ.abrasion': 'Abrasion',
+  'champ.duree30': 'Durée d’utilisation de projet ≤ 30 ans',
+  'champ.compacite': 'Compacité améliorée ou cure de classe 3',
+  'champ.contactSol': 'Face verticale coulée contre le sol',
+  'champ.deltaCdev': 'Tolérance d’exécution',
+  'champ.cnomPrevu': 'Enrobage nominal prévu aux plans',
 
   // ---- Options ----
   'option.duree.longue': 'longue durée (kt = 0,4)',
@@ -123,6 +135,12 @@ export const fr = {
   'option.adherence.mediocre': 'médiocres',
   'option.type.ancrage': 'ancrage droit',
   'option.type.recouvrement': 'recouvrement, toutes les barres dans la même section',
+  'option.oui': 'oui',
+  'option.non': 'non',
+  'option.abrasion.aucune': 'aucune',
+  'option.abrasion.XM1': 'XM1, modérée',
+  'option.abrasion.XM2': 'XM2, importante',
+  'option.abrasion.XM3': 'XM3, extrême',
 
   // ---- Hypotheses des niveaux ----
   'niveau.tsa.2004.base': 'Expression empirique en (100 ρl fck)^1/3, effet d’échelle par k, minimum vmin.',
@@ -148,6 +166,8 @@ export const fr = {
   'niveau.anc.2004.contrainte-reelle': 'σsd de calcul saisie ; lb,rqd par fbd, α2 seul retenu.',
   'niveau.anc.2023.barre-plastifiee': 'σsd = fyd dans l’expression directe de lbd.',
   'niveau.anc.2023.contrainte-reelle': 'σsd de calcul saisie dans l’expression directe de lbd.',
+  'niveau.enr.2004.base': 'cmin,dur selon la classe structurale et la classe d’exposition (saisi), couche d’abrasion, cmin,b, Δcdev.',
+  'niveau.enr.2023.base': 'cmin,dur selon la classe de résistance à l’exposition, la classe d’exposition et la durée (saisi), Δc, cmin,b, Δcdev.',
 
   // ---- Ilot de calcul ----
   'ilot.donnees': 'Données',
