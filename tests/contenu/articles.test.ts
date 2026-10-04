@@ -27,6 +27,7 @@ describe('articles', () => {
       'ame-table',
       'poinconnement-arme',
       'fleche',
+      'armatures-minimales',
     ]);
   });
 
