@@ -28,6 +28,7 @@ describe('articles', () => {
       'poinconnement-arme',
       'fleche',
       'armatures-minimales',
+      'materiaux',
     ]);
   });
 
