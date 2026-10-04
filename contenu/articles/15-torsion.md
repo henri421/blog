@@ -91,7 +91,7 @@ La section est trapue et l’enrobage dépasse 0,07 × 400 = 28 mm : en 2023, el
 ## L’effet sur une note de calcul existante
 
 - Les sections **trapues à fort enrobage** (poteaux, poutres carrées, enrobages de durabilité ou de feu) perdent de la résistance en torsion par la réduction de section.
-- Le choix de $\cot\theta$ doit rester cohérent avec celui de l’effort tranchant concomitant ; la plage élargie ne s’applique qu’à la torsion seule.
+- En vérification combinée avec l’effort tranchant, chaque paroi se calcule avec un angle unique, commun aux deux sollicitations (6.3.2(2) ; 8.3.5(2)).
 - La vérification combinée torsion, flexion et effort tranchant peut se faire par une formule d’interaction linéaire (8.3.6), plus simple que les conditions de 2004.
 
 ## Ce qu’il faudra vérifier dans l’annexe nationale
