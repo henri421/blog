@@ -31,6 +31,7 @@ describe('articles', () => {
       'materiaux',
       'flexion',
       'pressions-localisees',
+      'torsion',
     ]);
   });
 
