@@ -37,7 +37,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Imperfections géométriques | `imperfections` | 3 / 4 |
 | Bielles et nœuds | `bielles` | 1 / 3 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
-| Armatures minimales | `non-fragilite`, `fissuration-minimale` | 1 / 2 et 1 / 1 |
+| Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 
 ## Principes
 

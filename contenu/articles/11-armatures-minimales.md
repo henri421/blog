@@ -4,11 +4,12 @@ ordre: 11
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
-revise: 2026-10-04
+revise: 2026-10-06
 resume: L’armature de non-fragilité découle désormais d’un principe, le moment résistant au moins égal au moment de fissuration, et le coefficient d’épaisseur de l’armature de fissuration se règle sur la plus petite dimension de la section.
 motscles: armatures-minimales, fissuration, dispositions-constructives
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-06 : armatures minimales d’effort tranchant (9.2.2(5) ; 12.2(4)).
 ---
 
 ## Ce qui change
@@ -82,6 +83,32 @@ Dalle de 20 cm, $d$ = 172 mm, C25/30, B500, HA12 tous les 20 cm (565 mm²/m).
 **Maîtrise de la fissuration.** Pour cette dalle mince, $k$ = {{dalle-fm:ec2-2004/base.k}} en 2004 mais $k_h$ = {{dalle-fm:ec2-2023/base.k_h}} en 2023 : {{dalle-fm:ec2-2004/base.sollicitation}} contre {{dalle-fm:ec2-2023/base.sollicitation}} mm²/m. Pour une poutre de 30 × 60 cm, l’écart disparaît (le calculateur le montre en saisissant la section) : c’est la largeur de 30 cm qui fixe $k_h$, alors que la hauteur de 60 cm fixait $k$.
 
 {{calculateur:dalle-fm}}
+
+## Armatures minimales d’effort tranchant
+
+Le pourcentage minimal d’armatures d’effort tranchant des poutres garde sa forme : $\rho_w = A_{sw}/(s\,b_w\,\sin\alpha) \ge 0.08\,\sqrt{f_{ck}}/f_{yk}$ ((9.5N) ; (12.4)). La deuxième génération permet de le réduire de 10 % pour un acier de classe de ductilité B et de 20 % pour la classe C : la ductilité de l’acier garantit, à elle seule, une part du comportement que le minimum devait assurer.
+
+Exemple : poutre de 300 mm de large, cadres HA8 à deux brins ($A_{sw}$ = 100,5 mm²) tous les 400 mm, C30/37, B500 de classe B.
+
+```exemple
+{
+  "nom": "cadres-minimaux",
+  "mecanisme": "armature-tranchant-minimale",
+  "entree": { "Asw": 100.5, "s": 400, "bw": 300, "alpha": 90, "fck": 30, "fyk": 500, "classe": "B" },
+  "attendus": {
+    "ec2-2004/base.ρ_w": "0,000838",
+    "ec2-2004/base.sollicitation": "0,000876",
+    "ec2-2004/base.taux": "1,047",
+    "ec2-2023/base.taux": "1,047",
+    "ec2-2023/ductilite.sollicitation": "0,000789",
+    "ec2-2023/ductilite.taux": "0,941"
+  }
+}
+```
+
+Avec $\rho_w$ = {{cadres-minimaux:ec2-2004/base.ρ_w}}, les cadres n’atteignent pas le minimum de {{cadres-minimaux:ec2-2004/base.sollicitation}} (taux {{cadres-minimaux:ec2-2004/base.taux}}). En 2023, la réduction pour la classe B ramène le minimum à {{cadres-minimaux:ec2-2023/ductilite.sollicitation}} et les cadres suffisent (taux {{cadres-minimaux:ec2-2023/ductilite.taux}}). L’espacement maximal des cadres reste à vérifier par ailleurs.
+
+{{calculateur:cadres-minimaux}}
 
 ## L’effet sur une note de calcul existante
 

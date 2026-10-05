@@ -380,7 +380,15 @@ export const EN1992: Carte = {
         c('12.2', 'Armatures minimales de non-fragilité', ['9.2.1.1'], {
           article: 'armatures-minimales',
           ingeree: true,
-          niveaux: [n(G1, 'non-fragilite', 'base', '9.2.1.1'), n(G2, 'non-fragilite', 'z-forfaitaire', '12.2(2)'), n(G2, 'non-fragilite', 'z-equilibre', '12.2(2)')],
+          niveaux: [
+            n(G1, 'non-fragilite', 'base', '9.2.1.1'),
+            n(G2, 'non-fragilite', 'z-forfaitaire', '12.2(2)'),
+            n(G2, 'non-fragilite', 'z-equilibre', '12.2(2)'),
+            n(G1, 'armature-tranchant-minimale', 'base', '9.2.2(5)'),
+            n(G2, 'armature-tranchant-minimale', 'base', '12.2(4)'),
+            n(G2, 'armature-tranchant-minimale', 'ductilite', '12.2(4)'),
+          ],
+          reserves: 'Alternative M_Rd,min ≥ k_dc M_Ed pour les éléments isostatiques (12.2(3)) non codée.',
         }),
         c('12.3.1', 'Poutres : généralités', ['9.2']),
         c('12.3.2', 'Poutres : armatures longitudinales', ['9.2.1']),

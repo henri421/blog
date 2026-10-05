@@ -11,3 +11,10 @@ Calcul indépendant (Python).
 | 2023, z d’équilibre (A_s f_yk d − (A_s f_yk)²/(2 b f_ck) = M_cr) | 201,2 mm² | 191,4 mm² |
 | Fissuration 2004 : 0,4 k f_ctm (b h/2) / f_yk | k = 1 → 205,2 mm² | k = 0,79 → 164,8 mm² |
 | Fissuration 2023 : 0,2 k_h f_ctm b h / f_yk | k_h = 0,8 → 164,2 mm² | k_h = 0,8 → 166,8 mm² |
+
+## Armatures minimales d'effort tranchant
+
+A_sw = 100,5 mm², s = 400 mm, b_w = 300 mm, α = 90°, C30/37, B500 classe B.
+ρ_w = 100,5/(400 × 300) = 0,0008375 ; 0,08 √30/500 = 0,0008764.
+- 2004 et 2023 sans réduction : taux 0,0008764/0,0008375 = 1,0464 (arrondi vers le verdict : 1,047).
+- 2023 classe B : ρ_w,min = 0,9 × 0,0008764 = 0,0007888 ; taux 0,9418 (0,941).
