@@ -35,7 +35,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Élancement portée / hauteur | `elancement` | 1 / 1 |
 | Redistribution des moments | `redistribution` | 1 / 1 |
 | Imperfections géométriques | `imperfections` | 3 / 4 |
-| Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale` | 1 / 1 et 1 / 2 |
+| Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale` | 1 / 2 et 1 / 1 |
 
 ## Principes

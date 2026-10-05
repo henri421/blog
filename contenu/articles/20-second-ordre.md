@@ -9,6 +9,7 @@ resume: Les méthodes simplifiées du second ordre quittent le corps du texte po
 motscles: stabilite, analyse-structurale, elu
 historique:
   - 2026-10-05 : première rédaction (critère d’élancement et courbure nominale).
+  - 2026-10-05 : rigidité nominale et majoration des moments (5.8.7 ; O.8).
 ---
 
 ## Ce qui change
@@ -47,7 +48,15 @@ $$
 | $k_r$ | $(n_u - n)/(n_u - n_{bal}) \le 1$ | 1 en première approximation, ou la même expression |
 | $k_\varphi$ | $1 + \beta\,\varphi_{eff} \ge 1$, $\beta = 0.35 + f_{ck}/200 - \lambda/150$ | identique |
 
-Le calculateur prend l’imperfection $e_i = l_0/400$ pour un élément contreventé et $e_i = \theta_i\,l_0/2$ sinon (voir l’article sur les imperfections), l’ajoute aux deux moments d’extrémité et retient $M_{Ed} = \max(M_{0Ed} + M_2 ; M_{02})$. Le troisième terme de l’enveloppe (O.13) n’est pas encore traité. La méthode de la rigidité nominale (5.8.7 ; O.8) fera l’objet d’un complément.
+Le calculateur prend l’imperfection $e_i = l_0/400$ pour un élément contreventé et $e_i = \theta_i\,l_0/2$ sinon (voir l’article sur les imperfections), l’ajoute aux deux moments d’extrémité et retient $M_{Ed} = \max(M_{0Ed} + M_2 ; M_{02})$. Le troisième terme de l’enveloppe (O.13) n’est pas encore traité.
+
+**Rigidité nominale et majoration des moments** (5.8.7 ; O.8) : le moment du premier ordre est amplifié par
+
+$$
+M_{Ed} = M_{0Ed}\left[1 + \frac{\beta}{N_B/N_{Ed} - 1}\right], \qquad N_B = \frac{\pi^2\,EI}{l_0^2}
+$$
+
+avec $\beta = \pi^2/8$ pour le moment équivalent constant d’un élément contreventé, et $\beta$ = 1 sinon. La différence porte sur la rigidité. La première génération l’écrit $EI = K_c\,E_{cd}\,I_c + K_s\,E_s\,I_s$, avec $K_c = k_1\,k_2/(1 + \varphi_{ef})$, $k_1 = \sqrt{f_{ck}/20}$, $k_2 = n\,\lambda/170 \le 0.2$ et $K_s$ = 1, ou, pour $\rho \ge$ 1 %, la forme simplifiée $K_s$ = 0 et $K_c = 0.3/(1 + 0.5\,\varphi_{ef})$. La deuxième génération renvoie à la rigidité de plastification (7.4.3.2) et donne, pour l’analyse globale, la valeur forfaitaire $EI = 0.4\,E_{cd}\,I_c$ pour les poteaux (O.8.1(5)), que le calculateur retient. Le module de calcul change aussi : $E_{cd} = E_{cm}/\gamma_{cE}$ avec $\gamma_{cE}$ = 1,2 en 2004 et 1,5 en 2023 (tableau 4.3).
 
 ## L’exemple type : poteau de bâtiment contreventé
 
@@ -106,9 +115,42 @@ Avec $e_i$ = {{poteau-courbure:ec2-2004/courbure.e_i}} mm, le moment équivalent
 
 {{calculateur:poteau-courbure}}
 
+Le même poteau par la rigidité nominale :
+
+```exemple
+{
+  "nom": "poteau-rigidite",
+  "mecanisme": "rigidite-nominale",
+  "entree": { "b": 400, "h": 400, "d": 350, "As": 2513, "fck": 30, "fyk": 500, "l": 6000, "l0": 6000, "NEd": 2000, "M01": 40, "M02": 80, "phiEff": 1.2, "contrevente": "oui" },
+  "attendus": {
+    "ec2-2004/base.E_cd": "27364",
+    "ec2-2004/base.N_B": "4802",
+    "ec2-2004/base.facteur de majoration": "1,88",
+    "ec2-2004/base.resistance": "176,8",
+    "ec2-2004/simplifiee.N_B": "3001",
+    "ec2-2004/simplifiee.resistance": "325,8",
+    "ec2-2023/base.E_cd": "21293",
+    "ec2-2023/base.N_B": "4981",
+    "ec2-2023/base.facteur de majoration": "1,83",
+    "ec2-2023/base.resistance": "171,8"
+  }
+}
+```
+
+| | $E_{cd}$ (MPa) | $N_B$ (kN) | Majoration | $M_{Ed}$ (kN·m) |
+|---|---:|---:|---:|---:|
+| 2004, $K_c$ et $K_s$ | {{poteau-rigidite:ec2-2004/base.E_cd}} | {{poteau-rigidite:ec2-2004/base.N_B}} | {{poteau-rigidite:ec2-2004/base.facteur de majoration}} | {{poteau-rigidite:ec2-2004/base.resistance}} |
+| 2004, forme simplifiée | | {{poteau-rigidite:ec2-2004/simplifiee.N_B}} | | {{poteau-rigidite:ec2-2004/simplifiee.resistance}} |
+| 2023, $0.4\,E_{cd}\,I_c$, sous réserve | {{poteau-rigidite:ec2-2023/base.E_cd}} | {{poteau-rigidite:ec2-2023/base.N_B}} | {{poteau-rigidite:ec2-2023/base.facteur de majoration}} | {{poteau-rigidite:ec2-2023/base.resistance}} |
+
+Le module de calcul baisse d’un cinquième, mais la rigidité forfaitaire $0.4\,E_{cd}\,I_c$ compense : la charge de flambement et le moment de calcul restent voisins de ceux de 2004. La forme simplifiée de 2004, prévue comme étape préliminaire, double presque le moment. Les deux méthodes simplifiées de 2023 ne donnent pas le même résultat sur ce poteau ({{poteau-rigidite:ec2-2023/base.resistance}} kN·m par la rigidité, {{poteau-courbure:ec2-2023/kr-precis.resistance}} kN·m par la courbure) : le calculateur affiche les deux, le choix appartient à l’ingénieur.
+
+{{calculateur:poteau-rigidite}}
+
 ## L’effet sur une note de calcul existante
 
 - Les **poteaux contreventés élancés** voient leur moment du second ordre augmenter, d’un quart environ à $k_r$ égal ; le ferraillage peut en être affecté.
+- Le **module de calcul** $E_{cd}$ baisse de 20 % ($\gamma_{cE}$ = 1,5) ; une rigidité recalculée par l’expression de 2004 avec ce module serait sous-estimée.
 - La note doit citer l’**annexe O** et son statut national pour chaque méthode simplifiée employée.
 - Le **coefficient de fluage effectif** se définit désormais par les déformations ou les moments quasi permanents rapportés à ceux de calcul (7.4.2), avec une distinction entre effets globaux et locaux.
 

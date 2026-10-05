@@ -15,6 +15,13 @@
  *   c_1/r = 8 contreventé, 10 sinon ; 1/r = k_r k_phi 2 eps_yd / (d - d')
  *   (O.19), k_r = 1 en premiere approximation ou (O.21), k_phi (O.22).
  *
+ * Rigidite nominale (5.8.7 ; O.8) : M_Ed = M_0Ed [1 + beta/(N_B/N_Ed - 1)],
+ *   beta = pi^2/8 avec le moment equivalent constant (contreventé), 1 sinon ;
+ *   2004 : EI = K_c E_cd I_c + K_s E_s I_s, E_cd = E_cm/1,2 ((5.21) a (5.26)) ;
+ *   2023 : EI = 0,4 E_cd I_c (O.8.1(5)), E_cd = E_cm/1,5 ((7.28), tableau 4.3).
+ *   Choix de l outil : la rigidite forfaitaire de O.8.1(5), donnee pour
+ *   l analyse globale, est retenue faute d expression pour l element isole.
+ *
  * Choix de l outil :
  *   - imperfection : e_i = l_0/400 pour un element contreventé (5.2(7) ;
  *     7.2.1.2(5)), e_i = theta_i l_0/2 sinon, m = 1 ; N e_i s ajoute aux deux
@@ -32,7 +39,7 @@ import type { Cellule } from '../../model/resultat';
 import type { Mecanisme } from '../../moteur/mecanisme';
 import type { DefinitionNiveau } from '../../moteur/niveaux';
 import { calculee, recommandee } from '../../moteur/grandeurs';
-import { ES, GAMMA_S_2004, GAMMA_S_2023, fcd2004, fcd2023, positif } from '../../materiaux';
+import { ES, GAMMA_S_2004, GAMMA_S_2023, ecm2004, ecm2023, fcd2004, fcd2023, positif } from '../../materiaux';
 
 export interface EntreeSecondOrdre {
   b?: number;
@@ -413,4 +420,181 @@ export const courbureNominale: Mecanisme<EntreeSecondOrdre> = {
   sollicitation: { libelle: 'grandeur.sans-objet', unite: '-' },
   resistance: { libelle: 'grandeur.moment-calcul-second-ordre', unite: 'kN·m' },
   niveaux: { 'ec2-2004': niveauxCourbure2004, 'ec2-2023': niveauxCourbure2023 },
+};
+
+// ---------------------------------------------------------------------------
+// Rigidite nominale et majoration des moments
+// ---------------------------------------------------------------------------
+
+/** gamma_cE : 1,2 en premiere generation (5.8.6(3)), 1,5 en deuxieme (tableau 4.3). */
+export const GAMMA_CE_2004 = 1.2;
+export const GAMMA_CE_2023 = 1.5;
+
+interface Rigidite {
+  EI: number;
+  inter: Cellule['intermediaires'];
+}
+
+/** M_Ed = M_0Ed [1 + beta / (N_B/N_Ed - 1)], au moins M_02 ((5.28) ; (O.23)). */
+function majoration(
+  e: Complete,
+  p: MomentsPremierOrdre,
+  M0Ed: number,
+  beta: number,
+  r: Rigidite,
+  inter: Cellule['intermediaires'],
+  clauses: string[],
+): Calcul {
+  const NB = (Math.PI ** 2 * r.EI) / e.l0 ** 2 / N_PAR_KN;
+  const facteur = 1 + beta / (NB / e.NEd - 1);
+  const MEd = Math.max(M0Ed * facteur, p.M02);
+  return {
+    statut: { etat: 'calcule' },
+    resistance: MEd,
+    intermediaires: {
+      e_i: calculee(p.ei, 'mm'),
+      "M_01'": calculee(p.M01, 'kN·m'),
+      "M_02'": calculee(p.M02, 'kN·m'),
+      ...inter,
+      ...r.inter,
+      EI: calculee(r.EI / 1e9, 'kN·m²'),
+      N_B: calculee(NB, 'kN'),
+      'β': calculee(beta, '-'),
+      M_0Ed: calculee(M0Ed, 'kN·m'),
+      'facteur de majoration': calculee(facteur, '-'),
+      M_Ed: calculee(MEd, 'kN·m'),
+    },
+    clauses,
+  };
+}
+
+function rigidite2004(e: Complete, simplifiee: boolean): Calcul {
+  verifier(e);
+  positif(e.d, 'd', 'mm');
+  const s = section(e, fcd2004(e.fck), e.fyk / GAMMA_S_2004);
+  const p = premierOrdre(e, 2 / 3);
+  const Ecd = ecm2004(e.fck) / GAMMA_CE_2004;
+  const Ic = (e.b * e.h ** 3) / 12;
+  const Is = e.As * (e.d - e.h / 2) ** 2;
+  let Kc: number;
+  let Ks: number;
+  const inter: Cellule['intermediaires'] = { E_cd: calculee(Ecd, 'MPa'), 'ρ': calculee(e.As / s.Ac, '-') };
+  if (simplifiee) {
+    Ks = 0;
+    Kc = 0.3 / (1 + 0.5 * e.phiEff);
+  } else {
+    const k1 = Math.sqrt(e.fck / 20);
+    const k2 = Math.min((s.n * s.lambda) / 170, 0.2);
+    Ks = 1;
+    Kc = (k1 * k2) / (1 + e.phiEff);
+    inter.k_1 = calculee(k1, '-');
+    inter.k_2 = calculee(k2, '-');
+  }
+  inter.K_c = calculee(Kc, '-');
+  inter.K_s = recommandee(Ks, '-');
+  const EI = Kc * Ecd * Ic + Ks * ES * Is;
+  const braced = e.contrevente === 'oui';
+  const M0Ed = braced ? Math.max(0.6 * p.M02 + 0.4 * p.M01, 0.4 * p.M02) : p.M02;
+  const beta = braced ? Math.PI ** 2 / 8 : 1;
+  return majoration(
+    e,
+    p,
+    M0Ed,
+    beta,
+    { EI, inter },
+    { 'λ': calculee(s.lambda, '-'), n: calculee(s.n, '-') },
+    simplifiee ? ['5.8.7.2(3)', '(5.21)', '(5.26)', '5.8.7.3', '(5.28)'] : ['5.8.7.2(2)', '(5.21) à (5.25)', '5.8.7.3', '(5.28)', '(5.29)'],
+  );
+}
+
+export function rigidite2023(e: Complete): Calcul {
+  verifier(e);
+  const s = section(e, fcd2023(e.fck), e.fyk / GAMMA_S_2023);
+  const p = premierOrdre(e, 0.4);
+  const Ecd = ecm2023(e.fck) / GAMMA_CE_2023;
+  const Ic = (e.b * e.h ** 3) / 12;
+  const EI = 0.4 * Ecd * Ic;
+  const braced = e.contrevente === 'oui';
+  let M0Ed = p.M02;
+  let Cm = 1;
+  if (braced) {
+    const rm = p.M02 < 0.05 * e.NEd * e.h * KN_M_PAR_KN_MM ? 1 : p.M01 / p.M02;
+    Cm = Math.max(0.6 + 0.4 * rm, 0.4);
+    M0Ed = Cm * p.M02;
+  }
+  const beta = braced ? Math.PI ** 2 / 8 : 1;
+  return majoration(
+    e,
+    p,
+    M0Ed,
+    beta,
+    { EI, inter: { E_cd: calculee(Ecd, 'MPa'), 'γ_cE': recommandee(GAMMA_CE_2023, '-') } },
+    { 'λ': calculee(s.lambda, '-'), C_m: calculee(Cm, '-') },
+    ['O.8.1(5)', 'O.8.2', '(O.23)', '(O.25)', '(7.28)'],
+  );
+}
+
+/** La majoration n a de sens que si N_B depasse N_Ed. */
+function conditionFlambement(calcul: (e: Complete) => Calcul) {
+  return (e: EntreeSecondOrdre): Cle | null => {
+    const c = calcul(e as Complete);
+    return c.intermediaires.N_B.valeur > (e.NEd as number) ? null : 'motif.nb-inf-ned';
+  };
+}
+
+const conditionRho =
+  (min: number, motif: Cle) =>
+  (e: EntreeSecondOrdre): Cle | null =>
+    (e.As as number) / ((e.b as number) * (e.h as number)) >= min ? null : motif;
+
+const rigidite2004Kc = (e: Complete): Calcul => rigidite2004(e, false);
+const rigidite2004Simple = (e: Complete): Calcul => rigidite2004(e, true);
+
+export const rigiditeNominale: Mecanisme<EntreeSecondOrdre> = {
+  id: 'rigidite-nominale',
+  version: '0.1.0',
+  titre: 'meca.so.rigidite',
+  champs: CHAMPS,
+  sollicitation: { libelle: 'grandeur.sans-objet', unite: '-' },
+  resistance: { libelle: 'grandeur.moment-calcul-second-ordre', unite: 'kN·m' },
+  niveaux: {
+    'ec2-2004': [
+      {
+        id: 'base',
+        ordre: 1,
+        position: 'corps',
+        clause: '5.8.7.2(2)',
+        hypothese: 'niveau.so.2004.rigidite',
+        donneesRequises: requisesCourbure,
+        domaine,
+        conditions: (e) => conditionRho(0.002, 'motif.rho-inf-0002')(e) ?? conditionFlambement(rigidite2004Kc)(e),
+        calculer: (e) => rigidite2004Kc(e as Complete),
+      },
+      {
+        id: 'simplifiee',
+        ordre: 2,
+        position: 'corps',
+        clause: '5.8.7.2(3)',
+        hypothese: 'niveau.so.2004.rigidite-simplifiee',
+        donneesRequises: requisesCourbure,
+        domaine,
+        conditions: (e) => conditionRho(0.01, 'motif.rho-inf-001')(e) ?? conditionFlambement(rigidite2004Simple)(e),
+        calculer: (e) => rigidite2004Simple(e as Complete),
+      },
+    ],
+    'ec2-2023': [
+      {
+        id: 'base',
+        ordre: 1,
+        position: 'annexe-informative',
+        reserve: 'reserve.annexe-o',
+        clause: 'O.8',
+        hypothese: 'niveau.so.2023.rigidite',
+        donneesRequises: requisesCourbure,
+        domaine,
+        conditions: conditionFlambement(rigidite2023),
+        calculer: (e) => rigidite2023(e as Complete),
+      },
+    ],
+  },
 };

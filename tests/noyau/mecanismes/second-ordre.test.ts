@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { calculerMatrice } from '../../../src/noyau/moteur/matrice';
-import { courbureNominale, elancementLimite, type EntreeSecondOrdre } from '../../../src/noyau/mecanismes/second-ordre/index';
+import { courbureNominale, elancementLimite, rigiditeNominale, type EntreeSecondOrdre } from '../../../src/noyau/mecanismes/second-ordre/index';
 
 // Valeurs attendues calculees a la main (docs/validation/second-ordre.md).
 
@@ -61,6 +61,35 @@ describe('second ordre, poteau contreventé 400 x 400, l0 = 6 m', () => {
     expect(cel(courbureNominale, { ...poteau(), NEd: 8000 }, 'ec2-2004', 'courbure').statut).toEqual({
       etat: 'non-applicable',
       motif: 'motif.n-sup-nu',
+      donneesManquantes: [],
+    });
+  });
+});
+
+describe('rigidite nominale et majoration des moments', () => {
+  it('2004 : N_B = 4 802 kN, M_Ed = 176,77 ; forme simplifiee 325,76 kN.m', () => {
+    const a = cel(rigiditeNominale, poteau(), 'ec2-2004', 'base');
+    expect(a.intermediaires.N_B.valeur).toBeCloseTo(4802.3242, 2);
+    expect(a.resistance).toBeCloseTo(176.7655, 3);
+    expect(cel(rigiditeNominale, poteau(), 'ec2-2004', 'simplifiee').resistance).toBeCloseTo(325.7556, 3);
+  });
+
+  it('2023 : E_cd = E_cm / 1,5, EI = 0,4 E_cd I_c, M_Ed = 171,80 kN.m, en reserve', () => {
+    const c = cel(rigiditeNominale, poteau(), 'ec2-2023', 'base');
+    expect(c.statut.etat).toBe('reserve');
+    expect(c.intermediaires.E_cd.valeur).toBeCloseTo(21292.5109, 3);
+    expect(c.resistance).toBeCloseTo(171.7968, 3);
+  });
+
+  it('N_Ed au-dela de N_B : non applicable ; rho < 1 % : forme simplifiee non applicable', () => {
+    expect(cel(rigiditeNominale, { ...poteau(), NEd: 6000 }, 'ec2-2023', 'base').statut).toEqual({
+      etat: 'non-applicable',
+      motif: 'motif.nb-inf-ned',
+      donneesManquantes: [],
+    });
+    expect(cel(rigiditeNominale, { ...poteau(), As: 1257 }, 'ec2-2004', 'simplifiee').statut).toEqual({
+      etat: 'non-applicable',
+      motif: 'motif.rho-inf-001',
       donneesManquantes: [],
     });
   });
