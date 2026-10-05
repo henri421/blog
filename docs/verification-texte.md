@@ -121,6 +121,20 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [ ] Vérification explicite de la rotation (7.18) à (7.24) : non codée, article
   à venir.
 
+## Effort tranchant sans armature, effort normal (8.2.2(4) et (5) ; 6.2.2(1))
+
+- [x] Convention de signe de 3.10 : traction positive.
+- [x] k_vp = 1 + N_Ed/|V_Ed| · d/(3 a_cs) ≥ 0,1 (8.31), multiplie d dans (8.27)
+  ou a_v dans (8.29) ; ρ_l reste celui de (8.28).
+- [ ] Le symbole devant « /3 » dans (8.31) et (8.34) est perdu à l’extraction ;
+  lu « d » par élimination (seule lecture homogène), à confirmer.
+- [x] Compression : τ_Rdc,min ≤ τ_Rdc,0 − k_1 σ_cp ≤ τ_Rdc,max (8.32),
+  τ_Rdc,0 = (8.27) sans plancher (8.33), σ_cp = N_Ed/A_c,
+  k_1 = 0,5 a_cs,0/(e_p + d/3) · A_c/(b_w d) ≤ 0,18 A_c/(b_w d) (8.34, NOTE),
+  τ_Rdc,max = 2,15 τ_Rdc,0 (a_cs,0/d)^(1/6) ≤ 2,7 τ_Rdc,0 (8.35).
+- [x] 2004 : terme k_1 σ_cp, k_1 = 0,15, σ_cp = N_Ed/A_c < 0,2 f_cd, compression
+  positive ; l’outil plafonne σ_cp à 0,2 f_cd.
+
 ## Effort tranchant sans armature, annexe I.8.3.1
 
 - [x] τ_Rd,c = 0,33/γ_V · γ_def^(2/3)/γ_V² · √f_ck / (1 + 24 γ_def ε_v d/d_dg) (I.7) :

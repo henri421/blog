@@ -133,13 +133,17 @@ export const EN1992: Carte = {
           annexes: [ann('I.8.3.1', 'informative')],
           niveaux: [
             n(G1, 'tranchant-sans-armature', 'base', '6.2.2(1)'),
+            n(G1, 'tranchant-sans-armature', 'effort-normal', '6.2.2(1)'),
             n(G2, 'tranchant-sans-armature', 'hauteur-utile', '8.2.2(1)'),
             n(G2, 'tranchant-sans-armature', 'portee-mecanique', '8.2.2(3)'),
+            n(G2, 'tranchant-sans-armature', 'kvp', '8.2.2(4)'),
+            n(G2, 'tranchant-sans-armature', 'kvp-portee', '8.2.2(4)'),
+            n(G2, 'tranchant-sans-armature', 'compression', '8.2.2(5)'),
             n(G2, 'tranchant-sans-armature', 'annexe-i', 'I.8.3.1', 'annexe-informative'),
             n(G2, 'tranchant-sans-armature', 'annexe-i-kvd', 'I.8.3.1(3)', 'annexe-informative'),
           ],
           reserves:
-            'Effort normal (8.31 à 8.35), précontrainte et dalles portant dans deux directions non codés ; annexe I.8.3.1(3) : application de k_vd à la formule (8.27) avec plancher τ_Rdc,min, à confirmer.',
+            'Précontrainte (8.36), (8.37) et dalles portant dans deux directions (8.38) à (8.40) non codées ; lecture de d/(3 a_cs) dans (8.31) et application de k_vd avec plancher τ_Rdc,min, à confirmer.',
         }),
         c('8.2.3', 'Éléments avec armatures d’effort tranchant', ['6.2.3'], {
           article: 'tranchant-avec-armature',

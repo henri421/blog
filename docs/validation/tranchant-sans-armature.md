@@ -72,3 +72,21 @@ k_vd = 1,35 × (100 × 0,00755 × 32/650)^(1/10) = 1,35 × 0,7195 = **0,9713** ;
 k_vd τ = 0,4748 MPa ≥ τ_Rdc,min = 0,4579 MPa → V_Rd,c = 0,4748 × 400 × 585 = **111,11 kN**.
 Niveau 2 : 114,39 kN ; niveau 4 (ε_v = 1,116 ‰, τ = 0,4621 MPa) : 108,14 kN.
 Avec A_sl = 2945 mm², k_vd est plafonné à 1 ; avec 1257 mm², le plancher τ_Rdc,min gouverne.
+
+## Effort normal : poutre comprimée
+
+b_w = 300 mm, h = 500 mm, d = 450 mm, A_sl = 1473 mm², C30/37, d_dg = 32 mm,
+V_Ed = 150 kN, M_Ed = 120 kN·m, N_Ed = −600 kN (compression), e_p = 0.
+
+- 2004 : k = 1,667, v = max(0,5757 ; 0,4134) ; σ_cp = 600 000/150 000 = 4,00 MPa
+  (< 0,2 f_cd = 4,0 MPa, limite atteinte) ; v + 0,15 × 4 = 1,2398 MPa →
+  **167,37 kN** (86,37 kN sans effort normal).
+- 2023, k_vp : a_cs = 800 mm ; k_vp = 1 − 600/150 × 450/2400 = **0,250** ;
+  longueur 112,5 mm → τ = 0,9918 MPa → **120,50 kN** ; avec a_v = 300 mm :
+  75 mm → τ = 1,1353 MPa → **137,94 kN**.
+- 2023, compression : τ_Rdc,0 = 0,6248 MPa ; σ_cp = −4,00 MPa ;
+  k_1 = min(0,5 × 800/150 ; 0,18) × 150 000/135 000 = 0,18 × 1,111 = **0,200** ;
+  τ_Rdc,max = min(2,15 × 0,6248 × (800/450)^(1/6) ; 2,7 × 0,6248) = **1,4785** MPa ;
+  τ = 0,6248 + 0,8 = 1,4248 MPa → **173,11 kN**.
+- Traction N_Ed = +200 kN : k_vp = 1,25 → 70,47 kN ; 2004 : 59,37 kN ;
+  la variante (8.32) est non applicable.

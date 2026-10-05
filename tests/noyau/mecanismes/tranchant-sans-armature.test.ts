@@ -41,7 +41,7 @@ describe('effort tranchant sans armature, dalle de logement', () => {
   });
 
   it('sans granulat declare, toute la deuxieme generation est non applicable, la premiere reste calculee', () => {
-    const m = calculerMatrice(tranchantSansArmature, { ...dalle(), Dlower: undefined });
+    const m = calculerMatrice(tranchantSansArmature, { ...dalle(), NEd: -100, h: 220, ep: 0, Dlower: undefined });
     for (const c of m.cellules) expect(c.statut.etat).toBe(c.generation === 'ec2-2004' ? 'calcule' : 'non-applicable');
   });
 
@@ -70,13 +70,13 @@ describe('effort tranchant sans armature, radier loin de l appui', () => {
 
 describe('domaine et erreurs', () => {
   it('fck > 90 MPa est hors domaine dans les deux generations', () => {
-    for (const c of calculerMatrice(tranchantSansArmature, { ...dalle(), fck: 100 }).cellules) {
+    for (const c of calculerMatrice(tranchantSansArmature, { ...dalle(), NEd: -100, h: 220, ep: 0, fck: 100 }).cellules) {
       expect(c.statut).toEqual({ etat: 'hors-domaine', motif: 'motif.fck-sup-90' });
     }
   });
 
   it('D_lower < 8 mm est hors du domaine de la deuxieme generation seulement', () => {
-    const m = calculerMatrice(tranchantSansArmature, { ...dalle(), Dlower: 4 });
+    const m = calculerMatrice(tranchantSansArmature, { ...dalle(), NEd: -100, h: 220, ep: 0, Dlower: 4 });
     for (const c of m.cellules) {
       expect(c.statut.etat).toBe(c.generation === 'ec2-2004' ? 'calcule' : 'hors-domaine');
     }
@@ -141,5 +141,43 @@ describe('niveau 5, annexe I.8.3.1(3), k_vd (I.8)', () => {
 
   it('d <= 500 mm : non applicable, motif nomme', () => {
     expect(cel(dalle(), 'ec2-2023', 'annexe-i-kvd').statut).toEqual({ etat: 'non-applicable', motif: 'motif.d-inf-500', donneesManquantes: [] });
+  });
+});
+
+describe('effort normal (6.2.2(1) ; 8.2.2(4) et (5))', () => {
+  const comprimee = (): EntreeTsa => ({ VEd: 150, MEd: 120, NEd: -600, bw: 300, d: 450, h: 500, ep: 0, Asl: 1473, fck: 30, fyk: 500, Dlower: 16 });
+
+  it('2004 : sigma_cp = 4 MPa, V_Rd,c = 167,37 kN', () => {
+    const c = cel(comprimee(), 'ec2-2004', 'effort-normal');
+    expect(c.intermediaires['σ_cp'].valeur).toBeCloseTo(4, 12);
+    expect(c.resistance).toBeCloseTo(167.3695, 3);
+  });
+
+  it('2023 : k_vp = 0,25 ; d k_vp -> 120,50 kN ; a_v k_vp -> 137,94 kN', () => {
+    expect(cel(comprimee(), 'ec2-2023', 'kvp').intermediaires.k_vp.valeur).toBeCloseTo(0.25, 12);
+    expect(cel(comprimee(), 'ec2-2023', 'kvp').resistance).toBeCloseTo(120.5003, 3);
+    expect(cel(comprimee(), 'ec2-2023', 'kvp-portee').resistance).toBeCloseTo(137.9384, 3);
+  });
+
+  it('2023 compression : k1 = 0,20, tau = 1,4248 <= tau_max = 1,4785, 173,11 kN', () => {
+    const c = cel(comprimee(), 'ec2-2023', 'compression');
+    expect(c.intermediaires.k_1.valeur).toBeCloseTo(0.2, 12);
+    expect(c.intermediaires['τ_Rdc,max'].valeur).toBeCloseTo(1.478461, 5);
+    expect(c.resistance).toBeCloseTo(173.1104, 3);
+  });
+
+  it('traction : k_vp = 1,25 abaisse la resistance, la variante (8.32) est non applicable', () => {
+    const t = { ...comprimee(), NEd: 200 };
+    expect(cel(t, 'ec2-2023', 'kvp').resistance).toBeCloseTo(70.469, 3);
+    expect(cel(t, 'ec2-2023', 'compression').statut).toEqual({ etat: 'non-applicable', motif: 'motif.ned-pas-compression', donneesManquantes: [] });
+    expect(cel(t, 'ec2-2004', 'effort-normal').resistance).toBeCloseTo(59.3695, 3);
+  });
+
+  it('k_vp plafonne inferieurement a 0,1', () => {
+    expect(cel({ ...comprimee(), NEd: -5000 }, 'ec2-2023', 'kvp').intermediaires.k_vp.valeur).toBe(0.1);
+  });
+
+  it('annexe I non calculee quand un effort normal est saisi', () => {
+    expect(cel(comprimee(), 'ec2-2023', 'annexe-i').statut).toEqual({ etat: 'non-applicable', motif: 'motif.annexe-i-effort-normal', donneesManquantes: [] });
   });
 });

@@ -46,25 +46,25 @@ describe('rendu de l ilot', () => {
     const h = rendreFormulaire(tsa, { ...dalle, d: 190.5 });
     expect((h.match(/<input /g) ?? []).length).toBe(tsa.champs.length);
     expect(h).toContain('value="190,5"');
-    expect((h.match(/facultatif/g) ?? []).length).toBe(2);
+    expect((h.match(/facultatif/g) ?? []).length).toBe(5);
   });
 
   it('matrice : une ligne par cellule, aucune masquee, taux colore selon le verdict', () => {
     const h = rendreMatrice(tsa, matrice, null);
-    expect((h.match(/<tr class="cellule/g) ?? []).length).toBe(6);
+    expect((h.match(/<tr class="cellule/g) ?? []).length).toBe(10);
     expect(h).toContain('0,612');
     expect(h).not.toContain('undefined');
   });
 
   it('detail d un niveau non applicable : motif et donnees manquantes nommees', () => {
     const m = calculerMatrice(tsa, { ...dalle, MEd: undefined });
-    const h = rendreDetail(tsa, m.cellules[3]);
+    const h = rendreDetail(tsa, m.cellules.find((c) => c.niveau === 'portee-mecanique')!);
     expect(h).toContain('Moment concomitant');
     expect(h).toContain('Données manquantes');
   });
 
   it('detail d un niveau calcule : grandeurs et provenance', () => {
-    const h = rendreDetail(tsa, matrice.cellules[1]);
+    const h = rendreDetail(tsa, matrice.cellules.find((c) => c.niveau === 'tau-min')!);
     expect(h).toContain('valeur recommandée');
     expect(h).toContain('γ<sub>V</sub>');
   });

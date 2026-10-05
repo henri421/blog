@@ -120,6 +120,8 @@ export const fr = {
   'motif.bloc-trop-petit': 'Le bloc d’introduction est plus petit que la zone chargée.',
   'motif.excentrement-2004': 'Charge excentrée : la première génération demande de réduire la résistance sans donner de règle (6.7(3)).',
   'motif.d-inf-500': 'Hauteur utile d’au plus 500 mm : le coefficient kvd ne s’applique pas (I.8.3.1(3)).',
+  'motif.ned-pas-compression': 'Effort normal nul ou de traction : la variante (8.32) ne vaut qu’en compression.',
+  'motif.annexe-i-effort-normal': 'Effort normal saisi : l’outil ne calcule la déformation εv que sous le moment seul.',
   'motif.med-sup-mrd': 'Le moment de calcul dépasse la capacité de la section : la déformation εv n’est pas définie.',
   'motif.hauteur-bloc': 'Hauteur du bloc inférieure à a1 : la diffusion n’est pas assurée (8.6(2)).',
   'motif.portees-adjacentes': 'Rapport des portées adjacentes hors de 0,5 à 2 : redistribution sans vérification de la capacité de rotation non admise (5.5(4) ; 7.3.2(3)).',
@@ -189,6 +191,8 @@ export const fr = {
   'champ.bw': 'Largeur de l’âme',
   'champ.b': 'Largeur de la section',
   'champ.h': 'Hauteur totale',
+  'champ.NEd-normal': 'Effort normal concomitant (traction positive)',
+  'champ.ep': 'Excentricité de l’effort de compression (positive vers la face tendue)',
   'champ.d': 'Hauteur utile',
   'champ.dx': 'Hauteur utile, nappe x',
   'champ.dy': 'Hauteur utile, nappe y',
@@ -316,11 +320,15 @@ export const fr = {
 
   // ---- Hypotheses des niveaux ----
   'niveau.tsa.2004.base': 'Expression empirique en (100 ρl fck)^1/3, effet d’échelle par k, minimum vmin.',
+  'niveau.tsa.2004.effort-normal': 'Expression (6.2) avec le terme k1 σcp de l’effort normal, k1 = 0,15, σcp ≤ 0,2 fcd.',
   'niveau.tsa.2023.tau-min':
     'Résistance minimale τRdc,min : ne demande ni le ferraillage longitudinal ni le moment.',
   'niveau.tsa.2023.hauteur-utile': 'τRd,c avec la hauteur utile d comme longueur d’échelle.',
   'niveau.tsa.2023.portee-mecanique':
     'τRd,c avec la portée mécanique av, tirée du rapport M/V dans la section, si acs < 4 d.',
+  'niveau.tsa.2023.kvp': 'τRd,c avec d multiplié par kvp, qui traduit l’effort normal (8.31).',
+  'niveau.tsa.2023.kvp-portee': 'τRd,c avec av multiplié par kvp (8.31), si acs < 4 d.',
+  'niveau.tsa.2023.compression': 'Compression : τRdc,0 − k1 σcp, borné par τRdc,min et τRdc,max ((8.32) à (8.35)).',
   'niveau.tsa.2023.annexe-i':
     'Annexe I.8.3.1 (informative, structures existantes) : τRd,c tiré de la déformation εv des armatures longitudinales sous MEd (I.7), γdef = 1,33.',
   'niveau.tsa.2023.annexe-i-kvd':

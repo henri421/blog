@@ -3,7 +3,8 @@
  *
  * Unites : kN, kN.m, mm, MPa.
  *
- * Premiere generation : 6.2.2(1), un seul niveau.
+ * Premiere generation : 6.2.2(1) sans effort normal, puis avec le terme
+ *   k1 sigma_cp (k1 = 0,15, sigma_cp = N_Ed/A_c <= 0,2 f_cd, compression positive).
  * Deuxieme generation : 8.2.1 et 8.2.2, trois niveaux :
  *   1. resistance minimale tau_Rdc,min, qui dispense de toute verification
  *      plus fine et n exige pas le ferraillage longitudinal ;
@@ -12,6 +13,13 @@
  * Le niveau 3 n est permis que si a_cs < 4 d (8.2.2(3)) : a_v reste alors
  * inferieur a d et le niveau 3 ne peut pas etre moins favorable que le 2.
  * Au-dela, il est non applicable, avec ce motif.
+ * Effort normal (8.2.2(4) et (5)), convention de 3.10 : N_Ed positif en traction.
+ *   - d (ou a_v) multiplie par k_vp = 1 + N_Ed/|V_Ed| . d/(3 a_cs) >= 0,1 (8.31) ;
+ *   - en compression, variante tau_Rdc,0 - k1 sigma_cp bornee par tau_Rdc,min et
+ *     tau_Rdc,max ((8.32) a (8.35)), k1 selon la NOTE (8.34). Choix de l outil :
+ *     element non precontraint, a_cs,0 = a_cs (M_Ed et V_Ed saisis hors effet de
+ *     l effort normal), A_c = b_w h ; le remplacement de d par a_v,0 dans k1 n est
+ *     pas code.
  *   4. annexe I.8.3.1 (informative, evaluation des structures existantes) :
  *      tau_Rd,c tire de la deformation epsilon_v des armatures longitudinales
  *      (I.7), en variante de 8.2.2(2) a (5) ; niveau en reserve.
@@ -35,7 +43,7 @@ import type { Cellule } from '../../model/resultat';
 import type { Mecanisme } from '../../moteur/mecanisme';
 import type { DefinitionNiveau } from '../../moteur/niveaux';
 import { calculee, recommandee } from '../../moteur/grandeurs';
-import { ES, GAMMA_C_2004, GAMMA_S_2023, GAMMA_V_2023, ddg2023, fcd2023, positif } from '../../materiaux';
+import { ES, GAMMA_C_2004, GAMMA_S_2023, GAMMA_V_2023, ddg2023, fcd2004, fcd2023, positif } from '../../materiaux';
 
 export interface EntreeTsa {
   /** Effort tranchant de calcul (kN). */
@@ -52,6 +60,12 @@ export interface EntreeTsa {
   fyk?: number;
   /** Plus petite dimension superieure D de la fraction la plus grossiere des granulats (mm). */
   Dlower?: number;
+  /** Effort normal concomitant (kN), positif en traction (3.10). */
+  NEd?: number;
+  /** Hauteur totale de la section (mm), pour A_c = b_w h. */
+  h?: number;
+  /** Excentricite de l effort de compression par rapport au centre de gravite (mm), positive vers la face tendue. */
+  ep?: number;
 }
 
 type Calcul = Omit<Cellule, 'generation' | 'niveau'>;
@@ -66,6 +80,9 @@ const R = {
   fck: { champ: 'fck', libelle: 'champ.fck' },
   fyk: { champ: 'fyk', libelle: 'champ.fyk' },
   Dlower: { champ: 'Dlower', libelle: 'champ.Dlower' },
+  NEd: { champ: 'NEd', libelle: 'champ.NEd-normal' },
+  h: { champ: 'h', libelle: 'champ.h' },
+  ep: { champ: 'ep', libelle: 'champ.ep' },
 } as const satisfies Record<string, { champ: keyof EntreeTsa; libelle: Cle }>;
 
 function domaineFck(e: EntreeTsa): Cle | null {
@@ -126,6 +143,32 @@ export function vrdc2004(e: Required<Pick<EntreeTsa, 'VEd' | 'bw' | 'd' | 'Asl' 
   };
 }
 
+/**
+ * Avec effort normal (6.2.2(1)) : v = max(C_Rd,c k (100 rho_l fck)^(1/3) ;
+ * v_min) + k1 sigma_cp, k1 = 0,15, sigma_cp = N/A_c plafonne a 0,2 f_cd,
+ * compression positive en 2004.
+ */
+export function vrdc2004EffortNormal(e: Required<EntreeTsa>): Calcul {
+  const base = vrdc2004(e);
+  positif(e.h, 'h', 'mm');
+  const k1 = 0.15;
+  const sigmaCp = Math.min((-e.NEd * N_PAR_KN) / (e.bw * e.h), 0.2 * fcd2004(e.fck));
+  const v = Math.max(base.intermediaires['v_Rd,c'].valeur, base.intermediaires.v_min.valeur) + k1 * sigmaCp;
+  const VRd = (v * e.bw * e.d) / N_PAR_KN;
+  return {
+    ...base,
+    resistance: VRd,
+    intermediaires: {
+      ...base.intermediaires,
+      k_1: recommandee(k1, '-'),
+      'σ_cp': calculee(sigmaCp, 'MPa'),
+      'v_Rd,c + k_1 σ_cp': calculee(v, 'MPa'),
+      'V_Rd,c': calculee(VRd, 'kN'),
+    },
+    clauses: ['6.2.2(1)', '(6.2.a)', '(6.2.b)'],
+  };
+}
+
 const niveaux2004: DefinitionNiveau<EntreeTsa>[] = [
   {
     id: 'base',
@@ -137,6 +180,17 @@ const niveaux2004: DefinitionNiveau<EntreeTsa>[] = [
     domaine: domaineFck,
     conditions: () => null,
     calculer: (e) => vrdc2004(e as Required<EntreeTsa>),
+  },
+  {
+    id: 'effort-normal',
+    ordre: 2,
+    position: 'corps',
+    clause: '6.2.2(1)',
+    hypothese: 'niveau.tsa.2004.effort-normal',
+    donneesRequises: [R.VEd, R.bw, R.d, R.Asl, R.fck, R.NEd, R.h],
+    domaine: domaineFck,
+    conditions: () => null,
+    calculer: (e) => vrdc2004EffortNormal(e as Required<EntreeTsa>),
   },
 ];
 
@@ -225,6 +279,76 @@ export function niveau3Tsa2023(e: Required<EntreeTsa>): Calcul {
       'τ_Rd,c (a_v)': calculee(t.brut, 'MPa'),
     },
     ['8.2.2(3)', '(8.29)', '(8.30)'],
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Effort normal (8.2.2(4) et (5))
+// ---------------------------------------------------------------------------
+
+/** k_vp = 1 + N_Ed/|V_Ed| . d/(3 a_cs) >= 0,1 (8.31), N_Ed positif en traction. */
+export function coefficientKvp(e: Required<EntreeTsa>): number {
+  return Math.max(1 + (e.NEd / Math.abs(e.VEd)) * (e.d / (3 * longueurAcs(e))), 0.1);
+}
+
+/** tau_Rd,c (8.27) ou (8.29) avec la longueur multipliee par k_vp (8.2.2(4)). */
+export function niveauKvpTsa2023(e: Required<EntreeTsa>, portee: boolean): Calcul {
+  const c = communs2023(e);
+  const kvp = coefficientKvp(e);
+  const acs = longueurAcs(e);
+  const base = portee ? Math.sqrt((acs * e.d) / 4) : e.d;
+  const t = tauRdc2023(e, c, kvp * base);
+  return cellule2023(
+    e,
+    c,
+    t.tau,
+    {
+      'ρ_l': calculee(t.rhoL, '-'),
+      a_cs: calculee(acs, 'mm'),
+      k_vp: calculee(kvp, '-'),
+      [portee ? 'k_vp a_v' : 'k_vp d']: calculee(kvp * base, 'mm'),
+      'τ_Rd,c (k_vp)': calculee(t.brut, 'MPa'),
+    },
+    portee ? ['8.2.2(3)', '8.2.2(4)', '(8.29)', '(8.31)'] : ['8.2.2(4)', '(8.27)', '(8.31)'],
+  );
+}
+
+/** La variante (8.32) ne vaut qu en compression. */
+function conditionCompression(e: EntreeTsa): Cle | null {
+  return (e.NEd as number) < 0 ? null : 'motif.ned-pas-compression';
+}
+
+/**
+ * tau_Rdc,min <= tau_Rd,c = tau_Rdc,0 - k1 sigma_cp <= tau_Rdc,max ((8.32) a
+ * (8.35)), sigma_cp = N_Ed/A_c (negatif en compression).
+ */
+export function niveauCompressionTsa2023(e: Required<EntreeTsa>): Calcul {
+  const c = communs2023(e);
+  positif(e.Asl, 'Asl', 'mm2');
+  positif(e.h, 'h', 'mm');
+  const rhoL = e.Asl / (e.bw * e.d);
+  const tau0 = (0.66 / GAMMA_V_2023) * ((100 * rhoL * e.fck * c.ddg) / e.d) ** (1 / 3);
+  const Ac = e.bw * e.h;
+  const sigmaCp = (e.NEd * N_PAR_KN) / Ac;
+  const acs0 = longueurAcs(e);
+  const k1 = Math.min((0.5 * acs0) / (e.ep + e.d / 3), 0.18) * (Ac / (e.bw * e.d));
+  const tauMax = Math.min(2.15 * tau0 * (acs0 / e.d) ** (1 / 6), 2.7 * tau0);
+  const tau = Math.min(Math.max(tau0 - k1 * sigmaCp, c.tauMin), tauMax);
+  return cellule2023(
+    e,
+    c,
+    tau,
+    {
+      'ρ_l': calculee(rhoL, '-'),
+      'τ_Rdc,0': calculee(tau0, 'MPa'),
+      A_c: calculee(Ac, 'mm²'),
+      'σ_cp': calculee(sigmaCp, 'MPa'),
+      'a_cs,0': calculee(acs0, 'mm'),
+      k_1: recommandee(k1, '-'),
+      'τ_Rdc,max': calculee(tauMax, 'MPa'),
+      'τ_Rdc,0 − k_1 σ_cp': calculee(tau0 - k1 * sigmaCp, 'MPa'),
+    },
+    ['8.2.2(5)', '(8.32)', '(8.33)', '(8.34)', '(8.35)'],
   );
 }
 
@@ -318,8 +442,13 @@ function etatTsa(e: Required<EntreeTsa>): EtatFlexion | null {
   return etatFlexion(Math.abs(e.MEd) * N_MM_PAR_KN_M, e.bw, e.d, e.Asl, fcd2023(e.fck), e.fyk / GAMMA_S_2023);
 }
 
-/** Le moment doit rester sous la capacite de la section, sinon epsilon_v n existe pas. */
+/**
+ * Le moment doit rester sous la capacite de la section, sinon epsilon_v n existe
+ * pas. L outil ne calcule epsilon_v que sous M_Ed seul : un effort normal non
+ * nul rend le niveau non applicable plutot que de l ignorer.
+ */
 function conditionMoment(e: EntreeTsa): Cle | null {
+  if (e.NEd !== undefined && e.NEd !== null && (e.NEd as number) !== 0) return 'motif.annexe-i-effort-normal';
   return etatTsa(e as Required<EntreeTsa>) === null ? 'motif.med-sup-mrd' : null;
 }
 
@@ -416,8 +545,41 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
     calculer: (e) => niveau3Tsa2023(e as Required<EntreeTsa>),
   },
   {
-    id: 'annexe-i',
+    id: 'kvp',
     ordre: 4,
+    position: 'corps',
+    clause: '8.2.2(4)',
+    hypothese: 'niveau.tsa.2023.kvp',
+    donneesRequises: [...communs, R.Asl, R.MEd, R.NEd],
+    domaine: domaine2023,
+    conditions: () => null,
+    calculer: (e) => niveauKvpTsa2023(e as Required<EntreeTsa>, false),
+  },
+  {
+    id: 'kvp-portee',
+    ordre: 5,
+    position: 'corps',
+    clause: '8.2.2(4)',
+    hypothese: 'niveau.tsa.2023.kvp-portee',
+    donneesRequises: [...communs, R.Asl, R.MEd, R.NEd],
+    domaine: domaine2023,
+    conditions: conditionAcs,
+    calculer: (e) => niveauKvpTsa2023(e as Required<EntreeTsa>, true),
+  },
+  {
+    id: 'compression',
+    ordre: 6,
+    position: 'corps',
+    clause: '8.2.2(5)',
+    hypothese: 'niveau.tsa.2023.compression',
+    donneesRequises: [...communs, R.Asl, R.MEd, R.NEd, R.h, R.ep],
+    domaine: domaine2023,
+    conditions: conditionCompression,
+    calculer: (e) => niveauCompressionTsa2023(e as Required<EntreeTsa>),
+  },
+  {
+    id: 'annexe-i',
+    ordre: 7,
     position: 'annexe-informative',
     reserve: 'reserve.annexe-i',
     clause: 'I.8.3.1',
@@ -429,7 +591,7 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
   },
   {
     id: 'annexe-i-kvd',
-    ordre: 5,
+    ordre: 8,
     position: 'annexe-informative',
     reserve: 'reserve.annexe-i',
     clause: 'I.8.3.1(3)',
@@ -443,7 +605,7 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
 
 export const tranchantSansArmature: Mecanisme<EntreeTsa> = {
   id: 'tranchant-sans-armature',
-  version: '0.3.0',
+  version: '0.4.0',
   titre: 'meca.tsa.titre',
   champs: [
     { type: 'nombre', id: 'VEd', libelle: 'champ.VEd', symbole: 'V_Ed', unite: 'kN' },
@@ -454,6 +616,9 @@ export const tranchantSansArmature: Mecanisme<EntreeTsa> = {
     { type: 'nombre', id: 'fck', libelle: 'champ.fck', symbole: 'f_ck', unite: 'MPa' },
     { type: 'nombre', id: 'fyk', libelle: 'champ.fyk', symbole: 'f_yk', unite: 'MPa' },
     { type: 'nombre', id: 'Dlower', libelle: 'champ.Dlower', symbole: 'D_lower', unite: 'mm', facultatif: true },
+    { type: 'nombre', id: 'NEd', libelle: 'champ.NEd-normal', symbole: 'N_Ed', unite: 'kN', facultatif: true },
+    { type: 'nombre', id: 'h', libelle: 'champ.h', symbole: 'h', unite: 'mm', facultatif: true },
+    { type: 'nombre', id: 'ep', libelle: 'champ.ep', symbole: 'e_p', unite: 'mm', facultatif: true },
   ],
   sollicitation: { libelle: 'grandeur.effort-tranchant', unite: 'kN' },
   resistance: { libelle: 'grandeur.resistance-tranchant', unite: 'kN' },

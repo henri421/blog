@@ -12,6 +12,7 @@ historique:
   - 2026-10-04 : vérification sur le texte ; le niveau 3 n’est permis que si a_cs < 4 d (8.2.2(3)), second exemple réécrit.
   - 2026-10-05 : quatrième niveau (annexe I.8.3.1) ajouté avec sa réserve ; moment du second exemple ramené à 800 kN·m/m, l’ancienne valeur dépassant la capacité en flexion de la section.
   - 2026-10-05 : cinquième niveau (coefficient k_vd, annexe I.8.3.1(3)) et troisième exemple, poutre existante de grande hauteur.
+  - 2026-10-05 : effort normal (6.2.2(1) ; 8.2.2(4) et (5)), exemple de poutre comprimée.
 ---
 
 ## Ce qui change
@@ -28,7 +29,7 @@ Au-delà de $f_{ck}$ = 60 MPa, la fissure traverse les granulats au lieu de les 
 
 ## Les niveaux d’approximation
 
-La première génération offre une seule expression (6.2.2(1)) :
+La première génération offre une seule expression (6.2.2(1)), écrite ici sans effort normal (voir plus bas) :
 
 $$
 V_{Rd,c} = \max\left(C_{Rd,c}\,k\,(100\,\rho_l\,f_{ck})^{1/3} \; ; \; v_{min}\right) b_w\,d
@@ -165,6 +166,70 @@ Dans les deux générations, cette section exige des armatures d’effort tranch
 
 {{calculateur:radier}}
 
+## L’effort normal
+
+Les deux générations font intervenir l’effort normal concomitant $N_{Ed}$, mais de façon différente.
+
+**Première génération** (6.2.2(1)) : la résistance reçoit un terme additif $k_1\,\sigma_{cp}\,b_w\,d$, avec $k_1$ = 0,15 et $\sigma_{cp} = N_{Ed}/A_c$ (compression positive), plafonnée à $0.2\,f_{cd}$. Une traction diminue la résistance du même terme.
+
+**Deuxième génération**, première voie (8.2.2(4)) : l’effort normal modifie la longueur d’échelle. La hauteur utile $d$ de la formule (8.27), ou la portée $a_v$ de la formule (8.29), est multipliée par
+
+$$
+k_{vp} = 1 + \frac{N_{Ed}}{|V_{Ed}|}\,\frac{d}{3\,a_{cs}} \ge 0.1
+$$
+
+avec la convention de signe de la norme, traction positive (3.10). Une compression raccourcit la longueur d’échelle et relève la résistance ; une traction l’allonge.
+
+**Deuxième génération**, seconde voie, en compression seulement (8.2.2(5)) : la résistance devient $\tau_{Rdc,0} - k_1\,\sigma_{cp}$, bornée inférieurement par $\tau_{Rdc,min}$ et supérieurement par $\tau_{Rdc,max}$ :
+
+$$
+k_1 = \frac{0.5\,a_{cs,0}}{e_p + d/3}\,\frac{A_c}{b_w\,d} \le 0.18\,\frac{A_c}{b_w\,d}, \qquad \tau_{Rdc,max} = 2.15\,\tau_{Rdc,0}\left(\frac{a_{cs,0}}{d}\right)^{1/6} \le 2.7\,\tau_{Rdc,0}
+$$
+
+$\tau_{Rdc,0}$ est la formule (8.27) sans plancher, $e_p$ l’excentricité de l’effort de compression (positive vers la face tendue). Le coefficient $k_1$ est donné en note, l’annexe nationale pouvant le modifier. Le calculateur traite un élément non précontraint : $a_{cs,0}$ est pris égal à $a_{cs}$, et $A_c = b_w\,h$.
+
+Le niveau de l’annexe I n’est pas calculé quand un effort normal est saisi : l’outil ne détermine $\varepsilon_v$ que sous le moment seul.
+
+## Exemple avec effort normal : poutre comprimée
+
+Poutre de 300 × 500 mm, C30/37, granulats 0/16, 3 HA25 tendus ($A_{sl}$ = 1473 mm²), $d$ = 450 mm, sans étriers dans la zone vérifiée. Section : $V_{Ed}$ = 150 kN, $M_{Ed}$ = 120 kN·m, compression centrée $N_{Ed}$ = −600 kN ($e_p$ = 0).
+
+```exemple
+{
+  "nom": "poutre-comprimee",
+  "mecanisme": "tranchant-sans-armature",
+  "entree": { "VEd": 150, "MEd": 120, "NEd": -600, "bw": 300, "d": 450, "h": 500, "ep": 0, "Asl": 1473, "fck": 30, "fyk": 500, "Dlower": 16 },
+  "attendus": {
+    "ec2-2004/base.resistance": "86,37",
+    "ec2-2004/effort-normal.σ_cp": "4,00",
+    "ec2-2004/effort-normal.resistance": "167,37",
+    "ec2-2004/effort-normal.taux": "0,896",
+    "ec2-2023/hauteur-utile.resistance": "75,91",
+    "ec2-2023/kvp.k_vp": "0,250",
+    "ec2-2023/kvp.resistance": "120,50",
+    "ec2-2023/kvp-portee.resistance": "137,94",
+    "ec2-2023/compression.k_1": "0,200",
+    "ec2-2023/compression.τ_Rdc,max": "1,478",
+    "ec2-2023/compression.τ_Rd,c": "1,425",
+    "ec2-2023/compression.resistance": "173,11",
+    "ec2-2023/compression.taux": "0,866"
+  }
+}
+```
+
+| Génération et niveau | Résistance (kN) |
+|---|---:|
+| 2004, sans effort normal | {{poutre-comprimee:ec2-2004/base.resistance}} |
+| 2004, avec $k_1\,\sigma_{cp}$ ($\sigma_{cp}$ = {{poutre-comprimee:ec2-2004/effort-normal.σ_cp}} MPa) | {{poutre-comprimee:ec2-2004/effort-normal.resistance}} |
+| 2023, niveau 2, sans effort normal | {{poutre-comprimee:ec2-2023/hauteur-utile.resistance}} |
+| 2023, $d$ multiplié par $k_{vp}$ = {{poutre-comprimee:ec2-2023/kvp.k_vp}} | {{poutre-comprimee:ec2-2023/kvp.resistance}} |
+| 2023, $a_v$ multiplié par $k_{vp}$ | {{poutre-comprimee:ec2-2023/kvp-portee.resistance}} |
+| 2023, compression ($k_1$ = {{poutre-comprimee:ec2-2023/compression.k_1}}, $\tau_{Rd,c}$ = {{poutre-comprimee:ec2-2023/compression.τ_Rd,c}} MPa ≤ $\tau_{Rdc,max}$ = {{poutre-comprimee:ec2-2023/compression.τ_Rdc,max}} MPa) | {{poutre-comprimee:ec2-2023/compression.resistance}} |
+
+La compression double la résistance dans les deux générations. En 2023, les deux voies ne donnent pas le même résultat : avec $k_{vp}$ = {{poutre-comprimee:ec2-2023/kvp.k_vp}}, la première voie relève la résistance de moitié environ, et la variante (8.32) rend la résistance la plus élevée ({{poutre-comprimee:ec2-2023/compression.resistance}} kN, taux de travail {{poutre-comprimee:ec2-2023/compression.taux}}), voisine de celle de 2004 (taux {{poutre-comprimee:ec2-2004/effort-normal.taux}}). Le calculateur affiche toutes les voies ; le choix appartient à l’ingénieur.
+
+{{calculateur:poutre-comprimee}}
+
 ## Troisième exemple : poutre existante de grande hauteur
 
 Poutre existante de 400 × 700 mm, sans étriers dans la zone vérifiée, C30/37, granulats 0/16, 4 HA25 tendus ($A_{sl}$ = 1963 mm²), $d$ = 650 mm. Section courante : $V_{Ed}$ = 100 kN et $M_{Ed}$ = 250 kN·m. C’est le cas que vise l’annexe I : $d$ dépasse 500 mm.
@@ -203,6 +268,7 @@ Pour cette poutre existante, l’annexe I remplace le niveau 2 par le niveau 4 o
 ## L’effet sur une note de calcul existante
 
 - La **granulométrie** devient une donnée d’entrée du calcul. Une note qui ne la mentionne pas ne peut pas être transposée telle quelle : il faut connaître la fraction la plus grosse prévue au cahier des charges du béton.
+- L’**effort normal** n’entre plus seulement comme un terme additif : il modifie la longueur d’échelle ($k_{vp}$) ou, en compression, suit une variante bornée. La note doit indiquer la convention de signe, inversée par rapport à 2004.
 - Le **moment concomitant** devient utile, au niveau 3, alors que la première génération ne le demandait pas. Les extractions de logiciel par section devront fournir le couple $(M_{Ed}, V_{Ed})$.
 - La vérification se fait en **contrainte** sur $b_w\,z$ et non en effort sur $b_w\,d$ : les valeurs intermédiaires d’une note de 2004 ne se comparent pas directement.
 - Pour les dalles de bâtiment faiblement armées, la résistance minimale du niveau 1 peut suffire à conclure.
@@ -211,6 +277,7 @@ Pour cette poutre existante, l’annexe I remplace le niveau 2 par le niveau 4 o
 ## Ce qu’il faudra vérifier dans l’annexe nationale
 
 - La valeur de $\gamma_V$ (1,4 recommandé).
+- La valeur de $k_1$ de la formule (8.34), donnée en note.
 - L’emploi de l’annexe I, la valeur de $\gamma_{def}$ (1,33 recommandé) et celle du coefficient $k_{vd}$.
 - Les éventuelles conditions nationales sur l’emploi de $a_v$ en lieu et place de $d$.
 - La limite inférieure de granulométrie : la norme ne couvre pas les bétons dont $D_{lower}$ est inférieur à 8 mm, que le calculateur refuse en deuxième génération.
