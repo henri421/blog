@@ -98,7 +98,7 @@ En 2004, le nœud CCT est limité à $0.85\,\nu'\,f_{cd}$ = {{noeud-cct:ec2-2004
 
 ## Diffusion d’une force concentrée
 
-Une force concentrée $F_d$ appliquée sur une largeur $a$ s’étale dans l’élément et crée une traction transversale à reprendre par des armatures. Pour une diffusion limitée (largeur disponible $b$ au plus égale à $a + H/2$), les deux générations donnent le même effort, $F_d\,(1 - a/b)/4$ ((6.58) ; (8.123), (8.124)). Pour un élément large, la première génération réduisait l’effort selon le rapport $a/h$ (6.59) ; la deuxième retient $	an	heta_{cf}$ = 0,5, soit $F_d/4$.
+Une force concentrée $F_d$ appliquée sur une largeur $a$ s’étale dans l’élément et crée une traction transversale à reprendre par des armatures. Pour une diffusion limitée (largeur disponible $b$ au plus égale à $a + H/2$), les deux générations donnent le même effort, $F_d\,(1 - a/b)/4$ ((6.58) ; (8.123), (8.124)). Pour un élément large, la première génération réduisait l’effort selon le rapport $a/h$ (6.59) ; la deuxième retient $\tan\theta_{cf}$ = 0,5, soit $F_d/4$.
 
 ```exemple
 {
