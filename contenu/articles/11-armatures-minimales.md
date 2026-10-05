@@ -10,6 +10,7 @@ motscles: armatures-minimales, fissuration, dispositions-constructives
 historique:
   - 2026-10-04 : première rédaction.
   - 2026-10-06 : armatures minimales d’effort tranchant (9.2.2(5) ; 12.2(4)).
+  - 2026-10-06 : alternative pour les éléments isostatiques peu sollicités (12.2(3)).
 ---
 
 ## Ce qui change
@@ -83,6 +84,28 @@ Dalle de 20 cm, $d$ = 172 mm, C25/30, B500, HA12 tous les 20 cm (565 mm²/m).
 **Maîtrise de la fissuration.** Pour cette dalle mince, $k$ = {{dalle-fm:ec2-2004/base.k}} en 2004 mais $k_h$ = {{dalle-fm:ec2-2023/base.k_h}} en 2023 : {{dalle-fm:ec2-2004/base.sollicitation}} contre {{dalle-fm:ec2-2023/base.sollicitation}} mm²/m. Pour une poutre de 30 × 60 cm, l’écart disparaît (le calculateur le montre en saisissant la section) : c’est la largeur de 30 cm qui fixe $k_h$, alors que la hauteur de 60 cm fixait $k$.
 
 {{calculateur:dalle-fm}}
+
+## Éléments isostatiques peu sollicités
+
+Pour un élément calculé de façon isostatique dont le moment de calcul reste sous le moment de fissuration, et quand aucune répartition des fissures n’est exigée, la deuxième génération admet une alternative (12.2(3)) : le moment résistant de calcul doit seulement atteindre $k_{dc}\,M_{Ed}$, avec $k_{dc}$ = 1,3, 1,1 ou 1,0 selon que l’acier est de classe A, B ou C, sans dépasser l’armature tirée de (12.1). Le texte prévient que cette voie peut conduire à de larges fissures en service.
+
+```exemple
+{
+  "nom": "dalle-peu-chargee",
+  "mecanisme": "non-fragilite",
+  "entree": { "b": 1000, "h": 200, "d": 172, "fck": 25, "fyk": 500, "As": 565, "MEd": 12, "classe": "B" },
+  "attendus": {
+    "ec2-2023/kdc.M_cr": "17,10",
+    "ec2-2023/kdc.A_s (k_dc M_Ed)": "196,1",
+    "ec2-2023/kdc.A_s (12.1)": "220,9",
+    "ec2-2023/kdc.sollicitation": "196,1"
+  }
+}
+```
+
+Pour la même dalle sous un moment de 12 kN·m/m, inférieur à $M_{cr}$ = {{dalle-peu-chargee:ec2-2023/kdc.M_cr}} kN·m/m, l’alternative demande {{dalle-peu-chargee:ec2-2023/kdc.A_s (k_dc M_Ed)}} mm²/m au lieu de {{dalle-peu-chargee:ec2-2023/kdc.A_s (12.1)}} mm²/m.
+
+{{calculateur:dalle-peu-chargee}}
 
 ## Armatures minimales d’effort tranchant
 

@@ -9,7 +9,10 @@
  *      niveau 1 : bras de levier z = 0,9 d ;
  *      niveau 2 : bras de levier d equilibre, bloc rectangulaire lambda = 0,8,
  *      eta = 1 sur f_ck (choix de l outil : resistance nominale, valeurs
- *      caracteristiques des deux materiaux).
+ *      caracteristiques des deux materiaux) ;
+ *      niveau 3 : element isostatique ou M_Ed < M_cr (12.2(3)) :
+ *      M_Rd,min >= k_dc M_Ed (12.3), k_dc = 1,3 ; 1,1 ; 1,0 pour les classes
+ *      A, B, C, sans depasser le resultat de (12.1) ; z = 0,9 d, f_yd.
  * 2. Maitrise de la fissuration :
  *    - 2004 (7.3.2) : A_s,min sigma_s = k_c k f_ct,eff A_ct (7.1), k_c = 0,4,
  *      A_ct = b h / 2, sigma_s = f_yk, k = 1,0 (h <= 300) a 0,65 (h >= 800) ;
@@ -24,7 +27,7 @@ import type { Cellule } from '../../model/resultat';
 import type { Mecanisme } from '../../moteur/mecanisme';
 import type { DefinitionNiveau } from '../../moteur/niveaux';
 import { calculee, recommandee } from '../../moteur/grandeurs';
-import { fctm2004, fctm2023, positif } from '../../materiaux';
+import { GAMMA_S_2023, fctm2004, fctm2023, positif } from '../../materiaux';
 
 export interface EntreeArmaturesMinimales {
   b?: number;
@@ -34,6 +37,10 @@ export interface EntreeArmaturesMinimales {
   fyk?: number;
   /** Armatures tendues en place (mm2). */
   As?: number;
+  /** Moment de calcul a l ELU (kN.m), pour 12.2(3). */
+  MEd?: number;
+  /** Classe de ductilite : 'A', 'B' ou 'C', pour 12.2(3). */
+  classe?: string;
 }
 
 type Calcul = Omit<Cellule, 'generation' | 'niveau'>;
@@ -48,6 +55,8 @@ const R = {
   fck: { champ: 'fck', libelle: 'champ.fck' },
   fyk: { champ: 'fyk', libelle: 'champ.fyk' },
   As: { champ: 'As', libelle: 'champ.As-place' },
+  MEd: { champ: 'MEd', libelle: 'champ.MEd-flexion' },
+  classe: { champ: 'classe', libelle: 'champ.classe-ductilite' },
 } as const satisfies Record<string, { champ: keyof EntreeArmaturesMinimales; libelle: Cle }>;
 
 const requises = [R.b, R.h, R.d, R.fck, R.fyk, R.As];
@@ -137,6 +146,40 @@ export function nonFragilite2023Equilibre(e: Complete): Calcul {
   );
 }
 
+/** k_dc selon la classe de ductilite (12.2(3)). */
+export function coefficientKdc(classe: string): number {
+  if (classe === 'A') return 1.3;
+  if (classe === 'B') return 1.1;
+  return 1.0;
+}
+
+/** 12.2(3) : M_Rd,min = k_dc M_Ed, plafonne au resultat de (12.1), z = 0,9 d. */
+export function nonFragilite2023Kdc(e: Complete): Calcul {
+  verifier(e);
+  positif(e.MEd, 'M_Ed', 'kN.m');
+  const kdc = coefficientKdc(e.classe);
+  const z = 0.9 * e.d;
+  const fyd = e.fyk / GAMMA_S_2023;
+  const AsKdc = (kdc * e.MEd * NMM_PAR_KNM) / (fyd * z);
+  const As121 = nonFragilite2023Approchee(e).sollicitation as number;
+  return cellule(
+    e,
+    Math.min(AsKdc, As121),
+    {
+      M_cr: calculee(momentFissuration2023(e), 'kN·m'),
+      k_dc: recommandee(kdc, '-'),
+      'A_s (k_dc M_Ed)': calculee(AsKdc, 'mm²'),
+      'A_s (12.1)': calculee(As121, 'mm²'),
+    },
+    ['12.2(3)', '(12.3)'],
+  );
+}
+
+/** 12.2(3) ne vaut que si M_Ed < M_cr. */
+function conditionKdc(e: EntreeArmaturesMinimales): Cle | null {
+  return (e.MEd as number) < momentFissuration2023(e as Complete) ? null : 'motif.med-sup-mcr';
+}
+
 // ---------------------------------------------------------------------------
 // Maitrise de la fissuration
 // ---------------------------------------------------------------------------
@@ -200,11 +243,26 @@ const champs: Mecanisme<EntreeArmaturesMinimales>['champs'] = [
   { type: 'nombre', id: 'As', libelle: 'champ.As-place', symbole: 'A_s', unite: 'mm²' },
 ];
 
+const champsNonFragilite: Mecanisme<EntreeArmaturesMinimales>['champs'] = [
+  ...champs,
+  { type: 'nombre', id: 'MEd', libelle: 'champ.MEd-flexion', symbole: 'M_Ed', unite: 'kN·m', facultatif: true },
+  {
+    type: 'choix',
+    id: 'classe',
+    libelle: 'champ.classe-ductilite',
+    options: [
+      { valeur: 'A', libelle: 'option.ductilite.A' },
+      { valeur: 'B', libelle: 'option.ductilite.B' },
+      { valeur: 'C', libelle: 'option.ductilite.C' },
+    ],
+  },
+];
+
 export const nonFragilite: Mecanisme<EntreeArmaturesMinimales> = {
   id: 'non-fragilite',
-  version: '0.1.0',
+  version: '0.2.0',
   titre: 'meca.nf.titre',
-  champs,
+  champs: champsNonFragilite,
   sollicitation: { libelle: 'grandeur.as-min', unite: 'mm²' },
   resistance: { libelle: 'grandeur.as-place', unite: 'mm²' },
   niveaux: {
@@ -212,6 +270,17 @@ export const nonFragilite: Mecanisme<EntreeArmaturesMinimales> = {
     'ec2-2023': [
       niveau('z-forfaitaire', 1, '12.2(2)', 'niveau.nf.2023.z-forfaitaire', nonFragilite2023Approchee),
       niveau('z-equilibre', 2, '12.2(2)', 'niveau.nf.2023.z-equilibre', nonFragilite2023Equilibre),
+      {
+        id: 'kdc',
+        ordre: 3,
+        position: 'corps',
+        clause: '12.2(3)',
+        hypothese: 'niveau.nf.2023.kdc',
+        donneesRequises: [...requises, R.MEd, R.classe],
+        domaine,
+        conditions: conditionKdc,
+        calculer: (e) => nonFragilite2023Kdc(e as Complete),
+      },
     ],
   },
 };

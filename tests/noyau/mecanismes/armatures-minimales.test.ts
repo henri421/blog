@@ -57,3 +57,16 @@ describe('maitrise de la fissuration', () => {
     expect(kh2023(2000, 1500)).toBe(0.5);
   });
 });
+
+describe('non-fragilite, alternative 12.2(3)', () => {
+  const dalle = { b: 1000, h: 200, d: 172, fck: 25, fyk: 500, As: 565, MEd: 12, classe: 'B' };
+  const cel = (e: object) => calculerMatrice(nonFragilite, e).cellules.find((c) => c.niveau === 'kdc')!;
+  it('M_Ed = 12 < M_cr = 17,10 : A_s,min = min(1,1 M_Ed / (f_yd 0,9 d) ; (12.1)) = 196,12 mm2', () => {
+    expect(cel(dalle).sollicitation).toBeCloseTo(196.124, 2);
+    expect(cel(dalle).intermediaires['A_s (12.1)'].valeur).toBeCloseTo(220.927, 2);
+  });
+  it('M_Ed >= M_cr : non applicable ; classe A : k_dc = 1,3', () => {
+    expect(cel({ ...dalle, MEd: 20 }).statut).toEqual({ etat: 'non-applicable', motif: 'motif.med-sup-mcr', donneesManquantes: [] });
+    expect(cel({ ...dalle, classe: 'A' }).intermediaires.k_dc.valeur).toBe(1.3);
+  });
+});
