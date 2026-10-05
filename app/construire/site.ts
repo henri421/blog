@@ -14,6 +14,8 @@ import { dateFr, datesFr, t, type Cle } from '../../src/i18n/cle';
 import { MOTS_CLES, type MotCle } from '../../contenu/mots-cles';
 import { EUROCODES } from '../../contenu/cartographie/eurocodes';
 import { rendreAvancement } from './avancement';
+import { chantiers as listerChantiers, encadreChantiers, rendreChantiers } from './chantiers';
+import type { Chantier } from '../../contenu/chantiers';
 import { lireArticle, type Article } from './article';
 
 const URL_SUITE = 'https://henri421.github.io/WebAedificium/';
@@ -96,7 +98,7 @@ function enTeteStatut(a: Article): string {
       </section>`;
 }
 
-export function pageArticle(a: Article): string {
+export function pageArticle(a: Article, chantiers: Chantier[] = []): string {
   const exemples = JSON.stringify(a.exemples.map(({ nom, mecanisme, entree }) => ({ nom, mecanisme, entree }))).replace(
     /</g,
     '\\u003c',
@@ -107,12 +109,13 @@ export function pageArticle(a: Article): string {
       <h1>${echapper(a.entete.titre)}</h1>
       ${enTeteStatut(a)}
       ${liensMotsCles(a.entete.motscles)}
+      ${encadreChantiers(a.slug, chantiers)}
       ${a.html}
     </main>
     <script type="application/json" id="exemples">${exemples}</script>${pied()}`;
 }
 
-export function pageAccueil(articles: Article[]): string {
+export function pageAccueil(articles: Article[], chantiers: Chantier[] = []): string {
   const cartes = articles
     .map((a) => {
       const pastille = a.entete.statut === 'publie' ? '' : `<span class="pastille">${echapper(t('article.brouillon'))}</span>`;
@@ -129,7 +132,7 @@ export function pageAccueil(articles: Article[]): string {
         <p class="sous-titre">${echapper(t('site.sous-titre'))}</p>
         ${publies ? '' : `<p class="avertissement">${echapper(t('site.chantier'))}</p>`}
       </header>
-      <p class="retour"><a href="./mots-cles.html">${echapper(t('site.index-mots-cles'))}</a></p>
+      <p class="retour"><a href="./mots-cles.html">${echapper(t('site.index-mots-cles'))}</a> · <a href="./chantiers.html">${echapper(t('chantiers.titre'))} (${chantiers.length})</a></p>
       <h2>${echapper(t('avancement.titre'))}</h2>
       <p class="note">${echapper(t('avancement.note'))}</p>
       ${EUROCODES.map((e) => rendreAvancement(e.titre, e.cartes, articles)).join('\n      ')}
@@ -156,6 +159,17 @@ export function pageMotsCles(articles: Article[]): string {
     </main>${pied()}`;
 }
 
+/** Suivi des chantiers ouverts (decision de l auteur du 05/10/2026, a la place des brouillons). */
+export function pageChantiers(articles: Article[], chantiers: Chantier[]): string {
+  return `${tete(`${t('chantiers.titre')} — ${t('site.titre')}`)}
+    <main class="article">
+      <p class="retour"><a href="./index.html">← ${echapper(t('site.retour'))}</a></p>
+      <h1>${echapper(t('chantiers.titre'))}</h1>
+      <p>${echapper(t('chantiers.intro'))}</p>
+      ${rendreChantiers(chantiers, articles)}
+    </main>${pied()}`;
+}
+
 /** Lit tous les articles, tries par ordre, slug tire du nom de fichier (`01-tranchant.md` : `tranchant`). */
 export function lireArticles(racine: string): Article[] {
   const dossier = join(racine, 'contenu', 'articles');
@@ -174,8 +188,10 @@ export function construireSite(racine: string): Record<string, string> {
     writeFileSync(chemin, html, 'utf8');
     pages[nom] = chemin;
   };
-  ecrire('index', pageAccueil(articles));
+  const ouverts = listerChantiers(racine, EUROCODES, articles);
+  ecrire('index', pageAccueil(articles, ouverts));
   ecrire('mots-cles', pageMotsCles(articles));
-  for (const a of articles) ecrire(a.slug, pageArticle(a));
+  ecrire('chantiers', pageChantiers(articles, ouverts));
+  for (const a of articles) ecrire(a.slug, pageArticle(a, ouverts));
   return pages;
 }

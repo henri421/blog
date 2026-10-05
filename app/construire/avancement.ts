@@ -16,6 +16,8 @@ export interface LigneAvancement {
   clause: string;
   titre: string;
   perimetre: ClauseCarte['perimetre'];
+  /** Motif d exclusion ou de report. */
+  motif?: string;
   article: string | null;
   theorie: boolean;
   ecrite: boolean;
@@ -66,6 +68,7 @@ export function deriverLignes(carte: Carte, articles: Article[]): Array<{ numero
         clause: c.clause,
         titre: c.titre,
         perimetre: c.perimetre,
+        motif: c.motifExclusion,
         article: a ? a.slug : null,
         theorie: c.ingeree,
         ecrite: a !== undefined,
@@ -87,8 +90,9 @@ function corpsCarte(carte: Carte, articles: Article[], avecTitre: boolean): { ht
       const lignes = ch.lignes
         .map((l) => {
           const titre = l.article ? `<a href="./${l.article}.html">${echapper(l.titre)}</a>` : echapper(l.titre);
-          if (l.perimetre === 'exclu') {
-            return `<tr class="exclu"><td>${echapper(l.clause)}</td><td>${titre}</td><td colspan="5">${echapper(t('avancement.hors-perimetre'))}</td></tr>`;
+          if (l.perimetre !== 'inclus') {
+            const etat = l.perimetre === 'exclu' ? t('avancement.hors-perimetre') : t('avancement.reporte');
+            return `<tr class="${l.perimetre}"><td>${echapper(l.clause)}</td><td>${titre}</td><td colspan="5" title="${echapper(l.motif ?? '')}">${echapper(etat)}</td></tr>`;
           }
           const verifie = l.verifie ? `<td class="fait">${echapper(dateFr(l.verifie))}</td>` : '<td class="a-faire">—</td>';
           return `<tr><td>${echapper(l.clause)}</td><td>${titre}</td>${coche(l.theorie)}${coche(l.ecrite)}${coche(l.comparatif)}${coche(l.calculateur)}${verifie}</tr>`;

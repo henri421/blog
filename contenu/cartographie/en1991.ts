@@ -8,7 +8,7 @@
  */
 
 import type { Carte } from './types';
-import { ann, c, exclu } from './outils';
+import { ann, c, reporte } from './outils';
 
 export const EN1991_1_1: Carte = {
   id: 'en1991-1-1',
@@ -100,7 +100,7 @@ export const EN1991_1_4: Carte = {
         c('7', 'Pressions et forces du vent', ['5', '7'], { annexes: [ann('B', 'normative'), ann('C', 'normative'), ann('D', 'normative')] }),
         c('8', 'Coefficient structural', ['6'], { annexes: [ann('E', 'informative'), ann('F', 'informative'), ann('H', 'informative')] }),
         c('9', 'Phénomènes aéroélastiques', ['8'], { annexes: [ann('G', 'informative')] }),
-        c('I', 'Pylônes en treillis et mâts haubanés (informative)', []),
+        c('I', 'Pylônes en treillis et mâts haubanés (informative)', [], reporte('pylônes et mâts : reporté par l’auteur (05/10/2026)')),
       ],
     },
   ],
@@ -117,8 +117,8 @@ export const EN1991_1_5: Carte = {
       clauses: [
         c('4-6', 'Situations de projet, classification et représentation', ['2', '4']),
         c('7', 'Actions thermiques dans les bâtiments', ['5'], { annexes: [ann('A', 'normative'), ann('C', 'informative')] }),
-        c('8', 'Actions thermiques sur les ponts', ['6'], { ...exclu('ponts hors version 1 (CDC §1)'), annexes: [ann('B', 'normative')] }),
-        c('9', 'Cheminées, silos, réservoirs, tours de refroidissement', ['7']),
+        c('8', 'Actions thermiques sur les ponts', ['6'], { annexes: [ann('B', 'normative')] }),
+        c('9', 'Cheminées, silos, réservoirs, tours de refroidissement', ['7'], reporte('cheminées, silos et tours : reporté par l’auteur (05/10/2026)')),
       ],
     },
   ],
@@ -137,7 +137,7 @@ export const EN1991_1_6: Carte = {
         c('5', 'Classification des actions', ['2']),
         c('6', 'Valeurs caractéristiques des actions d’exécution', ['4'], { annexes: [ann('A', 'normative')] }),
         c('7', 'Imperfections, stabilité latérale, actions dynamiques', []),
-        c('B', 'Ponts en cours d’exécution (normative)', ['A2'], exclu('ponts hors version 1 (CDC §1)')),
+        c('B', 'Ponts en cours d’exécution (normative)', ['A2']),
       ],
     },
   ],
@@ -161,36 +161,66 @@ export const EN1991_1_7: Carte = {
   ],
 };
 
-const HORS = (id: string, norme: string, correspondant: string, titre: string, motif: string): Carte => ({
+const REPORTEE = (id: string, norme: string, correspondant: string, titre: string, motif: string): Carte => ({
   id,
   norme,
   correspondant,
-  chapitres: [{ numero: '—', titre, clauses: [c(norme.split(':')[0], titre, [], exclu(motif))] }],
+  chapitres: [{ numero: '—', titre, clauses: [c(norme.split(':')[0], titre, [], reporte(motif))] }],
 });
 
-export const EN1991_2 = HORS('en1991-2', 'EN 1991-2:2023', 'EN 1991-2:2003', 'Actions du trafic sur les ponts', 'ponts hors version 1 (CDC §1)');
-
-export const EN1991_3: Carte = {
-  id: 'en1991-3',
-  norme: 'EN 1991-3:2026',
-  correspondant: 'EN 1991-3:2006',
+export const EN1991_2: Carte = {
+  id: 'en1991-2',
+  norme: 'EN 1991-2:2023',
+  correspondant: 'EN 1991-2:2003',
   chapitres: [
     {
-      numero: '4-7',
-      titre: 'Appareils de levage et machines',
+      numero: '4-5',
+      titre: 'Classification des actions et situations de projet',
+      clauses: [c('4', 'Classification des actions de trafic', ['2']), c('5', 'Situations de projet, simultanéité des charges de trafic', ['3'])],
+    },
+    {
+      numero: '6',
+      titre: 'Ponts routiers',
       clauses: [
-        c('4-5', 'Bases de calcul et classification', ['2']),
-        c('6', 'Ponts roulants sur chemins de roulement', ['2'], { annexes: [ann('A', 'informative'), ann('B', 'informative'), ann('C', 'informative')] }),
-        c('7', 'Machines fixes', ['3']),
+        c('6.1', 'Domaine d’application', ['4.1']),
+        c('6.2', 'Représentation des actions, voies conventionnelles', ['4.2']),
+        c('6.3', 'Charges verticales', ['4.3']),
+        c('6.4', 'Forces horizontales', ['4.4']),
+        c('6.5', 'Groupes de charges de trafic', ['4.5']),
+        c('6.6', 'Modèles de charge de fatigue', ['4.6']),
+        c('6.7', 'Collisions et situations accidentelles', ['4.7']),
+        c('6.8', 'Actions sur les garde-corps', ['4.8']),
+        c('6.9', 'Charges de trafic sur les ouvrages géotechniques', ['4.9']),
+      ],
+    },
+    {
+      numero: '7',
+      titre: 'Trottoirs, pistes cyclables et passerelles',
+      clauses: [c('7', 'Charges verticales et horizontales, groupes, collisions, garde-corps, culées', ['5'])],
+    },
+    {
+      numero: '8',
+      titre: 'Ponts ferroviaires',
+      clauses: [
+        c('8.1-8.3', 'Domaine, représentation, charges verticales', ['6.1', '6.2', '6.3']),
+        c('8.4', 'Effets dynamiques, résonance', ['6.4']),
+        c('8.5', 'Forces horizontales', ['6.5']),
+        c('8.6', 'Actions aérodynamiques du passage des trains', ['6.6']),
+        c('8.7', 'Déraillement et autres actions', ['6.7']),
+        c('8.8', 'Autres règles d’application', ['6.8']),
+        c('8.9', 'Charges de fatigue', ['6.9']),
+        c('8.10', 'Charges sur les ouvrages géotechniques', ['6.3.6.4']),
       ],
     },
   ],
 };
 
-export const EN1991_4 = HORS(
+export const EN1991_3 = REPORTEE('en1991-3', 'EN 1991-3:2026', 'EN 1991-3:2006', 'Actions des appareils de levage et des machines', 'appareils de levage : reporté par l’auteur (05/10/2026)');
+
+export const EN1991_4 = REPORTEE(
   'en1991-4',
   'EN 1991-4:2026',
   'EN 1991-4:2006',
   'Actions sur les silos et les réservoirs',
-  'réservoirs : retenue de liquides hors version 1 (CDC §1) ; silos à trancher',
+  'silos et réservoirs : reporté par l’auteur (05/10/2026)',
 );

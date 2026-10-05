@@ -10,7 +10,7 @@
  */
 
 import type { Carte } from './types';
-import { ann, c, exclu } from './outils';
+import { ann, c, exclu, reporte } from './outils';
 
 export const EN1990_1: Carte = {
   id: 'en1990-1',
@@ -87,11 +87,11 @@ export const EN1990_1: Carte = {
       titre: 'Annexe A (normative) : règles d’application',
       clauses: [
         c('A.1', 'Bâtiments : coefficients ψ, coefficients partiels, combinaisons', ['A1']),
-        c('A.2', 'Ponts', ['A2'], exclu('ponts hors version 1 (CDC §1)')),
-        c('A.3', 'Tours, mâts et cheminées', []),
-        c('A.4', 'Silos et réservoirs', [], exclu('retenue de liquides hors version 1 (CDC §1) ; silos à trancher')),
-        c('A.5', 'Structures supportant des appareils de levage ou des machines', []),
-        c('A.6', 'Structures côtières', []),
+        c('A.2', 'Ponts : coefficients ψ, coefficients partiels, combinaisons', ['A2']),
+        c('A.3', 'Tours, mâts et cheminées', [], reporte('tours, mâts et cheminées : reporté par l’auteur (05/10/2026)')),
+        c('A.4', 'Silos et réservoirs', [], reporte('silos et réservoirs : reporté par l’auteur (05/10/2026)')),
+        c('A.5', 'Structures supportant des appareils de levage ou des machines', [], reporte('appareils de levage : reporté par l’auteur (05/10/2026)')),
+        c('A.6', 'Structures côtières', [], reporte('structures côtières : hors construction classique, à confirmer par l’auteur')),
       ],
     },
     {
@@ -104,7 +104,7 @@ export const EN1990_1: Carte = {
         c('E', 'Robustesse des bâtiments et des ponts (informative)', []),
         c('F', 'Comptage des cycles de fatigue (informative)', []),
         c('G', 'Appareils d’appui (normative)', []),
-        c('H', 'Vibrations des passerelles (informative)', [], exclu('ponts hors version 1 (CDC §1)')),
+        c('H', 'Vibrations des passerelles (informative)', []),
       ],
     },
   ],

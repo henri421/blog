@@ -33,8 +33,11 @@ export interface ClauseCarte {
   titre: string;
   /** Clauses correspondantes de la premiere generation (vide si aucune). */
   correspondance: string[];
-  /** `exclu` : hors du perimetre de la version 1 (CDC §1), avec son motif. */
-  perimetre: 'inclus' | 'exclu';
+  /**
+   * `exclu` : hors du perimetre (CDC §1) ; `reporte` : dans le perimetre a
+   * terme, mis de cote par decision de l auteur. Motif obligatoire dans les deux cas.
+   */
+  perimetre: 'inclus' | 'exclu' | 'reporte';
   motifExclusion?: string;
   annexes?: AnnexeRattachee[];
   /** Niveaux attendus ; l article qui traite la clause doit tous les rendre (test 15). */

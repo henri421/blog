@@ -189,4 +189,11 @@ td.refus { color: var(--refus); font-weight: 600; }
 .avancement tr.partie th { padding-top: 0.9rem; font-size: 0.95rem; border-bottom: 1px solid var(--bordure); }
 .avancement td.fait { color: var(--texte); text-align: center; }
 .avancement td.a-faire { color: var(--texte-faible); text-align: center; }
-.avancement tr.exclu td { color: var(--texte-faible); }
+.avancement tr.exclu td, .avancement tr.reporte td { color: var(--texte-faible); }
+
+/* Suivi des chantiers */
+.chantiers { list-style: none; padding: 0; margin: 0.4rem 0; }
+.chantiers li { border-left: 3px solid var(--alerte); padding: 0.2rem 0 0.2rem 0.75rem; margin: 0.6rem 0; }
+.chantiers li p { margin: 0.15rem 0; }
+.chantier-date, .chantier-articles { color: var(--texte-faible); font-size: 0.85rem; }
+.chantiers-article { border: 1px solid var(--bordure); border-radius: 4px; padding: 0.5rem 0.9rem; margin: 1rem 0; font-size: 0.92rem; }

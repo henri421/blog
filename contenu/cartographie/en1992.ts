@@ -13,7 +13,7 @@
 
 import type { Generation } from '../../src/noyau/model/resultat';
 import type { Carte } from './types';
-import { ann, c, exclu, n } from './outils';
+import { ann, c, exclu, n, reporte } from './outils';
 
 const G1: Generation = 'ec2-2004';
 const G2: Generation = 'ec2-2023';
@@ -359,6 +359,21 @@ export const EN1992: Carte = {
         c('14.4', 'ELU : flexion composée, effort tranchant, torsion', ['12.6']),
         c('14.5', 'ELS', ['12.7']),
         c('14.6', 'Dispositions des éléments', ['12.9']),
+      ],
+    },
+    {
+      numero: 'Annexes',
+      titre: 'Annexes non rattachées à une clause',
+      clauses: [
+        c('K', 'Ponts (normative)', ['EN 1992-2']),
+        c('M', 'Béton de granulats légers (normative)', ['11'], reporte('granulats légers : en attente, décision de l’auteur (05/10/2026)')),
+        c('H', 'Étanchéité des structures (informative)', ['EN 1992-3'], exclu('retenue de liquides hors version 1 (CDC §1)')),
+        c('I', 'Évaluation des structures existantes (informative), hors I.8.3.1', [], exclu('structures existantes hors version 1 (CDC §1)')),
+        c('J', 'Renforcement par PRFC (informative)', [], exclu('renforcement par CFRP hors version 1 (CDC §1)')),
+        c('L', 'Béton de fibres métalliques (informative)', [], exclu('béton fibré hors version 1 (CDC §1)')),
+        c('N', 'Béton de granulats recyclés (informative)', [], exclu('granulats recyclés hors version 1 (CDC §1)')),
+        c('Q', 'Acier inoxydable (normative)', [], exclu('armatures inox hors version 1 (CDC §1)')),
+        c('R', 'Armatures en PRF (informative)', [], exclu('armatures composites hors version 1 (CDC §1)')),
       ],
     },
   ],

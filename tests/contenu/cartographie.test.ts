@@ -42,8 +42,9 @@ describe('cartographie EN 1992-1-1', () => {
     }
   });
 
-  it('une clause exclue porte son motif', () => {
-    for (const c of clauses) if (c.perimetre === 'exclu') expect(c.motifExclusion, c.clause).toBeTruthy();
+  it('une clause exclue ou reportee porte son motif', () => {
+    for (const c of EUROCODES.flatMap((e) => e.cartes).flatMap((k) => k.chapitres.flatMap((ch) => ch.clauses)))
+      if (c.perimetre !== 'inclus') expect(c.motifExclusion, c.clause).toBeTruthy();
   });
 
   it('la forme lisible cite chaque clause de la forme typee', () => {

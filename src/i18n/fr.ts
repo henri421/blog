@@ -59,6 +59,20 @@ export const fr = {
   'motcle.poutre': 'Poutres',
   'site.mots-cles': 'Mots-clés',
   'avancement.titre': 'Avancement',
+  'chantiers.titre': 'Suivi des chantiers',
+  'chantiers.intro':
+    'Ce qui reste ouvert sur les articles publiés : vérifications en attente, niveaux de calcul pas encore rendus, réserves. Les articles restent en ligne ; chaque manque est signalé ici et dans l’article concerné.',
+  'chantiers.article': 'Chantiers ouverts sur cet article',
+  'chantiers.tous': 'Tous les chantiers',
+  'chantiers.ouvert': 'ouvert le',
+  'chantiers.ilnas-titre': 'État d’amendement à vérifier auprès de l’ILNAS',
+  'chantiers.ilnas-detail':
+    'Les articles s’appuient sur le texte détenu, sans amendement ni corrigendum. Les amendements et corrigenda publiés, annexes comprises, restent à établir clause par clause.',
+  'chantiers.nature.amendement': 'Amendements et corrigenda',
+  'chantiers.nature.niveau-manquant': 'Niveaux de calcul pas encore rendus',
+  'chantiers.nature.reserve': 'Réserves sur le contenu',
+  'chantiers.nature.verification-texte': 'Vérifications sur le texte',
+  'chantiers.nature.cartographie': 'Cartographie',
   'avancement.note': 'Une ligne par clause de la cartographie. Les quatre premières colonnes sont dérivées du dépôt ; la dernière est l’attestation de l’auteur.',
   'avancement.clause': 'Clause',
   'avancement.sujet': 'Sujet',
@@ -68,6 +82,7 @@ export const fr = {
   'avancement.calculateur': 'Calculateur fait',
   'avancement.verifie': 'Testé et vérifié',
   'avancement.hors-perimetre': 'Hors du périmètre de la version 1',
+  'avancement.reporte': 'Reporté',
   'site.index-mots-cles': 'Index par mot-clé',
   'article.mots-cles': 'Mots-clés',
 

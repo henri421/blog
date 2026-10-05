@@ -19,3 +19,6 @@ export function c(
 export const ann = (ref: string, caractere: AnnexeRattachee['caractere']): AnnexeRattachee => ({ ref, caractere });
 
 export const exclu = (motif: string) => ({ perimetre: 'exclu' as const, motifExclusion: motif });
+
+/** Reporte par decision de l auteur du 05/10/2026. */
+export const reporte = (motif: string) => ({ perimetre: 'reporte' as const, motifExclusion: motif });
