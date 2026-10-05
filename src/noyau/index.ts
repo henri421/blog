@@ -15,6 +15,7 @@ import { fissuration } from './mecanismes/fissuration/index';
 import { fleche } from './mecanismes/fleche/index';
 import { flexion } from './mecanismes/flexion/index';
 import { imperfections } from './mecanismes/imperfections/index';
+import { courbureNominale, elancementLimite } from './mecanismes/second-ordre/index';
 import { materiauxBeton } from './mecanismes/materiaux/index';
 import { cisaillementInterface } from './mecanismes/interface/index';
 import { poinconnement } from './mecanismes/poinconnement/index';
@@ -33,6 +34,7 @@ export type { Champ, Mecanisme } from './moteur/mecanisme';
 export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
+export { courbureNominale, elancementLimite };
 export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -51,6 +53,8 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [pressionLocalisee.id]: pressionLocalisee as unknown as Mecanisme<Record<string, unknown>>,
   [redistribution.id]: redistribution as unknown as Mecanisme<Record<string, unknown>>,
   [torsion.id]: torsion as unknown as Mecanisme<Record<string, unknown>>,
+  [elancementLimite.id]: elancementLimite as unknown as Mecanisme<Record<string, unknown>>,
+  [courbureNominale.id]: courbureNominale as unknown as Mecanisme<Record<string, unknown>>,
   [imperfections.id]: imperfections as unknown as Mecanisme<Record<string, unknown>>,
   [flexion.id]: flexion as unknown as Mecanisme<Record<string, unknown>>,
   [materiauxBeton.id]: materiauxBeton as unknown as Mecanisme<Record<string, unknown>>,

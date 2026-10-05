@@ -17,6 +17,8 @@ const clauses = EN1992.chapitres.flatMap((c) => c.clauses);
 const LACUNES_CONNUES = [
   '6.5.2 ec2-2023/enrobage/annexe-p',
   '7.3.2 ec2-2023/redistribution/rotation',
+  '7.4.3 ec2-2004/rigidite-nominale/base',
+  '7.4.3 ec2-2023/rigidite-nominale/base',
   '9.2.3 ec2-2023/fissuration/annexe-s',
 ];
 

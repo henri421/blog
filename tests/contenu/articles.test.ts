@@ -36,6 +36,7 @@ describe('articles', () => {
       'elancement',
       'redistribution',
       'imperfections',
+      'second-ordre',
     ]);
   });
 
