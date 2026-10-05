@@ -121,6 +121,14 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [ ] Vérification explicite de la rotation (7.18) à (7.24) : non codée, article
   à venir.
 
+## Effort tranchant sans armature, annexe I.8.3.1
+
+- [x] τ_Rd,c = 0,33/γ_V · γ_def^(2/3)/γ_V² · √f_ck / (1 + 24 γ_def ε_v d/d_dg) (I.7) :
+  relu sur l’exemplaire fourni par l’utilisateur le 2026-10-05.
+- [x] γ_def = 1,33 recommandé (NOTE) ; ε_v selon les hypothèses de 8.1.1 (I.8.3.1(2)).
+- [ ] k_vd (I.8) pour les éléments linéaires de hauteur utile d > 500 mm :
+  formule à relire sur l’exemplaire, non codée.
+
 ## Ancrage et recouvrement (11.4.2, 11.5.2)
 
 - [x] l_bd = k_lb k_cp φ (σ_sd/435)^n_σ (25/fck)^(1/2) (φ/20)^(1/3) (1,5 φ/c_d)^(1/2) ≥ 10 φ

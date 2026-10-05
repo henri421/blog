@@ -119,6 +119,7 @@ export const fr = {
   'motif.cles-8-77': 'La formule (8.77) ne donne pas de coefficients pour une interface à clés (tableau 8.2).',
   'motif.bloc-trop-petit': 'Le bloc d’introduction est plus petit que la zone chargée.',
   'motif.excentrement-2004': 'Charge excentrée : la première génération demande de réduire la résistance sans donner de règle (6.7(3)).',
+  'motif.med-sup-mrd': 'Le moment de calcul dépasse la capacité de la section : la déformation εv n’est pas définie.',
   'motif.hauteur-bloc': 'Hauteur du bloc inférieure à a1 : la diffusion n’est pas assurée (8.6(2)).',
   'motif.portees-adjacentes': 'Rapport des portées adjacentes hors de 0,5 à 2 : redistribution sans vérification de la capacité de rotation non admise (5.5(4) ; 7.3.2(3)).',
   'motif.ap-sup-8dv': 'a_p n’est pas inférieur à 8 d_v : le remplacement de d_v par a_pd n’est pas permis (8.4.3(2)).',
@@ -319,6 +320,8 @@ export const fr = {
   'niveau.tsa.2023.hauteur-utile': 'τRd,c avec la hauteur utile d comme longueur d’échelle.',
   'niveau.tsa.2023.portee-mecanique':
     'τRd,c avec la portée mécanique av, tirée du rapport M/V dans la section, si acs < 4 d.',
+  'niveau.tsa.2023.annexe-i':
+    'Annexe I.8.3.1 (informative, structures existantes) : τRd,c tiré de la déformation εv des armatures longitudinales sous MEd (I.7), γdef = 1,33.',
   'niveau.taa.2004.base': 'Treillis à inclinaison variable, ν1 = 0,6 (1 − fck/250), 1 ≤ cot θ ≤ 2,5.',
   'niveau.taa.2023.nu-constant': 'Treillis à inclinaison variable, ν = 0,5, 1 ≤ cot θ ≤ 2,5 (ductilité B ou C).',
   'niveau.taa.2023.nu-variable':

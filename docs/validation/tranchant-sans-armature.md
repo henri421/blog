@@ -45,3 +45,19 @@ $A_{sl}$ = 4909 mm²/m, C30/37, $D_{lower}$ = 16 mm.
 | $\tau_{Rdc,min}$ | 0,5504 MPa → 222,90 kN/m |
 | $\tau_{Rd,c}$ niveau 2 | 0,6247 MPa → 253,02 kN/m |
 | $a_{cs}$ = 2500 mm ≥ 4 d = 1800 mm | niveau 3 non applicable (8.2.2(3)) |
+
+## Niveau 4 : annexe I.8.3.1, formule (I.7)
+
+Calcul indépendant (intégrales analytiques du bloc parabole-rectangle, double
+bissection sur ε_c et x), f_cd = η_cc k_tc f_ck / γ_C, γ_V = 1,4, γ_def = 1,33,
+facteur 0,33/γ_V · γ_def^(2/3)/γ_V² = 0,14545.
+
+| Cas | x | ε_v | τ_Rd,c (I.7) | V_Rd,c |
+|---|---|---|---|---|
+| Dalle, M_Ed = 15 kN·m/m, f_cd = 14,167 MPa | 54,74 mm | 0,5798 ‰ | 0,6552 MPa | 112,04 kN/m |
+| Radier, M_Ed = 800 kN·m/m, f_cd = 17,0 MPa | 201,49 mm | 2,1678 ‰ | 0,4038 MPa | 163,52 kN/m |
+| Radier, M_Ed = 1000 kN·m/m | capacité ≈ 823 kN·m/m dépassée | — | non applicable | — |
+
+Dalle : τ = 0,14545 × 5 / (1 + 24 × 1,33 × 0,0005798 × 190/32) = 0,7272 / 1,1099 = 0,6552 MPa.
+Le second exemple de l'article est passé de 1000 à 800 kN·m/m le 2026-10-05 :
+l'ancienne valeur dépassait la capacité en flexion de la section.

@@ -92,3 +92,32 @@ describe('domaine et erreurs', () => {
     expect(ddg2023(80, 16)).toBeCloseTo(25, 12);
   });
 });
+
+describe('niveau 4, annexe I.8.3.1 (I.7)', () => {
+  it('dalle : epsilon_v = 0,5798 pour mille, tau = 0,6552 MPa, en reserve, sous le plancher du niveau 1', () => {
+    const c = cel(dalle(), 'ec2-2023', 'annexe-i');
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.annexe-i' });
+    expect(c.intermediaires['ε_v'].valeur).toBeCloseTo(0.579771, 5);
+    expect(c.intermediaires.x.valeur).toBeCloseTo(54.7426, 3);
+    expect(c.intermediaires['τ_Rd,c (I.7)'].valeur).toBeCloseTo(0.655226, 5);
+    expect(c.resistance).toBeCloseTo(112.0436, 3);
+    expect(c.iterations).toBeGreaterThan(0);
+    // Non monotone : rendu tel quel, sans plancher tau_Rdc,min.
+    expect(c.resistance as number).toBeLessThan(cel(dalle(), 'ec2-2023', 'tau-min').resistance as number);
+  });
+
+  it('radier a 800 kN.m : epsilon_v = 2,1678 pour mille, tau = 0,4038 MPa', () => {
+    const c = cel({ ...radier(), MEd: 800 }, 'ec2-2023', 'annexe-i');
+    expect(c.intermediaires['ε_v'].valeur).toBeCloseTo(2.167781, 4);
+    expect(c.intermediaires['τ_Rd,c (I.7)'].valeur).toBeCloseTo(0.403754, 5);
+  });
+
+  it('moment superieur a la capacite : non applicable, motif nomme', () => {
+    expect(cel(radier(), 'ec2-2023', 'annexe-i').statut).toEqual({ etat: 'non-applicable', motif: 'motif.med-sup-mrd', donneesManquantes: [] });
+  });
+
+  it('moment nul : epsilon_v nul, tau = 0,33 gamma_def^(2/3) sqrt(fck) / gamma_V^3', () => {
+    const c = cel({ ...dalle(), MEd: 0 }, 'ec2-2023', 'annexe-i');
+    expect(c.intermediaires['τ_Rd,c (I.7)'].valeur).toBeCloseTo((0.33 * 1.33 ** (2 / 3) * 5) / 1.4 ** 3, 10);
+  });
+});

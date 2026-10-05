@@ -12,6 +12,15 @@
  * Le niveau 3 n est permis que si a_cs < 4 d (8.2.2(3)) : a_v reste alors
  * inferieur a d et le niveau 3 ne peut pas etre moins favorable que le 2.
  * Au-dela, il est non applicable, avec ce motif.
+ *   4. annexe I.8.3.1 (informative, evaluation des structures existantes) :
+ *      tau_Rd,c tire de la deformation epsilon_v des armatures longitudinales
+ *      (I.7), en variante de 8.2.2(2) a (5) ; niveau en reserve.
+ *      Choix de l outil : epsilon_v est obtenu par l equilibre de la section
+ *      rectangulaire b_w x d sous M_Ed seul, avec les hypotheses de 8.1.1
+ *      (sections planes, beton tendu neglige, parabole-rectangle sur f_cd,
+ *      acier elastique parfaitement plastique) ; pas de plancher tau_Rdc,min,
+ *      que (I.7) ne mentionne pas. Le coefficient k_vd (I.8) des elements de
+ *      hauteur utile superieure a 500 mm n est pas encore code.
  *
  * Domaine de la deuxieme generation : D_lower >= 8 mm (1.1(3)).
  */
@@ -21,7 +30,7 @@ import type { Cellule } from '../../model/resultat';
 import type { Mecanisme } from '../../moteur/mecanisme';
 import type { DefinitionNiveau } from '../../moteur/niveaux';
 import { calculee, recommandee } from '../../moteur/grandeurs';
-import { GAMMA_C_2004, GAMMA_S_2023, GAMMA_V_2023, ddg2023, positif } from '../../materiaux';
+import { ES, GAMMA_C_2004, GAMMA_S_2023, GAMMA_V_2023, ddg2023, fcd2023, positif } from '../../materiaux';
 
 export interface EntreeTsa {
   /** Effort tranchant de calcul (kN). */
@@ -214,6 +223,128 @@ export function niveau3Tsa2023(e: Required<EntreeTsa>): Calcul {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Niveau 4 : annexe I.8.3.1
+// ---------------------------------------------------------------------------
+
+/** Coefficient partiel sur le calcul de la deformation, valeur recommandee (I.8.3.1(1), NOTE). */
+export const GAMMA_DEF = 1.33;
+const EPS_C2 = 0.002;
+const EPS_CU = 0.0035;
+const N_MM_PAR_KN_M = 1e6;
+
+/** Contrainte de compression du beton, parabole-rectangle d exposant 2 (8.1.2). */
+function sigmaBeton(eps: number, fcd: number): number {
+  if (eps <= 0) return 0;
+  if (eps >= EPS_C2) return fcd;
+  const r = eps / EPS_C2;
+  return fcd * (1 - (1 - r) ** 2);
+}
+
+/**
+ * Integrales sans dimension du bloc comprime pour un raccourcissement eps_c
+ * en fibre extreme : a = moyenne de sigma/f_cd, m = moment par rapport a l axe
+ * neutre (u = distance a l axe neutre / x). Simpson sur 200 intervalles.
+ */
+function bloc(epsC: number, fcd: number): { a: number; m: number } {
+  const n = 200;
+  let a = 0;
+  let m = 0;
+  for (let i = 0; i <= n; i++) {
+    const u = i / n;
+    const w = i === 0 || i === n ? 1 : i % 2 === 1 ? 4 : 2;
+    const s = sigmaBeton(epsC * u, fcd) / fcd;
+    a += w * s;
+    m += w * s * u;
+  }
+  return { a: a / (3 * n), m: m / (3 * n) };
+}
+
+export interface EtatFlexion {
+  /** Allongement des armatures tendues. */
+  epsS: number;
+  /** Raccourcissement du beton en fibre extreme. */
+  epsC: number;
+  /** Profondeur de l axe neutre (mm). */
+  x: number;
+  iterations: number;
+}
+
+/**
+ * Etat de deformation d une section rectangulaire b x d armee de A_s tendus
+ * sous le moment M (N.mm), hypotheses de 8.1.1. Rend null si M depasse la
+ * capacite atteinte a eps_c = eps_cu. Bissection exterieure sur eps_c,
+ * interieure sur x (equilibre des forces).
+ */
+export function etatFlexion(M: number, b: number, d: number, As: number, fcd: number, fyd: number): EtatFlexion | null {
+  if (M <= 0) return { epsS: 0, epsC: 0, x: 0, iterations: 0 };
+  const etat = (epsC: number): { x: number; epsS: number; moment: number } => {
+    const { a, m } = bloc(epsC, fcd);
+    let bas = 1e-9 * d;
+    let haut = d * (1 - 1e-9);
+    for (let i = 0; i < 100; i++) {
+      const x = (bas + haut) / 2;
+      const epsS = (epsC * (d - x)) / x;
+      const ecart = b * x * a * fcd - As * Math.min(ES * epsS, fyd);
+      if (ecart > 0) haut = x;
+      else bas = x;
+    }
+    const x = (bas + haut) / 2;
+    const epsS = (epsC * (d - x)) / x;
+    const C = b * x * a * fcd;
+    return { x, epsS, moment: C * (d - x + (x * m) / a) };
+  };
+  if (etat(EPS_CU).moment < M) return null;
+  let bas = 0;
+  let haut = EPS_CU;
+  let iterations = 0;
+  while (haut - bas > 1e-12 && iterations < 200) {
+    iterations++;
+    const milieu = (bas + haut) / 2;
+    if (etat(milieu).moment > M) haut = milieu;
+    else bas = milieu;
+  }
+  const epsC = (bas + haut) / 2;
+  const f = etat(epsC);
+  return { epsS: f.epsS, epsC, x: f.x, iterations };
+}
+
+function etatTsa(e: Required<EntreeTsa>): EtatFlexion | null {
+  return etatFlexion(Math.abs(e.MEd) * N_MM_PAR_KN_M, e.bw, e.d, e.Asl, fcd2023(e.fck), e.fyk / GAMMA_S_2023);
+}
+
+/** Le moment doit rester sous la capacite de la section, sinon epsilon_v n existe pas. */
+function conditionMoment(e: EntreeTsa): Cle | null {
+  return etatTsa(e as Required<EntreeTsa>) === null ? 'motif.med-sup-mrd' : null;
+}
+
+/**
+ * tau_Rd,c = 0,33/gamma_V . gamma_def^(2/3)/gamma_V^2 . sqrt(fck) /
+ * (1 + 24 gamma_def epsilon_v d/d_dg) (I.7).
+ */
+export function niveau4Tsa2023(e: Required<EntreeTsa>): Calcul {
+  const c = communs2023(e);
+  positif(e.Asl, 'Asl', 'mm2');
+  const etat = etatTsa(e);
+  if (etat === null) throw new Error('M_Ed depasse la capacite de la section.');
+  const facteur = (0.33 / GAMMA_V_2023) * (GAMMA_DEF ** (2 / 3) / GAMMA_V_2023 ** 2);
+  const tau = (facteur * Math.sqrt(e.fck)) / (1 + 24 * GAMMA_DEF * etat.epsS * (e.d / c.ddg));
+  const cellule = cellule2023(
+    e,
+    c,
+    tau,
+    {
+      'γ_def': recommandee(GAMMA_DEF, '-'),
+      f_cd: calculee(fcd2023(e.fck), 'MPa'),
+      x: calculee(etat.x, 'mm'),
+      'ε_v': calculee(etat.epsS * 1000, '‰'),
+      'τ_Rd,c (I.7)': calculee(tau, 'MPa'),
+    },
+    ['I.8.3.1(1)', '(I.7)', 'I.8.3.1(2)', '8.1.1'],
+  );
+  return { ...cellule, iterations: etat.iterations };
+}
+
 const communs = [R.VEd, R.bw, R.d, R.fck, R.fyk, R.Dlower];
 
 const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
@@ -250,11 +381,23 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
     conditions: conditionAcs,
     calculer: (e) => niveau3Tsa2023(e as Required<EntreeTsa>),
   },
+  {
+    id: 'annexe-i',
+    ordre: 4,
+    position: 'annexe-informative',
+    reserve: 'reserve.annexe-i',
+    clause: 'I.8.3.1',
+    hypothese: 'niveau.tsa.2023.annexe-i',
+    donneesRequises: [...communs, R.Asl, R.MEd],
+    domaine: domaine2023,
+    conditions: conditionMoment,
+    calculer: (e) => niveau4Tsa2023(e as Required<EntreeTsa>),
+  },
 ];
 
 export const tranchantSansArmature: Mecanisme<EntreeTsa> = {
   id: 'tranchant-sans-armature',
-  version: '0.1.0',
+  version: '0.2.0',
   titre: 'meca.tsa.titre',
   champs: [
     { type: 'nombre', id: 'VEd', libelle: 'champ.VEd', symbole: 'V_Ed', unite: 'kN' },

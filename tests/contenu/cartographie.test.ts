@@ -17,7 +17,6 @@ const clauses = EN1992.chapitres.flatMap((c) => c.clauses);
 const LACUNES_CONNUES = [
   '6.5.2 ec2-2023/enrobage/annexe-p',
   '7.3.2 ec2-2023/redistribution/rotation',
-  '8.2.2 ec2-2023/tranchant-sans-armature/annexe-i',
   '9.2.3 ec2-2023/fissuration/annexe-s',
 ];
 
@@ -67,7 +66,7 @@ describe('cartographie EN 1992-1-1', () => {
   it('une clause dont un niveau manque n a pas son calculateur coche', () => {
     const l = deriverLignes(EN1992, articles)
       .flatMap((c) => c.lignes)
-      .find((x) => x.clause === '8.2.2')!;
+      .find((x) => x.clause === '7.3.2')!;
     expect(l.ecrite).toBe(true);
     expect(l.calculateur).toBe(false);
   });
