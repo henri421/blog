@@ -37,6 +37,7 @@ describe('articles', () => {
       'redistribution',
       'imperfections',
       'second-ordre',
+      'bielles-tirants',
     ]);
   });
 

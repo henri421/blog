@@ -242,9 +242,23 @@ export const EN1992: Carte = {
           niveaux: [n(G1, 'poinconnement-arme', 'base', '6.4.5'), n(G2, 'poinconnement-arme', 'base', '8.4.4')],
         }),
         c('8.5.1', 'Bielles-tirants et champs de contrainte : généralités', ['6.5.1']),
-        c('8.5.2', 'Bielles et champs de compression', ['6.5.2']),
+        c('8.5.2', 'Bielles et champs de compression', ['6.5.2'], {
+          article: 'bielles-tirants',
+          ingeree: true,
+          niveaux: [
+            n(G1, 'bielles', 'base', '6.5.2'),
+            n(G2, 'bielles', 'paliers', '8.5.2(4)'),
+            n(G2, 'bielles', 'continu', '(8.119)'),
+            n(G2, 'bielles', 'deformation', '8.5.2(5)'),
+          ],
+          reserves: 'Confinement (8.5.2(6)), armatures comprimées (8.5.2(7)) et gaines (8.5.2(8)) non codés.',
+        }),
         c('8.5.3', 'Tirants', ['6.5.3']),
-        c('8.5.4', 'Nœuds', ['6.5.4']),
+        c('8.5.4', 'Nœuds', ['6.5.4'], {
+          article: 'bielles-tirants',
+          ingeree: true,
+          reserves: 'Interpolation de ν pour un ancrage en partie dans le nœud (8.5.4.3(4)) non codée ; majorations de 2004 (6.5.4(5), (6)) non codées.',
+        }),
         c('8.5.5', 'Diffusion de forces concentrées', ['6.5.3(3)']),
         c('8.6', 'Pressions localisées', ['6.7'], {
           article: 'pressions-localisees',

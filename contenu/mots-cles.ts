@@ -19,6 +19,7 @@ export const MOTS_CLES = [
   'flexion',
   'effort-tranchant',
   'treillis',
+  'bielles-tirants',
   'cisaillement',
   'interface',
   'torsion',

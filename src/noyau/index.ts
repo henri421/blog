@@ -8,6 +8,7 @@ import type { Mecanisme } from './moteur/mecanisme';
 import { ameTable } from './mecanismes/ame-table/index';
 import { ancrage } from './mecanismes/ancrage/index';
 import { ancrageCrochet } from './mecanismes/ancrage-crochet/index';
+import { bielles } from './mecanismes/bielles/index';
 import { fissurationMinimale, nonFragilite } from './mecanismes/armatures-minimales/index';
 import { elancement } from './mecanismes/elancement/index';
 import { enrobage } from './mecanismes/enrobage/index';
@@ -35,7 +36,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
+export { ameTable, ancrage, ancrageCrochet, bielles, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
  * Registre des mecanismes, indexe par identifiant (montage des ilots). Le
@@ -56,6 +57,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [elancementLimite.id]: elancementLimite as unknown as Mecanisme<Record<string, unknown>>,
   [rigiditeNominale.id]: rigiditeNominale as unknown as Mecanisme<Record<string, unknown>>,
   [courbureNominale.id]: courbureNominale as unknown as Mecanisme<Record<string, unknown>>,
+  [bielles.id]: bielles as unknown as Mecanisme<Record<string, unknown>>,
   [imperfections.id]: imperfections as unknown as Mecanisme<Record<string, unknown>>,
   [flexion.id]: flexion as unknown as Mecanisme<Record<string, unknown>>,
   [materiauxBeton.id]: materiauxBeton as unknown as Mecanisme<Record<string, unknown>>,

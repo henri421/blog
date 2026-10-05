@@ -54,9 +54,9 @@ describe('cartographie EN 1992-1-1', () => {
   it('test 14 : une clause sans article figure au tableau, colonnes derivees non faites', () => {
     const lignes = deriverLignes(EN1992, articles).flatMap((c) => c.lignes);
     expect(lignes).toHaveLength(clauses.length);
-    const l = lignes.find((x) => x.clause === '8.5.4')!;
+    const l = lignes.find((x) => x.clause === '8.5.3')!;
     expect(l).toMatchObject({ article: null, ecrite: false, comparatif: false, calculateur: false });
-    expect(rendreAvancement('EN 1992', [EN1992], articles)).toContain('<td>8.5.4</td>');
+    expect(rendreAvancement('EN 1992', [EN1992], articles)).toContain('<td>8.5.3</td>');
   });
 
   it('test 15 : tout niveau cartographie apparait dans l article de sa clause, hors lacunes connues', () => {
