@@ -58,6 +58,9 @@ export function lireEnTete(source: string): { entete: EnTete; corps: string } {
   for (const cle of OBLIGATOIRES) {
     if (typeof brut[cle] !== 'string' || brut[cle] === '') throw new Error(`En-tete : « ${cle} » manquant.`);
   }
+  for (const cle of ['redige', 'revise'] as const) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(brut[cle] as string)) throw new Error(`En-tete : « ${cle} » doit etre une date AAAA-MM-JJ.`);
+  }
   const statut = brut.statut as string;
   if (statut !== 'brouillon' && statut !== 'publie') throw new Error(`En-tete : statut « ${statut} » inconnu.`);
   const historique = Array.isArray(brut.historique) ? brut.historique : [];

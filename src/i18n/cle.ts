@@ -23,3 +23,20 @@ export function estCle(texte: string): texte is Cle {
 export function t(cle: Cle, dictionnaire: Dictionnaire = fr): string {
   return dictionnaire[cle];
 }
+
+const ISO = /(\d{4})-(\d{2})-(\d{2})/g;
+
+/**
+ * Date affichee au lecteur, au format europeen jour/mois/annee (CDC v4 ET7).
+ * Seule fonction de mise en forme des dates : l ISO reste la forme stockee.
+ */
+export function dateFr(iso: string): string {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+  if (!m) throw new Error(`Date « ${iso} » non ISO (AAAA-MM-JJ).`);
+  return `${m[3]}/${m[2]}/${m[1]}`;
+}
+
+/** Convertit toutes les dates ISO d un texte libre (en-tete, historique). */
+export function datesFr(texte: string): string {
+  return texte.replace(ISO, (d) => dateFr(d));
+}

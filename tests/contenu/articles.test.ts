@@ -48,6 +48,12 @@ describe('articles', () => {
         });
       }
 
+      it('aucune date ISO visible : format jour/mois/annee (ET7)', () => {
+        const visible = pageArticle(a).replace(/<script[\s\S]*?<\/script>/g, '');
+        expect(visible).not.toMatch(/\d{4}-\d{2}-\d{2}/);
+        expect(visible).toContain(a.entete.revise.split('-').reverse().join('/'));
+      });
+
       it('aucune reference non resolue ne subsiste dans le corps de l article', () => {
         expect(a.html).not.toMatch(/\{\{|\}\}/);
         expect(pageArticle(a)).not.toMatch(/undefined|NaN/);

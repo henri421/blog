@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fr } from '../../src/i18n/fr';
-import { estCle, t, type Dictionnaire } from '../../src/i18n/cle';
+import { dateFr, datesFr, estCle, t, type Dictionnaire } from '../../src/i18n/cle';
 
 describe('dictionnaire', () => {
   it('aucune entree vide', () => {
@@ -24,5 +24,11 @@ describe('dictionnaire', () => {
     for (const etat of ['calcule', 'non-applicable', 'non-convergent', 'hors-domaine', 'reserve']) {
       expect(estCle(`statut.${etat}`), etat).toBe(true);
     }
+  });
+
+  it('dates au format europeen (ET7)', () => {
+    expect(dateFr('2027-02-28')).toBe('28/02/2027');
+    expect(datesFr('vérifié le 2026-10-04 ; revu le 2026-10-05')).toBe('vérifié le 04/10/2026 ; revu le 05/10/2026');
+    expect(() => dateFr('28/02/2027')).toThrow();
   });
 });

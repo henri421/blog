@@ -10,7 +10,7 @@
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { MECANISMES } from '../../src/noyau/index';
-import { t } from '../../src/i18n/cle';
+import { dateFr, datesFr, t } from '../../src/i18n/cle';
 import { lireArticle, type Article } from './article';
 
 const URL_SUITE = 'https://henri421.github.io/WebAedificium/';
@@ -68,14 +68,14 @@ function enTeteStatut(a: Article): string {
   const statut = e.statut === 'publie' ? t('article.publie') : t('article.brouillon');
   const lignes: Array<[string, string]> = [
     [t('article.statut'), statut],
-    [t('article.texte-reference'), e.texte],
-    [t('article.redige'), e.redige],
-    [t('article.revise'), e.revise],
+    [t('article.texte-reference'), datesFr(e.texte)],
+    [t('article.redige'), dateFr(e.redige)],
+    [t('article.revise'), dateFr(e.revise)],
     [t('article.annexe-nationale'), t('article.annexe-non-publiee')],
     [t('article.calculateur'), versionsCalculateurs(a)],
   ];
   const dl = lignes.map(([k, v]) => `<dt>${echapper(k)}</dt><dd>${echapper(v)}</dd>`).join('');
-  const hist = e.historique.map((h) => `<li>${echapper(h)}</li>`).join('');
+  const hist = e.historique.map((h) => `<li>${echapper(datesFr(h))}</li>`).join('');
   return `<section class="statut statut-${e.statut}" aria-label="${echapper(t('article.statut'))}">
         <dl>${dl}</dl>
         <details><summary>${echapper(t('article.historique'))}</summary><ul>${hist}</ul></details>
@@ -103,7 +103,7 @@ export function pageAccueil(articles: Article[]): string {
       const pastille = a.entete.statut === 'publie' ? '' : `<span class="pastille">${echapper(t('article.brouillon'))}</span>`;
       return `<li class="carte"><a href="./${a.slug}.html"><span class="carte-titre">${echapper(a.entete.titre)}</span>${pastille}</a>
           <p>${echapper(a.entete.resume)}</p>
-          <p class="carte-date">${echapper(t('article.revise'))} ${echapper(a.entete.revise)}</p></li>`;
+          <p class="carte-date">${echapper(t('article.revise'))} ${echapper(dateFr(a.entete.revise))}</p></li>`;
     })
     .join('\n        ');
   const publies = articles.some((a) => a.entete.statut === 'publie');
