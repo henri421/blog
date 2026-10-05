@@ -11,6 +11,7 @@ docs/superpowers/
 # Construction : produite et publiee par la CI, jamais suivie
 docs/*
 !docs/validation/
+!docs/cartographie/
 !docs/amendements.md
 !docs/verification-texte.md
 
