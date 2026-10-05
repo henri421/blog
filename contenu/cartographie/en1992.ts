@@ -12,27 +12,11 @@
  */
 
 import type { Generation } from '../../src/noyau/model/resultat';
-import type { AnnexeRattachee, Carte, ClauseCarte, NiveauCarte } from './types';
+import type { Carte } from './types';
+import { ann, c, exclu, n } from './outils';
 
 const G1: Generation = 'ec2-2004';
 const G2: Generation = 'ec2-2023';
-
-function n(generation: Generation, mecanisme: string, niveau: string, clause: string, position: NiveauCarte['position'] = 'corps'): NiveauCarte {
-  return { generation, mecanisme, niveau, clause, position };
-}
-
-function c(
-  clause: string,
-  titre: string,
-  correspondance: string[],
-  autres: Partial<Omit<ClauseCarte, 'clause' | 'titre' | 'correspondance'>> = {},
-): ClauseCarte {
-  return { clause, titre, correspondance, perimetre: 'inclus', ingeree: false, verifie: null, ...autres };
-}
-
-const ann = (ref: string, caractere: AnnexeRattachee['caractere']): AnnexeRattachee => ({ ref, caractere });
-
-const exclu = (motif: string) => ({ perimetre: 'exclu' as const, motifExclusion: motif });
 
 export const EN1992: Carte = {
   id: 'en1992',

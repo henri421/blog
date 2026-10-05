@@ -186,6 +186,7 @@ td.refus { color: var(--refus); font-weight: 600; }
 .avancement table { border-collapse: collapse; font-size: 0.85rem; width: 100%; }
 .avancement th, .avancement td { padding: 0.2rem 0.5rem; border-bottom: 1px solid var(--bordure-douce); text-align: left; }
 .avancement tr.chapitre th { padding-top: 0.6rem; }
+.avancement tr.partie th { padding-top: 0.9rem; font-size: 0.95rem; border-bottom: 1px solid var(--bordure); }
 .avancement td.fait { color: var(--texte); text-align: center; }
 .avancement td.a-faire { color: var(--texte-faible); text-align: center; }
 .avancement tr.exclu td { color: var(--texte-faible); }

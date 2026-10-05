@@ -79,19 +79,10 @@ export function deriverLignes(carte: Carte, articles: Article[]): Array<{ numero
 
 const coche = (v: boolean): string => (v ? '<td class="fait">✓</td>' : '<td class="a-faire">—</td>');
 
-/** Tableau d un Eurocode, replie par defaut ; la ligne de resume compte chaque colonne. */
-export function rendreAvancement(carte: Carte, articles: Article[]): string {
+/** Lignes de chapitres d une carte, avec un titre de partie quand l Eurocode en compte plusieurs. */
+function corpsCarte(carte: Carte, articles: Article[], avecTitre: boolean): { html: string; lignes: LigneAvancement[] } {
   const chapitres = deriverLignes(carte, articles);
-  const toutes = chapitres.flatMap((c) => c.lignes).filter((l) => l.perimetre === 'inclus');
-  const compte = (f: (l: LigneAvancement) => boolean): string => `${toutes.filter(f).length}/${toutes.length}`;
-  const resume = [
-    `${t('avancement.theorie')} ${compte((l) => l.theorie)}`,
-    `${t('avancement.ecrite')} ${compte((l) => l.ecrite)}`,
-    `${t('avancement.comparatif')} ${compte((l) => l.comparatif)}`,
-    `${t('avancement.calculateur')} ${compte((l) => l.calculateur)}`,
-    `${t('avancement.verifie')} ${compte((l) => l.verifie !== null)}`,
-  ].join(' · ');
-  const corps = chapitres
+  const html = chapitres
     .map((ch) => {
       const lignes = ch.lignes
         .map((l) => {
@@ -103,16 +94,36 @@ export function rendreAvancement(carte: Carte, articles: Article[]): string {
           return `<tr><td>${echapper(l.clause)}</td><td>${titre}</td>${coche(l.theorie)}${coche(l.ecrite)}${coche(l.comparatif)}${coche(l.calculateur)}${verifie}</tr>`;
         })
         .join('');
-      return `<tr class="chapitre"><th colspan="7">${echapper(ch.numero)} ${echapper(ch.titre)}</th></tr>${lignes}`;
+      const numero = ch.numero === '—' ? '' : `${echapper(ch.numero)} `;
+      return `<tr class="chapitre"><th colspan="7">${numero}${echapper(ch.titre)}</th></tr>${lignes}`;
     })
     .join('');
+  const tete = avecTitre ? `<tr class="partie"><th colspan="7">${echapper(carte.norme)}</th></tr>` : '';
+  return { html: tete + html, lignes: chapitres.flatMap((c) => c.lignes) };
+}
+
+/**
+ * Groupe d un Eurocode, replie par defaut (CDC v4 §6) ; la ligne de resume
+ * compte chaque colonne sur les clauses du perimetre.
+ */
+export function rendreAvancement(titre: string, cartes: Carte[], articles: Article[]): string {
+  const corps = cartes.map((c) => corpsCarte(c, articles, cartes.length > 1));
+  const toutes = corps.flatMap((c) => c.lignes).filter((l) => l.perimetre === 'inclus');
+  const compte = (f: (l: LigneAvancement) => boolean): string => `${toutes.filter(f).length}/${toutes.length}`;
+  const resume = [
+    `${t('avancement.theorie')} ${compte((l) => l.theorie)}`,
+    `${t('avancement.ecrite')} ${compte((l) => l.ecrite)}`,
+    `${t('avancement.comparatif')} ${compte((l) => l.comparatif)}`,
+    `${t('avancement.calculateur')} ${compte((l) => l.calculateur)}`,
+    `${t('avancement.verifie')} ${compte((l) => l.verifie !== null)}`,
+  ].join(' · ');
   return `<details class="avancement">
-        <summary><strong>${echapper(carte.norme)}</strong> <span>${echapper(resume)}</span></summary>
+        <summary><strong>${echapper(titre)}</strong> <span>${echapper(resume)}</span></summary>
         <div class="table-defile"><table>
           <thead><tr><th>${echapper(t('avancement.clause'))}</th><th>${echapper(t('avancement.sujet'))}</th><th>${echapper(t('avancement.theorie'))}</th><th>${echapper(
             t('avancement.ecrite'),
           )}</th><th>${echapper(t('avancement.comparatif'))}</th><th>${echapper(t('avancement.calculateur'))}</th><th>${echapper(t('avancement.verifie'))}</th></tr></thead>
-          <tbody>${corps}</tbody>
+          <tbody>${corps.map((c) => c.html).join('')}</tbody>
         </table></div>
       </details>`;
 }

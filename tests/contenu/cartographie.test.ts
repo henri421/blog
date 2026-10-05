@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { EN1992 } from '../../contenu/cartographie/en1992';
+import { EUROCODES } from '../../contenu/cartographie/eurocodes';
 import { lireArticles } from '../../app/construire/site';
 import { deriverLignes, lacunes, rendreAvancement } from '../../app/construire/avancement';
 import { MECANISMES } from '../../src/noyau/index';
@@ -55,7 +56,7 @@ describe('cartographie EN 1992-1-1', () => {
     expect(lignes).toHaveLength(clauses.length);
     const l = lignes.find((x) => x.clause === '8.5.4')!;
     expect(l).toMatchObject({ article: null, ecrite: false, comparatif: false, calculateur: false });
-    expect(rendreAvancement(EN1992, articles)).toContain('<td>8.5.4</td>');
+    expect(rendreAvancement('EN 1992', [EN1992], articles)).toContain('<td>8.5.4</td>');
   });
 
   it('test 15 : tout niveau cartographie apparait dans l article de sa clause, hors lacunes connues', () => {
@@ -78,5 +79,30 @@ describe('cartographie EN 1992-1-1', () => {
     const source = readFileSync(`${racine}/app/construire/avancement.ts`, 'utf8');
     expect(source.match(/verifie:/g)).toEqual(['verifie:', 'verifie:']); // declaration du type et copie
     expect(source).toContain('verifie: c.verifie,');
+  });
+});
+
+describe('cartographies de toutes les normes', () => {
+  const cartes = EUROCODES.flatMap((e) => e.cartes.map((c) => ({ e, c })));
+
+  it('identifiants de cartes uniques, clauses uniques dans chaque carte', () => {
+    expect(new Set(cartes.map(({ c }) => c.id)).size).toBe(cartes.length);
+    for (const { c } of cartes) {
+      const liste = c.chapitres.flatMap((ch) => ch.clauses.map((x) => x.clause));
+      expect(new Set(liste).size, c.id).toBe(liste.length);
+    }
+  });
+
+  it('chaque forme lisible cite chaque clause de sa forme typee', () => {
+    for (const { e, c } of cartes) {
+      const md = readFileSync(`${racine}/docs/cartographie/${e.documentation}`, 'utf8');
+      for (const ch of c.chapitres) for (const x of ch.clauses) expect(md, `${c.id} ${x.clause}`).toContain(`| ${x.clause} |`);
+    }
+  });
+
+  it('un groupe par Eurocode, replie par defaut', () => {
+    const html = EUROCODES.map((e) => rendreAvancement(e.titre, e.cartes, articles)).join('');
+    expect(html.match(/<details class="avancement">/g)).toHaveLength(EUROCODES.length);
+    expect(html).not.toMatch(/<details[^>]* open/);
   });
 });
