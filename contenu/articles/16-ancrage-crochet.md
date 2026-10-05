@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Le crochet ne réduit plus la longueur par un coefficient soumis à une condition d’enrobage, mais par une longueur fixe de quinze diamètres ; l’écart est le plus fort dans les abouts de poutre à enrobage courant.
+motscles: ancrage, dispositions-constructives
 historique:
   - 2026-10-04 : première rédaction.
 ---

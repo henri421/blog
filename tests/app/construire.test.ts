@@ -73,11 +73,12 @@ describe('Markdown', () => {
 });
 
 describe('en-tete et exemples', () => {
-  const entete = '---\ntitre: T\nordre: 1\nstatut: brouillon\ntexte: X\nredige: 2026-10-04\nrevise: 2026-10-04\nresume: R\nhistorique:\n  - 2026-10-04 : creation\n---\n';
+  const entete = '---\ntitre: T\nordre: 1\nstatut: brouillon\ntexte: X\nredige: 2026-10-04\nrevise: 2026-10-04\nresume: R\nmotscles: flexion, elu\nhistorique:\n  - 2026-10-04 : creation\n---\n';
 
   it('lit l en-tete et l historique', () => {
     const { entete: e, corps } = lireEnTete(`${entete}Corps`);
     expect(e.titre).toBe('T');
+    expect(e.motscles).toEqual(['flexion', 'elu']);
     expect(e.historique).toEqual(['2026-10-04 : creation']);
     expect(corps).toBe('Corps');
   });
@@ -85,6 +86,8 @@ describe('en-tete et exemples', () => {
   it('refuse un en-tete sans historique ni statut connu', () => {
     expect(() => lireEnTete(entete.replace(/historique:\n {2}- .*\n/, ''))).toThrow(/historique/);
     expect(() => lireEnTete(entete.replace('brouillon', 'final'))).toThrow(/statut/);
+    expect(() => lireEnTete(entete.replace('flexion, elu', 'flexion, beton'))).toThrow(/vocabulaire/);
+    expect(() => lireEnTete(entete.replace('motscles: flexion, elu\n', ''))).toThrow(/motscles/);
   });
 
   it('extrait les exemples et substitue les references', () => {

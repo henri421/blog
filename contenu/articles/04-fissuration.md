@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: L’espacement maximal devient un espacement moyen converti par un coefficient, l’enrobage pèse moins, et la courbure de la section augmente l’ouverture en surface.
+motscles: fissuration, els
 historique:
   - 2026-10-04 : première rédaction.
   - 2026-10-04 : vérification sur le texte ; k_w = 1,7 (9.2.3(2)) au lieu de 1,3, exemple recalculé ; limite liée à k_surf.

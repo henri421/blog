@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Le périmètre de contrôle se rapproche du poteau, la résistance s’exprime avec un facteur de gradient et la granulométrie, et la distance au moment nul ouvre un niveau plus fin.
+motscles: poinconnement, elu, dalle
 historique:
   - 2026-10-04 : première rédaction.
   - 2026-10-04 : vérification sur le texte ; ajout du niveau de résistance minimale (8.4.1(2)), condition a_p < 8 d_v, conditions de β_e.

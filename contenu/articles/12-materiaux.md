@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: La résistance de calcul en compression intègre la fragilité des bétons à haute résistance et la durée de chargement ; la résistance de calcul en traction est réduite ; le module d’élasticité change de formule.
+motscles: materiaux-beton
 historique:
   - 2026-10-04 : première rédaction.
 ---

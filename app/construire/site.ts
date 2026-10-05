@@ -10,7 +10,8 @@
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { MECANISMES } from '../../src/noyau/index';
-import { dateFr, datesFr, t } from '../../src/i18n/cle';
+import { dateFr, datesFr, t, type Cle } from '../../src/i18n/cle';
+import { MOTS_CLES, type MotCle } from '../../contenu/mots-cles';
 import { lireArticle, type Article } from './article';
 
 const URL_SUITE = 'https://henri421.github.io/WebAedificium/';
@@ -38,6 +39,17 @@ function tete(titre: string): string {
         <a class="barre-lien" href="${URL_SUITE}" target="_blank" rel="noopener">${echapper(t('site.suite'))} &#8599;</a>
       </div>
     </nav>`;
+}
+
+/** Libelle d un mot-cle ; la compilation verifie que chaque terme a sa cle. */
+export function libelleMotCle(m: MotCle): string {
+  const cle: Cle = `motcle.${m}`;
+  return t(cle);
+}
+
+function liensMotsCles(motscles: MotCle[]): string {
+  const liens = motscles.map((m) => `<a href="./mots-cles.html#${m}">${echapper(libelleMotCle(m))}</a>`).join(' · ');
+  return `<p class="mots-cles"><span>${echapper(t('article.mots-cles'))}</span> ${liens}</p>`;
 }
 
 function pied(): string {
@@ -92,6 +104,7 @@ export function pageArticle(a: Article): string {
       <p class="retour"><a href="./index.html">← ${echapper(t('site.retour'))}</a></p>
       <h1>${echapper(a.entete.titre)}</h1>
       ${enTeteStatut(a)}
+      ${liensMotsCles(a.entete.motscles)}
       ${a.html}
     </main>
     <script type="application/json" id="exemples">${exemples}</script>${pied()}`;
@@ -114,10 +127,27 @@ export function pageAccueil(articles: Article[]): string {
         <p class="sous-titre">${echapper(t('site.sous-titre'))}</p>
         ${publies ? '' : `<p class="avertissement">${echapper(t('site.chantier'))}</p>`}
       </header>
+      <p class="retour"><a href="./mots-cles.html">${echapper(t('site.index-mots-cles'))}</a></p>
       <h2>${echapper(t('site.articles'))}</h2>
       <ul class="cartes">
         ${cartes}
       </ul>
+    </main>${pied()}`;
+}
+
+/** Index par mot-cle, genere a la construction : chaque terme employe, ses articles. */
+export function pageMotsCles(articles: Article[]): string {
+  const sections = MOTS_CLES.map((m) => {
+    const liste = articles.filter((a) => a.entete.motscles.includes(m));
+    if (liste.length === 0) return '';
+    const items = liste.map((a) => `<li><a href="./${a.slug}.html">${echapper(a.entete.titre)}</a></li>`).join('');
+    return `<section id="${m}"><h2>${echapper(libelleMotCle(m))}</h2><ul>${items}</ul></section>`;
+  }).join('\n      ');
+  return `${tete(`${t('site.index-mots-cles')} — ${t('site.titre')}`)}
+    <main class="article">
+      <p class="retour"><a href="./index.html">← ${echapper(t('site.retour'))}</a></p>
+      <h1>${echapper(t('site.index-mots-cles'))}</h1>
+      ${sections}
     </main>${pied()}`;
 }
 
@@ -140,6 +170,7 @@ export function construireSite(racine: string): Record<string, string> {
     pages[nom] = chemin;
   };
   ecrire('index', pageAccueil(articles));
+  ecrire('mots-cles', pageMotsCles(articles));
   for (const a of articles) ecrire(a.slug, pageArticle(a));
   return pages;
 }

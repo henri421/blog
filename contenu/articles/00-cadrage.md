@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023. Article de cadrage, indépendant de toute expression ; 
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Calendrier, périmètre élargi, paramètres nationaux, et le principe des niveaux d’approximation qui structure les articles de ce site.
+motscles: calendrier, niveaux-approximation
 historique:
   - 2026-10-04 : première rédaction.
 ---

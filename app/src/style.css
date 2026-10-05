@@ -88,6 +88,8 @@ main, .pied { max-width: 50rem; margin: 0 auto; padding: 0 1rem; }
 
 /* ---- Article ---- */
 .retour { font-size: 0.9rem; margin: 1rem 0 0; }
+.mots-cles { font-size: 0.9rem; color: var(--texte-doux); }
+.mots-cles span { color: var(--texte-faible); margin-right: 0.4rem; }
 .article h1 { margin: 0.5rem 0 1rem; line-height: 1.2; }
 .article h2 { margin-top: 2.25rem; border-bottom: 1px solid var(--bordure-douce); padding-bottom: 0.25rem; }
 .statut {

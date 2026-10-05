@@ -3,11 +3,13 @@
  *
  * En-tete reconnu (une cle par ligne, `historique` en liste) :
  *   titre, ordre, statut (brouillon | publie), texte (texte de reference et
- *   etat d amendement), redige, revise, resume, historique.
+ *   etat d amendement), redige, revise, resume, motscles (separes par des
+ *   virgules), historique.
  */
 
 import { extraireExemples, substituer, type Exemple } from '../../src/contenu/exemples';
 import { markdownEnHtml } from './markdown';
+import { estMotCle, type MotCle } from '../../contenu/mots-cles';
 
 export interface EnTete {
   titre: string;
@@ -17,6 +19,8 @@ export interface EnTete {
   redige: string;
   revise: string;
   resume: string;
+  /** Mots-cles du vocabulaire controle (CDC v4 §4.2), au moins un. */
+  motscles: MotCle[];
   historique: string[];
 }
 
@@ -29,7 +33,7 @@ export interface Article {
   html: string;
 }
 
-const OBLIGATOIRES: Array<keyof EnTete> = ['titre', 'ordre', 'statut', 'texte', 'redige', 'revise', 'resume'];
+const OBLIGATOIRES: Array<keyof EnTete> = ['titre', 'ordre', 'statut', 'texte', 'redige', 'revise', 'resume', 'motscles'];
 
 export function lireEnTete(source: string): { entete: EnTete; corps: string } {
   const m = /^---\n([\s\S]*?)\n---\n/.exec(source.replace(/\r\n/g, '\n'));
@@ -63,6 +67,10 @@ export function lireEnTete(source: string): { entete: EnTete; corps: string } {
   }
   const statut = brut.statut as string;
   if (statut !== 'brouillon' && statut !== 'publie') throw new Error(`En-tete : statut « ${statut} » inconnu.`);
+  const motscles = (brut.motscles as string).split(',').map((m) => m.trim());
+  for (const m of motscles) {
+    if (!estMotCle(m)) throw new Error(`En-tete : mot-cle « ${m} » absent du vocabulaire controle (contenu/mots-cles.ts).`);
+  }
   const historique = Array.isArray(brut.historique) ? brut.historique : [];
   if (historique.length === 0) throw new Error('En-tete : l historique des revisions est obligatoire (CDC EE4).');
   return {
@@ -74,6 +82,7 @@ export function lireEnTete(source: string): { entete: EnTete; corps: string } {
       redige: brut.redige as string,
       revise: brut.revise as string,
       resume: brut.resume as string,
+      motscles: motscles as MotCle[],
       historique,
     },
     corps: source.replace(/\r\n/g, '\n').slice(m[0].length),

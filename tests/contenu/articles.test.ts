@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { fileURLToPath } from 'node:url';
-import { lireArticles, pageArticle, pageAccueil } from '../../app/construire/site';
+import { lireArticles, pageArticle, pageAccueil, pageMotsCles } from '../../app/construire/site';
 import { calculerMatrice } from '../../src/noyau/moteur/matrice';
 import { MECANISMES } from '../../src/noyau/index';
 import { ecarts } from '../../src/contenu/exemples';
@@ -36,6 +36,15 @@ describe('articles', () => {
       'elancement',
       'redistribution',
     ]);
+  });
+
+  it('test 13 : chaque article porte au moins un mot-cle et figure dans l index par mot-cle', () => {
+    const index = pageMotsCles(articles);
+    for (const a of articles) {
+      expect(a.entete.motscles.length, a.slug).toBeGreaterThan(0);
+      expect(index, a.slug).toContain(`href="./${a.slug}.html"`);
+      expect(pageArticle(a)).toContain(`mots-cles.html#${a.entete.motscles[0]}`);
+    }
   });
 
   for (const a of articles) {

@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Le seuil de dispense ne dépend plus de la résistance en traction du béton mais de l’armature transversale minimale en place, et les bielles de la table comprimée peuvent se coucher davantage.
+motscles: cisaillement, treillis, poutre, elu
 historique:
   - 2026-10-04 : première rédaction.
 ---

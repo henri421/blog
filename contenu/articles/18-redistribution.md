@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: La limite de redistribution ne dépend plus de deux coefficients calés pour le béton ordinaire mais de la déformation de l’acier au moment où le béton s’écrase ; pour les bétons à haute résistance, la règle devient nettement plus généreuse.
+motscles: analyse-structurale, ductilite, poutre, elu
 historique:
   - 2026-10-04 : première rédaction.
 ---

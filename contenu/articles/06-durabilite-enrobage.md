@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: L’enrobage ne se déduit plus d’une classe structurale fondée sur la résistance du béton, mais d’une classe de résistance à l’exposition qui mesure directement la tenue du béton à la carbonatation ou aux chlorures.
+motscles: enrobage, durabilite
 historique:
   - 2026-10-04 : première rédaction.
 ---

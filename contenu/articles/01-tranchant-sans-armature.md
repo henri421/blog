@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Une expression empirique cède la place à un modèle de fissure critique ; la granulométrie entre dans le calcul, et un plancher de résistance gouverne souvent les dalles courantes.
+motscles: effort-tranchant, elu, dalle, niveaux-approximation
 historique:
   - 2026-10-04 : première rédaction.
   - 2026-10-04 : vérification sur le texte ; le niveau 3 n’est permis que si a_cs < 4 d (8.2.2(3)), second exemple réécrit.

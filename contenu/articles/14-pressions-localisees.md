@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: La formule de diffusion reste la même, mais la surface de diffusion se construit autrement et la charge excentrée reçoit enfin une règle explicite.
+motscles: pression-localisee, elu
 historique:
   - 2026-10-04 : première rédaction.
 ---

@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: La formule d’élancement limite cède la place à un tableau à deux entrées, pourcentage mécanique d’armature et part de charge d’exploitation, nettement plus sévère pour les dalles faiblement armées de logement.
+motscles: fleche, els, dalle
 historique:
   - 2026-10-04 : première rédaction.
 ---

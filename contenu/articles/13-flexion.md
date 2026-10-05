@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Une seule loi parabole-rectangle pour tous les bétons, la fragilité des hautes résistances passant dans fcd ; pour une poutre courante, le moment résistant ne change presque pas.
+motscles: flexion, elu
 historique:
   - 2026-10-04 : première rédaction.
 ---

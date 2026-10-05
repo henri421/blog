@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: L’armature de non-fragilité découle désormais d’un principe, le moment résistant au moins égal au moment de fissuration, et le coefficient d’épaisseur de l’armature de fissuration se règle sur la plus petite dimension de la section.
+motscles: armatures-minimales, fissuration, dispositions-constructives
 historique:
   - 2026-10-04 : première rédaction.
 ---

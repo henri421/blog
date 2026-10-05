@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Un calcul simplifié sur section brute fait son entrée, et la méthode générale tient compte de la charge la plus forte déjà subie, ce qui augmente la flèche des éléments qui ont fissuré sous charge caractéristique.
+motscles: fleche, els, dalle
 historique:
   - 2026-10-04 : première rédaction.
 ---

@@ -6,6 +6,7 @@ texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendu
 redige: 2026-10-04
 revise: 2026-10-04
 resume: La part du béton n’est plus un forfait de 75 % mais dépend de la sollicitation, l’efficacité des armatures est réduite selon leur diamètre et l’ouverture de la fissure, et le plafond dépend du système d’armatures.
+motscles: poinconnement, elu, dalle
 historique:
   - 2026-10-04 : première rédaction.
 ---
