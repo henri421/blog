@@ -24,7 +24,7 @@ export function t(cle: Cle, dictionnaire: Dictionnaire = fr): string {
   return dictionnaire[cle];
 }
 
-const ISO = /(\d{4})-(\d{2})-(\d{2})/g;
+const ISO = /\b(\d{4})-(\d{2})-(\d{2})\b/g;
 
 /**
  * Date affichee au lecteur, au format europeen jour/mois/annee (CDC v4 ET7).

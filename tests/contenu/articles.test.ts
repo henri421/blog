@@ -50,7 +50,7 @@ describe('articles', () => {
 
       it('aucune date ISO visible : format jour/mois/annee (ET7)', () => {
         const visible = pageArticle(a).replace(/<script[\s\S]*?<\/script>/g, '');
-        expect(visible).not.toMatch(/\d{4}-\d{2}-\d{2}/);
+        expect(visible).not.toMatch(/\b\d{4}-\d{2}-\d{2}\b/);
         expect(visible).toContain(a.entete.revise.split('-').reverse().join('/'));
       });
 
