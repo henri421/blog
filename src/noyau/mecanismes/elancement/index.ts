@@ -157,6 +157,7 @@ const niveaux2004: DefinitionNiveau<EntreeElancement>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '7.4.2',
     hypothese: 'niveau.ld.2004.base',
     donneesRequises: [...communs, R.cloisons],
@@ -170,6 +171,7 @@ const niveaux2023: DefinitionNiveau<EntreeElancement>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '9.3.2',
     hypothese: 'niveau.ld.2023.base',
     donneesRequises: [...communs, R.gk, R.qk, R.lSurDLu, R.rapport],

@@ -116,6 +116,7 @@ const niveaux2004: DefinitionNiveau<EntreeTsa>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '6.2.2(1)',
     hypothese: 'niveau.tsa.2004.base',
     donneesRequises: [R.VEd, R.bw, R.d, R.Asl, R.fck],
@@ -219,6 +220,7 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
   {
     id: 'tau-min',
     ordre: 1,
+    position: 'corps',
     clause: '8.2.1(4)',
     hypothese: 'niveau.tsa.2023.tau-min',
     donneesRequises: communs,
@@ -229,6 +231,7 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
   {
     id: 'hauteur-utile',
     ordre: 2,
+    position: 'corps',
     clause: '8.2.2(1)',
     hypothese: 'niveau.tsa.2023.hauteur-utile',
     donneesRequises: [...communs, R.Asl],
@@ -239,6 +242,7 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
   {
     id: 'portee-mecanique',
     ordre: 3,
+    position: 'corps',
     clause: '8.2.2(3)',
     hypothese: 'niveau.tsa.2023.portee-mecanique',
     donneesRequises: [...communs, R.Asl, R.MEd],

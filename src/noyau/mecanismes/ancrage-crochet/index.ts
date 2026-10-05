@@ -144,6 +144,7 @@ function niveaux(gen: '2004' | '2023'): DefinitionNiveau<EntreeAncrageCrochet>[]
     {
       id: 'barre-plastifiee',
       ordre: 1,
+      position: 'corps',
       clause,
       hypothese: gen === '2004' ? 'niveau.cro.2004.barre-plastifiee' : 'niveau.cro.2023.barre-plastifiee',
       donneesRequises: communs,
@@ -154,6 +155,7 @@ function niveaux(gen: '2004' | '2023'): DefinitionNiveau<EntreeAncrageCrochet>[]
     {
       id: 'contrainte-reelle',
       ordre: 2,
+      position: 'corps',
       clause,
       hypothese: gen === '2004' ? 'niveau.cro.2004.contrainte-reelle' : 'niveau.cro.2023.contrainte-reelle',
       donneesRequises: [...communs, R.sigmaSd],

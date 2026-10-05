@@ -23,7 +23,12 @@ export type Statut =
   | { etat: 'calcule' }
   | { etat: 'non-applicable'; motif: Cle; donneesManquantes: Cle[] }
   | { etat: 'non-convergent'; iterations: number }
-  | { etat: 'hors-domaine'; motif: Cle };
+  | { etat: 'hors-domaine'; motif: Cle }
+  /** Resultat calcule et affiche, assorti d une mention d applicabilite (niveau hors du corps du texte). */
+  | { etat: 'reserve'; motif: Cle };
+
+/** Position du niveau dans la norme (CDC v4 §7.2). */
+export type PositionNormative = 'corps' | 'annexe-normative' | 'annexe-informative';
 
 export type Provenance = 'saisie' | 'calculee' | 'recommandee';
 
@@ -45,4 +50,9 @@ export interface Cellule {
   /** Renvois de clause uniquement, jamais le texte normatif (CDC EE1). */
   clauses: string[];
   iterations?: number;
+}
+
+/** Une cellule porte-t-elle un resultat chiffre ? Vrai pour `calcule` et `reserve`. */
+export function estChiffree(c: Pick<Cellule, 'statut'>): boolean {
+  return c.statut.etat === 'calcule' || c.statut.etat === 'reserve';
 }

@@ -233,6 +233,7 @@ const niveaux2004: DefinitionNiveau<EntreeInterface>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '6.2.5',
     hypothese: 'niveau.int.2004.base',
     donneesRequises: requises,
@@ -259,6 +260,7 @@ const niveaux2023: DefinitionNiveau<EntreeInterface>[] = [
   {
     id: 'armatures-ancrees',
     ordre: 1,
+    position: 'corps',
     clause: '8.2.6(5)',
     hypothese: 'niveau.int.2023.armatures-ancrees',
     donneesRequises: requises,
@@ -269,6 +271,7 @@ const niveaux2023: DefinitionNiveau<EntreeInterface>[] = [
   {
     id: 'ancrage-insuffisant',
     ordre: 2,
+    position: 'corps',
     clause: '8.2.6(7)',
     hypothese: 'niveau.int.2023.ancrage-insuffisant',
     donneesRequises: requises,

@@ -210,6 +210,7 @@ const niveaux2004: DefinitionNiveau<EntreePoinconnementArme>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '6.4.5',
     hypothese: 'niveau.pa.2004.base',
     donneesRequises: communs,
@@ -223,6 +224,7 @@ const niveaux2023: DefinitionNiveau<EntreePoinconnementArme>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '8.4.4',
     hypothese: 'niveau.pa.2023.base',
     donneesRequises: [...communs, R.Dlower, R.systeme],

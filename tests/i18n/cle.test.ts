@@ -21,7 +21,7 @@ describe('dictionnaire', () => {
   });
 
   it('un libelle de statut existe pour chaque etat', () => {
-    for (const etat of ['calcule', 'non-applicable', 'non-convergent', 'hors-domaine']) {
+    for (const etat of ['calcule', 'non-applicable', 'non-convergent', 'hors-domaine', 'reserve']) {
       expect(estCle(`statut.${etat}`), etat).toBe(true);
     }
   });

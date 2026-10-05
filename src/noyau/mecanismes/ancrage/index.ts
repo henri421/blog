@@ -198,6 +198,7 @@ function niveaux(gen: '2004' | '2023'): DefinitionNiveau<EntreeAncrage>[] {
     {
       id: 'barre-plastifiee',
       ordre: 1,
+      position: 'corps',
       clause,
       hypothese: gen === '2004' ? 'niveau.anc.2004.barre-plastifiee' : 'niveau.anc.2023.barre-plastifiee',
       donneesRequises: communs,
@@ -208,6 +209,7 @@ function niveaux(gen: '2004' | '2023'): DefinitionNiveau<EntreeAncrage>[] {
     {
       id: 'contrainte-reelle',
       ordre: 2,
+      position: 'corps',
       clause,
       hypothese: gen === '2004' ? 'niveau.anc.2004.contrainte-reelle' : 'niveau.anc.2023.contrainte-reelle',
       donneesRequises: [...communs, R.sigmaSd],

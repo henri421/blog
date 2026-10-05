@@ -226,6 +226,7 @@ const niveaux2004: DefinitionNiveau<EntreeFleche>[] = [
   {
     id: 'generale',
     ordre: 1,
+    position: 'corps',
     clause: '7.4.3',
     hypothese: 'niveau.fl.2004.generale',
     donneesRequises: requises,
@@ -239,6 +240,7 @@ const niveaux2023: DefinitionNiveau<EntreeFleche>[] = [
   {
     id: 'simplifiee',
     ordre: 1,
+    position: 'corps',
     clause: '9.3.3',
     hypothese: 'niveau.fl.2023.simplifiee',
     donneesRequises: requises,
@@ -249,6 +251,7 @@ const niveaux2023: DefinitionNiveau<EntreeFleche>[] = [
   {
     id: 'generale',
     ordre: 2,
+    position: 'corps',
     clause: '9.3.4',
     hypothese: 'niveau.fl.2023.generale',
     donneesRequises: requises,

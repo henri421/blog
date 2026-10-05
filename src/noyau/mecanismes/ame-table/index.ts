@@ -198,6 +198,7 @@ const niveaux2004: DefinitionNiveau<EntreeAmeTable>[] = [
   {
     id: 'seuil',
     ordre: 1,
+    position: 'corps',
     clause: '6.2.4(6)',
     hypothese: 'niveau.at.2004.seuil',
     donneesRequises: communs,
@@ -208,6 +209,7 @@ const niveaux2004: DefinitionNiveau<EntreeAmeTable>[] = [
   {
     id: 'treillis',
     ordre: 2,
+    position: 'corps',
     clause: '6.2.4(4)',
     hypothese: 'niveau.at.2004.treillis',
     donneesRequises: [...communs, R.fyk, R.asf],
@@ -221,6 +223,7 @@ const niveaux2023: DefinitionNiveau<EntreeAmeTable>[] = [
   {
     id: 'seuil',
     ordre: 1,
+    position: 'corps',
     clause: '8.2.5(2)',
     hypothese: 'niveau.at.2023.seuil',
     donneesRequises: [...communs, R.fyk, R.astMin],
@@ -231,6 +234,7 @@ const niveaux2023: DefinitionNiveau<EntreeAmeTable>[] = [
   {
     id: 'treillis',
     ordre: 2,
+    position: 'corps',
     clause: '8.2.5(4)',
     hypothese: 'niveau.at.2023.treillis',
     donneesRequises: [...communs, R.fyk, R.asf],

@@ -151,6 +151,7 @@ td.refus { color: var(--refus); font-weight: 600; }
 .legende-niveaux ol { margin: 0.2rem 0; padding-left: 1.4rem; }
 .ilot-detail:not(:empty) { border-top: 1px solid var(--bordure-douce); margin-top: 0.75rem; }
 .motif { color: var(--alerte); }
+.matrice small.reserve { color: var(--alerte); font-size: 0.85em; }
 .provenance-saisie { color: var(--texte); }
 .provenance-calculee { color: var(--texte-doux); }
 .provenance-recommandee { color: var(--compression); }

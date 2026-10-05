@@ -80,3 +80,34 @@ describe('rendu de l ilot', () => {
     expect(svg).not.toMatch(/NaN|undefined/);
   });
 });
+
+describe('niveau en reserve', () => {
+  it('la matrice affiche le resultat chiffre et la reserve en clair dans la cellule', () => {
+    const m = {
+      ...tsa,
+      niveaux: {
+        ...tsa.niveaux,
+        'ec2-2023': [
+          {
+            id: 'annexe',
+            ordre: 4,
+            position: 'annexe-informative' as const,
+            reserve: 'reserve.annexe-i' as const,
+            clause: 'I.8.3.1',
+            hypothese: 'niveau.tsa.2023.portee-mecanique' as const,
+            donneesRequises: [],
+            conditions: () => null,
+            calculer: () => ({ statut: { etat: 'calcule' as const }, sollicitation: 5, resistance: 20, intermediaires: {}, clauses: [] }),
+          },
+        ],
+      },
+    };
+    const matrice = calculerMatrice(m, dalle);
+    const i = matrice.cellules.findIndex((c) => c.niveau === 'annexe');
+    const html = rendreMatrice(m, matrice, null);
+    expect(html).toContain('Calculé, sous réserve');
+    expect(html).toContain('Annexe I, informative');
+    expect(html).toContain('0,250');
+    expect(rendreDetail(m, matrice.cellules[i])).toContain('class="motif reserve"');
+  });
+});

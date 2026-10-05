@@ -185,6 +185,7 @@ const niveaux2004: DefinitionNiveau<EntreeTorsion>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '6.3.2',
     hypothese: 'niveau.tor.2004.base',
     donneesRequises: requises,
@@ -198,6 +199,7 @@ const niveaux2023: DefinitionNiveau<EntreeTorsion>[] = [
   {
     id: 'cot-1',
     ordre: 1,
+    position: 'corps',
     clause: '8.3.4(3)',
     hypothese: 'niveau.tor.2023.cot-1',
     donneesRequises: requises,
@@ -208,6 +210,7 @@ const niveaux2023: DefinitionNiveau<EntreeTorsion>[] = [
   {
     id: 'cot-variable',
     ordre: 2,
+    position: 'corps',
     clause: '8.3.4(4)',
     hypothese: 'niveau.tor.2023.cot-variable',
     donneesRequises: requises,

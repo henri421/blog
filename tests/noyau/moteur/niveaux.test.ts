@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Mecanisme } from '../../../src/noyau/moteur/mecanisme';
 import { calculerMatrice, relire, rejouer, serialiser } from '../../../src/noyau/moteur/matrice';
+import { evaluerNiveau, type DefinitionNiveau } from '../../../src/noyau/moteur/niveaux';
 import { balayer } from '../../../src/noyau/moteur/balayer';
 import { maximiserSectionDoree } from '../../../src/noyau/moteur/grandeurs';
 import { MECANISMES } from '../../../src/noyau/index';
@@ -30,6 +31,7 @@ const fictif: Mecanisme<EntreeFictive> = {
       {
         id: 'unique',
         ordre: 1,
+        position: 'corps',
         clause: 'x',
         hypothese: 'niveau.tsa.2004.base',
         donneesRequises: [{ champ: 'a', libelle: 'champ.d' }],
@@ -41,6 +43,7 @@ const fictif: Mecanisme<EntreeFictive> = {
       {
         id: 'simple',
         ordre: 1,
+        position: 'corps',
         clause: 'x',
         hypothese: 'niveau.tsa.2023.tau-min',
         donneesRequises: [{ champ: 'a', libelle: 'champ.d' }],
@@ -50,6 +53,7 @@ const fictif: Mecanisme<EntreeFictive> = {
       {
         id: 'avec-b',
         ordre: 2,
+        position: 'corps',
         clause: 'x',
         hypothese: 'niveau.tsa.2023.hauteur-utile',
         donneesRequises: [
@@ -63,6 +67,7 @@ const fictif: Mecanisme<EntreeFictive> = {
         // Plus precis, moins favorable : doit etre rendu tel quel.
         id: 'precis',
         ordre: 3,
+        position: 'corps',
         clause: 'x',
         hypothese: 'niveau.tsa.2023.portee-mecanique',
         donneesRequises: [{ champ: 'a', libelle: 'champ.d' }],
@@ -73,6 +78,7 @@ const fictif: Mecanisme<EntreeFictive> = {
       {
         id: 'iteratif',
         ordre: 4,
+        position: 'corps',
         clause: 'x',
         hypothese: 'niveau.taa.2023.nu-variable',
         donneesRequises: [],
@@ -219,5 +225,43 @@ describe('cles', () => {
         }
       }
     }
+  });
+});
+
+// Tests 10 et 11 du cahier des charges v4 : niveaux hors du corps du texte.
+describe('position normative et reserve', () => {
+  const annexe: DefinitionNiveau<EntreeFictive> = {
+    id: 'annexe',
+    ordre: 5,
+    position: 'annexe-informative',
+    reserve: 'reserve.annexe-i',
+    clause: 'I.8.3.1',
+    hypothese: 'niveau.tsa.2023.portee-mecanique',
+    donneesRequises: [{ champ: 'a', libelle: 'champ.d' }],
+    conditions: () => null,
+    calculer: () => ({ statut: { etat: 'calcule' }, sollicitation: 5, resistance: 20, intermediaires: {}, clauses: [] }),
+  };
+
+  it('test 10 : tout niveau hors du corps du texte declare une reserve, cle du dictionnaire', () => {
+    for (const m of Object.values(MECANISMES)) {
+      for (const defs of Object.values(m.niveaux)) {
+        for (const d of defs) {
+          if (d.position === 'corps') continue;
+          expect(d.reserve, `${m.id}/${d.id}`).toBeDefined();
+          expect(estCle(d.reserve as string), `${m.id}/${d.id}`).toBe(true);
+        }
+      }
+    }
+    const sansReserve = { ...annexe, reserve: undefined };
+    expect(() => evaluerNiveau('ec2-2023', sansReserve, { a: 1 })).toThrow(/reserve/);
+  });
+
+  it('test 11 : un niveau en reserve est chiffre, porte sa mention, et n est pas non applicable', () => {
+    const c = evaluerNiveau('ec2-2023', annexe, { a: 1 });
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.annexe-i' });
+    expect(c.resistance).toBe(20);
+    expect(c.taux).toBe(0.25);
+    // Donnee manquante : la non-applicabilite prime, la reserve ne la masque pas.
+    expect(evaluerNiveau('ec2-2023', annexe, {}).statut.etat).toBe('non-applicable');
   });
 });

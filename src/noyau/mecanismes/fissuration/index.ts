@@ -193,6 +193,7 @@ const niveaux2004: DefinitionNiveau<EntreeFissuration>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '7.3.4',
     hypothese: 'niveau.fiss.2004.base',
     donneesRequises: requises,
@@ -206,6 +207,7 @@ const niveaux2023: DefinitionNiveau<EntreeFissuration>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '9.2.3',
     hypothese: 'niveau.fiss.2023.base',
     donneesRequises: requises,

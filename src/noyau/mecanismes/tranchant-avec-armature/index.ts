@@ -223,6 +223,7 @@ const niveaux2004: DefinitionNiveau<EntreeTaa>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '6.2.3',
     hypothese: 'niveau.taa.2004.base',
     donneesRequises: communs,
@@ -236,6 +237,7 @@ const niveaux2023: DefinitionNiveau<EntreeTaa>[] = [
   {
     id: 'nu-constant',
     ordre: 1,
+    position: 'corps',
     clause: '8.2.3',
     hypothese: 'niveau.taa.2023.nu-constant',
     donneesRequises: communs,
@@ -246,6 +248,7 @@ const niveaux2023: DefinitionNiveau<EntreeTaa>[] = [
   {
     id: 'nu-variable',
     ordre: 2,
+    position: 'corps',
     clause: '8.2.3',
     hypothese: 'niveau.taa.2023.nu-variable',
     donneesRequises: [...communs, R.MEd, R.Ast],

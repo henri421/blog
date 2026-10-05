@@ -8,6 +8,7 @@
  */
 
 import type { Generation, Niveau, Statut } from '../model/resultat';
+import { estChiffree } from '../model/resultat';
 import type { Mecanisme } from './mecanisme';
 import { calculerMatrice } from './matrice';
 
@@ -52,7 +53,7 @@ export function balayer<E>(m: Mecanisme<E>, e: E, champ: keyof E & string, valeu
         s = { generation: c.generation, niveau: c.niveau, resistance: [], taux: [], etats: [] };
         series.set(cle, s);
       }
-      const calcule = c.statut.etat === 'calcule';
+      const calcule = estChiffree(c);
       s.resistance.push(calcule && c.resistance !== undefined ? c.resistance : null);
       s.taux.push(calcule && c.taux !== undefined ? c.taux : null);
       s.etats.push(c.statut.etat);

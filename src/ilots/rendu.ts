@@ -10,6 +10,7 @@
 import { echapper } from 'aedificium-ui';
 import { t } from '../i18n/cle';
 import type { Cellule, Generation } from '../noyau/model/resultat';
+import { estChiffree } from '../noyau/model/resultat';
 import type { Mecanisme } from '../noyau/moteur/mecanisme';
 import type { Matrice } from '../noyau/moteur/matrice';
 import { nombreFr, tauxFr } from '../contenu/format';
@@ -65,16 +66,22 @@ function libelleStatut(c: Cellule): string {
   return t(`statut.${c.statut.etat}`);
 }
 
+/** Statut affiche dans la matrice ; une reserve y figure en clair, pas en note. */
+function statutHtml(c: Cellule): string {
+  const libelle = echapper(libelleStatut(c));
+  return c.statut.etat === 'reserve' ? `${libelle}<br><small class="reserve">${echapper(t(c.statut.motif))}</small>` : libelle;
+}
+
 export function rendreMatrice(m: Mecanisme<Entree>, matrice: Matrice, choisie: number | null): string {
   const lignes = matrice.cellules
     .map((c, i) => {
       const def = definition(m, c);
-      const calcule = c.statut.etat === 'calcule';
+      const calcule = estChiffree(c);
       const classeTaux = calcule && c.taux !== undefined ? (c.taux <= 1 ? 'ok' : 'refus') : '';
       return `<tr class="cellule etat-${c.statut.etat}${choisie === i ? ' choisie' : ''}" data-index="${i}" tabindex="0">
         <td>${echapper(t(`generation-courte.${c.generation}`))}</td>
         <td title="${echapper(def ? t(def.hypothese) : c.niveau)}">${def ? def.ordre : echapper(c.niveau)}</td>
-        <td>${echapper(libelleStatut(c))}</td>
+        <td>${statutHtml(c)}</td>
         <td class="nombre">${calcule ? valeurFr(c.sollicitation) : '—'}</td>
         <td class="nombre">${calcule ? valeurFr(c.resistance) : '—'}</td>
         <td class="nombre ${classeTaux}">${calcule && c.taux !== undefined ? tauxFr(c.taux) : '—'}</td>
@@ -118,6 +125,7 @@ export function rendreDetail(m: Mecanisme<Entree>, c: Cellule): string {
     }`;
   }
   if (c.statut.etat === 'hors-domaine') return `${entete}<p class="motif">${echapper(t(c.statut.motif))}</p>`;
+  const reserve = c.statut.etat === 'reserve' ? `<p class="motif reserve">${echapper(t(c.statut.motif))}</p>` : '';
   const iterations =
     c.iterations !== undefined ? `<p><strong>${echapper(t('statut.iterations'))}</strong> : ${c.iterations}</p>` : '';
   const lignes = Object.entries(c.intermediaires)
@@ -126,7 +134,7 @@ export function rendreDetail(m: Mecanisme<Entree>, c: Cellule): string {
         `<tr><td><var>${symboleHtml(sym)}</var></td><td class="nombre">${valeurFr(g.valeur)}</td><td>${echapper(g.unite)}</td><td class="provenance-${g.provenance}">${echapper(t(`provenance.${g.provenance}`))}</td></tr>`,
     )
     .join('');
-  return `${entete}${iterations}${
+  return `${entete}${reserve}${iterations}${
     c.statut.etat === 'non-convergent' ? `<p class="motif">${echapper(t('statut.non-convergent'))}</p>` : ''
   }<div class="table-defile"><table class="intermediaires"><thead><tr><th>${echapper(t('ilot.grandeur'))}</th><th class="nombre">${echapper(
     t('ilot.valeur'),

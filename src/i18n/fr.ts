@@ -42,6 +42,9 @@ export const fr = {
   'statut.non-applicable': 'Niveau non applicable',
   'statut.non-convergent': 'Calcul non convergent',
   'statut.hors-domaine': 'Hors du domaine de validité',
+  'statut.reserve': 'Calculé, sous réserve',
+  'reserve.annexe-i':
+    'Annexe I, informative, prévue pour l’évaluation des structures existantes : son emploi dépend de l’annexe nationale, non publiée ; γdef = 1,33 recommandé.',
   'statut.donnees-manquantes': 'Données manquantes',
   'statut.iterations': 'Itérations',
 

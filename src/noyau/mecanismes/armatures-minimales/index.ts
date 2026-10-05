@@ -188,7 +188,7 @@ function niveau(
   hypothese: Cle,
   f: (e: Complete) => Calcul,
 ): DefinitionNiveau<EntreeArmaturesMinimales> {
-  return { id, ordre, clause, hypothese, donneesRequises: requises, domaine, conditions: () => null, calculer: (e) => f(e as Complete) };
+  return { id, ordre, position: 'corps', clause, hypothese, donneesRequises: requises, domaine, conditions: () => null, calculer: (e) => f(e as Complete) };
 }
 
 const champs: Mecanisme<EntreeArmaturesMinimales>['champs'] = [

@@ -137,6 +137,7 @@ const niveaux2004: DefinitionNiveau<EntreePressionLocalisee>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '6.7',
     hypothese: 'niveau.pl.2004.base',
     donneesRequises: requises,
@@ -150,6 +151,7 @@ const niveaux2023: DefinitionNiveau<EntreePressionLocalisee>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '8.6',
     hypothese: 'niveau.pl.2023.base',
     donneesRequises: requises,

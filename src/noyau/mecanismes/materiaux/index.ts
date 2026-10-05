@@ -92,6 +92,7 @@ const niveaux2004: DefinitionNiveau<EntreeMateriaux>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '3.1.6',
     hypothese: 'niveau.mat.2004.base',
     donneesRequises: [R.fck],
@@ -105,6 +106,7 @@ const niveaux2023: DefinitionNiveau<EntreeMateriaux>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '5.1.6',
     hypothese: 'niveau.mat.2023.base',
     donneesRequises: [R.fck, R.chargeTardive],

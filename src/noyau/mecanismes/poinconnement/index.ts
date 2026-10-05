@@ -256,6 +256,7 @@ const niveaux2004: DefinitionNiveau<EntreePoinconnement>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '6.4.4',
     hypothese: 'niveau.poin.2004.base',
     donneesRequises: communs,
@@ -269,6 +270,7 @@ const niveaux2023: DefinitionNiveau<EntreePoinconnement>[] = [
   {
     id: 'tau-min',
     ordre: 1,
+    position: 'corps',
     clause: '8.4.1(2)',
     hypothese: 'niveau.poin.2023.tau-min',
     donneesRequises: [R.VEd, R.c1, R.c2, R.dx, R.dy, R.fck, R.fyk, R.Dlower],
@@ -279,6 +281,7 @@ const niveaux2023: DefinitionNiveau<EntreePoinconnement>[] = [
   {
     id: 'hauteur-utile',
     ordre: 2,
+    position: 'corps',
     clause: '8.4.3(1)',
     hypothese: 'niveau.poin.2023.hauteur-utile',
     donneesRequises: [...communs, R.Dlower],
@@ -289,6 +292,7 @@ const niveaux2023: DefinitionNiveau<EntreePoinconnement>[] = [
   {
     id: 'moment-nul',
     ordre: 3,
+    position: 'corps',
     clause: '8.4.3(2)',
     hypothese: 'niveau.poin.2023.moment-nul',
     donneesRequises: [...communs, R.Dlower, R.apx, R.apy],

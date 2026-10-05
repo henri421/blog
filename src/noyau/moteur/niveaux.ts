@@ -8,12 +8,17 @@
  */
 
 import type { Cle } from '../../i18n/cle';
-import type { Cellule, Generation, Niveau } from '../model/resultat';
+import { estChiffree } from '../model/resultat';
+import type { Cellule, Generation, Niveau, PositionNormative } from '../model/resultat';
 
 export interface DefinitionNiveau<E> {
   id: Niveau;
   ordre: number;
   clause: string;
+  /** Position dans la norme : corps du texte ou annexe, normative ou informative. */
+  position: PositionNormative;
+  /** Cle de la reserve d applicabilite, requise hors du corps du texte (CDC v4 §7.1). */
+  reserve?: Cle;
   /** Resume de l hypothese du niveau. */
   hypothese: Cle;
   /** Donnees sans lesquelles le niveau est non applicable, chacune nommee. */
@@ -55,8 +60,13 @@ export function evaluerNiveau<E>(generation: Generation, def: DefinitionNiveau<E
   }
   const r = def.calculer(e);
   const cellule: Cellule = { generation, niveau: def.id, ...r };
+  // Hors du corps du texte, le resultat reste chiffre et porte sa reserve.
+  if (cellule.statut.etat === 'calcule' && def.position !== 'corps') {
+    if (def.reserve === undefined) throw new Error(`Niveau ${def.id} hors du corps du texte sans reserve declaree.`);
+    cellule.statut = { etat: 'reserve', motif: def.reserve };
+  }
   if (
-    cellule.statut.etat === 'calcule' &&
+    estChiffree(cellule) &&
     cellule.taux === undefined &&
     cellule.sollicitation !== undefined &&
     cellule.resistance !== undefined &&

@@ -201,6 +201,7 @@ const niveaux2004: DefinitionNiveau<EntreeFlexion>[] = [
   {
     id: 'rectangle',
     ordre: 1,
+    position: 'corps',
     clause: '3.1.7(3)',
     hypothese: 'niveau.flx.2004.rectangle',
     donneesRequises: communs,
@@ -211,6 +212,7 @@ const niveaux2004: DefinitionNiveau<EntreeFlexion>[] = [
   {
     id: 'parabole',
     ordre: 2,
+    position: 'corps',
     clause: '3.1.7(1)',
     hypothese: 'niveau.flx.2004.parabole',
     donneesRequises: communs,
@@ -224,6 +226,7 @@ const niveaux2023: DefinitionNiveau<EntreeFlexion>[] = [
   {
     id: 'parabole',
     ordre: 1,
+    position: 'corps',
     clause: '8.1.2(1)',
     hypothese: 'niveau.flx.2023.parabole',
     donneesRequises: [...communs, R.chargeTardive],

@@ -150,6 +150,7 @@ const niveaux2004: DefinitionNiveau<EntreeEnrobage>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '4.4.1',
     hypothese: 'niveau.enr.2004.base',
     donneesRequises: [...communs, R.cminDur2004],
@@ -162,6 +163,7 @@ const niveaux2023: DefinitionNiveau<EntreeEnrobage>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '6.5',
     hypothese: 'niveau.enr.2023.base',
     donneesRequises: [...communs, R.cminDur2023, R.duree30, R.compacite, R.contactSol],

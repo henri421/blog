@@ -158,6 +158,7 @@ const niveaux2004: DefinitionNiveau<EntreeRedistribution>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '5.5(4)',
     hypothese: 'niveau.red.2004.base',
     donneesRequises: requises,
@@ -171,6 +172,7 @@ const niveaux2023: DefinitionNiveau<EntreeRedistribution>[] = [
   {
     id: 'base',
     ordre: 1,
+    position: 'corps',
     clause: '7.3.2(3)',
     hypothese: 'niveau.red.2023.base',
     donneesRequises: requises,
