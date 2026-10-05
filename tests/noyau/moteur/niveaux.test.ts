@@ -220,7 +220,8 @@ describe('cles', () => {
         expect(c.statut.etat).toBe('non-applicable');
         if (c.statut.etat === 'non-applicable') {
           expect(estCle(c.statut.motif)).toBe(true);
-          expect(c.statut.donneesManquantes.length).toBeGreaterThan(0);
+          // Seule exception : un niveau sans equivalent, non applicable par motif.
+          if (c.statut.motif !== 'motif.sans-equivalent-2004') expect(c.statut.donneesManquantes.length).toBeGreaterThan(0);
           for (const d of c.statut.donneesManquantes) expect(estCle(d)).toBe(true);
         }
       }

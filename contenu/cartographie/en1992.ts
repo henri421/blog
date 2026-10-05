@@ -125,7 +125,12 @@ export const EN1992: Carte = {
         c('8.2.1', 'Effort tranchant : procédure générale', ['6.2.1'], {
           article: 'tranchant-sans-armature',
           ingeree: true,
-          niveaux: [n(G2, 'tranchant-sans-armature', 'tau-min', '8.2.1(4)')],
+          niveaux: [
+            n(G2, 'tranchant-sans-armature', 'tau-min', '8.2.1(4)'),
+            n(G1, 'tranchant-dalle-bidirectionnelle', 'sans-equivalent', '6.2.2'),
+            n(G2, 'tranchant-dalle-bidirectionnelle', 'paliers', '8.2.1(5)'),
+            n(G2, 'tranchant-dalle-bidirectionnelle', 'angle', '(8.25)'),
+          ],
         }),
         c('8.2.2', 'Éléments sans armature d’effort tranchant', ['6.2.2'], {
           article: 'tranchant-sans-armature',
@@ -143,7 +148,7 @@ export const EN1992: Carte = {
             n(G2, 'tranchant-sans-armature', 'annexe-i-kvd', 'I.8.3.1(3)', 'annexe-informative'),
           ],
           reserves:
-            'Précontrainte (8.36), (8.37) et dalles portant dans deux directions (8.38) à (8.40) non codées ; lecture de d/(3 a_cs) dans (8.31) et application de k_vd avec plancher τ_Rdc,min, à confirmer.',
+            'Précontrainte (8.36), (8.37), réduction ΔV_Ed des charges réparties 8.2.2(8) et charges près des appuis 8.2.2(9) non codées ; lecture de d/(3 a_cs) dans (8.31) et application de k_vd avec plancher τ_Rdc,min, à confirmer.',
         }),
         c('8.2.3', 'Éléments avec armatures d’effort tranchant', ['6.2.3'], {
           article: 'tranchant-avec-armature',

@@ -122,6 +122,7 @@ export const fr = {
   'motif.d-inf-500': 'Hauteur utile d’au plus 500 mm : le coefficient kvd ne s’applique pas (I.8.3.1(3)).',
   'motif.ned-pas-compression': 'Effort normal nul ou de traction : la variante (8.32) ne vaut qu’en compression.',
   'motif.annexe-i-effort-normal': 'Effort normal saisi : l’outil ne calcule la déformation εv que sous le moment seul.',
+  'motif.sans-equivalent-2004': 'La première génération ne donne pas de règle équivalente.',
   'motif.med-sup-mrd': 'Le moment de calcul dépasse la capacité de la section : la déformation εv n’est pas définie.',
   'motif.hauteur-bloc': 'Hauteur du bloc inférieure à a1 : la diffusion n’est pas assurée (8.6(2)).',
   'motif.portees-adjacentes': 'Rapport des portées adjacentes hors de 0,5 à 2 : redistribution sans vérification de la capacité de rotation non admise (5.5(4) ; 7.3.2(3)).',
@@ -133,6 +134,7 @@ export const fr = {
 
   // ---- Mecanismes ----
   'meca.tsa.titre': 'Effort tranchant sans armature d’âme',
+  'meca.tdb.titre': 'Effort tranchant des dalles portant dans deux directions',
   'meca.taa.titre': 'Effort tranchant avec armatures d’âme',
   'meca.poin.titre': 'Poinçonnement sur poteau intérieur',
   'meca.fiss.titre': 'Ouverture de fissure',
@@ -154,6 +156,8 @@ export const fr = {
 
   // ---- Grandeurs comparees ----
   'grandeur.effort-tranchant': 'Effort tranchant de calcul',
+  'grandeur.effort-tranchant-lineique': 'Effort tranchant principal par unité de longueur',
+  'grandeur.resistance-tranchant-lineique': 'Résistance à l’effort tranchant par unité de longueur',
   'grandeur.resistance-tranchant': 'Résistance à l’effort tranchant',
   'grandeur.reaction-poteau': 'Réaction transmise par le poteau',
   'grandeur.resistance-poinconnement': 'Résistance au poinçonnement',
@@ -195,6 +199,10 @@ export const fr = {
   'champ.ep': 'Excentricité de l’effort de compression (positive vers la face tendue)',
   'champ.d': 'Hauteur utile',
   'champ.dx': 'Hauteur utile, nappe x',
+  'champ.vx': 'Effort tranchant par unité de longueur, direction x',
+  'champ.vy': 'Effort tranchant par unité de longueur, direction y',
+  'champ.Asx-tendue': 'Armatures tendues, direction x',
+  'champ.Asy-tendue': 'Armatures tendues, direction y',
   'champ.dy': 'Hauteur utile, nappe y',
   'champ.Asl': 'Armatures longitudinales tendues ancrées',
   'champ.Ast': 'Armatures de la membrure tendue',
@@ -319,6 +327,9 @@ export const fr = {
   'option.abrasion.XM3': 'XM3, extrême',
 
   // ---- Hypotheses des niveaux ----
+  'niveau.tdb.2004.sans-equivalent': 'Pas de règle pour la combinaison des deux directions : vérification direction par direction.',
+  'niveau.tdb.2023.paliers': 'd et ρl par paliers selon vEd,y/vEd,x ((8.22) à (8.24), (8.38) à (8.40)).',
+  'niveau.tdb.2023.angle': 'd = dx cos²αv + dy sin²αv (8.25), ρl par paliers (8.38) à (8.40).',
   'niveau.tsa.2004.base': 'Expression empirique en (100 ρl fck)^1/3, effet d’échelle par k, minimum vmin.',
   'niveau.tsa.2004.effort-normal': 'Expression (6.2) avec le terme k1 σcp de l’effort normal, k1 = 0,15, σcp ≤ 0,2 fcd.',
   'niveau.tsa.2023.tau-min':

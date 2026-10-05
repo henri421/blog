@@ -23,6 +23,7 @@ import { poinconnementArme } from './mecanismes/poinconnement-arme/index';
 import { torsion } from './mecanismes/torsion/index';
 import { tranchantAvecArmature } from './mecanismes/tranchant-avec-armature/index';
 import { tranchantSansArmature } from './mecanismes/tranchant-sans-armature/index';
+import { tranchantDalleBidirectionnelle } from './mecanismes/tranchant-dalle-bidirectionnelle/index';
 
 export type { Cellule, Generation, Grandeur, Niveau, Provenance, Statut } from './model/resultat';
 export type { DefinitionNiveau } from './moteur/niveaux';
@@ -31,7 +32,7 @@ export type { Champ, Mecanisme } from './moteur/mecanisme';
 export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
-export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantSansArmature };
+export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
  * Registre des mecanismes, indexe par identifiant (montage des ilots). Le
@@ -39,6 +40,7 @@ export { ameTable, ancrage, ancrageCrochet, cisaillementInterface, elancement, e
  */
 export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [tranchantSansArmature.id]: tranchantSansArmature as unknown as Mecanisme<Record<string, unknown>>,
+  [tranchantDalleBidirectionnelle.id]: tranchantDalleBidirectionnelle as unknown as Mecanisme<Record<string, unknown>>,
   [tranchantAvecArmature.id]: tranchantAvecArmature as unknown as Mecanisme<Record<string, unknown>>,
   [poinconnement.id]: poinconnement as unknown as Mecanisme<Record<string, unknown>>,
   [poinconnementArme.id]: poinconnementArme as unknown as Mecanisme<Record<string, unknown>>,

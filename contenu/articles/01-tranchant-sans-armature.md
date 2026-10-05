@@ -13,6 +13,7 @@ historique:
   - 2026-10-05 : quatrième niveau (annexe I.8.3.1) ajouté avec sa réserve ; moment du second exemple ramené à 800 kN·m/m, l’ancienne valeur dépassant la capacité en flexion de la section.
   - 2026-10-05 : cinquième niveau (coefficient k_vd, annexe I.8.3.1(3)) et troisième exemple, poutre existante de grande hauteur.
   - 2026-10-05 : effort normal (6.2.2(1) ; 8.2.2(4) et (5)), exemple de poutre comprimée.
+  - 2026-10-05 : dalles portant dans deux directions (8.2.1(5), 8.2.2(7)).
 ---
 
 ## Ce qui change
@@ -229,6 +230,41 @@ Poutre de 300 × 500 mm, C30/37, granulats 0/16, 3 HA25 tendus ($A_{sl}$ = 1473 
 La compression double la résistance dans les deux générations. En 2023, les deux voies ne donnent pas le même résultat : avec $k_{vp}$ = {{poutre-comprimee:ec2-2023/kvp.k_vp}}, la première voie relève la résistance de moitié environ, et la variante (8.32) rend la résistance la plus élevée ({{poutre-comprimee:ec2-2023/compression.resistance}} kN, taux de travail {{poutre-comprimee:ec2-2023/compression.taux}}), voisine de celle de 2004 (taux {{poutre-comprimee:ec2-2004/effort-normal.taux}}). Le calculateur affiche toutes les voies ; le choix appartient à l’ingénieur.
 
 {{calculateur:poutre-comprimee}}
+
+## Dalles portant dans deux directions
+
+Quand une dalle reçoit des efforts tranchants $v_{Ed,x}$ et $v_{Ed,y}$ dans deux directions, la deuxième génération les combine en un effort principal $v_{Ed} = \sqrt{v_{Ed,x}^2 + v_{Ed,y}^2}$ (8.21), d’angle $\alpha_v = \arctan(v_{Ed,y}/v_{Ed,x})$ (8.26). La hauteur utile et le pourcentage d’armature dépendent du rapport $v_{Ed,y}/v_{Ed,x}$ :
+
+- jusqu’à 0,5, on prend la direction $x$ seule ; à partir de 2, la direction $y$ seule ;
+- entre les deux, $d = 0.5\,(d_x + d_y)$ (8.23) et $\rho_l = \rho_{l,x}\cos^4\alpha_v + \rho_{l,y}\sin^4\alpha_v$ (8.39).
+
+En variante, $d = d_x\cos^2\alpha_v + d_y\sin^2\alpha_v$ (8.25) sur tout le domaine : c’est le second niveau du calculateur. La première génération ne donne pas de règle pour combiner les deux directions ; sa cellule est rendue non applicable avec ce motif.
+
+Exemple : dalle de 22 cm près d’un angle d’appui, $v_{Ed,x}$ = 80 kN/m et $v_{Ed,y}$ = 60 kN/m, $d_x$ = 190 mm et $d_y$ = 178 mm, HA12 tous les 15 cm en $x$ (754 mm²/m) et tous les 20 cm en $y$ (565 mm²/m), C30/37, granulats 0/16.
+
+```exemple
+{
+  "nom": "dalle-bidirectionnelle",
+  "mecanisme": "tranchant-dalle-bidirectionnelle",
+  "entree": { "vx": 80, "vy": 60, "dx": 190, "dy": 178, "Asx": 754, "Asy": 565, "fck": 30, "fyk": 500, "Dlower": 16 },
+  "attendus": {
+    "ec2-2023/paliers.sollicitation": "100,0",
+    "ec2-2023/paliers.α_v": "36,9",
+    "ec2-2023/paliers.ρ_l": "0,00204",
+    "ec2-2023/paliers.d": "184,0",
+    "ec2-2023/paliers.τ_Rdc,min": "0,861",
+    "ec2-2023/paliers.τ_Rd,c (8.27)": "0,481",
+    "ec2-2023/paliers.resistance": "142,53",
+    "ec2-2023/paliers.taux": "0,701",
+    "ec2-2023/angle.d": "185,7",
+    "ec2-2023/angle.resistance": "143,18"
+  }
+}
+```
+
+L’effort principal vaut {{dalle-bidirectionnelle:ec2-2023/paliers.sollicitation}} kN/m, incliné de {{dalle-bidirectionnelle:ec2-2023/paliers.α_v}}° sur l’axe $x$ ; $\rho_l$ = {{dalle-bidirectionnelle:ec2-2023/paliers.ρ_l}} et $d$ = {{dalle-bidirectionnelle:ec2-2023/paliers.d}} mm (paliers) ou {{dalle-bidirectionnelle:ec2-2023/angle.d}} mm (variante). La formule (8.27) donne {{dalle-bidirectionnelle:ec2-2023/paliers.τ_Rd,c (8.27)}} MPa, sous le plancher {{dalle-bidirectionnelle:ec2-2023/paliers.τ_Rdc,min}} MPa qui gouverne : {{dalle-bidirectionnelle:ec2-2023/paliers.resistance}} kN/m (taux de travail {{dalle-bidirectionnelle:ec2-2023/paliers.taux}}), à peine plus avec la variante ({{dalle-bidirectionnelle:ec2-2023/angle.resistance}} kN/m).
+
+{{calculateur:dalle-bidirectionnelle}}
 
 ## Troisième exemple : poutre existante de grande hauteur
 

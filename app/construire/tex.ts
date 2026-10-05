@@ -26,7 +26,7 @@ const OPERATEURS: Record<string, string> = {
   pm: '±', to: '→', infty: '∞', lt: '<', gt: '>', ldots: '…', quad: ' ', qquad: '  ', in: '∈',
 };
 
-const FONCTIONS = new Set(['min', 'max', 'ln', 'log', 'cot', 'tan', 'sin', 'cos', 'exp', 'sqrt']);
+const FONCTIONS = new Set(['min', 'max', 'ln', 'log', 'cot', 'tan', 'sin', 'cos', 'arctan', 'exp', 'sqrt']);
 
 const ESPACES: Record<string, string> = { ',': '0.17em', ';': '0.28em', ' ': '0.25em' };
 
