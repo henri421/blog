@@ -39,6 +39,7 @@ describe('articles', () => {
       'second-ordre',
       'bielles-tirants',
       'contraintes-service',
+      'chainages',
     ]);
   });
 

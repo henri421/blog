@@ -14,6 +14,7 @@ export const MOTS_CLES = [
   'analyse-structurale',
   'ductilite',
   'stabilite',
+  'robustesse',
   'elu',
   'els',
   'flexion',

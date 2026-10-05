@@ -38,6 +38,7 @@ export const fr = {
   'motcle.analyse-structurale': 'Analyse structurale',
   'motcle.ductilite': 'Ductilité',
   'motcle.stabilite': 'Stabilité et imperfections',
+  'motcle.robustesse': 'Robustesse et chaînages',
   'motcle.elu': 'État limite ultime',
   'motcle.els': 'État limite de service',
   'motcle.flexion': 'Flexion',
@@ -102,6 +103,8 @@ export const fr = {
   'statut.reserve': 'Calculé, sous réserve',
   'reserve.annexe-p':
     'Annexe P, informative : autre approche de l’enrobage sans classe de résistance à l’exposition ; son emploi dépend de l’annexe nationale, non publiée.',
+  'reserve.en1991-1-7-a':
+    'EN 1991-1-7, annexe A, informative : efforts des chaînages ; son emploi dépend de l’annexe nationale, non publiée.',
   'reserve.annexe-o':
     'Annexe O, informative : méthodes simplifiées du second ordre ; son emploi dépend de l’annexe nationale, non publiée.',
   'reserve.annexe-i':
@@ -151,6 +154,7 @@ export const fr = {
   // ---- Mecanismes ----
   'meca.tsa.titre': 'Effort tranchant sans armature d’âme',
   'meca.imp.titre': 'Imperfections géométriques',
+  'meca.ch.titre': 'Chaînages de robustesse',
   'meca.els.titre': 'Limitation des contraintes en service',
   'meca.atm.titre': 'Armatures minimales d’effort tranchant',
   'meca.bt.titre': 'Bielles et nœuds des modèles à bielles et tirants',
@@ -205,6 +209,7 @@ export const fr = {
   'grandeur.moment-resistant': 'Moment résistant',
   'grandeur.sans-objet': 'Sans objet',
   'grandeur.inclinaison': 'Inclinaison θi',
+  'grandeur.effort-chainage': 'Effort de traction à reprendre par le chaînage',
   'grandeur.contrainte-els': 'Contrainte en service',
   'grandeur.contrainte-limite-els': 'Contrainte limite ou seuil',
   'grandeur.rho-w-min': 'Pourcentage minimal ρw,min',
@@ -240,6 +245,12 @@ export const fr = {
   'champ.N-imperfection': 'Effort normal contribuant à la force (selon l’effet)',
   'champ.contrevente': 'Élément contreventé',
   'champ.l0': 'Longueur efficace',
+  'champ.type-chainage': 'Chaînage',
+  'champ.gk-surfacique': 'Charge permanente surfacique',
+  'champ.qk-surfacique': 'Charge d’exploitation surfacique',
+  'champ.psi-accidentel': 'Coefficient de combinaison en situation accidentelle',
+  'champ.st-chainage': 'Espacement des chaînages (largeur reprise)',
+  'champ.Lt-chainage': 'Portée du chaînage (travée de rive en 2004)',
   'champ.Mcar': 'Moment sous combinaison caractéristique',
   'champ.exposition-xd': 'Classe d’exposition XD, XS ou XF',
   'champ.Fcd-bielle': 'Effort de compression dans la bielle',
@@ -373,6 +384,8 @@ export const fr = {
   'option.ld.plancher-dalle': 'plancher-dalle',
   'option.ld.console': 'console',
   'option.imp.element': 'élément isolé (N = charge verticale)',
+  'option.ch.peripherique': 'périphérique',
+  'option.ch.interieur': 'intérieur',
   'option.bt.bielle-comprimee': 'bielle sans traction transversale',
   'option.bt.bielle-fissuree': 'bielle traversée par un tirant (zone fissurée)',
   'option.bt.noeud-ccc': 'nœud CCC (bielles seules)',
@@ -432,6 +445,8 @@ export const fr = {
   'niveau.els.beton-caracteristique': 'Combinaison caractéristique, classes XD, XS, XF : σc ≤ 0,6 fck.',
   'niveau.els.2004.quasi-permanent': 'Combinaison quasi permanente : seuil 0,45 fck au-delà duquel le fluage non linéaire est à prendre en compte, Ec,eff = Ecm/(1 + φ).',
   'niveau.els.2023.quasi-permanent': 'Combinaison quasi permanente : seuil 0,40 fcm au-delà duquel le fluage non linéaire est à prendre en compte, Ec,eff = 1,05 Ecm/(1 + φ).',
+  'niveau.ch.2004.base': 'Périphérique : min(10 li ; 70 kN) (9.15) ; intérieur : 20 kN par mètre de largeur.',
+  'niveau.ch.2023.ossature': 'EN 1991-1-7 A.3.1 : max(0,8 ou 0,4 (gk + ψ qk) st Lt ; 75 kN) (A.1), (A.2).',
   'niveau.tsa.2004.base': 'Expression empirique en (100 ρl fck)^1/3, effet d’échelle par k, minimum vmin.',
   'niveau.tsa.2004.effort-normal': 'Expression (6.2) avec le terme k1 σcp de l’effort normal, k1 = 0,15, σcp ≤ 0,2 fcd.',
   'niveau.tsa.2023.tau-min':

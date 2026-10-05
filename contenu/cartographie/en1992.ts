@@ -413,7 +413,12 @@ export const EN1992: Carte = {
         c('12.6', 'Poteaux', ['9.5']),
         c('12.7', 'Voiles et poutres-cloisons', ['9.6', '9.7']),
         c('12.8', 'Fondations', ['9.8']),
-        c('12.9', 'Chaînages', ['9.10']),
+        c('12.9', 'Chaînages', ['9.10'], {
+          article: 'chainages',
+          ingeree: true,
+          niveaux: [n(G1, 'chainages', 'base', '9.10.2'), n(G2, 'chainages', 'ossature', 'EN 1991-1-7 A.3.1', 'annexe-informative')],
+          reserves: 'Murs porteurs (EN 1991-1-7 A.3.2, formules (A.3), (A.4)), chaînages verticaux et lignes de poutres de 2004 (9.10.2.3(4)) non codés.',
+        }),
         c('12.10', 'Appuis et joints de dilatation', []),
       ],
     },

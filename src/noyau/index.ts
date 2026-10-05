@@ -12,6 +12,7 @@ import { armatureTranchantMinimale } from './mecanismes/armature-tranchant-minim
 import { bielles, diffusion } from './mecanismes/bielles/index';
 import { fissurationMinimale, nonFragilite } from './mecanismes/armatures-minimales/index';
 import { elancement } from './mecanismes/elancement/index';
+import { chainages } from './mecanismes/chainages/index';
 import { contraintesEls } from './mecanismes/contraintes-els/index';
 import { enrobage } from './mecanismes/enrobage/index';
 import { fissuration } from './mecanismes/fissuration/index';
@@ -38,7 +39,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { contraintesEls };
+export { chainages, contraintesEls };
 export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, diffusion, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -63,6 +64,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [diffusion.id]: diffusion as unknown as Mecanisme<Record<string, unknown>>,
   [armatureTranchantMinimale.id]: armatureTranchantMinimale as unknown as Mecanisme<Record<string, unknown>>,
   [contraintesEls.id]: contraintesEls as unknown as Mecanisme<Record<string, unknown>>,
+  [chainages.id]: chainages as unknown as Mecanisme<Record<string, unknown>>,
   [bielles.id]: bielles as unknown as Mecanisme<Record<string, unknown>>,
   [imperfections.id]: imperfections as unknown as Mecanisme<Record<string, unknown>>,
   [flexion.id]: flexion as unknown as Mecanisme<Record<string, unknown>>,
