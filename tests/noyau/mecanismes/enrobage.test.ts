@@ -70,3 +70,16 @@ describe('ajustements', () => {
     });
   });
 });
+
+describe('enrobage, annexe P (informative)', () => {
+  const balcon = { phi: 12, Dupper: 20, cminDurP: 30, contactSol: 'non', deltaCdev: 10, cnomPrevu: 35 };
+  const cel = (e: object) => calculerMatrice(enrobage, e).cellules.find((c) => c.niveau === 'annexe-p')!;
+  it('c_min = max(phi ; 30 ; 10) = 30, c_nom = 40 mm, en reserve', () => {
+    const c = cel(balcon);
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.annexe-p' });
+    expect(c.sollicitation).toBe(40);
+  });
+  it('majoration de 5 mm au contact du sol, pas de reduction de 6.5.2.2', () => {
+    expect(cel({ ...balcon, contactSol: 'oui', duree30: 'oui', compacite: 'oui' }).sollicitation).toBe(45);
+  });
+});

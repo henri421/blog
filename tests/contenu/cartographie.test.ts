@@ -15,7 +15,6 @@ const clauses = EN1992.chapitres.flatMap((c) => c.clauses);
 // ne peut que raccourcir : un niveau ajoute a un mecanisme doit en etre retire,
 // et une nouvelle lacune fait echouer la construction (test 15, CDC v4 §5.1).
 const LACUNES_CONNUES = [
-  '6.5.2 ec2-2023/enrobage/annexe-p',
   '7.3.2 ec2-2023/redistribution/rotation',
   '9.2.3 ec2-2023/fissuration/annexe-s',
 ];

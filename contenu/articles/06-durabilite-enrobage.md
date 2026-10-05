@@ -4,11 +4,12 @@ ordre: 6
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
-revise: 2026-10-04
+revise: 2026-10-06
 resume: L’enrobage ne se déduit plus d’une classe structurale fondée sur la résistance du béton, mais d’une classe de résistance à l’exposition qui mesure directement la tenue du béton à la carbonatation ou aux chlorures.
 motscles: enrobage, durabilite
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-06 : annexe P, autre approche de l’enrobage (niveau en réserve).
 ---
 
 ## Ce qui change
@@ -67,14 +68,16 @@ Balcon en XC4 (exposé à la pluie), béton C30/37, barres HA12, granulat 0/20, 
 {
   "nom": "balcon",
   "mecanisme": "enrobage",
-  "entree": { "phi": 12, "Dupper": 20, "cminDur2004": 30, "cminDur2023": 20, "abrasion": "aucune", "duree30": "non", "compacite": "non", "contactSol": "non", "deltaCdev": 10, "cnomPrevu": 35 },
+  "entree": { "phi": 12, "Dupper": 20, "cminDur2004": 30, "cminDur2023": 20, "cminDurP": 30, "abrasion": "aucune", "duree30": "non", "compacite": "non", "contactSol": "non", "deltaCdev": 10, "cnomPrevu": 35 },
   "attendus": {
     "ec2-2004/base.c_min": "30",
     "ec2-2004/base.sollicitation": "40",
     "ec2-2004/base.taux": "1,143",
     "ec2-2023/base.c_min": "20",
     "ec2-2023/base.sollicitation": "30",
-    "ec2-2023/base.taux": "0,857"
+    "ec2-2023/base.taux": "0,857",
+    "ec2-2023/annexe-p.sollicitation": "40",
+    "ec2-2023/annexe-p.taux": "1,143"
   }
 }
 ```
@@ -86,6 +89,8 @@ Balcon en XC4 (exposé à la pluie), béton C30/37, barres HA12, granulat 0/20, 
 | Rapport à l’enrobage prévu de 35 mm | {{balcon:ec2-2004/base.taux}} | {{balcon:ec2-2023/base.taux}} |
 
 Les 35 mm prévus ne suffisaient pas en première génération ; ils suffisent en deuxième, **à condition** que le béton livré soit effectivement de classe XRC 3. Avec un béton moins performant vis-à-vis de la carbonatation, la valeur lue dans le tableau 6.3 croît, et l’écart peut s’inverser. Le balayage du calculateur sur $c_{min,dur}$ (2023) montre à partir de quelle valeur les 35 mm ne suffisent plus.
+
+L’**annexe P** (informative) offre une autre voie, sans classe de résistance à l’exposition : $c_{min,dur}$ se lit selon la classe structurale, comme en 2004 (30 mm en S4 et XC4), et l’enrobage nominal revient à {{balcon:ec2-2023/annexe-p.sollicitation}} mm (rapport {{balcon:ec2-2023/annexe-p.taux}}). Les réductions pour une durée de 30 ans ou une compacité améliorée (6.5.2.2) ne s’y appliquent pas. Le calculateur affiche ce niveau avec la réserve d’emploi de l’annexe.
 
 {{calculateur:balcon}}
 

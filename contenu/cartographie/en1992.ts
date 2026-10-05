@@ -71,7 +71,6 @@ export const EN1992: Carte = {
           ingeree: true,
           annexes: [ann('P', 'informative')],
           niveaux: [n(G1, 'enrobage', 'base', '4.4.1'), n(G2, 'enrobage', 'base', '6.5'), n(G2, 'enrobage', 'annexe-p', 'P', 'annexe-informative')],
-          reserves: 'Annexe P (autre approche de l’enrobage) non traitée.',
         }),
         c('6.5.3', 'Tolérances d’exécution de l’enrobage', ['4.4.1.3'], { article: 'durabilite-enrobage', ingeree: true }),
       ],

@@ -13,3 +13,8 @@ Les c_min,dur sont saisis : 30 mm (tableau 4.4N, classe S4, XC4) et 20 mm
 
 Abrasion XM1, φ = 25, c_min,dur = 10 : 2004 max(25 ; 10 ; 10) + 5 = 30 mm
 (4.4.1.2(13)) ; 2023 max(10 + 5 ; 25 ; 10) = 25 mm ((6.2)).
+
+## Annexe P (2023, informative)
+
+Balcon : c_min,dur = 30 mm (tableau P.2, S4, XC4) ; c_min = max(12 ; 30 ; 10) = 30 mm ;
+c_nom = 30 + 10 = **40 mm** ; rapport 40/35 = 1,143. Avec une face au contact du sol : 45 mm.

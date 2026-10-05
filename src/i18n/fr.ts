@@ -100,6 +100,8 @@ export const fr = {
   'statut.non-convergent': 'Calcul non convergent',
   'statut.hors-domaine': 'Hors du domaine de validité',
   'statut.reserve': 'Calculé, sous réserve',
+  'reserve.annexe-p':
+    'Annexe P, informative : autre approche de l’enrobage sans classe de résistance à l’exposition ; son emploi dépend de l’annexe nationale, non publiée.',
   'reserve.annexe-o':
     'Annexe O, informative : méthodes simplifiées du second ordre ; son emploi dépend de l’annexe nationale, non publiée.',
   'reserve.annexe-i':
@@ -288,6 +290,7 @@ export const fr = {
   'champ.lDispo': 'Longueur disponible',
   'champ.Dupper': 'Dimension du plus gros granulat',
   'champ.cminDur2004': 'c_min,dur lu dans le tableau 4.4N (2004)',
+  'champ.cminDurP': 'cmin,dur lu dans le tableau P.2 de l’annexe P (classe structurale)',
   'champ.cminDur2023': 'c_min,dur lu dans le tableau 6.3 ou 6.4 (2023)',
   'champ.abrasion': 'Abrasion',
   'champ.duree30': 'Durée d’utilisation de projet ≤ 30 ans',
@@ -488,6 +491,7 @@ export const fr = {
   'niveau.int.2023.ancrage-insuffisant': 'Armatures non plastifiables faute d’ancrage : cohésion réduite cv2, frottement, effet de goujon (8.77).',
   'niveau.enr.2004.base': 'cmin,dur selon la classe structurale et la classe d’exposition (saisi), couche d’abrasion, cmin,b, Δcdev.',
   'niveau.enr.2023.base': 'cmin,dur selon la classe de résistance à l’exposition, la classe d’exposition et la durée (saisi), Δc, cmin,b, Δcdev.',
+  'niveau.enr.2023.annexe-p': 'Annexe P : cmin,dur selon la classe structurale (tableau P.2, saisi), (P.1) sans les réductions de 6.5.2.2.',
 
   // ---- Ilot de calcul ----
   'ilot.donnees': 'Données',

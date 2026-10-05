@@ -19,6 +19,12 @@
  *   c_min = max(c_min,dur + Delta c ; c_min,b ; 10 mm) (6.2), majore de 5 mm
  *   pour une face verticale coulee contre le sol (6.5.2.1(2)) ;
  *   c_nom = c_min + Delta c_dev (6.1).
+ * Deuxieme generation, annexe P (informative) : autre approche sans classe de
+ *   resistance a l exposition ; c_min,dur lu dans le tableau P.2 (classe
+ *   structurale et classe d exposition) et saisi ; c_min = max(c_min,b ;
+ *   c_min,dur + Delta c_dur,gamma - Delta c_dur,st - Delta c_dur,add ; 10 mm)
+ *   (P.1), ajustements nuls (valeurs recommandees) ; 6.5.2.1(1) et 6.5.2.2
+ *   ne s appliquent pas (P.2(2)), la majoration au contact du sol oui.
  * Dans les deux generations, c_min,b = phi, majore de 5 mm si le granulat
  * depasse 32 mm (tableau 6.5 ; 4.4.1.2(3) en 2004).
  */
@@ -39,6 +45,8 @@ export interface EntreeEnrobage {
   cminDur2004?: number;
   /** c_min,dur lu dans le tableau 6.3 ou 6.4 de l EN 1992-1-1:2023 (mm). */
   cminDur2023?: number;
+  /** c_min,dur lu dans le tableau P.2 de l annexe P (mm). */
+  cminDurP?: number;
   /** 'aucune', 'XM1', 'XM2' ou 'XM3'. */
   abrasion?: string;
   /** Duree d utilisation de projet au plus 30 ans : 'oui' ou 'non' (2023). */
@@ -68,6 +76,7 @@ const R = {
   Dupper: { champ: 'Dupper', libelle: 'champ.Dupper' },
   cminDur2004: { champ: 'cminDur2004', libelle: 'champ.cminDur2004' },
   cminDur2023: { champ: 'cminDur2023', libelle: 'champ.cminDur2023' },
+  cminDurP: { champ: 'cminDurP', libelle: 'champ.cminDurP' },
   abrasion: { champ: 'abrasion', libelle: 'champ.abrasion' },
   duree30: { champ: 'duree30', libelle: 'champ.duree30' },
   compacite: { champ: 'compacite', libelle: 'champ.compacite' },
@@ -146,6 +155,31 @@ export function enrobage2023(e: Complete): Calcul {
   };
 }
 
+/** Annexe P : (P.1) avec c_min,dur du tableau P.2, ajustements nuls. */
+export function enrobageAnnexeP(e: Complete): Calcul {
+  verifier(e);
+  positif(e.cminDurP, 'c_min,dur annexe P', 'mm');
+  const cminb = enrobageAdherence(e);
+  const sol = e.contactSol === 'oui' ? MAJORATION_SOL : 0;
+  const cmin = Math.max(cminb, e.cminDurP, 10) + sol;
+  const cnom = cmin + e.deltaCdev;
+  return {
+    statut: { etat: 'calcule' },
+    sollicitation: cnom,
+    resistance: e.cnomPrevu,
+    intermediaires: {
+      'c_min,dur': saisie(e.cminDurP, 'mm'),
+      'Δc_dur,γ − Δc_dur,st − Δc_dur,add': recommandee(0, 'mm'),
+      'c_min,b': calculee(cminb, 'mm'),
+      'Δc_min (sol)': recommandee(sol, 'mm'),
+      c_min: calculee(cmin, 'mm'),
+      'Δc_dev': saisie(e.deltaCdev, 'mm'),
+      c_nom: calculee(cnom, 'mm'),
+    },
+    clauses: ['P.3', '(P.1)', 'tableau P.2', '6.5.2.1(2)', '6.5.3'],
+  };
+}
+
 const niveaux2004: DefinitionNiveau<EntreeEnrobage>[] = [
   {
     id: 'base',
@@ -170,6 +204,17 @@ const niveaux2023: DefinitionNiveau<EntreeEnrobage>[] = [
     conditions: () => null,
     calculer: (e) => enrobage2023(e as Complete),
   },
+  {
+    id: 'annexe-p',
+    ordre: 2,
+    position: 'annexe-informative',
+    reserve: 'reserve.annexe-p',
+    clause: 'P.3',
+    hypothese: 'niveau.enr.2023.annexe-p',
+    donneesRequises: [R.phi, R.Dupper, R.deltaCdev, R.cnomPrevu, R.cminDurP, R.contactSol],
+    conditions: () => null,
+    calculer: (e) => enrobageAnnexeP(e as Complete),
+  },
 ];
 
 const ouiNon = [
@@ -179,11 +224,12 @@ const ouiNon = [
 
 export const enrobage: Mecanisme<EntreeEnrobage> = {
   id: 'enrobage',
-  version: '0.1.0',
+  version: '0.2.0',
   titre: 'meca.enr.titre',
   champs: [
     { type: 'nombre', id: 'cminDur2004', libelle: 'champ.cminDur2004', symbole: 'c_min,dur 2004', unite: 'mm', facultatif: true },
     { type: 'nombre', id: 'cminDur2023', libelle: 'champ.cminDur2023', symbole: 'c_min,dur 2023', unite: 'mm', facultatif: true },
+    { type: 'nombre', id: 'cminDurP', libelle: 'champ.cminDurP', symbole: 'c_min,dur P', unite: 'mm', facultatif: true },
     { type: 'nombre', id: 'phi', libelle: 'champ.phi', symbole: 'φ', unite: 'mm' },
     { type: 'nombre', id: 'Dupper', libelle: 'champ.Dupper', symbole: 'D_upper', unite: 'mm' },
     {
