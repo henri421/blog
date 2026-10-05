@@ -9,6 +9,7 @@ resume: La résistance d’une bielle fissurée ne dépend plus de la seule clas
 motscles: bielles-tirants, treillis, elu
 historique:
   - 2026-10-05 : première rédaction.
+  - 2026-10-05 : diffusion d’une force concentrée (6.5.3(3) ; 8.5.5).
 ---
 
 ## Ce qui change
@@ -94,6 +95,26 @@ Nœud CCT au droit de l’appui de la même poutre-cloison, même effort, tirant
 En 2004, le nœud CCT est limité à $0.85\,\nu'\,f_{cd}$ = {{noeud-cct:ec2-2004/base.resistance}} MPa, quel que soit l’ancrage. En 2023, le tirant ancré hors de la région nodale laisse au nœud toute la résistance $f_{cd}$ = {{noeud-cct:ec2-2023/paliers.resistance}} MPa (taux de travail {{noeud-cct:ec2-2023/paliers.taux}}).
 
 {{calculateur:noeud-cct}}
+
+## Diffusion d’une force concentrée
+
+Une force concentrée $F_d$ appliquée sur une largeur $a$ s’étale dans l’élément et crée une traction transversale à reprendre par des armatures. Pour une diffusion limitée (largeur disponible $b$ au plus égale à $a + H/2$), les deux générations donnent le même effort, $F_d\,(1 - a/b)/4$ ((6.58) ; (8.123), (8.124)). Pour un élément large, la première génération réduisait l’effort selon le rapport $a/h$ (6.59) ; la deuxième retient $	an	heta_{cf}$ = 0,5, soit $F_d/4$.
+
+```exemple
+{
+  "nom": "diffusion-large",
+  "mecanisme": "diffusion",
+  "entree": { "Fd": 1000, "a": 200, "b": 1500, "H": 1200 },
+  "attendus": {
+    "ec2-2004/base.resistance": "191,7",
+    "ec2-2023/base.resistance": "250,0"
+  }
+}
+```
+
+Pour une force de 1 000 kN sur 200 mm, dans un élément de 1 500 mm de large et une région de diffusion de 1 200 mm : {{diffusion-large:ec2-2004/base.resistance}} kN en 2004, {{diffusion-large:ec2-2023/base.resistance}} kN en 2023. La lecture de la formule (8.124) reste à confirmer sur l’exemplaire.
+
+{{calculateur:diffusion-large}}
 
 ## L’effet sur une note de calcul existante
 

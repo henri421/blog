@@ -259,7 +259,12 @@ export const EN1992: Carte = {
           ingeree: true,
           reserves: 'Interpolation de ν pour un ancrage en partie dans le nœud (8.5.4.3(4)) non codée ; majorations de 2004 (6.5.4(5), (6)) non codées.',
         }),
-        c('8.5.5', 'Diffusion de forces concentrées', ['6.5.3(3)']),
+        c('8.5.5', 'Diffusion de forces concentrées', ['6.5.3(3)'], {
+          article: 'bielles-tirants',
+          ingeree: true,
+          niveaux: [n(G1, 'diffusion', 'base', '6.5.3(3)'), n(G2, 'diffusion', 'base', '8.5.5')],
+          reserves: 'Lecture de la formule (8.124), tan θ_cf = (1 − a/b)/2, à confirmer sur l’exemplaire.',
+        }),
         c('8.6', 'Pressions localisées', ['6.7'], {
           article: 'pressions-localisees',
           ingeree: true,

@@ -244,3 +244,103 @@ export const bielles: Mecanisme<EntreeBielles> = {
   resistance: { libelle: 'grandeur.resistance-bielle', unite: 'MPa' },
   niveaux: { 'ec2-2004': niveaux2004, 'ec2-2023': niveaux2023 },
 };
+
+// ---------------------------------------------------------------------------
+// Diffusion d une force concentree (6.5.3(3) ; 8.5.5)
+// ---------------------------------------------------------------------------
+
+export interface EntreeDiffusion {
+  /** Force concentree (kN). */
+  Fd?: number;
+  /** Largeur chargee a et largeur de diffusion b (mm). */
+  a?: number;
+  b?: number;
+  /** Longueur de la region de diffusion H (mm). */
+  H?: number;
+}
+
+type CompleteDiffusion = Required<EntreeDiffusion>;
+
+const RD = {
+  Fd: { champ: 'Fd', libelle: 'champ.Fd-diffusion' },
+  a: { champ: 'a', libelle: 'champ.a-diffusion' },
+  b: { champ: 'b', libelle: 'champ.b-diffusion' },
+  H: { champ: 'H', libelle: 'champ.H-diffusion' },
+} as const satisfies Record<string, { champ: keyof EntreeDiffusion; libelle: Cle }>;
+
+function verifierDiffusion(e: CompleteDiffusion): void {
+  positif(e.Fd, 'F_d', 'kN');
+  positif(e.a, 'a', 'mm');
+  positif(e.b, 'b', 'mm');
+  positif(e.H, 'H', 'mm');
+  if (e.a > e.b) throw new Error('La largeur chargee a doit etre au plus egale a b.');
+}
+
+/** T = (b - a)/(4 b) F si b <= H/2 (6.58), T = (1 - 0,7 a/h) F/4 avec h = H/2 sinon (6.59). */
+export function diffusion2004(e: CompleteDiffusion): Calcul {
+  verifierDiffusion(e);
+  const partielle = e.b <= e.H / 2;
+  const T = partielle ? ((e.b - e.a) / (4 * e.b)) * e.Fd : 0.25 * (1 - (0.7 * e.a) / (e.H / 2)) * e.Fd;
+  return {
+    statut: { etat: 'calcule' },
+    resistance: T,
+    intermediaires: { 'b / (H/2)': calculee(e.b / (e.H / 2), '-'), T: calculee(T, 'kN') },
+    clauses: partielle ? ['6.5.3(3) a)', '(6.58)'] : ['6.5.3(3) b)', '(6.59)'],
+  };
+}
+
+/** F_td = F_d/2 tan theta_cf, tan theta_cf = (1 - a/b)/2, ou 0,5 si b > a + H/2 ((8.123), (8.124)). */
+export function diffusion2023(e: CompleteDiffusion): Calcul {
+  verifierDiffusion(e);
+  const large = e.b > e.a + e.H / 2;
+  const tan = large ? 0.5 : (1 - e.a / e.b) / 2;
+  const T = (e.Fd / 2) * tan;
+  return {
+    statut: { etat: 'calcule' },
+    resistance: T,
+    intermediaires: { 'tan θ_cf': large ? recommandee(tan, '-') : calculee(tan, '-'), F_td: calculee(T, 'kN') },
+    clauses: ['8.5.5(2)', '(8.123)', '(8.124)'],
+  };
+}
+
+const requisDiffusion = [RD.Fd, RD.a, RD.b, RD.H];
+
+export const diffusion: Mecanisme<EntreeDiffusion> = {
+  id: 'diffusion',
+  version: '0.1.0',
+  titre: 'meca.bt.diffusion',
+  champs: [
+    { type: 'nombre', id: 'Fd', libelle: 'champ.Fd-diffusion', symbole: 'F_d', unite: 'kN' },
+    { type: 'nombre', id: 'a', libelle: 'champ.a-diffusion', symbole: 'a', unite: 'mm' },
+    { type: 'nombre', id: 'b', libelle: 'champ.b-diffusion', symbole: 'b', unite: 'mm' },
+    { type: 'nombre', id: 'H', libelle: 'champ.H-diffusion', symbole: 'H', unite: 'mm' },
+  ],
+  sollicitation: { libelle: 'grandeur.sans-objet', unite: '-' },
+  resistance: { libelle: 'grandeur.traction-diffusion', unite: 'kN' },
+  niveaux: {
+    'ec2-2004': [
+      {
+        id: 'base',
+        ordre: 1,
+        position: 'corps',
+        clause: '6.5.3(3)',
+        hypothese: 'niveau.bt.2004.diffusion',
+        donneesRequises: requisDiffusion,
+        conditions: () => null,
+        calculer: (e) => diffusion2004(e as CompleteDiffusion),
+      },
+    ],
+    'ec2-2023': [
+      {
+        id: 'base',
+        ordre: 1,
+        position: 'corps',
+        clause: '8.5.5',
+        hypothese: 'niveau.bt.2023.diffusion',
+        donneesRequises: requisDiffusion,
+        conditions: () => null,
+        calculer: (e) => diffusion2023(e as CompleteDiffusion),
+      },
+    ],
+  },
+};

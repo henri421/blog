@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { calculerMatrice } from '../../../src/noyau/moteur/matrice';
-import { bielles, nuContinu, nuPaliers, type EntreeBielles } from '../../../src/noyau/mecanismes/bielles/index';
+import { bielles, diffusion, nuContinu, nuPaliers, type EntreeBielles } from '../../../src/noyau/mecanismes/bielles/index';
 
 // Valeurs attendues calculees a la main (docs/validation/bielles.md).
 
@@ -44,5 +44,20 @@ describe('bielles et noeuds', () => {
       motif: 'motif.theta-cs-manquant',
       donneesManquantes: [],
     });
+  });
+});
+
+
+describe('diffusion d une force concentree', () => {
+  const d = (e: object, g: string) => calculerMatrice(diffusion, e).cellules.find((c) => c.generation === g)!;
+  it('discontinuite partielle (b = H/2 = 600) : 166,67 kN dans les deux generations', () => {
+    const e = { Fd: 1000, a: 200, b: 600, H: 1200 };
+    expect(d(e, 'ec2-2004').resistance).toBeCloseTo(166.6667, 3);
+    expect(d(e, 'ec2-2023').resistance).toBeCloseTo(166.6667, 3);
+  });
+  it('element large (b = 1500 > a + H/2) : 191,67 kN en 2004, 250 kN en 2023', () => {
+    const e = { Fd: 1000, a: 200, b: 1500, H: 1200 };
+    expect(d(e, 'ec2-2004').resistance).toBeCloseTo(191.6667, 3);
+    expect(d(e, 'ec2-2023').resistance).toBeCloseTo(250, 10);
   });
 });
