@@ -178,3 +178,14 @@ td.refus { color: var(--refus); font-weight: 600; }
   .statut dl { grid-template-columns: 1fr; }
   .statut dt { margin-top: 0.3rem; }
 }
+
+/* Tableau d avancement (CDC v4 §6) */
+.avancement { margin: 0.5rem 0 1.5rem; }
+.avancement summary { cursor: pointer; padding: 0.4rem 0; }
+.avancement summary span { color: var(--texte-doux); font-size: 0.9rem; margin-left: 0.5rem; }
+.avancement table { border-collapse: collapse; font-size: 0.85rem; width: 100%; }
+.avancement th, .avancement td { padding: 0.2rem 0.5rem; border-bottom: 1px solid var(--bordure-douce); text-align: left; }
+.avancement tr.chapitre th { padding-top: 0.6rem; }
+.avancement td.fait { color: var(--texte); text-align: center; }
+.avancement td.a-faire { color: var(--texte-faible); text-align: center; }
+.avancement tr.exclu td { color: var(--texte-faible); }

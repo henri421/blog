@@ -12,6 +12,8 @@ import { join } from 'node:path';
 import { MECANISMES } from '../../src/noyau/index';
 import { dateFr, datesFr, t, type Cle } from '../../src/i18n/cle';
 import { MOTS_CLES, type MotCle } from '../../contenu/mots-cles';
+import { EN1992 } from '../../contenu/cartographie/en1992';
+import { rendreAvancement } from './avancement';
 import { lireArticle, type Article } from './article';
 
 const URL_SUITE = 'https://henri421.github.io/WebAedificium/';
@@ -128,6 +130,9 @@ export function pageAccueil(articles: Article[]): string {
         ${publies ? '' : `<p class="avertissement">${echapper(t('site.chantier'))}</p>`}
       </header>
       <p class="retour"><a href="./mots-cles.html">${echapper(t('site.index-mots-cles'))}</a></p>
+      <h2>${echapper(t('avancement.titre'))}</h2>
+      <p class="note">${echapper(t('avancement.note'))}</p>
+      ${rendreAvancement(EN1992, articles)}
       <h2>${echapper(t('site.articles'))}</h2>
       <ul class="cartes">
         ${cartes}
