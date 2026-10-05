@@ -276,7 +276,20 @@ export const EN1992: Carte = {
       titre: 'États-limites de service',
       clauses: [
         c('9.1', 'ELS : généralités', ['7.1']),
-        c('9.2.1', 'Contraintes et fissuration : considérations générales', ['7.2', '7.3.1'], { annexes: [ann('D', 'informative')] }),
+        c('9.2.1', 'Contraintes et fissuration : considérations générales', ['7.2', '7.3.1'], {
+          article: 'contraintes-service',
+          ingeree: true,
+          annexes: [ann('D', 'informative')],
+          niveaux: [
+            n(G1, 'contraintes-els', 'acier', '7.2(5)'),
+            n(G1, 'contraintes-els', 'beton-caracteristique', '7.2(2)'),
+            n(G1, 'contraintes-els', 'beton-quasi-permanent', '7.2(3)'),
+            n(G2, 'contraintes-els', 'acier', '9.2.1'),
+            n(G2, 'contraintes-els', 'beton-caracteristique', '9.2.1'),
+            n(G2, 'contraintes-els', 'beton-quasi-permanent', '9.1(4)'),
+          ],
+          reserves: 'Annexe D (fissuration due aux déformations gênées) non traitée ; précontrainte (σ_p ≤ 0,8 f_pk) non codée.',
+        }),
         c('9.2.2', 'Armatures minimales de maîtrise de la fissuration', ['7.3.2'], {
           article: 'armatures-minimales',
           ingeree: true,

@@ -38,6 +38,7 @@ describe('articles', () => {
       'imperfections',
       'second-ordre',
       'bielles-tirants',
+      'contraintes-service',
     ]);
   });
 
