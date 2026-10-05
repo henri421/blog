@@ -21,3 +21,6 @@ CDC-*.md
 # Pages produites par app/construire a partir de contenu/articles
 app/*.html
 PLAN-*.md
+
+# Questions a l auteur : locales
+QUESTIONS.md
