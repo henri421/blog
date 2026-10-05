@@ -13,6 +13,7 @@ export const MOTS_CLES = [
   'materiaux-beton',
   'analyse-structurale',
   'ductilite',
+  'stabilite',
   'elu',
   'els',
   'flexion',

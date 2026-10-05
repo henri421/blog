@@ -35,6 +35,7 @@ describe('articles', () => {
       'ancrage-crochet',
       'elancement',
       'redistribution',
+      'imperfections',
     ]);
   });
 

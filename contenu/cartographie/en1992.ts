@@ -81,7 +81,20 @@ export const EN1992: Carte = {
       titre: 'Analyse structurale',
       clauses: [
         c('7.1', 'Analyse : généralités', ['5.1']),
-        c('7.2.1', 'Imperfections géométriques', ['5.2']),
+        c('7.2.1', 'Imperfections géométriques', ['5.2'], {
+          article: 'imperfections',
+          ingeree: true,
+          niveaux: [
+            n(G1, 'imperfections', 'inclinaison', '5.2(5)'),
+            n(G1, 'imperfections', 'excentricite', '5.2(7)'),
+            n(G1, 'imperfections', 'simplifie', '5.2(9)'),
+            n(G2, 'imperfections', 'inclinaison', '7.2.1.2(2)'),
+            n(G2, 'imperfections', 'excentricite', '7.2.1.2(5)'),
+            n(G2, 'imperfections', 'simplifie', '7.2.1.2(5)'),
+            n(G2, 'imperfections', 'mode', '7.2.1.2(4)'),
+          ],
+          reserves: 'Majoration de 1,2 pour des tolérances plus strictes (7.2.1.1(3)) non codée.',
+        }),
         c('7.2.2', 'Modélisation de la structure', ['5.3.1']),
         c('7.2.3', 'Données géométriques : largeur participante, portée de calcul', ['5.3.2']),
         c('7.3.1', 'Analyse élastique-linéaire', ['5.4']),

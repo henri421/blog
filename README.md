@@ -34,6 +34,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Ancrage par coude ou crochet | `ancrage-crochet` | 2 / 2 |
 | Élancement portée / hauteur | `elancement` | 1 / 1 |
 | Redistribution des moments | `redistribution` | 1 / 1 |
+| Imperfections géométriques | `imperfections` | 3 / 4 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale` | 1 / 2 et 1 / 1 |
 
 ## Principes
