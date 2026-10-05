@@ -126,8 +126,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] τ_Rd,c = 0,33/γ_V · γ_def^(2/3)/γ_V² · √f_ck / (1 + 24 γ_def ε_v d/d_dg) (I.7) :
   relu sur l’exemplaire fourni par l’utilisateur le 2026-10-05.
 - [x] γ_def = 1,33 recommandé (NOTE) ; ε_v selon les hypothèses de 8.1.1 (I.8.3.1(2)).
-- [ ] k_vd (I.8) pour les éléments linéaires de hauteur utile d > 500 mm :
-  formule à relire sur l’exemplaire, non codée.
+- [x] k_vd = 1,35 (100 ρ_l d_dg/d)^(1/10) ≤ 1,0 (I.8), éléments linéaires de
+  d > 500 mm : relu sur l’exemplaire le 2026-10-05 (capture de l’utilisateur).
+- [ ] k_vd multiplie « la résistance selon (8.27) » : l’outil l’applique à la
+  valeur de la formule et conserve le plancher τ_Rdc,min ; à confirmer.
 
 ## Ancrage et recouvrement (11.4.2, 11.5.2)
 

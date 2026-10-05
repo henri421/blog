@@ -121,3 +121,25 @@ describe('niveau 4, annexe I.8.3.1 (I.7)', () => {
     expect(c.intermediaires['τ_Rd,c (I.7)'].valeur).toBeCloseTo((0.33 * 1.33 ** (2 / 3) * 5) / 1.4 ** 3, 10);
   });
 });
+
+describe('niveau 5, annexe I.8.3.1(3), k_vd (I.8)', () => {
+  const poutre = (): EntreeTsa => ({ VEd: 100, MEd: 250, bw: 400, d: 650, Asl: 1963, fck: 30, fyk: 500, Dlower: 16 });
+
+  it('poutre d = 650 mm : k_vd = 0,9713, tau = 0,4748 MPa, en reserve', () => {
+    const c = cel(poutre(), 'ec2-2023', 'annexe-i-kvd');
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.annexe-i' });
+    expect(c.intermediaires.k_vd.valeur).toBeCloseTo(0.971297, 5);
+    expect(c.intermediaires['τ_Rd,c'].valeur).toBeCloseTo(0.474828, 5);
+    expect(c.resistance).toBeCloseTo(111.1097, 3);
+  });
+
+  it('k_vd plafonne a 1 et plancher tau_Rdc,min conserve', () => {
+    expect(cel({ ...poutre(), Asl: 2945 }, 'ec2-2023', 'annexe-i-kvd').intermediaires.k_vd.valeur).toBe(1);
+    const c = cel({ ...poutre(), Asl: 1257 }, 'ec2-2023', 'annexe-i-kvd');
+    expect(c.intermediaires['τ_Rd,c'].valeur).toBeCloseTo(c.intermediaires['τ_Rdc,min'].valeur, 12);
+  });
+
+  it('d <= 500 mm : non applicable, motif nomme', () => {
+    expect(cel(dalle(), 'ec2-2023', 'annexe-i-kvd').statut).toEqual({ etat: 'non-applicable', motif: 'motif.d-inf-500', donneesManquantes: [] });
+  });
+});

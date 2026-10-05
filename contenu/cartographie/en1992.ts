@@ -136,9 +136,10 @@ export const EN1992: Carte = {
             n(G2, 'tranchant-sans-armature', 'hauteur-utile', '8.2.2(1)'),
             n(G2, 'tranchant-sans-armature', 'portee-mecanique', '8.2.2(3)'),
             n(G2, 'tranchant-sans-armature', 'annexe-i', 'I.8.3.1', 'annexe-informative'),
+            n(G2, 'tranchant-sans-armature', 'annexe-i-kvd', 'I.8.3.1(3)', 'annexe-informative'),
           ],
           reserves:
-            'Annexe I.8.3.1 : coefficient k_vd (I.8) des éléments linéaires de hauteur utile supérieure à 500 mm en attente de relecture ; effort normal (8.31 à 8.35), précontrainte et dalles portant dans deux directions non codés.',
+            'Effort normal (8.31 à 8.35), précontrainte et dalles portant dans deux directions non codés ; annexe I.8.3.1(3) : application de k_vd à la formule (8.27) avec plancher τ_Rdc,min, à confirmer.',
         }),
         c('8.2.3', 'Éléments avec armatures d’effort tranchant', ['6.2.3'], {
           article: 'tranchant-avec-armature',

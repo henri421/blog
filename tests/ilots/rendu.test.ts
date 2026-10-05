@@ -51,7 +51,7 @@ describe('rendu de l ilot', () => {
 
   it('matrice : une ligne par cellule, aucune masquee, taux colore selon le verdict', () => {
     const h = rendreMatrice(tsa, matrice, null);
-    expect((h.match(/<tr class="cellule/g) ?? []).length).toBe(5);
+    expect((h.match(/<tr class="cellule/g) ?? []).length).toBe(6);
     expect(h).toContain('0,612');
     expect(h).not.toContain('undefined');
   });
@@ -72,8 +72,8 @@ describe('rendu de l ilot', () => {
   it('courbes : une polyligne par serie continue, interrompue sur une rupture', () => {
     const b = balayer(tsa, dalle, 'fck', valeursRegulieres(60, 120, 7));
     const svg = tracerBalayage(tsa, b, 'fck', 'MPa');
-    // fck > 90 : hors domaine pour les cinq cellules, qui s arretent.
-    expect(b.ruptures).toHaveLength(5);
+    // fck > 90 : hors domaine pour les six cellules ; le niveau 5 (d <= 500 mm) n a pas de courbe.
+    expect(b.ruptures).toHaveLength(6);
     expect((svg.match(/<polyline/g) ?? []).length).toBe(5);
     for (const serie of b.series) expect(serie.taux.slice(4)).toEqual([null, null, null]);
     expect(rendreRuptures(tsa, b)).toContain('Hors du domaine');

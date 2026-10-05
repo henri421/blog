@@ -19,8 +19,13 @@
  *      rectangulaire b_w x d sous M_Ed seul, avec les hypotheses de 8.1.1
  *      (sections planes, beton tendu neglige, parabole-rectangle sur f_cd,
  *      acier elastique parfaitement plastique) ; pas de plancher tau_Rdc,min,
- *      que (I.7) ne mentionne pas. Le coefficient k_vd (I.8) des elements de
- *      hauteur utile superieure a 500 mm n est pas encore code.
+ *      que (I.7) ne mentionne pas.
+ *   5. annexe I.8.3.1(3) : pour d > 500 mm, en variante de (1) et (2), la
+ *      resistance (8.27) multipliee par k_vd = 1,35 (100 rho_l d_dg/d)^(1/10)
+ *      <= 1 (I.8) ; niveau en reserve, non applicable si d <= 500 mm.
+ *      Choix de l outil : k_vd porte sur la valeur de la formule (8.27), le
+ *      plancher tau_Rdc,min de 8.2.2(1) est conserve. Le texte vise les
+ *      elements lineaires : l outil ne peut pas le verifier.
  *
  * Domaine de la deuxieme generation : D_lower >= 8 mm (1.1(3)).
  */
@@ -345,6 +350,35 @@ export function niveau4Tsa2023(e: Required<EntreeTsa>): Calcul {
   return { ...cellule, iterations: etat.iterations };
 }
 
+/** Le coefficient k_vd ne vise que les hauteurs utiles superieures a 500 mm (I.8.3.1(3)). */
+function conditionKvd(e: EntreeTsa): Cle | null {
+  return (e.d as number) > 500 ? null : 'motif.d-inf-500';
+}
+
+/** k_vd = 1,35 (100 rho_l d_dg / d)^(1/10) <= 1,0 (I.8). */
+export function coefficientKvd(rhoL: number, ddg: number, d: number): number {
+  return Math.min(1.35 * ((100 * rhoL * ddg) / d) ** 0.1, 1);
+}
+
+export function niveau5Tsa2023(e: Required<EntreeTsa>): Calcul {
+  const c = communs2023(e);
+  const t = tauRdc2023(e, c, e.d);
+  const kvd = coefficientKvd(t.rhoL, c.ddg, e.d);
+  const tau = Math.max(kvd * t.brut, c.tauMin);
+  return cellule2023(
+    e,
+    c,
+    tau,
+    {
+      'ρ_l': calculee(t.rhoL, '-'),
+      'τ_Rd,c (8.27)': calculee(t.brut, 'MPa'),
+      k_vd: calculee(kvd, '-'),
+      'k_vd τ_Rd,c': calculee(kvd * t.brut, 'MPa'),
+    },
+    ['I.8.3.1(3)', '(I.8)', '(8.27)'],
+  );
+}
+
 const communs = [R.VEd, R.bw, R.d, R.fck, R.fyk, R.Dlower];
 
 const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
@@ -393,11 +427,23 @@ const niveaux2023: DefinitionNiveau<EntreeTsa>[] = [
     conditions: conditionMoment,
     calculer: (e) => niveau4Tsa2023(e as Required<EntreeTsa>),
   },
+  {
+    id: 'annexe-i-kvd',
+    ordre: 5,
+    position: 'annexe-informative',
+    reserve: 'reserve.annexe-i',
+    clause: 'I.8.3.1(3)',
+    hypothese: 'niveau.tsa.2023.annexe-i-kvd',
+    donneesRequises: [...communs, R.Asl],
+    domaine: domaine2023,
+    conditions: conditionKvd,
+    calculer: (e) => niveau5Tsa2023(e as Required<EntreeTsa>),
+  },
 ];
 
 export const tranchantSansArmature: Mecanisme<EntreeTsa> = {
   id: 'tranchant-sans-armature',
-  version: '0.2.0',
+  version: '0.3.0',
   titre: 'meca.tsa.titre',
   champs: [
     { type: 'nombre', id: 'VEd', libelle: 'champ.VEd', symbole: 'V_Ed', unite: 'kN' },

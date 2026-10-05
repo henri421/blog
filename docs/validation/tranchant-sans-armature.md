@@ -61,3 +61,14 @@ facteur 0,33/γ_V · γ_def^(2/3)/γ_V² = 0,14545.
 Dalle : τ = 0,14545 × 5 / (1 + 24 × 1,33 × 0,0005798 × 190/32) = 0,7272 / 1,1099 = 0,6552 MPa.
 Le second exemple de l'article est passé de 1000 à 800 kN·m/m le 2026-10-05 :
 l'ancienne valeur dépassait la capacité en flexion de la section.
+
+## Niveau 5 : annexe I.8.3.1(3), coefficient k_vd (I.8)
+
+Poutre existante b_w = 400 mm, d = 650 mm, A_sl = 1963 mm², C30/37, d_dg = 32 mm,
+V_Ed = 100 kN, M_Ed = 250 kN·m.
+
+ρ_l = 1963/(400 × 650) = 0,007550 ; τ (8.27) = 0,66/1,4 × (100 × 0,00755 × 30 × 32/650)^(1/3) = 0,4889 MPa ;
+k_vd = 1,35 × (100 × 0,00755 × 32/650)^(1/10) = 1,35 × 0,7195 = **0,9713** ;
+k_vd τ = 0,4748 MPa ≥ τ_Rdc,min = 0,4579 MPa → V_Rd,c = 0,4748 × 400 × 585 = **111,11 kN**.
+Niveau 2 : 114,39 kN ; niveau 4 (ε_v = 1,116 ‰, τ = 0,4621 MPa) : 108,14 kN.
+Avec A_sl = 2945 mm², k_vd est plafonné à 1 ; avec 1257 mm², le plancher τ_Rdc,min gouverne.

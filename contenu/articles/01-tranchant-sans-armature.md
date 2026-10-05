@@ -2,7 +2,7 @@
 titre: Effort tranchant sans armature d’âme
 ordre: 1
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS ; quatrième niveau tiré de l’annexe I (informative), I.8.3.1, formule relue sur l’exemplaire le 2026-10-05.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS ; niveaux 4 et 5 tirés de l’annexe I (informative), I.8.3.1, formules (I.7) et (I.8) relues sur l’exemplaire le 2026-10-05.
 redige: 2026-10-04
 revise: 2026-10-05
 resume: Une expression empirique cède la place à un modèle de fissure critique ; la granulométrie entre dans le calcul, et un plancher de résistance gouverne souvent les dalles courantes.
@@ -11,6 +11,7 @@ historique:
   - 2026-10-04 : première rédaction.
   - 2026-10-04 : vérification sur le texte ; le niveau 3 n’est permis que si a_cs < 4 d (8.2.2(3)), second exemple réécrit.
   - 2026-10-05 : quatrième niveau (annexe I.8.3.1) ajouté avec sa réserve ; moment du second exemple ramené à 800 kN·m/m, l’ancienne valeur dépassant la capacité en flexion de la section.
+  - 2026-10-05 : cinquième niveau (coefficient k_vd, annexe I.8.3.1(3)) et troisième exemple, poutre existante de grande hauteur.
 ---
 
 ## Ce qui change
@@ -33,7 +34,7 @@ $$
 V_{Rd,c} = \max\left(C_{Rd,c}\,k\,(100\,\rho_l\,f_{ck})^{1/3} \; ; \; v_{min}\right) b_w\,d
 $$
 
-La deuxième génération travaille en contrainte, $\tau_{Ed} = V_{Ed}/(b_w\,z)$ avec $z = 0.9\,d$, et en propose trois dans le corps du texte, puis un quatrième en annexe.
+La deuxième génération travaille en contrainte, $\tau_{Ed} = V_{Ed}/(b_w\,z)$ avec $z = 0.9\,d$, et en propose trois dans le corps du texte, puis deux variantes en annexe.
 
 **Niveau 1 : résistance minimale** (8.2.1, formule (8.20)). Elle ne demande ni le ferraillage longitudinal ni le moment :
 
@@ -63,7 +64,13 @@ $$
 \tau_{Rd,c} = \frac{0.33}{\gamma_V}\,\frac{\gamma_{def}^{2/3}}{\gamma_V^{2}}\,\frac{\sqrt{f_{ck}}}{1 + 24\,\gamma_{def}\,\varepsilon_v\,d/d_{dg}}
 $$
 
-avec $\gamma_{def}$ = 1,33 (valeur recommandée), coefficient qui couvre l’incertitude sur le calcul de $\varepsilon_v$. C’est la forme la plus directe de la théorie de la fissure critique : $\varepsilon_v$ prend implicitement en compte la portée mécanique, l’effort normal et les autres effets que les niveaux 2 et 3 traitent par des longueurs. Le calculateur obtient $\varepsilon_v$ par l’équilibre de la section fissurée sous $M_{Ed}$, avec les hypothèses de 8.1.1 (parabole-rectangle sur $f_{cd}$, acier élastique parfaitement plastique), sans plancher $\tau_{Rdc,min}$, que la formule (I.7) ne mentionne pas. Pour les éléments linéaires de hauteur utile supérieure à 500 mm, l’annexe prévoit en outre un coefficient $k_{vd}$ sur la formule (8.27) (formule (I.8)), pas encore traité ici.
+avec $\gamma_{def}$ = 1,33 (valeur recommandée), coefficient qui couvre l’incertitude sur le calcul de $\varepsilon_v$. C’est la forme la plus directe de la théorie de la fissure critique : $\varepsilon_v$ prend implicitement en compte la portée mécanique, l’effort normal et les autres effets que les niveaux 2 et 3 traitent par des longueurs. Le calculateur obtient $\varepsilon_v$ par l’équilibre de la section fissurée sous $M_{Ed}$, avec les hypothèses de 8.1.1 (parabole-rectangle sur $f_{cd}$, acier élastique parfaitement plastique), sans plancher $\tau_{Rdc,min}$, que la formule (I.7) ne mentionne pas. **Niveau 5 : coefficient de hauteur** (annexe I, I.8.3.1(3), formule (I.8)). Pour les éléments linéaires de hauteur utile supérieure à 500 mm, l’annexe demande soit le niveau 4, soit la résistance du niveau 2 multipliée par
+
+$$
+k_{vd} = 1.35\left(100\,\rho_l\,\frac{d_{dg}}{d}\right)^{1/10} \le 1.0
+$$
+
+Même réserve que le niveau 4. Le calculateur applique $k_{vd}$ à la valeur de la formule (8.27) et conserve le plancher $\tau_{Rdc,min}$ ; il affiche le niveau non applicable si $d$ ne dépasse pas 500 mm. Le texte vise les éléments linéaires, ce que l’outil ne peut pas vérifier.
 
 Le coefficient partiel $\gamma_V$ = 1,4 est propre à l’effort tranchant ; il remplace la combinaison de $\gamma_c$ et du coefficient 0,18 de la première génération.
 
@@ -158,6 +165,41 @@ Dans les deux générations, cette section exige des armatures d’effort tranch
 
 {{calculateur:radier}}
 
+## Troisième exemple : poutre existante de grande hauteur
+
+Poutre existante de 400 × 700 mm, sans étriers dans la zone vérifiée, C30/37, granulats 0/16, 4 HA25 tendus ($A_{sl}$ = 1963 mm²), $d$ = 650 mm. Section courante : $V_{Ed}$ = 100 kN et $M_{Ed}$ = 250 kN·m. C’est le cas que vise l’annexe I : $d$ dépasse 500 mm.
+
+```exemple
+{
+  "nom": "poutre-existante",
+  "mecanisme": "tranchant-sans-armature",
+  "entree": { "VEd": 100, "MEd": 250, "bw": 400, "d": 650, "Asl": 1963, "fck": 30, "fyk": 500, "Dlower": 16 },
+  "attendus": {
+    "ec2-2023/tau-min.resistance": "107,16",
+    "ec2-2023/hauteur-utile.τ_Rd,c (8.27)": "0,489",
+    "ec2-2023/hauteur-utile.resistance": "114,39",
+    "ec2-2023/portee-mecanique.a_v": "637",
+    "ec2-2023/annexe-i.ε_v": "1,116",
+    "ec2-2023/annexe-i.τ_Rd,c (I.7)": "0,462",
+    "ec2-2023/annexe-i.resistance": "108,14",
+    "ec2-2023/annexe-i-kvd.k_vd": "0,971",
+    "ec2-2023/annexe-i-kvd.k_vd τ_Rd,c": "0,475",
+    "ec2-2023/annexe-i-kvd.resistance": "111,11"
+  }
+}
+```
+
+| Génération et niveau | Résistance (kN) |
+|---|---:|
+| 2023, niveau 1 | {{poutre-existante:ec2-2023/tau-min.resistance}} |
+| 2023, niveau 2 ($\tau_{Rd,c}$ = {{poutre-existante:ec2-2023/hauteur-utile.τ_Rd,c (8.27)}} MPa) | {{poutre-existante:ec2-2023/hauteur-utile.resistance}} |
+| 2023, niveau 4, sous réserve ($\varepsilon_v$ = {{poutre-existante:ec2-2023/annexe-i.ε_v}} ‰, $\tau_{Rd,c}$ = {{poutre-existante:ec2-2023/annexe-i.τ_Rd,c (I.7)}} MPa) | {{poutre-existante:ec2-2023/annexe-i.resistance}} |
+| 2023, niveau 5, sous réserve ($k_{vd}$ = {{poutre-existante:ec2-2023/annexe-i-kvd.k_vd}}, {{poutre-existante:ec2-2023/annexe-i-kvd.k_vd τ_Rd,c}} MPa) | {{poutre-existante:ec2-2023/annexe-i-kvd.resistance}} |
+
+Pour cette poutre existante, l’annexe I remplace le niveau 2 par le niveau 4 ou le niveau 5 : la réduction est de quelques pour cent, et les deux variantes encadrent le plancher du niveau 1. Le niveau 3 ($a_v$ = {{poutre-existante:ec2-2023/portee-mecanique.a_v}} mm, à peine inférieur à $d$) reste ouvert pour une structure neuve.
+
+{{calculateur:poutre-existante}}
+
 ## L’effet sur une note de calcul existante
 
 - La **granulométrie** devient une donnée d’entrée du calcul. Une note qui ne la mentionne pas ne peut pas être transposée telle quelle : il faut connaître la fraction la plus grosse prévue au cahier des charges du béton.
@@ -169,7 +211,7 @@ Dans les deux générations, cette section exige des armatures d’effort tranch
 ## Ce qu’il faudra vérifier dans l’annexe nationale
 
 - La valeur de $\gamma_V$ (1,4 recommandé).
-- L’emploi de l’annexe I et la valeur de $\gamma_{def}$ (1,33 recommandé).
+- L’emploi de l’annexe I, la valeur de $\gamma_{def}$ (1,33 recommandé) et celle du coefficient $k_{vd}$.
 - Les éventuelles conditions nationales sur l’emploi de $a_v$ en lieu et place de $d$.
 - La limite inférieure de granulométrie : la norme ne couvre pas les bétons dont $D_{lower}$ est inférieur à 8 mm, que le calculateur refuse en deuxième génération.
 - La définition de $D_{lower}$ retenue pour les granulats concassés ou recyclés.
