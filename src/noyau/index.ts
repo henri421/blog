@@ -11,6 +11,7 @@ import { ancrageCrochet } from './mecanismes/ancrage-crochet/index';
 import { ancrageBoucle, ancrageSoude } from './mecanismes/ancrage-soude-boucle/index';
 import { teteAncrage } from './mecanismes/tete-ancrage/index';
 import { mandrin } from './mecanismes/mandrin/index';
+import { fatigueAcier, fatigueBeton, fatigueTranchant } from './mecanismes/fatigue/index';
 import { armatureTranchantMinimale } from './mecanismes/armature-tranchant-minimale/index';
 import { bielles, diffusion } from './mecanismes/bielles/index';
 import { fissurationMinimale, nonFragilite } from './mecanismes/armatures-minimales/index';
@@ -43,7 +44,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { ancrageBoucle, ancrageSoude, chainages, contraintesEls, espacement, mandrin, teteAncrage };
+export { ancrageBoucle, ancrageSoude, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, mandrin, teteAncrage };
 export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, diffusion, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -74,6 +75,9 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [ancrageBoucle.id]: ancrageBoucle as unknown as Mecanisme<Record<string, unknown>>,
   [teteAncrage.id]: teteAncrage as unknown as Mecanisme<Record<string, unknown>>,
   [mandrin.id]: mandrin as unknown as Mecanisme<Record<string, unknown>>,
+  [fatigueAcier.id]: fatigueAcier as unknown as Mecanisme<Record<string, unknown>>,
+  [fatigueBeton.id]: fatigueBeton as unknown as Mecanisme<Record<string, unknown>>,
+  [fatigueTranchant.id]: fatigueTranchant as unknown as Mecanisme<Record<string, unknown>>,
   [bielles.id]: bielles as unknown as Mecanisme<Record<string, unknown>>,
   [imperfections.id]: imperfections as unknown as Mecanisme<Record<string, unknown>>,
   [flexion.id]: flexion as unknown as Mecanisme<Record<string, unknown>>,

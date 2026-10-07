@@ -215,3 +215,16 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   produit à confirmer (question 10). (11.2) k_trans également. Non codés.
 - [x] 2004 (8.1) : φ_m,min ≥ F_bt (1/a_b + 1/(2 φ))/f_cd, f_cd au plus celle
   du C55/67 ; dispense de 8.3(3).
+
+## Fatigue, vérifications simplifiées (10.4 à 10.6)
+
+- [x] 10.4(1) a) : 90 / 73 MPa (non soudées, φ ≤ / > 12 mm), 40 / 30 MPa
+  (soudées bout à bout et par points), 19 MPa (coupleurs), 10⁸ cycles ; NOTE :
+  valeurs de calcul tirées des tableaux E.1 et E.2 (NDP), γ_S = 1,15.
+- [x] (10.4) : |σ_cd,max|/f_cd,fat ≤ 0,5 + 0,45 |σ_cd,min|/f_cd,fat ≤ 0,90 ;
+  (10.5) f_cd,fat = β_cc(t_0) f_ck/γ_C k_tc η_cc,fat, η_cc,fat = min(0,85 η_cc ; 0,8).
+- [x] (10.6), (10.7) : en contraintes τ, plafond 0,90 ; τ_Rd,c selon (8.27) ou (8.94).
+- [x] 2004 6.8.6(1) : k_1 = 70 MPa, k_2 = 35 MPa (recommandées) ; (6.77) plafond
+  0,9 (f_ck ≤ 50) ou 0,8, σ_c,min de traction prise nulle ; (6.78), (6.79).
+- [ ] 2004 (6.76) : f_cd,fat = k_1 β_cc(t_0) f_cd (1 − f_ck/250), k_1 = 0,85 :
+  formule non extraite (image), expression usuelle retenue.

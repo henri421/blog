@@ -15,6 +15,7 @@ export const MOTS_CLES = [
   'ductilite',
   'stabilite',
   'robustesse',
+  'fatigue',
   'elu',
   'els',
   'flexion',

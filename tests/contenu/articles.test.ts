@@ -44,6 +44,7 @@ describe('articles', () => {
       'ancrage-soude-boucle',
       'tete-ancrage',
       'mandrins',
+      'fatigue',
     ]);
   });
 
