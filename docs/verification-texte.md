@@ -200,3 +200,18 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   illisible ; k_h,A = (φ_h/φ)² − 1 (11.9) ; κ_part = 11,0 (non fissuré) ou
   8,0 (fissuré) ; (11.10) illisible. Non codé.
 - [x] (11.11) : l_bd = 1,1 (l_bd(σ_sd) − l_bd(σ'_sd)).
+
+## Diamètre des mandrins (11.3)
+
+- [x] φ_mand,min = 4 φ (φ ≤ 16 mm), 7 φ (φ > 16 mm), barres non soudées ou
+  soudures à au moins 3 φ de la courbure (11.3(2)) ; mêmes valeurs que le
+  tableau 8.1N a) de 2004.
+- [x] Dispenses (11.3(3)) sous f_yd ≤ 25 f_cd et γ_C ≤ 1,5 : cadres selon
+  12.3.3 ; crochets et coudes standard (figure 11.6) avec ≤ 5 φ d'ancrage
+  au-delà de la courbure, c_x ≥ 1,5 φ, c_s ≥ 3 φ ; coudes ≤ 45° avec
+  c_x ≥ 2,5 φ, c_s ≥ 5 φ, segments droits ≥ 4 φ, f_yk ≤ 500, f_ck ≥ 25.
+- [ ] (11.1) : lecture σ_sd ≤ 0,65 f_cd φ_mand/φ + √f_ck/γ_C (d_dg/φ)^(1/3)
+  (c_d/φ + 1/2)(k_bend + 0,7 φ_mand/φ), k_bend = 32 (45°/α_bend) ; somme ou
+  produit à confirmer (question 10). (11.2) k_trans également. Non codés.
+- [x] 2004 (8.1) : φ_m,min ≥ F_bt (1/a_b + 1/(2 φ))/f_cd, f_cd au plus celle
+  du C55/67 ; dispense de 8.3(3).

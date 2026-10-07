@@ -43,6 +43,7 @@ describe('articles', () => {
       'espacement-paquets',
       'ancrage-soude-boucle',
       'tete-ancrage',
+      'mandrins',
     ]);
   });
 

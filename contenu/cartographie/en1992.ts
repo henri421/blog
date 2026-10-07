@@ -351,7 +351,12 @@ export const EN1992: Carte = {
           niveaux: [n(G1, 'espacement', 'base', '8.2'), n(G2, 'espacement', 'base', '11.2')],
           reserves: 'Distance à une surface déjà bétonnée (11.2(4)) et armatures scellées (11.2(5)) non codées.',
         }),
-        c('11.3', 'Diamètres des mandrins', ['8.3']),
+        c('11.3', 'Diamètres des mandrins', ['8.3'], {
+          article: 'mandrins',
+          ingeree: true,
+          niveaux: [n(G1, 'mandrin', 'dommage', '8.3(2)'), n(G1, 'mandrin', 'beton', '8.3(3)'), n(G2, 'mandrin', 'dommage', '11.3(2)')],
+          reserves: 'Vérification du béton de 2023 (11.1), (11.2) non codée : lecture de la formule à confirmer ; dispenses (11.3(3)) décrites.',
+        }),
         c('11.4.1', 'Ancrage : généralités', ['8.4.1']),
         c('11.4.2', 'Ancrage des barres droites', ['8.4.2', '8.4.3', '8.4.4'], {
           article: 'ancrage',
