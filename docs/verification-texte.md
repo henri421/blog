@@ -239,3 +239,14 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] 2004 : (12.1), (12.2) avec η de 3.1.7(3), (12.3) à (12.7) (k = 1,5), (12.13), (12.14).
 - [ ] (14.11), facteur Φ des voiles élancés : structure illisible à l'extraction ;
   non codé (ni (12.11) de 2004, par symétrie).
+
+## Appuis des éléments préfabriqués (12.10, 13.7.2 ; 10.9.5)
+
+- [x] 12.10(5) : profondeur nominale « en tenant compte » de a_1, des
+  mouvements, des distances inefficaces et des tolérances Δa_2, Δa_3, sans
+  expression de combinaison ni tableau relevés ; d_i = c_h,i + Δa_i (+ r_i).
+- [x] 12.10(7) : f_Rd = 0,4 f_cd (joints secs) (12.13), f_Rd = f_bed ≤ 0,85 f_cd (12.14).
+- [x] 13.7.2 : renvoi à 12.10 ; élément isolé, longueur nette majorée pour les
+  mouvements et la rotation, sans supplément forfaitaire relevé.
+- [x] 2004 : a = a_1 + a_2 + a_3 + √(Δa_2² + Δa_3²) (10.6), a_1 = F_Ed/(b_1 f_Rd)
+  au moins le tableau 10.2, Δa_3 = l_n/2500 ; + 20 mm élément isolé (10.9.5.3(1)).

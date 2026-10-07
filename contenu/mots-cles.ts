@@ -18,6 +18,7 @@ export const MOTS_CLES = [
   'fatigue',
   'beton-non-arme',
   'fondations',
+  'prefabrication',
   'elu',
   'els',
   'flexion',

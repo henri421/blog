@@ -46,6 +46,7 @@ describe('articles', () => {
       'mandrins',
       'fatigue',
       'beton-non-arme',
+      'appuis-prefabriques',
     ]);
   });
 
