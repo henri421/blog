@@ -228,3 +228,14 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   0,9 (f_ck ≤ 50) ou 0,8, σ_c,min de traction prise nulle ; (6.78), (6.79).
 - [ ] 2004 (6.76) : f_cd,fat = k_1 β_cc(t_0) f_cd (1 − f_ck/250), k_1 = 0,85 :
   formule non extraite (image), expression usuelle retenue.
+
+## Béton non armé (14 ; 12)
+
+- [x] f_cd,pl = k_c,pl f_cd (14.1), f_ctd,pl = k_t,pl f_ctd (14.2), k = 0,8 (NOTE) ;
+  f_ctd = k_tt f_ctk;0.05/γ_C (5.5), k_tt = 0,80 pour t_ref ≤ 28 j (CN, CR).
+- [x] N_Rd = f_cd,pl b h (1 − 2e/h) (14.3).
+- [x] σ_cp = |N_Ed|/A_cc (14.4), τ_cp = 1,5 V_Ed/A_cc (14.5) ; (14.6), (14.7), (14.8).
+- [x] 0,85 h_F/a_F ≥ √(3 σ_gd/f_ctd,pl) (14.13) ; h_F/a_F ≥ 2 (14.14).
+- [x] 2004 : (12.1), (12.2) avec η de 3.1.7(3), (12.3) à (12.7) (k = 1,5), (12.13), (12.14).
+- [ ] (14.11), facteur Φ des voiles élancés : structure illisible à l'extraction ;
+  non codé (ni (12.11) de 2004, par symétrie).

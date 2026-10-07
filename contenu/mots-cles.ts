@@ -16,6 +16,8 @@ export const MOTS_CLES = [
   'stabilite',
   'robustesse',
   'fatigue',
+  'beton-non-arme',
+  'fondations',
   'elu',
   'els',
   'flexion',

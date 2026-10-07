@@ -498,12 +498,31 @@ export const EN1992: Carte = {
       numero: '14',
       titre: 'Béton non armé ou faiblement armé',
       clauses: [
-        c('14.1', 'Béton non armé : généralités', ['12.1']),
-        c('14.2', 'Béton', ['12.3']),
+        c('14.1', 'Béton non armé : généralités', ['12.1'], { article: 'beton-non-arme', ingeree: true }),
+        c('14.2', 'Béton', ['12.3'], { article: 'beton-non-arme', ingeree: true }),
         c('14.3', 'Analyse structurale', ['12.5']),
-        c('14.4', 'ELU : flexion composée, effort tranchant, torsion', ['12.6']),
+        c('14.4', 'ELU : flexion composée, effort tranchant, torsion', ['12.6'], {
+          article: 'beton-non-arme',
+          ingeree: true,
+          niveaux: [
+            n(G1, 'non-arme-compression', 'base', '12.6.1'),
+            n(G2, 'non-arme-compression', 'base', '14.4.2'),
+            n(G1, 'non-arme-tranchant', 'base', '12.6.3'),
+            n(G2, 'non-arme-tranchant', 'base', '14.4.3'),
+          ],
+          reserves: 'Méthode simplifiée des voiles et poteaux élancés ((12.10), (12.11) ; (14.10), (14.11)) non codée : lecture de (14.11) à confirmer.',
+        }),
         c('14.5', 'ELS', ['12.7']),
-        c('14.6', 'Dispositions des éléments', ['12.9']),
+        c('14.6', 'Dispositions des éléments', ['12.9'], {
+          article: 'beton-non-arme',
+          ingeree: true,
+          niveaux: [
+            n(G1, 'semelle-non-armee', 'simplifie', '12.9.3'),
+            n(G1, 'semelle-non-armee', 'pression', '12.9.3'),
+            n(G2, 'semelle-non-armee', 'simplifie', '14.6.3'),
+            n(G2, 'semelle-non-armee', 'pression', '14.6.3'),
+          ],
+        }),
       ],
     },
     {

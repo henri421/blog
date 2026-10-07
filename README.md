@@ -43,6 +43,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Ancrage par tête d'ancrage | `tete-ancrage` | 0 / 1 |
 | Diamètre des mandrins de cintrage | `mandrin` | 2 / 1 |
 | Fatigue, vérifications simplifiées | `fatigue-acier`, `fatigue-beton`, `fatigue-tranchant` | 1 / 1 chacun |
+| Béton non armé | `non-arme-compression`, `non-arme-tranchant`, `semelle-non-armee` | 1 / 1, 1 / 1 et 2 / 2 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 

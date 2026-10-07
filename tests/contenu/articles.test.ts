@@ -45,6 +45,7 @@ describe('articles', () => {
       'tete-ancrage',
       'mandrins',
       'fatigue',
+      'beton-non-arme',
     ]);
   });
 
