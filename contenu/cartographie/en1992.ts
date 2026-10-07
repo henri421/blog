@@ -511,7 +511,12 @@ export const EN1992: Carte = {
           niveaux: [n(G1, 'appui-prefabrique', 'nette', '10.9.5.2'), n(G1, 'appui-prefabrique', 'nominale', '10.9.5.2')],
           reserves: 'Assemblages (13.7.1, (13.14) à (13.16)) décrits, non codés.',
         }),
-        c('13.8', 'Fondations en encuvement', ['10.9.6']),
+        c('13.8', 'Fondations en encuvement', ['10.9.6'], {
+          article: 'encuvement',
+          ingeree: true,
+          niveaux: [n(G1, 'encuvement', 'base', '10.9.6.3'), n(G2, 'encuvement', 'base', '13.8.3')],
+          reserves: 'Efforts F1 à F3 et frottement du modèle de la figure 13.8 non calculés ; encuvements à clés (13.8.2) décrits.',
+        }),
       ],
     },
     {

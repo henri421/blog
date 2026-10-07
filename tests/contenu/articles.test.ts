@@ -48,6 +48,7 @@ describe('articles', () => {
       'beton-non-arme',
       'appuis-prefabriques',
       'pretension',
+      'encuvement',
     ]);
   });
 

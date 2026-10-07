@@ -262,3 +262,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   non employée (f_ck(t) saisie).
 - [x] 2004 : (8.15) à (8.21), η_p1 = 2,7/3,2, α_2 = 0,25/0,19, η_p2 = 1,4/1,2,
   f_ctd(t) = α_ct 0,7 f_ctm(t)/γ_c, f_ctk,0.05 plafonnée au C60/75 pour l'ancrage.
+
+## Fondations en encuvement (13.8 ; 10.9.6)
+
+- [x] (13.17) l ≥ 1,2 h_col pour M_Ed/N_Ed ≤ 0,15 h_col ; (13.18) l ≥ 2,0 h_col pour
+  M_Ed/N_Ed ≥ 2,0 h_col ; interpolation permise ; h_col plus grand côté.
+- [x] μ_v du tableau 8.2 ; a ≥ 0,1 l pour F_1 (13.8.3(5)).
+- [x] 2004 : l ≥ 1,2 h, μ ≤ 0,3 (10.9.6.3).
