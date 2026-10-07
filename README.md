@@ -39,6 +39,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Limitation des contraintes en service | `contraintes-els` | 3 / 3 |
 | Chaînages de robustesse | `chainages` | 1 / 1 |
 | Espacement des barres et paquets | `espacement` | 1 / 1 |
+| Ancrage par barres soudées et boucles en U | `ancrage-soude`, `ancrage-boucle` | 2 / 2 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 

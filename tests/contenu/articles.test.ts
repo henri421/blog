@@ -41,6 +41,7 @@ describe('articles', () => {
       'contraintes-service',
       'chainages',
       'espacement-paquets',
+      'ancrage-soude-boucle',
     ]);
   });
 

@@ -172,3 +172,18 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   φ_n remplace φ pour un paquet (8.9.1(3)).
 - [ ] 2004 : φ_n = φ √n_b ≤ 55 mm (8.14) : formule non extraite (image),
   expression usuelle retenue, à confirmer sur l'exemplaire.
+
+## Ancrage par barres transversales soudées et par boucles (11.4.5, 11.4.6)
+
+- [x] 2023 barres soudées : l_bd de 11.4.2 réduite de 15 φ, l_bd ≥ 5 φ ; une
+  barre si φ_t ≥ 0,6 φ ; sinon deux barres, 50 mm ≤ s ≤ 100 mm, φ ≤ 16 mm
+  (11.4.5(1)). Le texte écrit « ≥ 0,6 φ » et « ≤ 0,6 φ » : l'égalité est
+  rattachée au cas d'une barre.
+- [x] 2023 boucles : réduction de 20 φ, l_bd ≥ 10 φ, mandrin minimal
+  (11.4.6(2)) ; boucle en traction pure conforme à 11.3 ancrée sans longueur
+  (11.4.6(1)), non codé.
+- [x] 2004 : α_4 = 0,7 pour une barre soudée φ_t > 0,6 φ sur l_bd (8.4.4,
+  tableau 8.2, figure 8.1 e)) ; α_1 = 0,7 si c_d > 3 φ et α_2 non droit pour une
+  boucle, c_d = c (figure 8.3 c)) ; (α_2 α_3 α_5) ≥ 0,7 (8.5).
+- [ ] 2004 : c de la figure 8.3 c) pris égal à l'enrobage perpendiculaire au
+  plan de la boucle (lecture du dessin à confirmer).
