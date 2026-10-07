@@ -187,3 +187,16 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   boucle, c_d = c (figure 8.3 c)) ; (α_2 α_3 α_5) ≥ 0,7 (8.5).
 - [ ] 2004 : c de la figure 8.3 c) pris égal à l'enrobage perpendiculaire au
   plan de la boucle (lecture du dessin à confirmer).
+
+## Ancrage par tête d'ancrage (11.4.7)
+
+- [x] Règle de moyens (11.4.7(1)) : σ_sd = 435 MPa sans longueur
+  supplémentaire si φ_h ≥ 3 φ, f_ck ≥ 25 MPa, φ ≤ 25 mm, d_dg ≥ 32 mm,
+  a_y ≥ 3 φ (non fissuré) ou 4 φ (fissuré), a_x ≥ 2 a_y + 1,2 φ_h,
+  s_x ≥ 4 a_y ; φ_h ≤ 4 t_h ; a_x et a_y permutés si a_x < a_y ;
+  φ_h = 2 √(A_h/π) (11.7).
+- [ ] (11.8) : contrainte développée par la tête, structure lue
+  k_h,A f_cd + κ_part √f_ck/γ_C (a_d/φ)(φ_h/φ)^(5/6)(d_dg/φ)^(1/3), plafond
+  illisible ; k_h,A = (φ_h/φ)² − 1 (11.9) ; κ_part = 11,0 (non fissuré) ou
+  8,0 (fissuré) ; (11.10) illisible. Non codé.
+- [x] (11.11) : l_bd = 1,1 (l_bd(σ_sd) − l_bd(σ'_sd)).

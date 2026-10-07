@@ -400,7 +400,12 @@ export const EN1992: Carte = {
           ],
           reserves: 'Ancrage sans longueur d’une boucle en traction pure (11.4.6(1)) non codé.',
         }),
-        c('11.4.7', 'Ancrage par tête d’ancrage', []),
+        c('11.4.7', 'Ancrage par tête d’ancrage', [], {
+          article: 'tete-ancrage',
+          ingeree: true,
+          niveaux: [n(G2, 'tete-ancrage', 'simplifie', '11.4.7(1)')],
+          reserves: 'Vérification générale (11.8) à (11.11) non codée : lecture des formules à confirmer.',
+        }),
         c('11.4.8', 'Ancrage des armatures scellées', []),
         c('11.5.1', 'Recouvrements : généralités', ['8.7.1', '8.7.2']),
         c('11.5.2', 'Recouvrements : tous types', ['8.7.3', '8.7.4'], { article: 'ancrage', ingeree: true }),

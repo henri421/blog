@@ -42,6 +42,7 @@ describe('articles', () => {
       'chainages',
       'espacement-paquets',
       'ancrage-soude-boucle',
+      'tete-ancrage',
     ]);
   });
 
