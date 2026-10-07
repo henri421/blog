@@ -150,11 +150,15 @@ export const fr = {
   'motif.poteau-allonge':
     'Un côté du poteau dépasse 3 d : seule une partie du périmètre serait à retenir, règle non codée.',
   'motif.sigma-sup-fyd': 'σsd dépasse fyd : la barre ne peut pas être plus sollicitée que plastifiée.',
+  'motif.paquet-nb-max':
+    'Trop de barres dans le paquet : au plus 3, au plus 4 pour des barres verticales comprimées et dans un recouvrement.',
+  'motif.phin-sup-55': 'Diamètre équivalent du paquet supérieur à 55 mm (8.14).',
 
   // ---- Mecanismes ----
   'meca.tsa.titre': 'Effort tranchant sans armature d’âme',
   'meca.imp.titre': 'Imperfections géométriques',
   'meca.ch.titre': 'Chaînages de robustesse',
+  'meca.esp.titre': 'Espacement des barres et paquets',
   'meca.els.titre': 'Limitation des contraintes en service',
   'meca.atm.titre': 'Armatures minimales d’effort tranchant',
   'meca.bt.titre': 'Bielles et nœuds des modèles à bielles et tirants',
@@ -195,6 +199,8 @@ export const fr = {
   'grandeur.longueur-disponible': 'Longueur disponible',
   'grandeur.enrobage-requis': 'Enrobage nominal requis',
   'grandeur.enrobage-prevu': 'Enrobage nominal prévu',
+  'grandeur.cs-requis': 'Distance libre minimale',
+  'grandeur.cs-prevu': 'Distance libre prévue',
   'grandeur.cisaillement-interface': 'Contrainte de cisaillement à l’interface',
   'grandeur.resistance-interface': 'Résistance de l’interface',
   'grandeur.elancement': 'Élancement L/d',
@@ -246,6 +252,9 @@ export const fr = {
   'champ.contrevente': 'Élément contreventé',
   'champ.l0': 'Longueur efficace',
   'champ.type-chainage': 'Chaînage',
+  'champ.nb-paquet': 'Nombre de barres du paquet (1 pour une barre isolée)',
+  'champ.disposition-paquet': 'Disposition',
+  'champ.cs-prevu': 'Distance libre prévue entre barres ou entre paquets',
   'champ.gk-surfacique': 'Charge permanente surfacique',
   'champ.qk-surfacique': 'Charge d’exploitation surfacique',
   'champ.psi-accidentel': 'Coefficient de combinaison en situation accidentelle',
@@ -386,6 +395,9 @@ export const fr = {
   'option.imp.element': 'élément isolé (N = charge verticale)',
   'option.ch.peripherique': 'périphérique',
   'option.ch.interieur': 'intérieur',
+  'option.esp.courant': 'cas courant',
+  'option.esp.compression-verticale': 'barres verticales comprimées',
+  'option.esp.recouvrement': 'dans un recouvrement',
   'option.bt.bielle-comprimee': 'bielle sans traction transversale',
   'option.bt.bielle-fissuree': 'bielle traversée par un tirant (zone fissurée)',
   'option.bt.noeud-ccc': 'nœud CCC (bielles seules)',
@@ -447,6 +459,8 @@ export const fr = {
   'niveau.els.2023.quasi-permanent': 'Combinaison quasi permanente : seuil 0,40 fcm au-delà duquel le fluage non linéaire est à prendre en compte, Ec,eff = 1,05 Ecm/(1 + φ).',
   'niveau.ch.2004.base': 'Périphérique : min(10 li ; 70 kN) (9.15) ; intérieur : 20 kN par mètre de largeur.',
   'niveau.ch.2023.ossature': 'EN 1991-1-7 A.3.1 : max(0,8 ou 0,4 (gk + ψ qk) st Lt ; 75 kN) (A.1), (A.2).',
+  'niveau.esp.2004.base': 'max(k1 φ ; dg + k2 ; 20 mm), φ remplacé par φn = φ √nb ≤ 55 mm pour un paquet ; k1 = 1, k2 = 5 mm.',
+  'niveau.esp.2023.base': 'Barres isolées : max(φ ; Dupper + 5 mm ; 20 mm) ; entre paquets : φb = √(4 As/π).',
   'niveau.tsa.2004.base': 'Expression empirique en (100 ρl fck)^1/3, effet d’échelle par k, minimum vmin.',
   'niveau.tsa.2004.effort-normal': 'Expression (6.2) avec le terme k1 σcp de l’effort normal, k1 = 0,15, σcp ≤ 0,2 fcd.',
   'niveau.tsa.2023.tau-min':

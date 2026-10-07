@@ -40,6 +40,7 @@ describe('articles', () => {
       'bielles-tirants',
       'contraintes-service',
       'chainages',
+      'espacement-paquets',
     ]);
   });
 

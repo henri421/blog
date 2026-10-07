@@ -154,3 +154,21 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] k_cp = 1,0 en bonne adhérence, 1,2 sinon (11.4.2(3)).
 - [x] l_sd = k_ls l_bd ≥ 15 φ, k_ls = 1,2 (11.5.2(2), tableau 11.3) ; 100 % de
   barres recouvertes admis hors rotules plastiques (11.5.2(4)).
+
+## Espacement et paquets de barres (11.2, 11.4.3, 11.5.3)
+
+- [x] Barres isolées : c_s ≥ max(φ ; D_upper + 5 mm ; 20 mm) (11.2(2)).
+- [x] Paquets : au plus 3 barres, 4 pour des barres verticales comprimées et
+  dans un recouvrement ; chaque barre d'un paquet de 3 ou 4 en contact avec au
+  moins deux autres (11.2(3)).
+- [x] φ_b = √(4 A_s/π) (11.6), A_s aire totale du paquet (11.4.3(1)) ; aucun
+  plafond relevé (le 55 mm de (8.14) n'apparaît pas).
+- [ ] Distance libre entre paquets : 11.2(3) ne cite que φ_b ; l'outil n'y
+  ajoute ni D_upper + 5 mm ni 20 mm. Lecture à confirmer.
+- [x] Recouvrement : paquets de 2 barres sans décalage avec φ_b ; 3 barres
+  seulement décalées d'au moins 0,3 l_sd ou avec barre supplémentaire, longueur
+  avec φ ; 4 barres interdites (11.5.3).
+- [x] 2004 : c_s ≥ max(k_1 φ ; d_g + k_2 ; 20 mm), k_1 = 1, k_2 = 5 mm (8.2(2)) ;
+  φ_n remplace φ pour un paquet (8.9.1(3)).
+- [ ] 2004 : φ_n = φ √n_b ≤ 55 mm (8.14) : formule non extraite (image),
+  expression usuelle retenue, à confirmer sur l'exemplaire.

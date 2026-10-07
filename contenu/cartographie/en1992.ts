@@ -345,7 +345,12 @@ export const EN1992: Carte = {
       titre: 'Dispositions constructives des armatures',
       clauses: [
         c('11.1', 'Dispositions : généralités', ['8.1']),
-        c('11.2', 'Espacement des armatures', ['8.2']),
+        c('11.2', 'Espacement des armatures', ['8.2'], {
+          article: 'espacement-paquets',
+          ingeree: true,
+          niveaux: [n(G1, 'espacement', 'base', '8.2'), n(G2, 'espacement', 'base', '11.2')],
+          reserves: 'Distance à une surface déjà bétonnée (11.2(4)) et armatures scellées (11.2(5)) non codées.',
+        }),
         c('11.3', 'Diamètres des mandrins', ['8.3']),
         c('11.4.1', 'Ancrage : généralités', ['8.4.1']),
         c('11.4.2', 'Ancrage des barres droites', ['8.4.2', '8.4.3', '8.4.4'], {
@@ -358,7 +363,11 @@ export const EN1992: Carte = {
             n(G2, 'ancrage', 'contrainte-reelle', '11.4.2'),
           ],
         }),
-        c('11.4.3', 'Ancrage des paquets de barres', ['8.9.2']),
+        c('11.4.3', 'Ancrage des paquets de barres', ['8.9.2'], {
+          article: 'espacement-paquets',
+          ingeree: true,
+          reserves: 'Diamètre équivalent calculé ; la longueur d’ancrage se calcule avec le calculateur d’ancrage en y saisissant φb.',
+        }),
         c('11.4.4', 'Ancrage par coude ou crochet', ['8.4.4'], {
           article: 'ancrage-crochet',
           ingeree: true,
@@ -375,7 +384,11 @@ export const EN1992: Carte = {
         c('11.4.8', 'Ancrage des armatures scellées', []),
         c('11.5.1', 'Recouvrements : généralités', ['8.7.1', '8.7.2']),
         c('11.5.2', 'Recouvrements : tous types', ['8.7.3', '8.7.4'], { article: 'ancrage', ingeree: true }),
-        c('11.5.3', 'Recouvrement de paquets', ['8.9.3']),
+        c('11.5.3', 'Recouvrement de paquets', ['8.9.3'], {
+          article: 'espacement-paquets',
+          ingeree: true,
+          reserves: 'Règles de décalage décrites dans l’article, non codées.',
+        }),
         c('11.5.4', 'Recouvrement par boucles en U', []),
         c('11.5.5', 'Recouvrement par barres à tête', []),
         c('11.5.6', 'Coupleurs mécaniques', []),
