@@ -493,7 +493,17 @@ export const EN1992: Carte = {
         c('13.2', 'Exigences spécifiques', ['10.2']),
         c('13.3', 'Béton : cure thermique, fluage et retrait', ['10.3']),
         c('13.4', 'Analyse structurale', ['10.5']),
-        c('13.5', 'Armatures de précontrainte pré-tendues', ['8.10.2', '10.5.2']),
+        c('13.5', 'Armatures de précontrainte pré-tendues', ['8.10.2', '10.5.2'], {
+          article: 'pretension',
+          ingeree: true,
+          niveaux: [
+            n(G1, 'pretension', 'transmission', '8.10.2.2'),
+            n(G1, 'pretension', 'ancrage', '8.10.2.3'),
+            n(G2, 'pretension', 'transmission', '13.5.3'),
+            n(G2, 'pretension', 'ancrage', '13.5.4'),
+          ],
+          reserves: 'Enrobage minimal (tableau 13.1) et tranchant des éléments précontraints sans armature (13.5.5) non codés.',
+        }),
         c('13.6', 'Systèmes de plancher', ['10.9.3']),
         c('13.7', 'Assemblages et appuis', ['10.9.4', '10.9.5'], {
           article: 'appuis-prefabriques',

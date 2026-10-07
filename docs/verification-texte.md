@@ -250,3 +250,15 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   mouvements et la rotation, sans supplément forfaitaire relevé.
 - [x] 2004 : a = a_1 + a_2 + a_3 + √(Δa_2² + Δa_3²) (10.6), a_1 = F_Ed/(b_1 f_Rd)
   au moins le tableau 10.2, Δa_3 = l_n/2500 ; + 20 mm élément isolé (10.9.5.3(1)).
+
+## Pré-tension (13.5.3, 13.5.4 ; 8.10.2)
+
+- [x] (13.4) l_pt = (γ_C/1,5) α_1 α_2 σ_pm0 φ_p/(η_1 √f_ck(t)) ; α_1 = 1,0/1,25 ;
+  α_2 = 0,40 fils crantés, 0,26 torons 3 ou 7 fils ; η_1 = 1,0/0,7.
+- [x] (13.6), (13.7) l_pt1 = 0,8 l_pt, l_pt2 = 1,2 l_pt ; (13.8) l_disp = √(l_pt² + d²).
+- [x] (13.9) l_bpd = l_pt2 + (γ_C/1,5) 2 α_2 α_3 (σ_pd − σ_pm∞)/(η_1 √f_ck) φ_p,
+  α_3 = 1,5 sous fatigue.
+- [ ] (13.5) f_ck(t) = [β_cc(t)]^(2/3) f_ck : lecture littérale de l'extraction,
+  non employée (f_ck(t) saisie).
+- [x] 2004 : (8.15) à (8.21), η_p1 = 2,7/3,2, α_2 = 0,25/0,19, η_p2 = 1,4/1,2,
+  f_ctd(t) = α_ct 0,7 f_ctm(t)/γ_c, f_ctk,0.05 plafonnée au C60/75 pour l'ancrage.

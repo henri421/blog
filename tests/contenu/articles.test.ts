@@ -47,6 +47,7 @@ describe('articles', () => {
       'fatigue',
       'beton-non-arme',
       'appuis-prefabriques',
+      'pretension',
     ]);
   });
 
