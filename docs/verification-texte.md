@@ -342,3 +342,9 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [ ] (11.12) l_bd,pi = l_bd / k_b,pi ≥ 10 φ α_lb : barre de fraction perdue, k_b,pi
   traité en diviseur ; α_lb = 1,5 ; f_ck ≤ 50 MPa et σ_sd ≤ 435 MPa dans l_bd.
 - [x] 11.4.8(6) : recouvrement avec l_bd,pi à la place de l_bd.
+
+## Précontrainte, mise en tension et frottement (7.6.2, 7.6.3.2 ; 5.10.2, 5.10.3, 5.10.5.2)
+
+- [x] Tableau 7.1 : σ_p,max ≤ 0,8 f_pk et ≤ 0,9 f_p0,1k ; surtension ≤ 0,95 f_p0,1k ;
+  σ_p,m(x,0) ≤ 0,75 f_pk et ≤ 0,85 f_p0,1k. 2004 : k_1 à k_3, k_7, k_8 recommandés identiques.
+- [x] (7.34) Δσ_p,μ = σ_p,max [1 − exp(−μ(α_μ + k_μ x))], 0,005 < k_μ < 0,01 /m ; (5.45) identique.

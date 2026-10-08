@@ -59,6 +59,7 @@ describe('articles', () => {
       'acier-calcul',
       'analyse-plastique',
       'armature-scellee',
+      'precontrainte-tension',
     ]);
   });
 
