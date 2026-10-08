@@ -5,7 +5,7 @@ statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-08
 revise: 2026-10-08
-resume: Comme pour les crochets, les coefficients multiplicateurs de 2004 deviennent des longueurs à retrancher : 15 φ pour une barre transversale soudée, 20 φ pour une boucle en U. La boucle y gagne, la barre soudée perd à forte contrainte.
+resume: Comme pour les crochets, les coefficients multiplicateurs de 2004 deviennent des longueurs à retrancher : 15 φ pour une barre transversale soudée, 20 φ pour une boucle en U. La longueur d’une boucle diminue nettement ; celle d’une barre soudée augmente un peu à forte contrainte.
 motscles: ancrage, dispositions-constructives
 historique:
   - 2026-10-08 : première rédaction.
@@ -91,7 +91,7 @@ HA16, C25/30, B500, bonne adhérence, 30 mm d’enrobage, 100 mm entre barres, 4
 | Barre transversale soudée | {{soude-poutre:ec2-2004/barre-plastifiee.sollicitation}} | {{soude-poutre:ec2-2023/barre-plastifiee.sollicitation}} | {{soude-poutre:ec2-2004/contrainte-reelle.sollicitation}} | {{soude-poutre:ec2-2023/contrainte-reelle.sollicitation}} |
 | Boucle en U | {{boucle-poutre:ec2-2004/barre-plastifiee.sollicitation}} | {{boucle-poutre:ec2-2023/barre-plastifiee.sollicitation}} | {{boucle-poutre:ec2-2004/contrainte-reelle.sollicitation}} | {{boucle-poutre:ec2-2023/contrainte-reelle.sollicitation}} |
 
-Pour la **barre plastifiée**, la barre soudée perd un peu : {{soude-poutre:ec2-2023/barre-plastifiee.sollicitation}} mm au lieu de {{soude-poutre:ec2-2004/barre-plastifiee.sollicitation}}. En 2004, la réduction de 30 % s’ajoutait à celle de l’enrobage, alors que 15 φ ne représentent ici que le tiers environ de la longueur droite. Elle ne fait alors pas mieux qu’un crochet. La **boucle** gagne nettement : en 2004, avec 30 mm d’enrobage, elle n’apportait rien, son coefficient exigeant plus de 3 φ. En 2023, elle retire 20 φ dans tous les cas. Dans un massif (60 mm d’enrobage), elle tombe au plancher de 10 φ, soit {{boucle-massif:ec2-2023/barre-plastifiee.sollicitation}} mm contre {{boucle-massif:ec2-2004/barre-plastifiee.sollicitation}} mm en 2004.
+Pour la **barre plastifiée**, la longueur avec barre soudée augmente un peu : {{soude-poutre:ec2-2023/barre-plastifiee.sollicitation}} mm au lieu de {{soude-poutre:ec2-2004/barre-plastifiee.sollicitation}}. En 2004, la réduction de 30 % s’ajoutait à celle de l’enrobage, alors que 15 φ ne représentent ici que le tiers environ de la longueur droite. Elle devient égale à celle d’un crochet. Pour la **boucle**, la longueur diminue nettement : en 2004, avec 30 mm d’enrobage, elle n’apportait rien, son coefficient exigeant plus de 3 φ. En 2023, elle retire 20 φ dans tous les cas. Dans un massif (60 mm d’enrobage), elle tombe au plancher de 10 φ, soit {{boucle-massif:ec2-2023/barre-plastifiee.sollicitation}} mm contre {{boucle-massif:ec2-2004/barre-plastifiee.sollicitation}} mm en 2004.
 
 {{calculateur:soude-poutre}}
 

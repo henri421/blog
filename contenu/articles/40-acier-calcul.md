@@ -49,5 +49,5 @@ La déformation limite passe de {{b500b:ec2-2004/inclinee.ε_ud}} à {{b500b:ec2
 ## L’effet sur une note de calcul existante
 
 - **Flexion** avec branche horizontale : aucun changement.
-- **Flexion** avec branche inclinée : gain de résistance un peu plus faible, de l’ordre de 1 MPa sur la contrainte de l’acier.
+- **Flexion** avec branche inclinée : contrainte en fin de branche plus faible d’environ 1 MPa.
 - **Programmes de calcul de sections** : remplacer le paramètre 0,9 $\varepsilon_{uk}$ par $\varepsilon_{uk}/\gamma_S$.

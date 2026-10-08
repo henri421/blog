@@ -103,7 +103,7 @@ La semelle qui demandait {{semelle-filante:ec2-2004/pression.sollicitation}} mm 
 ## L’effet sur une note de calcul existante
 
 - Les **semelles non armées** dimensionnées au plus juste par (12.13) sont à reprendre : l’épaisseur requise augmente d’environ 12 %, comme $\sqrt{1/0.8}$.
-- Les **voiles et murs non armés** perdent environ 15 % de résistance à l’effort normal.
+- Pour les **voiles et murs non armés**, la résistance de calcul à l’effort normal diminue d’environ 15 %.
 - La **règle simplifiée** $h_F \ge 2\,a_F$ ne change pas et reste du côté de la sécurité pour des pressions courantes.
 
 ## Ce qu’il faudra vérifier

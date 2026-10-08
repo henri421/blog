@@ -5,7 +5,7 @@ statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-08
 revise: 2026-10-08
-resume: La règle de la longueur d’appui quitte le chapitre de la préfabrication pour celui des dispositions générales. Elle perd ses tableaux de valeurs minimales et son expression de la profondeur nominale : il reste le calcul de la longueur nette et une liste des termes à prendre en compte.
+resume: La règle de la longueur d’appui quitte le chapitre de la préfabrication pour celui des dispositions générales. Elle ne reprend ni les tableaux de valeurs minimales ni l’expression de la profondeur nominale : il reste le calcul de la longueur nette et une liste des termes à prendre en compte.
 motscles: prefabrication, dispositions-constructives
 historique:
   - 2026-10-08 : première rédaction.

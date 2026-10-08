@@ -90,7 +90,7 @@ Avec les valeurs recommandées, la résistance de calcul du béton baisse de 15 
 
 ## L’effet sur une note de calcul existante
 
-- **Béton comprimé** : vérifier quelle valeur de $\alpha_{cc}$ la note utilisait. Avec 1,0, toutes les vérifications en compression perdent 15 %. Avec 0,85, seuls les bétons de plus de 40 MPa sont touchés.
+- **Béton comprimé** : vérifier quelle valeur de $\alpha_{cc}$ la note utilisait. Avec 1,0, la résistance de calcul en compression diminue de 15 % dans toutes les vérifications. Avec 0,85, seuls les bétons de plus de 40 MPa sont touchés.
 - **Effort tranchant sans armature** : $\gamma_V$ = 1,4 s’applique à une expression nouvelle ; la comparaison se fait sur la résistance, pas sur le coefficient.
 - **Pieux** : $k_{cip}$ remplace $k_f$, avec la même valeur.
 

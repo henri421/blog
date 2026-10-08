@@ -27,7 +27,7 @@ $$
 
 avec, pour une section rectangulaire, $a$ = 1,0, 1,5 et 2,0 pour $N_{Ed}/N_{Rd}$ = 0,1, 0,7 et 1,0, interpolé linéairement. En 2023, cette formule passe du chapitre du second ordre (5.8.9) à celui de la flexion (8.1.1(8)). Elle précise aussi que $N_{Rd,0}$ se calcule avec la résistance du béton confiné $f_{cd,c}$ lorsque l’élément est fretté.
 
-La différence vient du calcul de $N_{Rd} = A_c\,f_{cd} + A_s\,f_{yd}$ : avec le $f_{cd}$ de 2023, plus faible ([article 35](coefficients-partiels.html)), le rapport $N_{Ed}/N_{Rd}$ augmente, donc l’exposant aussi, ce qui est favorable. Les moments résistants $M_{Rd}$ baissent, ce qui est défavorable.
+La différence vient du calcul de $N_{Rd} = A_c\,f_{cd} + A_s\,f_{yd}$ : avec le $f_{cd}$ de 2023, plus faible ([article 35](coefficients-partiels.html)), le rapport $N_{Ed}/N_{Rd}$ augmente, donc l’exposant aussi, ce qui diminue la somme d’interaction. Les moments résistants $M_{Rd}$ baissent, ce qui l’augmente.
 
 ## Pourquoi
 
@@ -51,7 +51,7 @@ Poteau de 400 × 400 mm, 8 HA20, C30/37, élancement 40 dans les deux directions
 }
 ```
 
-Le rapport des excentricités vaut 1,33 : la dispense ne s’applique dans aucune des deux générations. L’exposant passe de {{poteau-angle:ec2-2004/interaction.a}} à {{poteau-angle:ec2-2023/interaction.a}}, ce qui compense en partie la baisse des moments résistants. La somme d’interaction passe de {{poteau-angle:ec2-2004/interaction.sollicitation}} à {{poteau-angle:ec2-2023/interaction.sollicitation}}.
+Le rapport des excentricités vaut 1,33 : la dispense ne s’applique dans aucune des deux générations. L’exposant passe de {{poteau-angle:ec2-2004/interaction.a}} à {{poteau-angle:ec2-2023/interaction.a}}, ce qui compense en partie l’effet de la baisse des moments résistants. La somme d’interaction passe de {{poteau-angle:ec2-2004/interaction.sollicitation}} à {{poteau-angle:ec2-2023/interaction.sollicitation}}.
 
 {{calculateur:poteau-angle}}
 
@@ -59,4 +59,4 @@ Le rapport des excentricités vaut 1,33 : la dispense ne s’applique dans aucun
 
 - Les **critères de dispense** sont inchangés.
 - Le **critère d’interaction** se recalcule avec les moments résistants et le $N_{Rd}$ de 2023. L’effet net dépend surtout de la baisse de $f_{cd}$ sur les moments résistants.
-- Pour un **poteau fretté**, $N_{Rd,0}$ peut désormais intégrer le gain de résistance du béton confiné.
+- Pour un **poteau fretté**, $N_{Rd,0}$ peut désormais intégrer l’augmentation de résistance du béton confiné.

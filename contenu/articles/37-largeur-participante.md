@@ -50,14 +50,14 @@ Le texte ne donne pas de motif ; l’explication usuelle est la suivante. Le tra
 }
 ```
 
-Chaque débord contribue pour {{poutre-t:ec2-2004/reduite.b_eff,1}} mm. La largeur participante vaut {{poutre-t:ec2-2004/reduite.resistance}} mm dans les deux générations, pour l’ELS et pour l’ELU d’une section fragile. Pour la flexion ductile à l’ELU, la deuxième génération permet de retenir les {{poutre-t:ec2-2023/elu-ductile.resistance}} mm de la table entière. Le gain sur le bras de levier est faible tant que l’axe neutre reste dans la table, ce qui est le cas courant.
+Chaque débord contribue pour {{poutre-t:ec2-2004/reduite.b_eff,1}} mm. La largeur participante vaut {{poutre-t:ec2-2004/reduite.resistance}} mm dans les deux générations, pour l’ELS et pour l’ELU d’une section fragile. Pour la flexion ductile à l’ELU, la deuxième génération permet de retenir les {{poutre-t:ec2-2023/elu-ductile.resistance}} mm de la table entière. L’écart sur le bras de levier est faible tant que l’axe neutre reste dans la table, ce qui est le cas courant.
 
 {{calculateur:poutre-t}}
 
 ## L’effet sur une note de calcul existante
 
 - **ELS** (flèches, contraintes, fissuration) : rien ne change.
-- **ELU en flexion** de sections ductiles : la largeur entière est admise, mais le gain est en général marginal ; la largeur réduite reste du côté de la sécurité.
+- **ELU en flexion** de sections ductiles : la largeur entière est admise ; l’écart de résistance est en général faible.
 - **Effort tranchant âme-table**, ancrage des armatures de table : la répartition des efforts dans la table reste à justifier par ailleurs ([article 08](ame-table.html)).
 
 ## Ce qu’il faudra vérifier
