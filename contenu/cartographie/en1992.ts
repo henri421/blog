@@ -101,7 +101,12 @@ export const EN1992: Carte = {
           reserves: 'Majoration de 1,2 pour des tolérances plus strictes (7.2.1.1(3)) non codée.',
         }),
         c('7.2.2', 'Modélisation de la structure', ['5.3.1']),
-        c('7.2.3', 'Données géométriques : largeur participante, portée de calcul', ['5.3.2']),
+        c('7.2.3', 'Données géométriques : largeur participante, portée de calcul', ['5.3.2'], {
+          article: 'largeur-participante',
+          ingeree: true,
+          niveaux: [n(G1, 'largeur-participante', 'reduite', '5.3.2.1'), n(G2, 'largeur-participante', 'reduite', '7.2.3'), n(G2, 'largeur-participante', 'elu-ductile', '7.2.3')],
+          reserves: 'l0 saisie (figures 5.2 et 7.2 non reproduites) ; portée de calcul (7.2.3(5)) décrite.',
+        }),
         c('7.3.1', 'Analyse élastique-linéaire', ['5.4']),
         c('7.3.2', 'Analyse élastique-linéaire avec redistribution des moments', ['5.5'], {
           article: 'redistribution',

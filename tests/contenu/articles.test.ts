@@ -53,6 +53,7 @@ describe('articles', () => {
       'planchers-prefabriques',
       'coefficients-partiels',
       'deversement',
+      'largeur-participante',
     ]);
   });
 

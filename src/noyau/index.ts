@@ -20,6 +20,7 @@ import { postTension } from './mecanismes/post-tension/index';
 import { jointPlancherMeca } from './mecanismes/joint-plancher/index';
 import { coefficientsPartiels } from './mecanismes/coefficients-partiels/index';
 import { deversementMeca } from './mecanismes/deversement/index';
+import { largeurParticipante } from './mecanismes/largeur-participante/index';
 import { armatureTranchantMinimale } from './mecanismes/armature-tranchant-minimale/index';
 import { bielles, diffusion } from './mecanismes/bielles/index';
 import { fissurationMinimale, nonFragilite } from './mecanismes/armatures-minimales/index';
@@ -52,7 +53,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { ancrageBoucle, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, jointPlancherMeca, mandrin, nonArmeCompression, nonArmeTranchant, postTension, pretension, semelleNonArmee, teteAncrage };
+export { ancrageBoucle, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, postTension, pretension, semelleNonArmee, teteAncrage };
 export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, diffusion, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -96,6 +97,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [jointPlancherMeca.id]: jointPlancherMeca as unknown as Mecanisme<Record<string, unknown>>,
   [coefficientsPartiels.id]: coefficientsPartiels as unknown as Mecanisme<Record<string, unknown>>,
   [deversementMeca.id]: deversementMeca as unknown as Mecanisme<Record<string, unknown>>,
+  [largeurParticipante.id]: largeurParticipante as unknown as Mecanisme<Record<string, unknown>>,
   [bielles.id]: bielles as unknown as Mecanisme<Record<string, unknown>>,
   [imperfections.id]: imperfections as unknown as Mecanisme<Record<string, unknown>>,
   [flexion.id]: flexion as unknown as Mecanisme<Record<string, unknown>>,

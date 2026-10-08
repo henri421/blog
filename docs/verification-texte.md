@@ -299,3 +299,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [ ] (7.31), (7.32) : l_0t/b ≤ 50 (resp. 70) et (h/b)^(1/3), barre de fraction perdue ;
   forme 50/(h/b)^(1/3) de 2004 retenue ; aucune condition h/b relevée.
 - [x] 2004 (5.40a), (5.40b) : 50/(h/b)^(1/3), h/b ≤ 2,5 ; 70/(h/b)^(1/3), h/b ≤ 3,5.
+
+## Largeur participante (7.2.3 ; 5.3.2.1)
+
+- [x] (7.11), (7.12) : b_eff = Σ b_eff,i + b_w ≤ b, b_eff,i = min(0,2 b_i + 0,1 l_0b ;
+  0,2 l_0b ; b_i) ; conditions d'emploi de la figure 7.2 identiques à 2004.
+- [x] 7.2.3(1) : ELU seulement si comportement fragile attendu ; ELS le cas échéant.
+- [ ] Valeurs de l_0b de la figure 7.2 non extraites (figure).
