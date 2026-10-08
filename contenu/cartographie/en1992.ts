@@ -142,7 +142,17 @@ export const EN1992: Carte = {
           ],
           reserves: 'Troisième terme de l’enveloppe (O.13) à relire sur l’exemplaire ; rigidité de plastification (7.4.3.2) remplacée par la valeur forfaitaire 0,4 E_cd I_c de O.8.1(5) ; majoration des forces horizontales (O.24) non codée.',
         }),
-        c('7.4.4', 'Compression avec flexion déviée', ['5.8.9']),
+        c('7.4.4', 'Compression avec flexion déviée', ['5.8.9'], {
+          article: 'flexion-deviee',
+          ingeree: true,
+          niveaux: [
+            n(G1, 'flexion-deviee', 'dispense', '5.8.9(3)'),
+            n(G1, 'flexion-deviee', 'interaction', '5.8.9(4)'),
+            n(G2, 'flexion-deviee', 'dispense', '7.4.4(4)'),
+            n(G2, 'flexion-deviee', 'interaction', '8.1.1(8)'),
+          ],
+          reserves: 'Moments résistants saisis ; sections circulaires (a = 2) et béton confiné non traités.',
+        }),
         c('7.5', 'Déversement des poutres élancées', ['5.9'], {
           article: 'deversement',
           ingeree: true,

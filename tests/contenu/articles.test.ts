@@ -54,6 +54,7 @@ describe('articles', () => {
       'coefficients-partiels',
       'deversement',
       'largeur-participante',
+      'flexion-deviee',
     ]);
   });
 

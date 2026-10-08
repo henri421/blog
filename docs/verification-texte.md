@@ -306,3 +306,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   0,2 l_0b ; b_i) ; conditions d'emploi de la figure 7.2 identiques à 2004.
 - [x] 7.2.3(1) : ELU seulement si comportement fragile attendu ; ELS le cas échéant.
 - [ ] Valeurs de l_0b de la figure 7.2 non extraites (figure).
+
+## Flexion déviée (7.4.4, 8.1.1(8) ; 5.8.9)
+
+- [x] (7.29) 0,5 ≤ λ_y/λ_z ≤ 2 ; (7.30) e'_y/e'_z ≤ 0,2 ou ≥ 5, e'_z = M_Edy/|N_Ed b|,
+  e'_y = M_Edz/|N_Ed h| ; identiques à (5.38a), (5.38b).
+- [x] (8.2) interaction, a_N = 1,0 ; 1,5 ; 2,0 pour |N_Ed|/N_Rd,0 = 0,1 ; 0,7 ; 1,0 ;
+  (8.3) N_Rd,0 = A_c f_cd + A_s f_yd (f_cd,c si confiné) ; identique à (5.39).
