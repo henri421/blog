@@ -51,6 +51,7 @@ describe('articles', () => {
       'encuvement',
       'post-tension',
       'planchers-prefabriques',
+      'coefficients-partiels',
     ]);
   });
 

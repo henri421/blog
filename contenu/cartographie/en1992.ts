@@ -29,7 +29,13 @@ export const EN1992: Carte = {
       clauses: [
         c('4.1', 'Règles générales : exigences, fiabilité, durée d’utilisation', ['2.1']),
         c('4.2', 'Variables de base : actions dépendant du temps, géométrie', ['2.3']),
-        c('4.3', 'Coefficients partiels : retrait, précontrainte, matériaux', ['2.4'], { annexes: [ann('A', 'informative')] }),
+        c('4.3', 'Coefficients partiels : retrait, précontrainte, matériaux', ['2.4'], {
+          annexes: [ann('A', 'informative')],
+          article: 'coefficients-partiels',
+          ingeree: true,
+          niveaux: [n(G1, 'coefficients-partiels', 'base', '2.4.2.4'), n(G2, 'coefficients-partiels', 'base', '4.3.3')],
+          reserves: 'Valeurs réduites de l’annexe A, coefficients de la précontrainte (tableau 4.2) et du retrait décrits, non codés.',
+        }),
         c('4.4', 'Connexion d’éléments aux éléments en béton', []),
       ],
     },

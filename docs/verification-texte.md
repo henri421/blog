@@ -285,3 +285,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] 13.6.1(6) joint compacté si largeur > max(D_upper ; hauteur de l'élément) ;
   13.6.2(2) largeur ≥ 3 φ au niveau des tirants ; 13.6.3(5) pas de recouvrement de
   chaînage dans les joints étroits.
+
+## Coefficients partiels des matériaux (4.3.3 ; 2.4.2.4)
+
+- [x] Tableau 4.3 (NDP) : γ_S 1,15 / γ_C, γ_CE 1,50 / γ_V 1,40 (durable, transitoire,
+  fatigue) ; 1,00 / 1,15 / 1,15 (accidentelle) ; γ_CE = 1,3 avec module mesuré.
+- [x] 4.3.3(4) k_cip = 1,1 (1,0 selon EN 1536, EN 1538, EN 14199).
+- [x] 2004 tableau 2.1N : 1,5 / 1,15 (durable), 1,2 / 1,0 (accidentelle) ; k_f = 1,1.
