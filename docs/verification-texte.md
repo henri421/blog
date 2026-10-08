@@ -348,3 +348,4 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] Tableau 7.1 : σ_p,max ≤ 0,8 f_pk et ≤ 0,9 f_p0,1k ; surtension ≤ 0,95 f_p0,1k ;
   σ_p,m(x,0) ≤ 0,75 f_pk et ≤ 0,85 f_p0,1k. 2004 : k_1 à k_3, k_7, k_8 recommandés identiques.
 - [x] (7.34) Δσ_p,μ = σ_p,max [1 − exp(−μ(α_μ + k_μ x))], 0,005 < k_μ < 0,01 /m ; (5.45) identique.
+- [x] (7.35) pertes différées : même expression que (5.46), facteur 0,8 sur la relaxation.

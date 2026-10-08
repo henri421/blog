@@ -190,7 +190,12 @@ export const EN1992: Carte = {
           niveaux: [n(G1, 'precontrainte-tension', 'frottement', '5.10.5.2'), n(G2, 'precontrainte-tension', 'frottement', '7.6.3.2')],
           reserves: 'Rentrée d’ancrage, déformation instantanée du béton et pertes de pré-tension non codées.',
         }),
-        c('7.6.4', 'Pertes différées', ['5.10.6']),
+        c('7.6.4', 'Pertes différées', ['5.10.6'], {
+          article: 'precontrainte-tension',
+          ingeree: true,
+          niveaux: [n(G1, 'pertes-differees', 'simplifiee', '5.10.6'), n(G2, 'pertes-differees', 'simplifiee', '7.6.4')],
+          reserves: 'Retrait, fluage et relaxation saisis.',
+        }),
         c('7.6.5', 'Effets de la précontrainte à l’ELU', ['5.10.8']),
       ],
     },

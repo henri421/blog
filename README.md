@@ -57,7 +57,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Diagramme de calcul de l’acier | `acier-calcul` | 1 / 1 |
 | Analyse plastique sans vérification de rotation | `analyse-plastique` | 1 / 1 |
 | Ancrage des armatures scellées | `armature-scellee` | 0 / 2 |
-| Précontrainte : mise en tension et frottement | `precontrainte-tension` | 2 / 2 |
+| Précontrainte : mise en tension, frottement et pertes différées | `precontrainte-tension`, `pertes-differees` | 2 / 2 et 1 / 1 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 
