@@ -50,6 +50,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Post-tension : gaines et rayon de courbure | `post-tension` | 2 / 3 |
 | Planchers préfabriqués | `joint-plancher` | 1 / 1 |
 | Coefficients partiels des matériaux | `coefficients-partiels` | 1 / 1 |
+| Déversement des poutres élancées | `deversement` | 1 / 1 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 

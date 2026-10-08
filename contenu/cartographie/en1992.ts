@@ -138,7 +138,12 @@ export const EN1992: Carte = {
           reserves: 'Troisième terme de l’enveloppe (O.13) à relire sur l’exemplaire ; rigidité de plastification (7.4.3.2) remplacée par la valeur forfaitaire 0,4 E_cd I_c de O.8.1(5) ; majoration des forces horizontales (O.24) non codée.',
         }),
         c('7.4.4', 'Compression avec flexion déviée', ['5.8.9']),
-        c('7.5', 'Déversement des poutres élancées', ['5.9']),
+        c('7.5', 'Déversement des poutres élancées', ['5.9'], {
+          article: 'deversement',
+          ingeree: true,
+          niveaux: [n(G1, 'deversement', 'base', '5.9'), n(G2, 'deversement', 'base', '7.5')],
+          reserves: 'Lecture de (7.31), (7.32) à confirmer (barre de fraction perdue) ; calcul du second ordre non codé.',
+        }),
         c('7.6.1', 'Précontrainte : généralités', ['5.10.1']),
         c('7.6.2', 'Force de précontrainte', ['5.10.2', '5.10.3']),
         c('7.6.3', 'Pertes instantanées', ['5.10.4', '5.10.5']),

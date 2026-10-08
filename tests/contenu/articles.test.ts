@@ -52,6 +52,7 @@ describe('articles', () => {
       'post-tension',
       'planchers-prefabriques',
       'coefficients-partiels',
+      'deversement',
     ]);
   });
 

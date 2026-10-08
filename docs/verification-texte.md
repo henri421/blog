@@ -292,3 +292,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   fatigue) ; 1,00 / 1,15 / 1,15 (accidentelle) ; γ_CE = 1,3 avec module mesuré.
 - [x] 4.3.3(4) k_cip = 1,1 (1,0 selon EN 1536, EN 1538, EN 14199).
 - [x] 2004 tableau 2.1N : 1,5 / 1,15 (durable), 1,2 / 1,0 (accidentelle) ; k_f = 1,1.
+
+## Déversement (7.5 ; 5.9)
+
+- [x] 7.5(2) imperfection l/300 en l'absence de tolérances du projet.
+- [ ] (7.31), (7.32) : l_0t/b ≤ 50 (resp. 70) et (h/b)^(1/3), barre de fraction perdue ;
+  forme 50/(h/b)^(1/3) de 2004 retenue ; aucune condition h/b relevée.
+- [x] 2004 (5.40a), (5.40b) : 50/(h/b)^(1/3), h/b ≤ 2,5 ; 70/(h/b)^(1/3), h/b ≤ 3,5.
