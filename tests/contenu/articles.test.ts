@@ -50,6 +50,7 @@ describe('articles', () => {
       'pretension',
       'encuvement',
       'post-tension',
+      'planchers-prefabriques',
     ]);
   });
 

@@ -515,7 +515,12 @@ export const EN1992: Carte = {
           ],
           reserves: 'Enrobage minimal (tableau 13.1) et tranchant des éléments précontraints sans armature (13.5.5) non codés.',
         }),
-        c('13.6', 'Systèmes de plancher', ['10.9.3']),
+        c('13.6', 'Systèmes de plancher', ['10.9.3'], {
+          article: 'planchers-prefabriques',
+          ingeree: true,
+          niveaux: [n(G1, 'joint-plancher', 'base', '10.9.3'), n(G2, 'joint-plancher', 'base', '13.6.1')],
+          reserves: 'Résistance du joint saisie ; diaphragmes (13.6.2) décrits.',
+        }),
         c('13.7', 'Assemblages et appuis', ['10.9.4', '10.9.5'], {
           article: 'appuis-prefabriques',
           ingeree: true,

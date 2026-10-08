@@ -275,3 +275,13 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] Figure 11.16 : c_sx ≥ max(D_upper + 5 mm ; φ_duct ; 50 mm), c_sy ≥ max(D_upper ;
   φ_duct ; 40 mm) ; paquets s ≥ 100 mm (11.6.2(2)). 2004, figure 8.15 : mêmes valeurs.
 - [x] (11.23) R_min = σ_pd √A_p / p_Rd ; p_Rd du tableau 11.4 (NDP), saisie.
+
+## Planchers préfabriqués (13.6 ; 10.9.3)
+
+- [x] (13.13) v_Ed = q_Ed b_e/3, identique à (10.4).
+- [x] Dalle rapportée ≥ 40 mm (13.6.1(5)) ; tableau 13.2 identique au tableau 10.1.
+- [x] 13.6.2(4) : diaphragmes par frottement-cisaillement (8.2.6) ; 2004 10.9.3(12) :
+  0,10 MPa (très lisse), 0,15 MPa (lisse et rugueuse).
+- [x] 13.6.1(6) joint compacté si largeur > max(D_upper ; hauteur de l'élément) ;
+  13.6.2(2) largeur ≥ 3 φ au niveau des tirants ; 13.6.3(5) pas de recouvrement de
+  chaînage dans les joints étroits.
