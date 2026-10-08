@@ -56,6 +56,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Coefficient de fluage effectif | `fluage-effectif` | 2 / 2 |
 | Diagramme de calcul de l’acier | `acier-calcul` | 1 / 1 |
 | Analyse plastique sans vérification de rotation | `analyse-plastique` | 1 / 1 |
+| Ancrage des armatures scellées | `armature-scellee` | 0 / 2 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 

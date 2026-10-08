@@ -58,6 +58,7 @@ describe('articles', () => {
       'fluage-effectif',
       'acier-calcul',
       'analyse-plastique',
+      'armature-scellee',
     ]);
   });
 

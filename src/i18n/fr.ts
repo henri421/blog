@@ -176,6 +176,7 @@ export const fr = {
   'motif.flexion-deviee-requise': 'Conditions de dispense non remplies : la flexion déviée est à vérifier (niveau « interaction »).',
   'motif.fluage-non-negligeable': 'Les trois conditions φ ≤ 2, λ ≤ 75 et M0Ed/NEd ≥ h ne sont pas toutes remplies : le fluage est à prendre en compte.',
   'motif.plastique-classe-a': 'Acier de classe A : l’analyse plastique n’est pas permise.',
+  'motif.scellee-sigma-435': 'La contrainte dans une barre scellée est limitée à 435 MPa, sauf essais (11.4.8(4)).',
   'motif.plastique-rapport-moments': 'Rapport des moments sur appuis aux moments en travée hors de 0,5 à 2 : la capacité de rotation est à vérifier.',
 
   // ---- Mecanismes ----
@@ -205,6 +206,7 @@ export const fr = {
   'meca.fe.titre': 'Coefficient de fluage effectif',
   'meca.ac.titre': 'Diagramme de calcul de l’acier',
   'meca.ap.titre': 'Analyse plastique sans vérification de la capacité de rotation',
+  'meca.as.titre': 'Ancrage des armatures scellées',
   'meca.els.titre': 'Limitation des contraintes en service',
   'meca.atm.titre': 'Armatures minimales d’effort tranchant',
   'meca.bt.titre': 'Bielles et nœuds des modèles à bielles et tirants',
@@ -418,6 +420,7 @@ export const fr = {
   'champ.eps-uk': 'Allongement sous charge maximale εuk',
   'champ.xu': 'Hauteur de l’axe neutre à l’ELU dans la rotule',
   'champ.rapport-moments': 'Rapport des moments sur appuis intermédiaires aux moments en travée',
+  'champ.kbpi': 'Facteur d’efficacité d’adhérence du produit de scellement kb,pi',
   'champ.fissuration-tete': 'Béton dans la zone de la tête',
   'champ.ay': 'Distance de l’axe de la barre au bord le plus proche',
   'champ.ax': 'Distance de l’axe de la barre à l’angle',
@@ -697,6 +700,9 @@ export const fr = {
   'niveau.ac.2023': 'Branche inclinée jusqu’à εud = εuk/γS.',
   'niveau.ap.2004': 'xu/d ≤ 0,25 (≤ C50/60) ou 0,15 (≥ C55/67), classe B ou C, rapport des moments de 0,5 à 2.',
   'niveau.ap.2023': 'xu/d ≤ 0,25 pour toutes les classes, classe B ou C, rapport des moments de 0,5 à 2.',
+  'niveau.as.2004': 'Pas de règle : les barres scellées relèvent d’un agrément technique européen.',
+  'niveau.as.2023.plastifiee': 'σsd = fyd ≤ 435 MPa ; lbd,pi = lbd/kb,pi ≥ 15 φ, fck ≤ 50 MPa dans lbd.',
+  'niveau.as.2023.reelle': 'σsd saisie ≤ 435 MPa ; lbd,pi = lbd/kb,pi ≥ 15 φ.',
   'niveau.tsa.2004.base': 'Expression empirique en (100 ρl fck)^1/3, effet d’échelle par k, minimum vmin.',
   'niveau.tsa.2004.effort-normal': 'Expression (6.2) avec le terme k1 σcp de l’effort normal, k1 = 0,15, σcp ≤ 0,2 fcd.',
   'niveau.tsa.2023.tau-min':

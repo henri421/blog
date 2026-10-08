@@ -471,7 +471,12 @@ export const EN1992: Carte = {
           niveaux: [n(G2, 'tete-ancrage', 'simplifie', '11.4.7(1)')],
           reserves: 'Vérification générale (11.8) à (11.11) non codée : lecture des formules à confirmer.',
         }),
-        c('11.4.8', 'Ancrage des armatures scellées', []),
+        c('11.4.8', 'Ancrage des armatures scellées', [], {
+          article: 'armature-scellee',
+          ingeree: true,
+          niveaux: [n(G2, 'armature-scellee', 'barre-plastifiee', '11.4.8'), n(G2, 'armature-scellee', 'contrainte-reelle', '11.4.8')],
+          reserves: 'kb,pi saisi (annexe C.8, spécification du produit) ; enrobage du tableau 11.2 décrit ; lecture de (11.12) à confirmer.',
+        }),
         c('11.5.1', 'Recouvrements : généralités', ['8.7.1', '8.7.2']),
         c('11.5.2', 'Recouvrements : tous types', ['8.7.3', '8.7.4'], { article: 'ancrage', ingeree: true }),
         c('11.5.3', 'Recouvrement de paquets', ['8.9.3'], {

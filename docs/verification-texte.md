@@ -334,3 +334,11 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   7.3.3.1(5) classe B ou C dans les rotules ; 7.3.3.1(6) branche horizontale.
 - [x] 2004 5.6.2(2) : x_u/d ≤ 0,25 (≤ C50/60), 0,15 (≥ C55/67) ; classe B ou C.
 - [x] 8.1.2 : ε_c2 = 0,002 et ε_cu = 0,0035 pour toutes les classes (parabole-rectangle).
+
+## Armatures scellées (11.4.8)
+
+- [x] (11.4.8(2)) enrobage minimal selon le tableau 11.2 (forage, guide, l_bd,pi) ;
+  (3) c_s,pir ≥ max(4 φ ; 40 mm), c_s ≥ max(2 φ ; 20 mm) avec les barres existantes.
+- [ ] (11.12) l_bd,pi = l_bd / k_b,pi ≥ 10 φ α_lb : barre de fraction perdue, k_b,pi
+  traité en diviseur ; α_lb = 1,5 ; f_ck ≤ 50 MPa et σ_sd ≤ 435 MPa dans l_bd.
+- [x] 11.4.8(6) : recouvrement avec l_bd,pi à la place de l_bd.
