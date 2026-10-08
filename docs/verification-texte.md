@@ -313,3 +313,11 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   e'_y = M_Edz/|N_Ed h| ; identiques à (5.38a), (5.38b).
 - [x] (8.2) interaction, a_N = 1,0 ; 1,5 ; 2,0 pour |N_Ed|/N_Rd,0 = 0,1 ; 0,7 ; 1,0 ;
   (8.3) N_Rd,0 = A_c f_cd + A_s f_yd (f_cd,c si confiné) ; identique à (5.39).
+
+## Fluage effectif (7.4.2 ; 5.8.4)
+
+- [x] (7.26) φ_eff,s = φ(t_DL, t_0) δ_0Eqp/δ_Ed ; (7.27) φ_eff,b = φ(t_DL, t_0) M_0Eqp/M_0Ed ;
+  M_0Eqp avec imperfections ; rapport des charges verticales admis (7.4.2(3)) ;
+  max(φ_eff,s ; φ_eff,b) en analyse combinée (7.4.2(4)).
+- [x] Aucune dispense φ_eff = 0 relevée dans le texte de 2023 (recherche plein texte).
+- [x] 2004 (5.19) et dispense 5.8.4(4) : φ ≤ 2, λ ≤ 75, M_0Ed/N_Ed ≥ h.

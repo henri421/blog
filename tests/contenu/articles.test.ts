@@ -55,6 +55,7 @@ describe('articles', () => {
       'deversement',
       'largeur-participante',
       'flexion-deviee',
+      'fluage-effectif',
     ]);
   });
 

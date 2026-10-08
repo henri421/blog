@@ -127,7 +127,17 @@ export const EN1992: Carte = {
           niveaux: [n(G1, 'elancement-limite', 'base', '5.8.3.1'), n(G2, 'elancement-limite', 'base', 'O.6', 'annexe-informative')],
           reserves: 'Critère global F_V,B / F_V,Ed ≥ 10 (7.25) et charge de flambement des structures (O.1 à O.6) non codés.',
         }),
-        c('7.4.2', 'Second ordre : fluage', ['5.8.4']),
+        c('7.4.2', 'Second ordre : fluage', ['5.8.4'], {
+          article: 'fluage-effectif',
+          ingeree: true,
+          niveaux: [
+            n(G1, 'fluage-effectif', 'moments', '5.8.4'),
+            n(G1, 'fluage-effectif', 'negligeable', '5.8.4(4)'),
+            n(G2, 'fluage-effectif', 'moments', '7.4.2'),
+            n(G2, 'fluage-effectif', 'global', '7.4.2'),
+          ],
+          reserves: 'Coefficient de fluage saisi ; rapport des charges verticales (7.4.2(3)) non codé.',
+        }),
         c('7.4.3', 'Second ordre : méthodes d’analyse', ['5.8.5', '5.8.6', '5.8.7', '5.8.8'], {
           article: 'second-ordre',
           ingeree: true,
