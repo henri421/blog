@@ -321,3 +321,9 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   max(φ_eff,s ; φ_eff,b) en analyse combinée (7.4.2(4)).
 - [x] Aucune dispense φ_eff = 0 relevée dans le texte de 2023 (recherche plein texte).
 - [x] 2004 (5.19) et dispense 5.8.4(4) : φ ≤ 2, λ ≤ 75, M_0Ed/N_Ed ≥ h.
+
+## Diagramme de calcul de l'acier (5.2.4 ; 3.2.7)
+
+- [x] 5.2.4(2) a) ε_ud ≤ ε_uk/γ_S, contrainte k f_yk/γ_S pour ε_uk ; b) branche horizontale
+  sans limite ; E_s = 200 000 MPa ; 78,5 kN/m³.
+- [x] 2004 3.2.7(2) : ε_ud = 0,9 ε_uk recommandée.

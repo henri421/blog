@@ -56,6 +56,7 @@ describe('articles', () => {
       'largeur-participante',
       'flexion-deviee',
       'fluage-effectif',
+      'acier-calcul',
     ]);
   });
 

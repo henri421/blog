@@ -23,6 +23,7 @@ import { deversementMeca } from './mecanismes/deversement/index';
 import { largeurParticipante } from './mecanismes/largeur-participante/index';
 import { flexionDeviee } from './mecanismes/flexion-deviee/index';
 import { fluageEffectif } from './mecanismes/fluage-effectif/index';
+import { acierCalcul } from './mecanismes/acier-calcul/index';
 import { armatureTranchantMinimale } from './mecanismes/armature-tranchant-minimale/index';
 import { bielles, diffusion } from './mecanismes/bielles/index';
 import { fissurationMinimale, nonFragilite } from './mecanismes/armatures-minimales/index';
@@ -55,7 +56,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { ancrageBoucle, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, postTension, pretension, semelleNonArmee, teteAncrage };
+export { acierCalcul, ancrageBoucle, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, postTension, pretension, semelleNonArmee, teteAncrage };
 export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, diffusion, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -102,6 +103,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [largeurParticipante.id]: largeurParticipante as unknown as Mecanisme<Record<string, unknown>>,
   [flexionDeviee.id]: flexionDeviee as unknown as Mecanisme<Record<string, unknown>>,
   [fluageEffectif.id]: fluageEffectif as unknown as Mecanisme<Record<string, unknown>>,
+  [acierCalcul.id]: acierCalcul as unknown as Mecanisme<Record<string, unknown>>,
   [bielles.id]: bielles as unknown as Mecanisme<Record<string, unknown>>,
   [imperfections.id]: imperfections as unknown as Mecanisme<Record<string, unknown>>,
   [flexion.id]: flexion as unknown as Mecanisme<Record<string, unknown>>,

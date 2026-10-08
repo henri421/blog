@@ -56,7 +56,11 @@ export const EN1992: Carte = {
         c('5.2.1', 'Aciers pour béton armé : généralités', ['3.2.1']),
         c('5.2.2', 'Aciers pour béton armé : propriétés et classes de ductilité', ['3.2.2', '3.2.4'], { annexes: [ann('C', 'normative')] }),
         c('5.2.3', 'Soudage des armatures', ['3.2.5']),
-        c('5.2.4', 'Aciers pour béton armé : hypothèses de calcul', ['3.2.7']),
+        c('5.2.4', 'Aciers pour béton armé : hypothèses de calcul', ['3.2.7'], {
+          article: 'acier-calcul',
+          ingeree: true,
+          niveaux: [n(G1, 'acier-calcul', 'inclinee', '3.2.7'), n(G2, 'acier-calcul', 'inclinee', '5.2.4')],
+        }),
         c('5.2.5', 'Coupleurs d’armatures', []),
         c('5.2.6', 'Armatures à tête d’ancrage', []),
         c('5.3', 'Armatures de précontrainte', ['3.3']),
