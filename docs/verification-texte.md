@@ -269,3 +269,9 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   M_Ed/N_Ed ≥ 2,0 h_col ; interpolation permise ; h_col plus grand côté.
 - [x] μ_v du tableau 8.2 ; a ≥ 0,1 l pour F_1 (13.8.3(5)).
 - [x] 2004 : l ≥ 1,2 h, μ ≤ 0,3 (10.9.6.3).
+
+## Post-tension (11.6 ; 8.10.1.3)
+
+- [x] Figure 11.16 : c_sx ≥ max(D_upper + 5 mm ; φ_duct ; 50 mm), c_sy ≥ max(D_upper ;
+  φ_duct ; 40 mm) ; paquets s ≥ 100 mm (11.6.2(2)). 2004, figure 8.15 : mêmes valeurs.
+- [x] (11.23) R_min = σ_pd √A_p / p_Rd ; p_Rd du tableau 11.4 (NDP), saisie.

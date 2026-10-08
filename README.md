@@ -47,6 +47,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Appuis des éléments préfabriqués | `appui-prefabrique` | 2 / 1 |
 | Transmission de la précontrainte par pré-tension | `pretension` | 2 / 2 |
 | Fondations en encuvement | `encuvement` | 1 / 1 |
+| Post-tension : gaines et rayon de courbure | `post-tension` | 2 / 3 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 

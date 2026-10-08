@@ -49,6 +49,7 @@ describe('articles', () => {
       'appuis-prefabriques',
       'pretension',
       'encuvement',
+      'post-tension',
     ]);
   });
 
