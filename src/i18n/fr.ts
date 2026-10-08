@@ -175,6 +175,8 @@ export const fr = {
   'motif.deversement-hb': 'h/b dépasse 2,5 (durable) ou 3,5 (transitoire) : le second ordre lié au déversement est à calculer (5.9(3)).',
   'motif.flexion-deviee-requise': 'Conditions de dispense non remplies : la flexion déviée est à vérifier (niveau « interaction »).',
   'motif.fluage-non-negligeable': 'Les trois conditions φ ≤ 2, λ ≤ 75 et M0Ed/NEd ≥ h ne sont pas toutes remplies : le fluage est à prendre en compte.',
+  'motif.plastique-classe-a': 'Acier de classe A : l’analyse plastique n’est pas permise.',
+  'motif.plastique-rapport-moments': 'Rapport des moments sur appuis aux moments en travée hors de 0,5 à 2 : la capacité de rotation est à vérifier.',
 
   // ---- Mecanismes ----
   'meca.tsa.titre': 'Effort tranchant sans armature d’âme',
@@ -202,6 +204,7 @@ export const fr = {
   'meca.fd.titre': 'Compression avec flexion déviée',
   'meca.fe.titre': 'Coefficient de fluage effectif',
   'meca.ac.titre': 'Diagramme de calcul de l’acier',
+  'meca.ap.titre': 'Analyse plastique sans vérification de la capacité de rotation',
   'meca.els.titre': 'Limitation des contraintes en service',
   'meca.atm.titre': 'Armatures minimales d’effort tranchant',
   'meca.bt.titre': 'Bielles et nœuds des modèles à bielles et tirants',
@@ -296,6 +299,8 @@ export const fr = {
   'grandeur.unite': 'Limite',
   'grandeur.phi-ef': 'Coefficient de fluage effectif',
   'grandeur.contrainte-eps-ud': 'Contrainte de calcul à la déformation limite εud',
+  'grandeur.xu-d': 'Hauteur relative de l’axe neutre xu/d',
+  'grandeur.xu-d-limite': 'xu/d limite',
   'grandeur.resistance-bielle': 'Contrainte limite σRd,max',
   'grandeur.traction-diffusion': 'Effort de traction transversal à reprendre',
   'grandeur.elancement-poteau': 'Élancement λ = l0/i',
@@ -411,6 +416,8 @@ export const fr = {
   'champ.deltaEd': 'Déplacement horizontal de calcul à court terme',
   'champ.k-acier': 'Rapport k = (ft/fy)k',
   'champ.eps-uk': 'Allongement sous charge maximale εuk',
+  'champ.xu': 'Hauteur de l’axe neutre à l’ELU dans la rotule',
+  'champ.rapport-moments': 'Rapport des moments sur appuis intermédiaires aux moments en travée',
   'champ.fissuration-tete': 'Béton dans la zone de la tête',
   'champ.ay': 'Distance de l’axe de la barre au bord le plus proche',
   'champ.ax': 'Distance de l’axe de la barre à l’angle',
@@ -688,6 +695,8 @@ export const fr = {
   'niveau.fe.2023.global': 'Effets globaux : φeff,s = φ(tDL, t0) δ0Eqp/δEd (7.26).',
   'niveau.ac.2004': 'Branche inclinée jusqu’à εud = 0,9 εuk (valeur recommandée).',
   'niveau.ac.2023': 'Branche inclinée jusqu’à εud = εuk/γS.',
+  'niveau.ap.2004': 'xu/d ≤ 0,25 (≤ C50/60) ou 0,15 (≥ C55/67), classe B ou C, rapport des moments de 0,5 à 2.',
+  'niveau.ap.2023': 'xu/d ≤ 0,25 pour toutes les classes, classe B ou C, rapport des moments de 0,5 à 2.',
   'niveau.tsa.2004.base': 'Expression empirique en (100 ρl fck)^1/3, effet d’échelle par k, minimum vmin.',
   'niveau.tsa.2004.effort-normal': 'Expression (6.2) avec le terme k1 σcp de l’effort normal, k1 = 0,15, σcp ≤ 0,2 fcd.',
   'niveau.tsa.2023.tau-min':

@@ -327,3 +327,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] 5.2.4(2) a) ε_ud ≤ ε_uk/γ_S, contrainte k f_yk/γ_S pour ε_uk ; b) branche horizontale
   sans limite ; E_s = 200 000 MPa ; 78,5 kN/m³.
 - [x] 2004 3.2.7(2) : ε_ud = 0,9 ε_uk recommandée.
+
+## Analyse plastique (7.3.3 ; 5.6)
+
+- [x] 7.3.3.2(1) : x_u/d ≤ 0,25 sans distinction de classe ; rapport des moments 0,5 à 2 ;
+  7.3.3.1(5) classe B ou C dans les rotules ; 7.3.3.1(6) branche horizontale.
+- [x] 2004 5.6.2(2) : x_u/d ≤ 0,25 (≤ C50/60), 0,15 (≥ C55/67) ; classe B ou C.
+- [x] 8.1.2 : ε_c2 = 0,002 et ε_cu = 0,0035 pour toutes les classes (parabole-rectangle).

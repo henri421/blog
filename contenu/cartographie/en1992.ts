@@ -122,7 +122,12 @@ export const EN1992: Carte = {
           ],
           reserves: 'Vérification explicite de la capacité de rotation (7.18 à 7.24) et précontrainte (7.17) non codées.',
         }),
-        c('7.3.3', 'Analyse plastique', ['5.6']),
+        c('7.3.3', 'Analyse plastique', ['5.6'], {
+          article: 'analyse-plastique',
+          ingeree: true,
+          niveaux: [n(G1, 'analyse-plastique', 'sans-rotation', '5.6.2'), n(G2, 'analyse-plastique', 'sans-rotation', '7.3.3.2')],
+          reserves: 'Vérification de la capacité de rotation et modèles à bielles (7.3.3.3) non codés ici.',
+        }),
         c('7.3.4', 'Analyse non linéaire', ['5.7'], { ...exclu('analyse non linéaire hors version 1 (CDC §1)'), annexes: [ann('F', 'informative')] }),
         c('7.4.1', 'Second ordre : généralités', ['5.8.1', '5.8.2', '5.8.3'], {
           article: 'second-ordre',

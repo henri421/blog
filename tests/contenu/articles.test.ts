@@ -57,6 +57,7 @@ describe('articles', () => {
       'flexion-deviee',
       'fluage-effectif',
       'acier-calcul',
+      'analyse-plastique',
     ]);
   });
 
