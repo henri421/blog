@@ -365,7 +365,7 @@ export const EN1992: Carte = {
             n(G2, 'fissuration', 'base', '9.2.3'),
             n(G2, 'fissuration', 'annexe-s', 'S', 'annexe-informative'),
           ],
-          reserves: 'Critère « barres isolées » de la figure 9.3 b) à confirmer ; annexe S non traitée.',
+          reserves: 'Critère « barres isolées » de la figure 9.3 b) à confirmer ; annexe S : maîtrise simplifiée (S.4) codée, un seul lit, bonne adhérence ; armatures de peau (S.5) décrites.',
         }),
         c('9.3.1', 'Flèches : considérations générales', ['7.4.1']),
         c('9.3.2', 'Flèches par le rapport portée / hauteur utile', ['7.4.2'], {

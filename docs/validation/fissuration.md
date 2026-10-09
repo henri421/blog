@@ -36,3 +36,22 @@ $k_{1/r}$ = (220 − 55,216)/(190 − 55,216) = 1,22258 ;
 écart de déformation au plancher : 0,00057969 ;
 plafond 1,3 × (220 − 55,216) / 1,7 = 126,0 mm > 120,64 mm ;
 $w_{k,cal}$ = 1,7 × 1,22258 × 120,64 × 0,00057969 = **0,1454 mm** ($k_w$ = 1,7, 9.2.3(2)).
+
+## Annexe S.4, maîtrise simplifiée (2023, informative)
+
+Formule (S.6) inversée : l’ouverture simplifiée est celle pour laquelle le
+diamètre réel atteint la limite de (S.6).
+
+$a$ = $h - d$ = 30 mm ; $\rho_p$ = 753,98 / (1000 × 190) = 0,0039683 ;
+$k_{1/r,simpl}$ = 25 × (220/190 − 1) × 0,0039683 + 1,15 × 220/190 − 0,15 = 1,19724 ;
+$k_{fl,simpl}$ = 1 − 3,5 × 30 / 220 = 0,52273 ; $k_{b,simpl}$ = 0,9 ; $k_w$ = 1,7 ;
+$K$ = 1,7 × 1,19724 × 0,9 × 193,23 / 200 000 = 0,0017698 ;
+espacement équivalent = 1,5 × 24 + 12 × (30/190) × 0,52273 × 0,9 / (2,1 × 0,0039683) = 142,96 mm ;
+$w_{simpl}$ = 0,0017698 × 142,96 = **0,2530 mm** (taux 0,843 pour 0,3 mm).
+
+Pour $w_{lim,cal}$ = 0,3 mm : 0,3 / 0,0017698 − 36 = 133,51 mm ;
+$\phi_{max}$ (S.6) = 2,1 × 0,0039683 / (0,15789 × 0,52273 × 0,9) × 133,51 = **14,98 mm** ;
+$s_{max}$ (S.7) = 3,45 × 0,0039683 / (30²/190 × 0,52273² × 0,9²) × 133,51² = **232,8 mm**.
+
+Contrôle de cohérence : avec $h_{c,eff}$ = 3,5 $a$, $\rho_{eff}$ = $\rho_p d / (3,5 a)$ et
+$\phi/(7,2\,\rho_{eff})$ = $\phi\,a / (2,06\,\rho_p d)$, d’où le 2,1 de (S.6).

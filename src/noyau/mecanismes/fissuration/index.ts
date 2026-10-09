@@ -12,6 +12,15 @@
  * Deuxieme generation : 9.2.3, w_k,cal = k_w k_1/r s_r,m,cal (eps_sm - eps_cm).
  * En deuxieme generation, la section rectangulaire en flexion simple donne
  * k_fl = (h - h_c,eff) / h (9.16).
+ *
+ * Annexe S.4 (informative), maitrise simplifiee : (S.6) limite le diametre,
+ * (S.7) l espacement. Elles reviennent a 9.2.3 avec h_c,eff = 3,5 a et
+ * eps_sm - eps_cm = 0,9 sigma_s / E_s (2,1 ~ 7,2/3,5). L outil inverse (S.6)
+ * pour obtenir l ouverture simplifiee comparee a w_max :
+ *   w_simpl = k_w k_1/r,simpl 0,9 sigma_s/E_s (1,5 c + phi (a/d) k_fl,simpl k_b,simpl / (2,1 rho_p)),
+ * et affiche phi_max (S.6) et s_max (S.7) pour w_lim,cal = w_max.
+ * Choix de l outil : a = a_y = h - d (un seul lit), rho_p = A_s/(b d) sans
+ * precontrainte, bonnes conditions d adherence (k_b,simpl = 0,9).
  */
 
 import type { Cle } from '../../../i18n/cle';
@@ -189,6 +198,48 @@ export function fissuration2023(e: Complete): Calcul {
   };
 }
 
+/** Annexe S.4 : (S.6) inversee, avec phi_max (S.6) et s_max (S.7). */
+export function fissurationAnnexeS(e: Complete): Calcul {
+  const sf = sectionFissuree(e);
+  const a = e.h - e.d;
+  const rhoP = sf.rho;
+  const k1r = 25 * (e.h / e.d - 1) * rhoP + 1.15 * (e.h / e.d) - 0.15;
+  const kfl = 1 - (3.5 * a) / e.h;
+  const kb = KB_2023;
+  const def = (0.9 * sf.sigmaS) / ES;
+  const k = KW_2023 * k1r * def;
+  const srm = 1.5 * e.c + (e.phi * (a / e.d) * kfl * kb) / (2.1 * rhoP);
+  const w = k * srm;
+  const marge = Math.max(0, e.wmax / k - 1.5 * e.c);
+  const phiMax = ((2.1 * rhoP) / ((a / e.d) * kfl * kb)) * marge;
+  const sMax = ((3.45 * rhoP) / (((a * a) / e.d) * kfl ** 2 * kb ** 2)) * marge ** 2;
+  return {
+    statut: { etat: 'calcule' },
+    sollicitation: w,
+    resistance: e.wmax,
+    intermediaires: {
+      ...base(e, sf),
+      a: calculee(a, 'mm'),
+      'ρ_p': calculee(rhoP, '-'),
+      'k_1/r,simpl': calculee(k1r, '-'),
+      'k_fl,simpl': calculee(kfl, '-'),
+      'k_b,simpl': recommandee(kb, '-'),
+      k_w: recommandee(KW_2023, '-'),
+      '0,9 σ_s / E_s': calculee(def, '-'),
+      'espacement équivalent': calculee(srm, 'mm'),
+      'w_simpl': calculee(w, 'mm'),
+      'φ_max (S.6)': calculee(phiMax, 'mm'),
+      's_max (S.7)': calculee(sMax, 'mm'),
+    },
+    clauses: ['S.4(1)', '(S.6)', '(S.7)'],
+  };
+}
+
+/** k_fl,simpl = 1 - 3,5 a_y/h doit rester positif. */
+function conditionsAnnexeS(e: EntreeFissuration): Cle | null {
+  return 3.5 * ((e.h as number) - (e.d as number)) >= (e.h as number) ? 'motif.annexe-s-kfl' : null;
+}
+
 const niveaux2004: DefinitionNiveau<EntreeFissuration>[] = [
   {
     id: 'base',
@@ -215,11 +266,23 @@ const niveaux2023: DefinitionNiveau<EntreeFissuration>[] = [
     conditions: () => null,
     calculer: (e) => fissuration2023(e as Complete),
   },
+  {
+    id: 'annexe-s',
+    ordre: 2,
+    position: 'annexe-informative',
+    reserve: 'reserve.annexe-s',
+    clause: 'S.4',
+    hypothese: 'niveau.fiss.2023.annexe-s',
+    donneesRequises: requises,
+    domaine,
+    conditions: conditionsAnnexeS,
+    calculer: (e) => fissurationAnnexeS(e as Complete),
+  },
 ];
 
 export const fissuration: Mecanisme<EntreeFissuration> = {
   id: 'fissuration',
-  version: '0.1.0',
+  version: '0.2.0',
   titre: 'meca.fiss.titre',
   champs: [
     { type: 'nombre', id: 'b', libelle: 'champ.b', symbole: 'b', unite: 'mm' },

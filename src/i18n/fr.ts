@@ -108,6 +108,8 @@ export const fr = {
   'statut.reserve': 'Calculé, sous réserve',
   'reserve.annexe-p':
     'Annexe P, informative : autre approche de l’enrobage sans classe de résistance à l’exposition ; son emploi dépend de l’annexe nationale, non publiée.',
+  'reserve.annexe-s':
+    'Annexe S, informative : maîtrise simplifiée de la fissuration, prudente par construction ; son emploi dépend de l’annexe nationale, non publiée.',
   'reserve.en1991-1-7-a':
     'EN 1991-1-7, annexe A, informative : efforts des chaînages ; son emploi dépend de l’annexe nationale, non publiée.',
   'reserve.annexe-o':
@@ -152,6 +154,7 @@ export const fr = {
   'motif.portees-adjacentes': 'Rapport des portées adjacentes hors de 0,5 à 2 : redistribution sans vérification de la capacité de rotation non admise (5.5(4) ; 7.3.2(3)).',
   'motif.ap-sup-8dv': 'a_p n’est pas inférieur à 8 d_v : le remplacement de d_v par a_pd n’est pas permis (8.4.3(2)).',
   'motif.d-sup-h': 'La hauteur utile doit être inférieure à la hauteur totale.',
+  'motif.annexe-s-kfl': 'Annexe S : 3,5 a_y doit rester inférieur à h pour que k_fl,simpl soit positif.',
   'motif.poteau-allonge':
     'Un côté du poteau dépasse 3 d : seule une partie du périmètre serait à retenir, règle non codée.',
   'motif.sigma-sup-fyd': 'σsd dépasse fyd : la barre ne peut pas être plus sollicitée que plastifiée.',
@@ -751,6 +754,7 @@ export const fr = {
   'niveau.poin.2023.moment-nul':
     'Longueur d’échelle apd tirée de la distance aux lignes de moment nul, si ap < 8 dv.',
   'niveau.fiss.2004.base': 'sr,max = 3,4 c + 0,17 φ/ρp,eff, sans effet de la courbure.',
+  'niveau.fiss.2023.annexe-s': 'Annexe S.4 : (S.6) inversée, zone tendue prudente et 0,9 σs/Es ; φmax (S.6) et smax (S.7) affichés.',
   'niveau.fiss.2023.base': 'wk,cal = kw k1/r sr,m,cal (εsm − εcm) : espacement moyen et courbure.',
   'niveau.anc.2004.barre-plastifiee': 'σsd = fyd ; lb,rqd par la contrainte d’adhérence fbd, α2 seul retenu.',
   'niveau.anc.2004.contrainte-reelle': 'σsd de calcul saisie ; lb,rqd par fbd, α2 seul retenu.',

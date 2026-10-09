@@ -65,4 +65,28 @@ describe('fissuration, dalle de logement', () => {
   it('d >= h est hors du domaine', () => {
     expect(cel({ ...dalle(), d: 230 }, 'ec2-2023').statut).toEqual({ etat: 'hors-domaine', motif: 'motif.d-sup-h' });
   });
+
+  it('annexe S.4 : w_simpl = 0,2530 mm, phi_max = 14,98 mm, s_max = 232,8 mm, en reserve', () => {
+    const c = calculerMatrice(fissuration, dalle()).cellules.find((x) => x.niveau === 'annexe-s')!;
+    expect(c.generation).toBe('ec2-2023');
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.annexe-s' });
+    expect(c.intermediaires['k_1/r,simpl'].valeur).toBeCloseTo(1.197243, 5);
+    expect(c.intermediaires['k_fl,simpl'].valeur).toBeCloseTo(0.522727, 5);
+    expect(c.intermediaires['espacement équivalent'].valeur).toBeCloseTo(142.965, 2);
+    expect(c.sollicitation).toBeCloseTo(0.253015, 5);
+    expect(c.intermediaires['φ_max (S.6)'].valeur).toBeCloseTo(14.978, 2);
+    expect(c.intermediaires['s_max (S.7)'].valeur).toBeCloseTo(232.78, 1);
+  });
+
+  it('annexe S plus prudente que le calcul general de 9.2.3', () => {
+    const cs = calculerMatrice(fissuration, dalle()).cellules;
+    const s = cs.find((x) => x.niveau === 'annexe-s')!.sollicitation as number;
+    const g = cs.find((x) => x.generation === 'ec2-2023' && x.niveau === 'base')!.sollicitation as number;
+    expect(s).toBeGreaterThan(g);
+  });
+
+  it('annexe S : k_fl,simpl negatif ou nul, niveau non applicable', () => {
+    const c = calculerMatrice(fissuration, { ...dalle(), d: 150 }).cellules.find((x) => x.niveau === 'annexe-s')!;
+    expect(c.statut).toMatchObject({ etat: 'non-applicable', motif: 'motif.annexe-s-kfl' });
+  });
 });

@@ -16,7 +16,6 @@ const clauses = EN1992.chapitres.flatMap((c) => c.clauses);
 // et une nouvelle lacune fait echouer la construction (test 15, CDC v4 §5.1).
 const LACUNES_CONNUES = [
   '7.3.2 ec2-2023/redistribution/rotation',
-  '9.2.3 ec2-2023/fissuration/annexe-s',
 ];
 
 describe('cartographie EN 1992-1-1', () => {
