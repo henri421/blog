@@ -4,11 +4,12 @@ ordre: 27
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-08
-revise: 2026-10-08
+revise: 2026-10-09
 resume: Les diamètres minimaux contre l’endommagement des barres ne changent pas. La vérification du béton dans la courbure, qui conduisait en 2004 à de très grands mandrins dès qu’une barre plastifiée était coudée près d’une paroi, est remplacée par des dispenses élargies et une nouvelle formule.
 motscles: dispositions-constructives, ancrage
 historique:
   - 2026-10-08 : première rédaction.
+  - 2026-10-09 : vérification du béton dans la courbure de 2023 ((11.1), (11.2)), relue sur le texte, ajoutée au calculateur.
 ---
 
 ## Ce qui change
@@ -47,7 +48,19 @@ $$
 
 avec $F_{bt}$ l’effort de la barre au début du coude, $a_b$ le demi-entraxe perpendiculairement au plan du coude, ou l’enrobage plus φ/2 pour une barre de rive, et $f_{cd}$ plafonnée à celle du C55/67.
 
-La vérification de 2023 (11.1) n’est pas codée : sa structure se lit mal sur l’exemplaire disponible.
+**Béton dans la courbure, deuxième génération** (11.3(4)) :
+
+$$
+\sigma_{sd} \le 0.65\,f_{cd}\,\frac{\varphi_{mand}}{\varphi} + \frac{\sqrt{f_{ck}}}{\gamma_C}\left(\frac{d_{dg}}{\varphi}\right)^{1/3}\left(\frac{c_d}{\varphi} + \frac{1}{2}\right)\left(k_{bend} + 0.7\,\frac{\varphi_{mand}}{\varphi}\right), \qquad k_{bend} = 32\,\frac{45°}{\alpha_{bend}}
+$$
+
+Le premier terme est l’écrasement direct sous la barre, proportionnel au rayon du coude, comme en 2004. Le second représente le béton confiné autour du coude : il croît avec la distance $c_d$ au bord ou à la barre voisine (la plus petite de $c_x$ et $c_s/2$), avec la rugosité du granulat ($d_{dg}$), et décroît avec l’angle du coude. La formule inverse donc la logique de 2004 : on vérifie une contrainte pour un mandrin donné, au lieu d’en déduire un diamètre.
+
+Des barres transversales placées dans la courbure majorent la limite (11.3(5)) :
+
+$$
+k_{trans} = 1 + 4\,n_{trans}\,\frac{\varphi}{\varphi_{mand}}\left(\frac{\varphi_{trans}}{\varphi}\right)^2 \frac{45°}{\alpha_{bend}}, \qquad \varphi_{trans} \le 1.35\,\varphi
+$$
 
 ## L’exemple type : crosse d’un HA20 en rive
 
@@ -68,7 +81,29 @@ HA20 plastifié, coudé sur le mandrin minimal de 7 φ = 140 mm, avec 50 mm d’
 }
 ```
 
+En 2023, la même crosse, avec 50 mm de distance libre au bord, un granulat 0/16 et un coude à 90° :
+
+```exemple
+{
+  "nom": "crosse-ha20-2023",
+  "mecanisme": "mandrin",
+  "entree": { "phi": 20, "phiMand": 140, "fck": 30, "sigmaSd": 434.78, "ab": 60, "cd": 50, "Dlower": 16, "alphaBend": 90, "nTrans": 2, "phiTrans": 14 },
+  "attendus": {
+    "ec2-2023/beton.k_bend": "16",
+    "ec2-2023/beton.resistance": "345,1",
+    "ec2-2023/beton.taux": "1,260",
+    "ec2-2023/beton-trans.k_trans": "1,28",
+    "ec2-2023/beton-trans.resistance": "441,8",
+    "ec2-2023/beton-trans.taux": "0,984"
+  }
+}
+```
+
 Le mandrin de {{crosse-ha20:ec2-2004/dommage.sollicitation}} mm suffit pour l’acier dans les deux générations. En 2004, si la barre a besoin de plus de 5 φ d’ancrage après le coude, le béton impose {{crosse-ha20:ec2-2004/beton.sollicitation}} mm, soit {{crosse-ha20:ec2-2004/beton.taux}} fois le mandrin prévu. C’est le cas typique d’une crosse en about de poutre ou en tête de poteau, où ce mandrin est irréalisable. En 2023, la même crosse sort des dispenses dès qu’elle a besoin de plus de 5 φ après la courbure. Elle relève alors de la formule (11.1), qui tient compte du granulat, de l’angle du coude et des barres transversales.
+
+La formule (11.1) donne une limite de {{crosse-ha20-2023:ec2-2023/beton.resistance}} MPa pour une barre plastifiée à 434,8 MPa : le mandrin de 140 mm ne suffit pas seul (taux {{crosse-ha20-2023:ec2-2023/beton.taux}}). Deux HA14 placés dans la courbure portent $k_{trans}$ à {{crosse-ha20-2023:ec2-2023/beton-trans.k_trans}} et la limite à {{crosse-ha20-2023:ec2-2023/beton-trans.resistance}} MPa (taux {{crosse-ha20-2023:ec2-2023/beton-trans.taux}}). Avec le même mandrin, 2004 demandait 285 mm. En 2023, il suffit de deux barres transversales, une disposition courante en about de poutre.
+
+{{calculateur:crosse-ha20-2023}}
 
 {{calculateur:crosse-ha20}}
 

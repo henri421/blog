@@ -18,3 +18,19 @@ C70/85 : f_cd plafonnée à 55/1,5 = 36,67 MPa, φ_m,min = **155,2 mm**.
 
 HA12 intérieur, entraxe 150 mm (a_b = 75), plastifié : F_bt = 49,2 kN,
 φ_m,min = 135,2 mm (non repris dans les tests).
+
+## Béton dans la courbure, 2023 ((11.1), (11.2))
+
+Même crosse : HA20, $\varphi_{mand}$ = 140 mm, C30/37, $\sigma_{sd}$ = 434,78 MPa,
+$c_d$ = 50 mm, $D_{lower}$ = 16 mm ($d_{dg}$ = 32 mm), coude à 90°.
+
+$f_{cd}$ = 0,85 × 30 / 1,5 = 17 MPa ; $k_{bend}$ = 32 × 45/90 = 16 ;
+premier terme 0,65 × 17 × 7 = 77,35 MPa ;
+second terme √30/1,5 × (32/20)^(1/3) × (2,5 + 0,5) × (16 + 0,7 × 7)
+= 3,6515 × 1,16961 × 3 × 20,9 = 267,78 MPa ;
+$\sigma_{lim}$ = **345,13 MPa**, taux 1,260.
+
+Avec 2 HA14 dans la courbure : $k_{trans}$ = 1 + 4 × 2 × (20/140) × (14/20)² × 1 × (45/90)
+= **1,28** ; $\sigma_{lim}$ = **441,77 MPa**, taux 0,984.
+
+HA20 sur 4 φ (80 mm), même $c_d$ : 0,65 × 17 × 4 + 12,8124 × (16 + 2,8) = **285,07 MPa**.
