@@ -482,8 +482,8 @@ export const EN1992: Carte = {
         c('11.4.7', 'Ancrage par tête d’ancrage', [], {
           article: 'tete-ancrage',
           ingeree: true,
-          niveaux: [n(G2, 'tete-ancrage', 'simplifie', '11.4.7(1)')],
-          reserves: 'Vérification générale (11.8) à (11.11) non codée : lecture des formules à confirmer.',
+          niveaux: [n(G2, 'tete-ancrage', 'simplifie', '11.4.7(1)'), n(G2, 'tete-ancrage', 'general', '11.4.7(2)')],
+          reserves: 'Longueur complémentaire (11.11) non calculée dans ce mécanisme ; groupe proche d’un angle (a_x < 2 a_y) non couvert par le texte.',
         }),
         c('11.4.8', 'Ancrage des armatures scellées', [], {
           article: 'armature-scellee',

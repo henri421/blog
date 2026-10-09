@@ -4,11 +4,12 @@ ordre: 26
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-08
-revise: 2026-10-08
+revise: 2026-10-09
 resume: Les barres à tête entrent dans l’Eurocode 2. Sous des conditions simples de géométrie, de béton et de distances aux bords, la tête suffit à ancrer une barre plastifiée, sans aucune longueur d’adhérence.
 motscles: ancrage, dispositions-constructives
 historique:
   - 2026-10-08 : première rédaction.
+  - 2026-10-09 : vérification générale (11.8) à (11.10), relue sur le texte, ajoutée au calculateur.
 ---
 
 ## Ce qui change
@@ -68,6 +69,34 @@ Toutes les conditions sont remplies, de justesse pour deux d’entre elles. La t
 
 Si le béton est fissuré dans la zone de la tête (rive tendue, par exemple), le minimum de distance au bord passe à 4 φ = 80 mm : la règle de moyens ne s’applique plus, et il faut passer à la vérification générale.
 
+## La vérification générale
+
+Hors des conditions de la règle de moyens, ou pour un calcul plus fin, la contrainte que la tête développe se calcule (11.4.7(2)) :
+
+$$
+\sigma'_{sd} = k_{h,A}\,f_{cd} + \nu_{part}\,\frac{\sqrt{f_{ck}}}{\gamma_C}\,\frac{a_d}{\varphi}\left(\frac{\varphi_h}{\varphi}\right)^{5/6}\left(\frac{d_{dg}}{\varphi}\right)^{1/3} \le k_{h,A}\,\nu_{part}\,f_{cd}, \qquad k_{h,A} = \left(\frac{\varphi_h}{\varphi}\right)^2 - 1
+$$
+
+Le premier terme est l’écrasement du béton sous la surface d’appui nette de la tête. Le second est la résistance à l’éclatement du béton autour de la tête : il croît avec la distance nominale au parement $a_d$, la taille de la tête et le granulat. $\nu_{part}$ vaut 11 en béton non fissuré et 8 en béton fissuré. La distance $a_d$ vaut $a_y$ loin des angles et pour des barres assez espacées ; elle diminue près d’un angle ($0.5\,a_y + 0.25\,a_x - 0.3\,\varphi_h$) ou pour un groupe serré (formule (11.10)). Si la tête ne suffit pas, le reste de l’effort se transmet par adhérence sur une longueur $1.1\,(l_{bd}(\sigma_{sd}) - l_{bd}(\sigma'_{sd}))$ (11.11).
+
+```exemple
+{
+  "nom": "tete-voile-fissure",
+  "mecanisme": "tete-ancrage",
+  "entree": { "phi": 20, "fck": 30, "Dlower": 16, "phiH": 64, "th": 16, "fissuration": "fissure", "ay": 60, "ax": 200, "sx": 250, "sigmaSd": 400 },
+  "attendus": {
+    "ec2-2023/general.k_h,A": "9,24",
+    "ec2-2023/general.a_d": "60",
+    "ec2-2023/general.resistance": "427,3",
+    "ec2-2023/general.taux": "0,936"
+  }
+}
+```
+
+Pour le voile en béton fissuré, la tête développe {{tete-voile-fissure:ec2-2023/general.resistance}} MPa ($k_{h,A}$ = {{tete-voile-fissure:ec2-2023/general.k_h,A}}, $a_d$ = {{tete-voile-fissure:ec2-2023/general.a_d}} mm) : 400 MPa passent sans longueur complémentaire (taux {{tete-voile-fissure:ec2-2023/general.taux}}). La règle de moyens refusait ce cas (60 mm du bord au lieu de 80) ; le calcul montre qu’il reste admissible pour cette contrainte, mais pas pour une barre plastifiée à 435 MPa.
+
+{{calculateur:tete-voile-fissure}}
+
 {{calculateur:tete-voile}}
 
 ## L’effet sur une note de calcul existante
@@ -78,4 +107,4 @@ Si le béton est fissuré dans la zone de la tête (rive tendue, par exemple), l
 
 ## Ce qu’il faudra vérifier
 
-- **Vérification générale** : la formule (11.8) de la contrainte développée par la tête, son plafond, et la distance nominale $a_d$ d’un groupe de barres (11.10) sont mal restituées par l’extraction du texte. Elles ne sont pas codées en attendant leur lecture sur l’exemplaire papier. Le calculateur déclare alors le cas non applicable, en nommant la condition en défaut.
+- **Vérification générale** : un groupe de barres à moins de $2\,a_y$ de l’angle, que le texte ne couvre pas pour $a_d$, est déclaré non applicable. La longueur complémentaire (11.11) se calcule avec le mécanisme d’ancrage droit.
