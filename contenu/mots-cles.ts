@@ -41,6 +41,8 @@ export const MOTS_CLES = [
   'armatures-minimales',
   'dalle',
   'poutre',
+  'combinaisons',
+  'actions',
 ] as const;
 
 export type MotCle = (typeof MOTS_CLES)[number];

@@ -61,6 +61,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Armatures d’intégrité des planchers-dalles | `integrite` | 0 / 2 |
 | Efforts de déviation des barres courbes | `deviation` | 0 / 2 |
 | Recouvrements par boucles et par barres à tête | `recouvrement-boucle`, `recouvrement-tete` | 0 / 1 et 0 / 1 |
+| Combinaisons d’actions à l’ELU (EN 1990) | `combinaison-elu` | 2 / 3 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 

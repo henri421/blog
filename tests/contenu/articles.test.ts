@@ -63,6 +63,7 @@ describe('articles', () => {
       'integrite-planchers-dalles',
       'efforts-deviation',
       'recouvrements-boucles-tetes',
+      'combinaisons-elu',
     ]);
   });
 
@@ -102,7 +103,8 @@ describe('articles', () => {
       });
 
       it('l en-tete de statut cite le texte et son etat d amendement', () => {
-        expect(a.entete.texte).toMatch(/EN 1992-1-1:2023/);
+        // Texte de deuxieme generation cite : EN 1992-1-1:2023 ou une autre partie des Eurocodes.
+        expect(a.entete.texte).toMatch(/EN 199\d(-\d+)*:202\d/);
         expect(a.entete.texte).toMatch(/amendement/);
         expect(a.entete.historique.length).toBeGreaterThan(0);
       });

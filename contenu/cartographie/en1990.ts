@@ -10,7 +10,7 @@
  */
 
 import type { Carte } from './types';
-import { ann, c, exclu, reporte } from './outils';
+import { ann, c, exclu, n, reporte } from './outils';
 
 export const EN1990_1: Carte = {
   id: 'en1990-1',
@@ -71,7 +71,18 @@ export const EN1990_1: Carte = {
         c('8.3.1', 'ELU : généralités, équilibre, résistance, fatigue', ['6.4.1']),
         c('8.3.2', 'ELU : valeurs de calcul des effets des actions', ['6.3.2']),
         c('8.3.3', 'ELU : valeurs de calcul des actions', ['6.3.1']),
-        c('8.3.4', 'ELU : combinaisons d’actions', ['6.4.3']),
+        c('8.3.4', 'ELU : combinaisons d’actions', ['6.4.3'], {
+          article: 'combinaisons-elu',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'combinaison-elu', 'e610', '6.4.3.2(3)'),
+            n('en1990-2002', 'combinaison-elu', 'e610ab', '6.4.3.2(3)'),
+            n('en1990-2023', 'combinaison-elu', 'e812', '8.3.4.2(2)'),
+            n('en1990-2023', 'combinaison-elu', 'e813', '8.3.4.2(2)'),
+            n('en1990-2023', 'combinaison-elu', 'e814', '8.3.4.2(2)'),
+          ],
+          reserves: 'Situations durables et transitoires, bâtiments, STR (VC1) ; accidentelles, sismiques, EQU et GEO non codées. Texte de 2002 lu au travers de la synthèse NBN-CSTC.',
+        }),
         c('8.3.5', 'ELU : valeurs de calcul des résistances', ['6.3.5']),
         c('8.3.6', 'ELU : propriétés de calcul des matériaux', ['6.3.3']),
         c('8.3.7', 'ELU : propriétés géométriques de calcul', ['6.3.4']),
