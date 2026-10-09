@@ -159,7 +159,7 @@ export const EN1992: Carte = {
             n(G1, 'rigidite-nominale', 'simplifiee', '5.8.7.2(3)'),
             n(G2, 'rigidite-nominale', 'base', 'O.8', 'annexe-informative'),
           ],
-          reserves: 'Troisième terme de l’enveloppe (O.13) à relire sur l’exemplaire ; rigidité de plastification (7.4.3.2) remplacée par la valeur forfaitaire 0,4 E_cd I_c de O.8.1(5) ; majoration des forces horizontales (O.24) non codée.',
+          reserves: 'Rigidité de plastification (7.4.3.2) remplacée par la valeur forfaitaire 0,4 E_cd I_c de O.8.1(5) ; majoration des forces horizontales (O.24) non codée.',
         }),
         c('7.4.4', 'Compression avec flexion déviée', ['5.8.9'], {
           article: 'flexion-deviee',

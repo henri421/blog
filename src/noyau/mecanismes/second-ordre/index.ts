@@ -27,9 +27,9 @@
  *     7.2.1.2(5)), e_i = theta_i l_0/2 sinon, m = 1 ; N e_i s ajoute aux deux
  *     moments d extremite dans le sens de M_02 ;
  *   - moments exprimes dans le sens de M_02 (M_02 > 0, M_01 positif si la
- *     tension est du meme cote) ; M_Ed = max(M_0Ed + M_2 ; M_02) dans les deux
- *     generations ; le troisieme
- *     terme de (O.13), illisible a l extraction, n est pas code ;
+ *     tension est du meme cote) ; M_Ed = max(M_0Ed + M_2 ; M_02) en 2004 (5.8.8.2) ;
+ *     en 2023, (O.13) ajoute |M_01 - 0,5 M_2 - 2 |N_Ed| e_i|, ou M_01 inclut
+ *     l imperfection comme M_02 (figure O.1 a) : le terme -2 N e_i la renverse ;
  *   - section rectangulaire b x h, armatures concentrees sur les deux faces :
  *     d - d' = 2 d - h ; f_cd 2023 avec k_tc = 0,85.
  */
@@ -210,10 +210,13 @@ function celluleCourbure(
   c: number,
   inter: Cellule['intermediaires'],
   clauses: string[],
+  avecO13 = false,
 ): Calcul {
   const e2 = (courbure * e.l0 ** 2) / c;
   const M2 = e.NEd * e2 * KN_M_PAR_KN_MM;
-  const MEd = Math.max(M0Ed + M2, p.M02);
+  // (O.13), troisieme terme : extremite 1 avec l imperfection renversee.
+  const M1 = Math.abs(p.M01 - 0.5 * M2 - 2 * e.NEd * p.ei * KN_M_PAR_KN_MM);
+  const MEd = Math.max(M0Ed + M2, p.M02, avecO13 ? M1 : 0);
   return {
     statut: { etat: 'calcule' },
     resistance: MEd,
@@ -227,6 +230,7 @@ function celluleCourbure(
       c: recommandee(c, '-'),
       e_2: calculee(e2, 'mm'),
       M_2: calculee(M2, 'kN·m'),
+      ...(avecO13 ? { '|M_01 − 0,5 M_2 − 2 N e_i|': calculee(M1, 'kN·m') } : {}),
       M_Ed: calculee(MEd, 'kN·m'),
     },
     clauses,
@@ -290,6 +294,7 @@ function courbure2023(e: Complete, krPrecis: boolean): Calcul {
       '1/r_0': calculee(r0 * 1000, '1/m'),
     },
     krPrecis ? ['O.7.2', '(O.13) à (O.18)', 'O.7.3', '(O.19) à (O.22)'] : ['O.7.2', '(O.13) à (O.18)', 'O.7.3(3)', '(O.19)', '(O.22)'],
+    true,
   );
 }
 

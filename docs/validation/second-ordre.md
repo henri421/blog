@@ -29,3 +29,11 @@ I_c = 400⁴/12 = 2,1333 × 10⁹ mm⁴ ; I_s = 2513 × 150² = 5,654 × 10⁷ m
   Forme simplifiée : K_c = 0,1875, EI = 10 946 kN·m², N_B = 3 001 kN → **325,76 kN·m**.
 - 2023 : E_cd = 31 939/1,5 = 21 293 MPa ; EI = 0,4 × 21 293 × 2,1333 × 10⁹ = 18 170 kN·m² ;
   N_B = **4 981 kN** ; C_m M_02' = 94 ; majoration 1,8276 → M_Ed = **171,80 kN·m**.
+
+## (O.13), troisième terme (2023)
+
+Poteau ci-dessus en double courbure, $M_{01}$ = −80 kN·m, niveau $k_r$ précis :
+$e_i$ = 15 mm, $N e_i$ = 30 kN·m ; $M_{02}'$ = 110, $M_{01}'$ = −50 kN·m ;
+$r_m$ = −0,4545, $C_m$ = 0,41818, $M_{0Ed}$ = 46,0 kN·m ;
+$k_r$ = 0,66527, $k_\varphi$ = 1,18431, $e_2$ = 51,384 mm, $M_2$ = 102,768 kN·m ;
+$M_{0Ed} + M_2$ = 148,77 ; |−50 − 51,384 − 60| = **161,38 kN·m**, qui gouverne.

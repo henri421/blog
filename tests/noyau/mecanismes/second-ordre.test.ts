@@ -50,6 +50,16 @@ describe('second ordre, poteau contreventé 400 x 400, l0 = 6 m', () => {
     expect(b.resistance).toBeCloseTo(196.768, 3);
   });
 
+  it('(O.13) double courbure : |M_01 - 0,5 M_2 - 2 N e_i| = 161,38 gouverne', () => {
+    const c = cel(courbureNominale, { ...poteau(), M01: -80 }, 'ec2-2023', 'kr-precis');
+    expect(c.intermediaires.C_m.valeur).toBeCloseTo(0.418182, 5);
+    expect(c.intermediaires.M_2.valeur).toBeCloseTo(102.768, 3);
+    expect(c.intermediaires['|M_01 − 0,5 M_2 − 2 N e_i|'].valeur).toBeCloseTo(161.384, 3);
+    expect(c.resistance).toBeCloseTo(161.384, 3);
+    // 2004 ne connait pas ce terme.
+    expect(cel(courbureNominale, { ...poteau(), M01: -80 }, 'ec2-2004', 'courbure').intermediaires['|M_01 − 0,5 M_2 − 2 N e_i|']).toBeUndefined();
+  });
+
   it('non contreventé : c = 10, e_i = theta_i l_0 / 2, M_0Ed = M_02', () => {
     const c = cel(courbureNominale, { ...poteau(), contrevente: 'non' }, 'ec2-2023', 'kr-precis');
     expect(c.intermediaires.c.valeur).toBe(10);

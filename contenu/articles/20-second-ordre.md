@@ -4,12 +4,13 @@ ordre: 20
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié auprès de l’ILNAS ; méthodes de calcul tirées de l’annexe O (informative).
 redige: 2026-10-05
-revise: 2026-10-05
+revise: 2026-10-09
 resume: Les méthodes simplifiées du second ordre quittent le corps du texte pour une annexe informative ; la courbure nominale d’un poteau contreventé prend une distribution constante, et le moment du second ordre augmente d’un quart.
 motscles: stabilite, analyse-structurale, elu
 historique:
   - 2026-10-05 : première rédaction (critère d’élancement et courbure nominale).
   - 2026-10-05 : rigidité nominale et majoration des moments (5.8.7 ; O.8).
+  - 2026-10-09 : troisième terme de l’enveloppe (O.13), relu sur le texte, ajouté au calculateur.
 ---
 
 ## Ce qui change
@@ -48,7 +49,7 @@ $$
 | $k_r$ | $(n_u - n)/(n_u - n_{bal}) \le 1$ | 1 en première approximation, ou la même expression |
 | $k_\varphi$ | $1 + \beta\,\varphi_{eff} \ge 1$, $\beta = 0.35 + f_{ck}/200 - \lambda/150$ | identique |
 
-Le calculateur prend l’imperfection $e_i = l_0/400$ pour un élément contreventé et $e_i = \theta_i\,l_0/2$ sinon (voir l’article sur les imperfections), l’ajoute aux deux moments d’extrémité et retient $M_{Ed} = \max(M_{0Ed} + M_2 ; M_{02})$. Le troisième terme de l’enveloppe (O.13) n’est pas encore traité.
+Le calculateur prend l’imperfection $e_i = l_0/400$ pour un élément contreventé et $e_i = \theta_i\,l_0/2$ sinon (voir l’article sur les imperfections), l’ajoute aux deux moments d’extrémité et retient $M_{Ed} = \max(M_{0Ed} + M_2 ; M_{02})$ en 2004. En 2023, l’enveloppe (O.13) ajoute un troisième terme, $|M_{01} - 0.5\,M_2 - 2\,|N_{Ed}|\,e_i|$ : l’extrémité la moins sollicitée, avec l’imperfection prise dans l’autre sens. Il gouverne pour un poteau en double courbure dont le second ordre reste modéré.
 
 **Rigidité nominale et majoration des moments** (5.8.7 ; O.8) : le moment du premier ordre est amplifié par
 
