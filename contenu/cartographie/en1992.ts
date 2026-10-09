@@ -120,7 +120,7 @@ export const EN1992: Carte = {
             n(G2, 'redistribution', 'base', '7.3.2(3)'),
             n(G2, 'redistribution', 'rotation', '7.3.2(5)'),
           ],
-          reserves: 'Vérification explicite de la capacité de rotation (7.18 à 7.24) et précontrainte (7.17) non codées.',
+          reserves: 'Précontrainte (7.17) non codée. Rotation (7.18 à 7.24) : θEd saisie ; s_r,m,cal à un lit, bonne adhérence ; M_y avec le diagramme de calcul du béton.',
         }),
         c('7.3.3', 'Analyse plastique', ['5.6'], {
           article: 'analyse-plastique',

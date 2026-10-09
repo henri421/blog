@@ -208,6 +208,7 @@ describe('cles', () => {
       for (const defs of Object.values(m.niveaux)) {
         for (const d of defs) {
           expect(estCle(d.hypothese), d.id).toBe(true);
+          if (d.grandeurs) expect(estCle(d.grandeurs.sollicitation.libelle) && estCle(d.grandeurs.resistance.libelle), d.id).toBe(true);
           for (const r of d.donneesRequises) expect(estCle(r.libelle)).toBe(true);
         }
       }

@@ -5,6 +5,7 @@ import { EN1992 } from '../../contenu/cartographie/en1992';
 import { lireArticles, pageAccueil, pageArticle, pageChantiers } from '../../app/construire/site';
 import { lacunes } from '../../app/construire/avancement';
 import { chantiers, chantiersVerification } from '../../app/construire/chantiers';
+import { avecNiveauFictif } from './carte-fictive';
 
 // Suivi des chantiers : decision de l auteur du 05/10/2026, a la place du
 // retour en brouillon des articles incomplets ou non verifies (CDC v4 §5.1, §9).
@@ -24,12 +25,19 @@ describe('suivi des chantiers', () => {
   });
 
   it('chaque niveau manquant (test 15) est un chantier de son article', () => {
-    const manquants = lacunes(EN1992, articles);
+    // Carte modifiee : un niveau fictif garantit au moins un manque a suivre.
+    const carte = avecNiveauFictif();
+    const eurocodes = EUROCODES.map((e) => (e.id === 'en1992' ? { ...e, cartes: [carte] } : e));
+    const fictive = chantiers(racine, eurocodes, articles);
+    const manquants = lacunes(carte, articles);
     expect(manquants.length).toBeGreaterThan(0);
     for (const m of manquants) {
       const clause = m.split(' ')[0];
-      expect(liste.some((c) => c.nature === 'niveau-manquant' && c.id === `en1992-${clause}-niveaux`), m).toBe(true);
+      expect(fictive.some((c) => c.nature === 'niveau-manquant' && c.id === `en1992-${clause}-niveaux`), m).toBe(true);
     }
+    expect(pageChantiers(articles, fictive)).toContain('Niveaux de calcul pas encore rendus');
+    // Sur la cartographie reelle, la liste suit exactement les lacunes.
+    expect(liste.filter((c) => c.nature === 'niveau-manquant').length).toBe(lacunes(EN1992, articles).length);
   });
 
   it('aucun article n est en brouillon : les manques sont suivis, pas depublies', () => {
@@ -51,7 +59,7 @@ describe('suivi des chantiers', () => {
   });
 
   it('la page de suivi et le lien de l accueil comptent les chantiers', () => {
-    expect(pageChantiers(articles, liste)).toContain('Niveaux de calcul pas encore rendus');
+    expect(pageChantiers(articles, liste)).toContain('Réserves sur le contenu');
     expect(pageAccueil(articles, liste)).toContain(`chantiers.html">Suivi des chantiers (${liste.length})`);
   });
 });

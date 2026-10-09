@@ -10,6 +10,7 @@
 import type { Cle } from '../../i18n/cle';
 import { estChiffree } from '../model/resultat';
 import type { Cellule, Generation, Niveau, PositionNormative } from '../model/resultat';
+import type { GrandeurComparee } from './mecanisme';
 
 export interface DefinitionNiveau<E> {
   id: Niveau;
@@ -21,6 +22,11 @@ export interface DefinitionNiveau<E> {
   reserve?: Cle;
   /** Resume de l hypothese du niveau. */
   hypothese: Cle;
+  /**
+   * Grandeurs comparees propres au niveau, quand il ne verifie pas la meme
+   * quantite que les autres (ex. rotation au lieu d un rapport de moments).
+   */
+  grandeurs?: { sollicitation: GrandeurComparee; resistance: GrandeurComparee };
   /** Donnees sans lesquelles le niveau est non applicable, chacune nommee. */
   donneesRequises: Array<{ champ: keyof E; libelle: Cle }>;
   /**

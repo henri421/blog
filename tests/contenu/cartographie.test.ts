@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { EN1992 } from '../../contenu/cartographie/en1992';
+import { avecNiveauFictif } from './carte-fictive';
 import { EUROCODES } from '../../contenu/cartographie/eurocodes';
 import { lireArticles } from '../../app/construire/site';
 import { deriverLignes, lacunes, rendreAvancement } from '../../app/construire/avancement';
@@ -14,9 +15,7 @@ const clauses = EN1992.chapitres.flatMap((c) => c.clauses);
 // Niveaux cartographies que les articles ne rendent pas encore. Cette liste
 // ne peut que raccourcir : un niveau ajoute a un mecanisme doit en etre retire,
 // et une nouvelle lacune fait echouer la construction (test 15, CDC v4 §5.1).
-const LACUNES_CONNUES = [
-  '7.3.2 ec2-2023/redistribution/rotation',
-];
+const LACUNES_CONNUES: string[] = [];
 
 describe('cartographie EN 1992-1-1', () => {
   it('chaque clause est unique et chaque article cite existe', () => {
@@ -62,11 +61,15 @@ describe('cartographie EN 1992-1-1', () => {
   });
 
   it('une clause dont un niveau manque n a pas son calculateur coche', () => {
-    const l = deriverLignes(EN1992, articles)
+    // Carte modifiee : un niveau fictif sur 7.3.2, que l article ne peut pas rendre.
+    const carte = avecNiveauFictif();
+    expect(lacunes(carte, articles)).toEqual(['7.3.2 ec2-2023/redistribution/fictif']);
+    const l = deriverLignes(carte, articles)
       .flatMap((c) => c.lignes)
       .find((x) => x.clause === '7.3.2')!;
     expect(l.ecrite).toBe(true);
     expect(l.calculateur).toBe(false);
+    expect(deriverLignes(EN1992, articles).flatMap((c) => c.lignes).find((x) => x.clause === '7.3.2')!.calculateur).toBe(true);
   });
 
   it('test 16 : la colonne verifie ne provient que de la cartographie', () => {

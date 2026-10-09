@@ -72,6 +72,25 @@ function statutHtml(c: Cellule): string {
   return c.statut.etat === 'reserve' ? `${libelle}<br><small class="reserve">${echapper(t(c.statut.motif))}</small>` : libelle;
 }
 
+/** Unite affichee dans la cellule d un niveau qui compare une autre grandeur. */
+function uniteNiveau(unite: string | undefined): string {
+  return unite === undefined ? '' : ` ${echapper(unite)}`;
+}
+
+/** Note des niveaux dont les grandeurs comparees different de celles du mecanisme. */
+function grandeursPropres(m: Mecanisme<Entree>): string {
+  return (Object.keys(m.niveaux) as Generation[])
+    .flatMap((g) =>
+      m.niveaux[g]
+        .filter((d) => d.grandeurs)
+        .map((d) => {
+          const { sollicitation: s, resistance: r } = d.grandeurs!;
+          return `<p class="note">${echapper(t(`generation-courte.${g}`))}, ${echapper(t('ilot.niveau').toLowerCase())} ${d.ordre} : <strong>${echapper(t('ilot.agissant'))}</strong> : ${echapper(t(s.libelle))} (${echapper(s.unite)}). <strong>${echapper(t('ilot.resistant'))}</strong> : ${echapper(t(r.libelle))} (${echapper(r.unite)}).</p>`;
+        }),
+    )
+    .join('');
+}
+
 export function rendreMatrice(m: Mecanisme<Entree>, matrice: Matrice, choisie: number | null): string {
   const lignes = matrice.cellules
     .map((c, i) => {
@@ -82,8 +101,8 @@ export function rendreMatrice(m: Mecanisme<Entree>, matrice: Matrice, choisie: n
         <td>${echapper(t(`generation-courte.${c.generation}`))}</td>
         <td title="${echapper(def ? t(def.hypothese) : c.niveau)}">${def ? def.ordre : echapper(c.niveau)}</td>
         <td>${statutHtml(c)}</td>
-        <td class="nombre">${calcule ? valeurFr(c.sollicitation) : '—'}</td>
-        <td class="nombre">${calcule ? valeurFr(c.resistance) : '—'}</td>
+        <td class="nombre">${calcule ? valeurFr(c.sollicitation) + uniteNiveau(def?.grandeurs?.sollicitation.unite) : '—'}</td>
+        <td class="nombre">${calcule ? valeurFr(c.resistance) + uniteNiveau(def?.grandeurs?.resistance.unite) : '—'}</td>
         <td class="nombre ${classeTaux}">${calcule && c.taux !== undefined ? tauxFr(c.taux) : '—'}</td>
       </tr>`;
     })
@@ -97,6 +116,7 @@ export function rendreMatrice(m: Mecanisme<Entree>, matrice: Matrice, choisie: n
     <th class="nombre">${echapper(t('ilot.taux'))}</th></tr></thead>
     <tbody>${lignes}</tbody></table></div>
     <p class="note"><strong>${echapper(t('ilot.agissant'))}</strong> : ${echapper(t(s.libelle))}. <strong>${echapper(t('ilot.resistant'))}</strong> : ${echapper(t(r.libelle))}.</p>
+    ${grandeursPropres(m)}
     ${legendeNiveaux(m)}`;
 }
 
