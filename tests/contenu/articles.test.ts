@@ -61,6 +61,7 @@ describe('articles', () => {
       'armature-scellee',
       'precontrainte-tension',
       'integrite-planchers-dalles',
+      'efforts-deviation',
     ]);
   });
 

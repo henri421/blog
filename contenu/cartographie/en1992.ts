@@ -513,7 +513,12 @@ export const EN1992: Carte = {
           ],
           reserves: 'Boucles en U de précontrainte (11.6.3(3)) et zones d’ancrage (11.6.4) décrites ; pRd saisie (tableau 11.4).',
         }),
-        c('11.7', 'Efforts de déviation des membrures courbes', []),
+        c('11.7', 'Efforts de déviation des membrures courbes', [], {
+          article: 'efforts-deviation',
+          ingeree: true,
+          niveaux: [n(G2, 'deviation', 'beton', '11.7(3)'), n(G2, 'deviation', 'recouvrement', '11.7(4)')],
+          reserves: 'Armatures transversales de 11.7(2) affichées par F_td/(r f_yd), sans ancrage ni répartition.',
+        }),
       ],
     },
     {

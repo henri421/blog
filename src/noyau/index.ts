@@ -11,6 +11,7 @@ import { ancrageCrochet } from './mecanismes/ancrage-crochet/index';
 import { ancrageBoucle, ancrageSoude } from './mecanismes/ancrage-soude-boucle/index';
 import { teteAncrage } from './mecanismes/tete-ancrage/index';
 import { integrite } from './mecanismes/integrite/index';
+import { deviation } from './mecanismes/deviation/index';
 import { mandrin } from './mecanismes/mandrin/index';
 import { fatigueAcier, fatigueBeton, fatigueTranchant } from './mecanismes/fatigue/index';
 import { nonArmeCompression, nonArmeTranchant, semelleNonArmee } from './mecanismes/beton-non-arme/index';
@@ -61,7 +62,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { acierCalcul, analysePlastique, ancrageBoucle, armatureScellee, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, pertesDifferees, postTension, precontrainteTension, pretension, semelleNonArmee, teteAncrage, integrite };
+export { acierCalcul, analysePlastique, ancrageBoucle, armatureScellee, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, pertesDifferees, postTension, precontrainteTension, pretension, semelleNonArmee, teteAncrage, integrite, deviation };
 export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, diffusion, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -92,6 +93,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [ancrageBoucle.id]: ancrageBoucle as unknown as Mecanisme<Record<string, unknown>>,
   [teteAncrage.id]: teteAncrage as unknown as Mecanisme<Record<string, unknown>>,
   [integrite.id]: integrite as unknown as Mecanisme<Record<string, unknown>>,
+  [deviation.id]: deviation as unknown as Mecanisme<Record<string, unknown>>,
   [mandrin.id]: mandrin as unknown as Mecanisme<Record<string, unknown>>,
   [fatigueAcier.id]: fatigueAcier as unknown as Mecanisme<Record<string, unknown>>,
   [fatigueBeton.id]: fatigueBeton as unknown as Mecanisme<Record<string, unknown>>,
