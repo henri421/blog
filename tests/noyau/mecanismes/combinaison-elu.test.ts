@@ -13,24 +13,24 @@ describe('combinaisons d actions ELU (EN 1990)', () => {
   });
 
   it('2002 : (6.10) = 1605 ; (6.10a) = 1470, (6.10b) = 1443, retenue 1470', () => {
-    expect(cel(poteau, 'en1990-2002', 'e610').resistance).toBeCloseTo(1605, 9);
+    expect(cel(poteau, 'en1990-2002', 'e610').sollicitation).toBeCloseTo(1605, 9);
     const c = cel(poteau, 'en1990-2002', 'e610ab');
     expect(c.intermediaires['(6.10a)'].valeur).toBeCloseTo(1470, 9);
     expect(c.intermediaires['(6.10b)'].valeur).toBeCloseTo(1443, 9);
-    expect(c.resistance).toBeCloseTo(1470, 9);
+    expect(c.sollicitation).toBeCloseTo(1470, 9);
   });
 
   it('2023, CC2 : (8.12) = 1605, (8.13) = 1470, (8.14) = max(1080 ; 1443) = 1443', () => {
-    expect(cel(poteau, 'en1990-2023', 'e812').resistance).toBeCloseTo(1605, 9);
-    expect(cel(poteau, 'en1990-2023', 'e813').resistance).toBeCloseTo(1470, 9);
+    expect(cel(poteau, 'en1990-2023', 'e812').sollicitation).toBeCloseTo(1605, 9);
+    expect(cel(poteau, 'en1990-2023', 'e813').sollicitation).toBeCloseTo(1470, 9);
     const c = cel(poteau, 'en1990-2023', 'e814');
     expect(c.intermediaires['(8.14) haut'].valeur).toBeCloseTo(1080, 9);
-    expect(c.resistance).toBeCloseTo(1443, 9);
+    expect(c.sollicitation).toBeCloseTo(1443, 9);
   });
 
   it('2023, CC3 : k_F = 1,1, (8.12) = 1765,5 ; CC1 : k_F = 0,9, 1444,5', () => {
-    expect(cel({ ...poteau, cc: 'CC3' }, 'en1990-2023', 'e812').resistance).toBeCloseTo(1765.5, 9);
-    expect(cel({ ...poteau, cc: 'CC1' }, 'en1990-2023', 'e812').resistance).toBeCloseTo(1444.5, 9);
+    expect(cel({ ...poteau, cc: 'CC3' }, 'en1990-2023', 'e812').sollicitation).toBeCloseTo(1765.5, 9);
+    expect(cel({ ...poteau, cc: 'CC1' }, 'en1990-2023', 'e812').sollicitation).toBeCloseTo(1444.5, 9);
   });
 
   it('sans classe de consequences, les niveaux 2023 sont non applicables, pas ceux de 2002', () => {

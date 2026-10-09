@@ -49,25 +49,25 @@ Poteau intérieur, charges cumulées : $G_k$ = 800 kN ; exploitation des bureaux
   "mecanisme": "combinaison-elu",
   "entree": { "G": 800, "Q1": 300, "psi01": 0.7, "Q2": 100, "psi02": 0.5, "cc": "CC2" },
   "attendus": {
-    "en1990-2002/e610.resistance": "1605",
+    "en1990-2002/e610.sollicitation": "1605",
     "en1990-2002/e610ab.(6.10a)": "1470",
     "en1990-2002/e610ab.(6.10b)": "1443",
-    "en1990-2002/e610ab.resistance": "1470",
-    "en1990-2023/e812.resistance": "1605",
-    "en1990-2023/e813.resistance": "1470",
+    "en1990-2002/e610ab.sollicitation": "1470",
+    "en1990-2023/e812.sollicitation": "1605",
+    "en1990-2023/e813.sollicitation": "1470",
     "en1990-2023/e814.(8.14) haut": "1080",
-    "en1990-2023/e814.resistance": "1443"
+    "en1990-2023/e814.sollicitation": "1443"
   }
 }
 ```
 
 | Méthode | 2002 | 2023 (CC2) |
 |---|---:|---:|
-| Coefficient unique | (6.10) : {{poteau-bureaux:en1990-2002/e610.resistance}} kN | (8.12) : {{poteau-bureaux:en1990-2023/e812.resistance}} kN |
-| Paire avec $\psi_0$ et $\xi$ | (6.10a/b) : {{poteau-bureaux:en1990-2002/e610ab.resistance}} kN | (8.13) : {{poteau-bureaux:en1990-2023/e813.resistance}} kN |
-| Permanentes seules ou avec $\xi$ | sans objet | (8.14) : {{poteau-bureaux:en1990-2023/e814.resistance}} kN |
+| Coefficient unique | (6.10) : {{poteau-bureaux:en1990-2002/e610.sollicitation}} kN | (8.12) : {{poteau-bureaux:en1990-2023/e812.sollicitation}} kN |
+| Paire avec $\psi_0$ et $\xi$ | (6.10a/b) : {{poteau-bureaux:en1990-2002/e610ab.sollicitation}} kN | (8.13) : {{poteau-bureaux:en1990-2023/e813.sollicitation}} kN |
+| Permanentes seules ou avec $\xi$ | sans objet | (8.14) : {{poteau-bureaux:en1990-2023/e814.sollicitation}} kN |
 
-En classe CC2, les deux générations donnent les mêmes valeurs pour les méthodes communes. (8.14) donne {{poteau-bureaux:en1990-2023/e814.resistance}} kN : son expression haute, les permanentes seules ({{poteau-bureaux:en1990-2023/e814.(8.14) haut}} kN), ne gouverne pas ici, et le résultat est 10 % sous (8.12).
+En classe CC2, les deux générations donnent les mêmes valeurs pour les méthodes communes. (8.14) donne {{poteau-bureaux:en1990-2023/e814.sollicitation}} kN : son expression haute, les permanentes seules ({{poteau-bureaux:en1990-2023/e814.(8.14) haut}} kN), ne gouverne pas ici, et le résultat est 10 % sous (8.12).
 
 ```exemple
 {
@@ -75,13 +75,13 @@ En classe CC2, les deux générations donnent les mêmes valeurs pour les métho
   "mecanisme": "combinaison-elu",
   "entree": { "G": 800, "Q1": 300, "psi01": 0.7, "Q2": 100, "psi02": 0.5, "cc": "CC3" },
   "attendus": {
-    "en1990-2023/e812.resistance": "1765,5",
+    "en1990-2023/e812.sollicitation": "1765,5",
     "en1990-2023/e812.k_F": "1,1"
   }
 }
 ```
 
-Le même poteau dans un bâtiment de classe CC3 (grande hauteur, établissement recevant beaucoup de public) passe à {{poteau-cc3:en1990-2023/e812.resistance}} kN avec $k_F$ = {{poteau-cc3:en1990-2023/e812.k_F}} : 10 % de plus sur tous les effets défavorables.
+Le même poteau dans un bâtiment de classe CC3 (grande hauteur, établissement recevant beaucoup de public) passe à {{poteau-cc3:en1990-2023/e812.sollicitation}} kN avec $k_F$ = {{poteau-cc3:en1990-2023/e812.k_F}} : 10 % de plus sur tous les effets défavorables.
 
 {{calculateur:poteau-bureaux}}
 

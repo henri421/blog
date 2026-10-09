@@ -88,7 +88,7 @@ function expression(e: Complete, f: Facteurs, coefG: number, psiQ1: number): num
 function cellule(e: Complete, Ed: number, inter: Cellule['intermediaires'], clauses: string[]): Calcul {
   return {
     statut: { etat: 'calcule' },
-    resistance: Ed,
+    sollicitation: Ed,
     intermediaires: {
       ...inter,
       E_d: calculee(Ed, '-'),
@@ -190,8 +190,8 @@ export const combinaisonElu: Mecanisme<EntreeCombinaisonElu> = {
       ],
     },
   ],
-  sollicitation: { libelle: 'grandeur.sans-objet', unite: '-' },
-  resistance: { libelle: 'grandeur.effet-calcul-elu', unite: 'kN' },
+  sollicitation: { libelle: 'grandeur.effet-calcul-elu', unite: 'kN' },
+  resistance: { libelle: 'grandeur.sans-objet', unite: '-' },
   niveaux: {
     'en1990-2002': [
       niveau('e610', 1, '6.4.3.2(3)', 'niveau.comb.2002.e610', communs, e610),
