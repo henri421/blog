@@ -8,8 +8,7 @@
  *   (situations durables, (5.40a)) ; 70/(h/b)^(1/3) et h/b <= 3,5
  *   (transitoires, (5.40b)).
  * Deuxieme generation (7.5(3)) : memes limites (7.31), (7.32), sans condition
- *   sur h/b relevee ; la barre de fraction de (7.31) est perdue a l extraction,
- *   la forme de 2004 est retenue (lecture signalee).
+ *   sur h/b (texte relu le 09/10/2026).
  * Hors de ces conditions, le niveau est non applicable : le second ordre lie au
  *   deversement doit etre calcule, avec l imperfection l/300 de 5.9(2) ; 7.5(2).
  */

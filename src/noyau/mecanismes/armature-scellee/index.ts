@@ -10,8 +10,6 @@
  *   (11.12), l_bd selon 11.4.2 (11.3) avec f_ck limitee a 50 MPa et
  *   sigma_sd <= 435 MPa ; k_b,pi facteur d efficacite d adherence du produit
  *   (annexe C.8, specification technique), saisi ; alpha_lb = 1,5 en general.
- *   La barre de fraction de (11.12) est perdue a l extraction : k_b,pi est
- *   traite en diviseur, puisqu il s agit d une efficacite (lecture signalee).
  * Choix de l outil : la valeur de f_ck superieure a 50 MPa admise par une
  *   specification de produit n est pas proposee ; l enrobage minimal du
  *   tableau 11.2 et les espacements de 11.4.8(3) sont decrits dans l article.

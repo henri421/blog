@@ -4,11 +4,12 @@ ordre: 36
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-08
-revise: 2026-10-08
+revise: 2026-10-09
 resume: Les critères qui dispensent de calculer le déversement gardent leur forme, sans la limite sur le rapport hauteur/largeur qui excluait en 2004 les poutres préfabriquées hautes et minces.
 motscles: stabilite, prefabrication, poutre
 historique:
   - 2026-10-08 : première rédaction.
+  - 2026-10-09 : formes de (7.31) et (7.32) et absence de limite sur h/b relues sur le texte ; réserve retirée.
 ---
 
 ## Ce qui change
@@ -62,7 +63,3 @@ Avec $h/b$ = 2,75, la poutre sort du domaine de 2004 en situation durable : le s
 
 - Les **poutres hautes** ($h/b$ > 2,5) bien tenues latéralement n’ont plus besoin d’un calcul de second ordre, si le critère d’élancement est satisfait.
 - Les notes qui justifiaient le déversement par un calcul complet restent valables.
-
-## Ce qu’il faudra vérifier
-
-- **Forme de (7.31) et (7.32)** : la barre de fraction est perdue à l’extraction. Le calculateur retient la forme de 2004, $50/(h/b)^{1/3}$, la seule cohérente avec un critère qui devient plus sévère quand la poutre s’amincit. L’absence de limite sur $h/b$ est à confirmer sur l’exemplaire.

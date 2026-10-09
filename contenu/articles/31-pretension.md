@@ -4,11 +4,12 @@ ordre: 31
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-08
-revise: 2026-10-08
+revise: 2026-10-09
 resume: La contrainte d’adhérence de 2004 disparaît au profit d’une expression directe en racine de fck. Pour un toron courant, la longueur de transmission change peu ; l’ancrage à l’ELU raccourcit un peu, sauf sous fatigue, où son complément au-delà de la transmission augmente de moitié.
 motscles: precontrainte, prefabrication, ancrage
 historique:
   - 2026-10-08 : première rédaction.
+  - 2026-10-09 : exposant 2/3 de (13.5) relu sur le texte.
 ---
 
 ## Ce qui change
@@ -93,5 +94,5 @@ Les deux générations se rejoignent presque pour la transmission. L’ancrage r
 
 ## Ce qu’il faudra vérifier
 
-- La formule (13.5), qui estime $f_{ck}(t)$ à partir de $\beta_{cc}(t)$, se lit $[\beta_{cc}(t)]^{2/3} f_{ck}$ à l’extraction. Le calculateur ne l’emploie pas et demande $f_{ck}(t)$ directement.
+- La formule (13.5) estime $f_{ck}(t) = [\beta_{cc}(t)]^{2/3} f_{ck}$, avec l’exposant 2/3 (relu sur le texte). Le calculateur ne l’emploie pas et demande $f_{ck}(t)$ directement.
 - L’enrobage minimal des armatures pré-tendues (tableau 13.1) et la résistance à l’effort tranchant par la contrainte principale (13.5.5) ne sont pas traités.

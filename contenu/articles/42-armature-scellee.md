@@ -9,6 +9,7 @@ resume: Les barres d’armature scellées dans un béton existant entrent dans l
 motscles: ancrage, dispositions-constructives
 historique:
   - 2026-10-09 : première rédaction.
+  - 2026-10-09 : forme de (11.12), k_b,pi au diviseur, relue sur le texte ; réserve retirée.
 ---
 
 ## Ce qui change
@@ -53,7 +54,3 @@ La même barre coulée en place demanderait {{reprise-voile:ec2-2023/barre-plast
 - Les **reprises par scellement** justifiées par un agrément peuvent l’être par l’Eurocode 2, à condition de disposer du $k_{b,pi}$ du produit selon C.8.
 - Le **plancher de 15 φ** et la limite de 435 MPa s’appliquent sans exception courante.
 - L’**enrobage minimal** dépend du forage : la note doit préciser la méthode de forage et l’emploi d’un guide.
-
-## Ce qu’il faudra vérifier
-
-- **Forme de (11.12)** : la barre de fraction est perdue à l’extraction. Le calculateur divise $l_{bd}$ par $k_{b,pi}$, puisqu’il s’agit d’une efficacité inférieure à 1. Cette lecture est à confirmer.

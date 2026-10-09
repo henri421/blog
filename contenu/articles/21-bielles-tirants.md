@@ -4,12 +4,13 @@ ordre: 21
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-05
-revise: 2026-10-05
+revise: 2026-10-09
 resume: La résistance d’une bielle fissurée ne dépend plus de la seule classe de béton mais de l’angle que fait la bielle avec le tirant qui la traverse ; les nœuds dont le tirant est ancré hors de la région nodale retrouvent toute la résistance du béton.
 motscles: bielles-tirants, treillis, elu
 historique:
   - 2026-10-05 : première rédaction.
   - 2026-10-05 : diffusion d’une force concentrée (6.5.3(3) ; 8.5.5).
+  - 2026-10-09 : formule (8.124) relue sur le texte ; réserve retirée.
 ---
 
 ## Ce qui change
@@ -112,7 +113,7 @@ Une force concentrée $F_d$ appliquée sur une largeur $a$ s’étale dans l’�
 }
 ```
 
-Pour une force de 1 000 kN sur 200 mm, dans un élément de 1 500 mm de large et une région de diffusion de 1 200 mm : {{diffusion-large:ec2-2004/base.resistance}} kN en 2004, {{diffusion-large:ec2-2023/base.resistance}} kN en 2023. La lecture de la formule (8.124) reste à confirmer sur l’exemplaire.
+Pour une force de 1 000 kN sur 200 mm, dans un élément de 1 500 mm de large et une région de diffusion de 1 200 mm : {{diffusion-large:ec2-2004/base.resistance}} kN en 2004, {{diffusion-large:ec2-2023/base.resistance}} kN en 2023.
 
 {{calculateur:diffusion-large}}
 

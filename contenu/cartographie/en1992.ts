@@ -176,7 +176,7 @@ export const EN1992: Carte = {
           article: 'deversement',
           ingeree: true,
           niveaux: [n(G1, 'deversement', 'base', '5.9'), n(G2, 'deversement', 'base', '7.5')],
-          reserves: 'Lecture de (7.31), (7.32) à confirmer (barre de fraction perdue) ; calcul du second ordre non codé.',
+          reserves: 'Calcul du second ordre lié au déversement non codé.',
         }),
         c('7.6.1', 'Précontrainte : généralités', ['5.10.1']),
         c('7.6.2', 'Force de précontrainte', ['5.10.2', '5.10.3'], {
@@ -238,7 +238,7 @@ export const EN1992: Carte = {
             n(G2, 'tranchant-sans-armature', 'annexe-i-kvd', 'I.8.3.1(3)', 'annexe-informative'),
           ],
           reserves:
-            'Précontrainte (8.36), (8.37), réduction ΔV_Ed des charges réparties 8.2.2(8) et charges près des appuis 8.2.2(9) non codées ; lecture de d/(3 a_cs) dans (8.31) et application de k_vd avec plancher τ_Rdc,min, à confirmer.',
+            'Précontrainte (8.36), (8.37), réduction ΔV_Ed des charges réparties 8.2.2(8) et charges près des appuis 8.2.2(9) non codées ; application de k_vd avec plancher τ_Rdc,min, à confirmer.',
         }),
         c('8.2.3', 'Éléments avec armatures d’effort tranchant', ['6.2.3'], {
           article: 'tranchant-avec-armature',
@@ -321,7 +321,6 @@ export const EN1992: Carte = {
           article: 'bielles-tirants',
           ingeree: true,
           niveaux: [n(G1, 'diffusion', 'base', '6.5.3(3)'), n(G2, 'diffusion', 'base', '8.5.5')],
-          reserves: 'Lecture de la formule (8.124), tan θ_cf = (1 − a/b)/2, à confirmer sur l’exemplaire.',
         }),
         c('8.6', 'Pressions localisées', ['6.7'], {
           article: 'pressions-localisees',
@@ -489,7 +488,7 @@ export const EN1992: Carte = {
           article: 'armature-scellee',
           ingeree: true,
           niveaux: [n(G2, 'armature-scellee', 'barre-plastifiee', '11.4.8'), n(G2, 'armature-scellee', 'contrainte-reelle', '11.4.8')],
-          reserves: 'kb,pi saisi (annexe C.8, spécification du produit) ; enrobage du tableau 11.2 décrit ; lecture de (11.12) à confirmer.',
+          reserves: 'kb,pi saisi (annexe C.8, spécification du produit) ; enrobage du tableau 11.2 décrit.',
         }),
         c('11.5.1', 'Recouvrements : généralités', ['8.7.1', '8.7.2']),
         c('11.5.2', 'Recouvrements : tous types', ['8.7.3', '8.7.4'], { article: 'ancrage', ingeree: true }),
