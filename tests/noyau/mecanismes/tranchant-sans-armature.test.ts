@@ -159,11 +159,16 @@ describe('effort normal (6.2.2(1) ; 8.2.2(4) et (5))', () => {
     expect(cel(comprimee(), 'ec2-2023', 'kvp-portee').resistance).toBeCloseTo(137.9384, 3);
   });
 
-  it('2023 compression : k1 = 0,20, tau = 1,4248 <= tau_max = 1,4785, 173,11 kN', () => {
+  it('2023 compression : k1 = 0,5 x 150/800 x 500/405 = 0,1157, tau = 1,0877 <= tau_max = 1,4785, 132,16 kN', () => {
     const c = cel(comprimee(), 'ec2-2023', 'compression');
-    expect(c.intermediaires.k_1.valeur).toBeCloseTo(0.2, 12);
+    expect(c.intermediaires.k_1.valeur).toBeCloseTo(0.11574074, 7);
     expect(c.intermediaires['τ_Rdc,max'].valeur).toBeCloseTo(1.478461, 5);
-    expect(c.resistance).toBeCloseTo(173.1104, 3);
+    expect(c.resistance).toBeCloseTo(132.16042, 3);
+  });
+
+  it('2023 compression : plafond 0,18 de (8.34) atteint pour une forte excentricite', () => {
+    const c = cel({ ...comprimee(), ep: 300 }, 'ec2-2023', 'compression');
+    expect(c.intermediaires.k_1.valeur).toBeCloseTo(0.18 * (500 / 405), 9);
   });
 
   it('traction : k_vp = 1,25 abaisse la resistance, la variante (8.32) est non applicable', () => {

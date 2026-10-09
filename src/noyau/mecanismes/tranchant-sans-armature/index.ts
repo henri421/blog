@@ -18,8 +18,8 @@
  *   - en compression, variante tau_Rdc,0 - k1 sigma_cp bornee par tau_Rdc,min et
  *     tau_Rdc,max ((8.32) a (8.35)), k1 selon la NOTE (8.34). Choix de l outil :
  *     element non precontraint, a_cs,0 = a_cs (M_Ed et V_Ed saisis hors effet de
- *     l effort normal), A_c = b_w h ; le remplacement de d par a_v,0 dans k1 n est
- *     pas code.
+ *     l effort normal), A_c = b_w h, z = 0,9 d ; le remplacement de d par a_v,0
+ *     dans k1 n est pas code.
  *   4. annexe I.8.3.1 (informative, evaluation des structures existantes) :
  *      tau_Rd,c tire de la deformation epsilon_v des armatures longitudinales
  *      (I.7), en variante de 8.2.2(2) a (5) ; niveau en reserve.
@@ -331,7 +331,8 @@ export function niveauCompressionTsa2023(e: Required<EntreeTsa>): Calcul {
   const Ac = e.bw * e.h;
   const sigmaCp = (e.NEd * N_PAR_KN) / Ac;
   const acs0 = longueurAcs(e);
-  const k1 = Math.min((0.5 * acs0) / (e.ep + e.d / 3), 0.18) * (Ac / (e.bw * e.d));
+  // (8.34) : k1 = 0,5/a_cs,0 (e_p + d/3) A_c/(b_w z) <= 0,18 A_c/(b_w z), z = 0,9 d.
+  const k1 = Math.min((0.5 * (e.ep + e.d / 3)) / acs0, 0.18) * (Ac / (e.bw * 0.9 * e.d));
   const tauMax = Math.min(2.15 * tau0 * (acs0 / e.d) ** (1 / 6), 2.7 * tau0);
   const tau = Math.min(Math.max(tau0 - k1 * sigmaCp, c.tauMin), tauMax);
   return cellule2023(

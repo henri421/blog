@@ -4,7 +4,7 @@ ordre: 1
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS ; niveaux 4 et 5 tirés de l’annexe I (informative), I.8.3.1, formules (I.7) et (I.8) relues sur l’exemplaire le 2026-10-05.
 redige: 2026-10-04
-revise: 2026-10-05
+revise: 2026-10-09
 resume: Une expression empirique cède la place à un modèle de fissure critique ; la granulométrie entre dans le calcul, et un plancher de résistance gouverne souvent les dalles courantes.
 motscles: effort-tranchant, elu, dalle, niveaux-approximation
 historique:
@@ -14,6 +14,7 @@ historique:
   - 2026-10-05 : cinquième niveau (coefficient k_vd, annexe I.8.3.1(3)) et troisième exemple, poutre existante de grande hauteur.
   - 2026-10-05 : effort normal (6.2.2(1) ; 8.2.2(4) et (5)), exemple de poutre comprimée.
   - 2026-10-05 : dalles portant dans deux directions (8.2.1(5), 8.2.2(7)).
+  - 2026-10-09 : correction de k_1 (8.34), relu sur le texte : rapport (e_p + d/3)/a_cs,0 et non l’inverse, avec z au lieu de d ; la variante en compression de la poutre comprimée passe de 173 à 132 kN.
 ---
 
 ## Ce qui change
@@ -184,7 +185,7 @@ avec la convention de signe de la norme, traction positive (3.10). Une compressi
 **Deuxième génération**, seconde voie, en compression seulement (8.2.2(5)) : la résistance devient $\tau_{Rdc,0} - k_1\,\sigma_{cp}$, bornée inférieurement par $\tau_{Rdc,min}$ et supérieurement par $\tau_{Rdc,max}$ :
 
 $$
-k_1 = \frac{0.5\,a_{cs,0}}{e_p + d/3}\,\frac{A_c}{b_w\,d} \le 0.18\,\frac{A_c}{b_w\,d}, \qquad \tau_{Rdc,max} = 2.15\,\tau_{Rdc,0}\left(\frac{a_{cs,0}}{d}\right)^{1/6} \le 2.7\,\tau_{Rdc,0}
+k_1 = \frac{0.5}{a_{cs,0}}\left(e_p + \frac{d}{3}\right)\frac{A_c}{b_w\,z} \le 0.18\,\frac{A_c}{b_w\,z}, \qquad \tau_{Rdc,max} = 2.15\,\tau_{Rdc,0}\left(\frac{a_{cs,0}}{d}\right)^{1/6} \le 2.7\,\tau_{Rdc,0}
 $$
 
 $\tau_{Rdc,0}$ est la formule (8.27) sans plancher, $e_p$ l’excentricité de l’effort de compression (positive vers la face tendue). Le coefficient $k_1$ est donné en note, l’annexe nationale pouvant le modifier. Le calculateur traite un élément non précontraint : $a_{cs,0}$ est pris égal à $a_{cs}$, et $A_c = b_w\,h$.
@@ -209,11 +210,11 @@ Poutre de 300 × 500 mm, C30/37, granulats 0/16, 3 HA25 tendus ($A_{sl}$ = 1473 
     "ec2-2023/kvp.k_vp": "0,250",
     "ec2-2023/kvp.resistance": "120,50",
     "ec2-2023/kvp-portee.resistance": "137,94",
-    "ec2-2023/compression.k_1": "0,200",
+    "ec2-2023/compression.k_1": "0,116",
     "ec2-2023/compression.τ_Rdc,max": "1,478",
-    "ec2-2023/compression.τ_Rd,c": "1,425",
-    "ec2-2023/compression.resistance": "173,11",
-    "ec2-2023/compression.taux": "0,866"
+    "ec2-2023/compression.τ_Rd,c": "1,088",
+    "ec2-2023/compression.resistance": "132,16",
+    "ec2-2023/compression.taux": "1,135"
   }
 }
 ```
@@ -227,7 +228,7 @@ Poutre de 300 × 500 mm, C30/37, granulats 0/16, 3 HA25 tendus ($A_{sl}$ = 1473 
 | 2023, $a_v$ multiplié par $k_{vp}$ | {{poutre-comprimee:ec2-2023/kvp-portee.resistance}} |
 | 2023, compression ($k_1$ = {{poutre-comprimee:ec2-2023/compression.k_1}}, $\tau_{Rd,c}$ = {{poutre-comprimee:ec2-2023/compression.τ_Rd,c}} MPa ≤ $\tau_{Rdc,max}$ = {{poutre-comprimee:ec2-2023/compression.τ_Rdc,max}} MPa) | {{poutre-comprimee:ec2-2023/compression.resistance}} |
 
-La compression double la résistance dans les deux générations. En 2023, les deux voies ne donnent pas le même résultat : avec $k_{vp}$ = {{poutre-comprimee:ec2-2023/kvp.k_vp}}, la première voie relève la résistance de moitié environ, et la variante (8.32) rend la résistance la plus élevée ({{poutre-comprimee:ec2-2023/compression.resistance}} kN, taux de travail {{poutre-comprimee:ec2-2023/compression.taux}}), voisine de celle de 2004 (taux {{poutre-comprimee:ec2-2004/effort-normal.taux}}). Le calculateur affiche toutes les voies ; le choix appartient à l’ingénieur.
+La compression double la résistance de 2004 (taux de travail {{poutre-comprimee:ec2-2004/effort-normal.taux}}). En 2023, elle la relève aussi, mais moins, et les voies ne donnent pas le même résultat : avec $k_{vp}$ = {{poutre-comprimee:ec2-2023/kvp.k_vp}}, la première voie relève la résistance de moitié environ, davantage avec la portée mécanique ({{poutre-comprimee:ec2-2023/kvp-portee.resistance}} kN). La variante (8.32) donne {{poutre-comprimee:ec2-2023/compression.resistance}} kN (taux de travail {{poutre-comprimee:ec2-2023/compression.taux}}) : pour une compression centrée, $k_1$ ne dépend que du rapport $d/a_{cs}$ et reste loin de son plafond. Aucune voie de 2023 ne suffit ici : la poutre, vérifiée sans étriers en 2004, en demande en 2023. Le calculateur affiche toutes les voies ; le choix appartient à l’ingénieur.
 
 {{calculateur:poutre-comprimee}}
 

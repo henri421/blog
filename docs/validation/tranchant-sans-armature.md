@@ -85,7 +85,8 @@ V_Ed = 150 kN, M_Ed = 120 kN·m, N_Ed = −600 kN (compression), e_p = 0.
   longueur 112,5 mm → τ = 0,9918 MPa → **120,50 kN** ; avec a_v = 300 mm :
   75 mm → τ = 1,1353 MPa → **137,94 kN**.
 - 2023, compression : τ_Rdc,0 = 0,6248 MPa ; σ_cp = −4,00 MPa ;
-  k_1 = min(0,5 × 800/150 ; 0,18) × 150 000/135 000 = 0,18 × 1,111 = **0,200** ;
+  k_1 = min(0,5 × (0 + 450/3)/800 ; 0,18) × 150 000/(300 × 405) = 0,09375 × 1,2346 = **0,1157**
+  (formule (8.34) relue sur le texte le 09/10/2026 ; la version précédente inversait le rapport et prenait d au lieu de z) ;
   τ_Rdc,max = min(2,15 × 0,6248 × (800/450)^(1/6) ; 2,7 × 0,6248) = **1,4785** MPa ;
   τ = 0,6248 + 0,8 = 1,4248 MPa → **173,11 kN**.
 - Traction N_Ed = +200 kN : k_vp = 1,25 → 70,47 kN ; 2004 : 59,37 kN ;
