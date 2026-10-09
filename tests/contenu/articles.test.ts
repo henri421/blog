@@ -64,6 +64,7 @@ describe('articles', () => {
       'efforts-deviation',
       'recouvrements-boucles-tetes',
       'combinaisons-elu',
+      'reduction-charges-exploitation',
     ]);
   });
 

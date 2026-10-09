@@ -8,7 +8,7 @@
  */
 
 import type { Carte } from './types';
-import { ann, c, reporte } from './outils';
+import { ann, c, n, reporte } from './outils';
 
 export const EN1991_1_1: Carte = {
   id: 'en1991-1-1',
@@ -28,7 +28,18 @@ export const EN1991_1_1: Carte = {
         c('6.2', 'Charges d’exploitation : classification', ['6.2']),
         c('6.3', 'Charges d’exploitation : représentation', ['6.2']),
         c('6.4', 'Charges d’exploitation : dispositions des charges', ['6.2']),
-        c('6.5', 'Charges d’exploitation : valeurs caractéristiques, réductions', ['6.3']),
+        c('6.5', 'Charges d’exploitation : valeurs caractéristiques, réductions', ['6.3'], {
+          article: 'reduction-charges-exploitation',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-1-2002', 'reduction-exploitation', 'surface', '6.3.1.2(10)'),
+            n('en1991-1-1-2002', 'reduction-exploitation', 'etages', '6.3.1.2(11)'),
+            n('en1991-1-1-2025', 'reduction-exploitation', 'surface', '6.5.3.2(4)'),
+            n('en1991-1-1-2025', 'reduction-exploitation', 'etages', '6.5.3.2(5)'),
+            n('en1991-1-1-2025', 'reduction-exploitation', 'cumul', '6.5.3.2(2)'),
+          ],
+          reserves: 'Cloisons (6.1) décrites, non codées ; valeurs caractéristiques des tableaux non reproduites ; texte de 2002 lu au travers du guide de Calgaro et al. (2009).',
+        }),
         c('6.6', 'Charges sur les garde-corps et barrières', ['6.4']),
       ],
     },
