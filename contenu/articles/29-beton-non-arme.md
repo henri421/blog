@@ -4,11 +4,12 @@ ordre: 29
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-08
-revise: 2026-10-08
+revise: 2026-10-09
 resume: Les règles du béton non armé gardent leur forme, mais ses résistances de calcul baissent, de 15 % en compression et de 20 % en traction pour un béton courant. Une semelle non armée justifiée en 2004 peut ne plus l’être.
 motscles: beton-non-arme, fondations, elu
 historique:
   - 2026-10-08 : première rédaction.
+  - 2026-10-09 : méthode simplifiée des voiles élancés ((12.11) ; (14.11)), relue sur le texte, ajoutée au calculateur.
 ---
 
 ## Ce qui change
@@ -100,6 +101,41 @@ La semelle qui demandait {{semelle-filante:ec2-2004/pression.sollicitation}} mm 
 
 {{calculateur:voile-tranchant}}
 
+## Les voiles élancés
+
+Pour un voile ou un poteau contreventé élancé, les deux générations donnent une méthode simplifiée de même forme, $N_{Rd} = b\,h\,f_{cd,pl}\,\Phi$, avec une excentricité totale $e_{tot} = e_0 + e_i$ qui ajoute l’imperfection géométrique. Le facteur $\Phi$ change complètement.
+
+$$
+\Phi_{2004} = 1.14\left(1 - \frac{2\,e_{tot}}{h}\right) - 0.02\,\frac{l_0}{h} \le 1 - \frac{2\,e_{tot}}{h}
+$$
+
+$$
+\Phi_{2023} = \frac{1 - \left(2.1 + 0.02\,\frac{l_0}{h}\right)\frac{e_{tot}}{h}}{1 + \left(\frac{l_0}{h}\right)^2 \left(0.9 + 6\,\frac{e_{tot}}{h}\right)\frac{0.8 + \varphi_{eff}}{1000}\left(\frac{f_{cd,pl}}{20}\right)^{0.6}}
+$$
+
+La formule de 2004 est une droite décroissante en $l_0/h$. Celle de 2023 traite le second ordre comme une perte de rigidité. Elle fait intervenir le carré de l’élancement, le fluage $\varphi_{eff}$ et la résistance du béton, puisqu’un béton plus résistant se déforme davantage avant de rompre. Elle est limitée aux bétons de moins de 55 MPa.
+
+```exemple
+{
+  "nom": "voile-elance",
+  "mecanisme": "non-arme-compression",
+  "entree": { "fck": 25, "b": 1000, "h": 200, "e": 20, "NEd": 1000, "l0": 2700, "phiEff": 1.5 },
+  "attendus": {
+    "ec2-2004/elance.e_tot": "26,75",
+    "ec2-2004/elance.Φ": "0,565",
+    "ec2-2004/elance.resistance": "1506,8",
+    "ec2-2004/elance.taux": "0,663",
+    "ec2-2023/elance.Φ": "0,453",
+    "ec2-2023/elance.resistance": "1026,9",
+    "ec2-2023/elance.taux": "0,973"
+  }
+}
+```
+
+Le même voile de 200 mm, sur une hauteur d’étage de 2,70 m ($l_0$ = 2,70 m, sans réduction par les appuis latéraux), avec un fluage effectif de 1,5 : $\Phi$ passe de {{voile-elance:ec2-2004/elance.Φ}} à {{voile-elance:ec2-2023/elance.Φ}}, et la résistance de {{voile-elance:ec2-2004/elance.resistance}} à {{voile-elance:ec2-2023/elance.resistance}} kN. Pour 1000 kN, le taux de travail monte de {{voile-elance:ec2-2004/elance.taux}} à {{voile-elance:ec2-2023/elance.taux}}. L’écart, environ un tiers, vient pour 15 % de $f_{cd,pl}$ et pour le reste de $\Phi$, c’est-à-dire du fluage : sans fluage, la formule de 2023 donnerait $\Phi$ = 0,58, un peu plus qu’en 2004.
+
+{{calculateur:voile-elance}}
+
 ## L’effet sur une note de calcul existante
 
 - Les **semelles non armées** dimensionnées au plus juste par (12.13) sont à reprendre : l’épaisseur requise augmente d’environ 12 %, comme $\sqrt{1/0.8}$.
@@ -108,5 +144,4 @@ La semelle qui demandait {{semelle-filante:ec2-2004/pression.sollicitation}} mm 
 
 ## Ce qu’il faudra vérifier
 
-- **Voiles élancés** : le facteur $\Phi$ de (14.11) se lit mal sur l’exemplaire disponible. La méthode simplifiée n’est pas codée, ni en 2004 ((12.11)) ni en 2023.
 - **$k_{tt}$** : le calculateur retient 0,8, valeur d’une sollicitation à 28 jours au plus pour les ciments CN et CR (56 jours pour CS). La valeur pour une sollicitation tardive n’est pas proposée.

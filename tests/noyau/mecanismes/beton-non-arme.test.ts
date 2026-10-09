@@ -20,6 +20,24 @@ describe('beton non arme, effort normal excentre', () => {
   it('2004 au-dela de C50/60 : eta = 1 - (f_ck - 50)/200', () => {
     expect(cel(nonArmeCompression, { ...voile, fck: 70 }, 'ec2-2004').intermediaires['η'].valeur).toBeCloseTo(0.9, 12);
   });
+
+  const elance = { ...voile, l0: 2700, phiEff: 1.5 };
+  it('voile elance 2004 (12.11) : e_tot = 26,75 mm, Phi = 0,56505, N_Rd = 1506,8 kN', () => {
+    const c = cel(nonArmeCompression, elance, 'ec2-2004', 'elance');
+    expect(c.intermediaires.e_tot.valeur).toBeCloseTo(26.75, 12);
+    expect(c.intermediaires['Φ'].valeur).toBeCloseTo(0.56505, 10);
+    expect(c.resistance).toBeCloseTo(1506.8, 6);
+  });
+  it('voile elance 2023 (14.11) : Phi = 0,68301 / 1,50755 = 0,45306, N_Rd = 1026,94 kN', () => {
+    const c = cel(nonArmeCompression, elance, 'ec2-2023', 'elance');
+    expect(c.intermediaires['numérateur (14.11)'].valeur).toBeCloseTo(0.6830125, 9);
+    expect(c.intermediaires['dénominateur (14.11)'].valeur).toBeCloseTo(1.5075503, 6);
+    expect(c.resistance).toBeCloseTo(1026.93864, 4);
+  });
+  it('voile elance : l_0/h > 25 ou f_ck >= 55 MPa en 2023, non applicable', () => {
+    expect(cel(nonArmeCompression, { ...elance, l0: 5200 }, 'ec2-2004', 'elance').statut).toMatchObject({ motif: 'motif.na-elance-l0h' });
+    expect(cel(nonArmeCompression, { ...elance, fck: 60 }, 'ec2-2023', 'elance').statut).toMatchObject({ motif: 'motif.na-elance-fck' });
+  });
 });
 
 describe('beton non arme, effort tranchant', () => {

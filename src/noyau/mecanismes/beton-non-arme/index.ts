@@ -20,10 +20,18 @@
  *   sigma_c,lim = f_cd,pl - 2 racine(f_ctd,pl (f_ctd,pl + f_cd,pl)).
  * Semelles (12.9.3 ; 14.6.3) : 0,85 h_F/a_F >= racine(3 sigma_gd/f_ctd,pl)
  *   (12.13 ; 14.13), ou simplement h_F/a_F >= 2 (12.14 ; 14.14).
- * Choix de l outil : methode simplifiee des voiles et poteaux elances
- *   ((12.10), (12.11) ; (14.10), (14.11)) non codee, la formule de 2023 etant
- *   mal restituee ; la valeur 1,0 de k_tt pour une sollicitation tardive
- *   n est pas proposee.
+ * Voiles et poteaux contreventes elances, methode simplifiee :
+ *   2004 (12.6.5.2) : N_Rd = b h f_cd,pl Phi (12.10),
+ *     Phi = 1,14 (1 - 2 e_tot/h) - 0,02 l_0/h <= 1 - 2 e_tot/h (12.11) ;
+ *   2023 (14.4.5.2) : N_Rd = b h f_cd,pl Phi (14.10), f_ck < 55 MPa,
+ *     Phi = [1 - (2,1 + 0,02 l_0/h) e_tot/h] /
+ *           [1 + (l_0/h)^2 (0,9 + 6 e_tot/h) ((0,8 + phi_eff)/1000) (f_cd,pl/20)^0,6] (14.11) ;
+ *   e_tot = e_0 + e_i (12.12 ; 14.12) ; l_0/h <= 25 pour un voile coule en place
+ *   (12.6.5.1(5) ; 14.4.5.1(5)).
+ * Choix de l outil : e_i = l_0/400 dans les deux generations (5.2(7) ;
+ *   7.2.1, element contrevente) ; l_0 saisie (coefficient beta du tableau 12.1
+ *   ou 14.1 applique par l ingenieur) ; Phi ramene a 0 s il devient negatif ;
+ *   la valeur 1,0 de k_tt pour une sollicitation tardive n est pas proposee.
  */
 
 import type { Cle } from '../../../i18n/cle';
@@ -69,6 +77,10 @@ export interface EntreeNonArmeCompression {
   e?: number;
   /** Effort normal de calcul, compression positive (kN). */
   NEd?: number;
+  /** Longueur efficace l_0 = beta l_w (mm), pour la methode des elements elances. */
+  l0?: number;
+  /** Coefficient de fluage effectif (2023). */
+  phiEff?: number;
 }
 
 type CompleteCompression = Required<EntreeNonArmeCompression>;
@@ -79,6 +91,8 @@ const RN = {
   h: { champ: 'h', libelle: 'champ.h' },
   e: { champ: 'e', libelle: 'champ.e-excentricite' },
   NEd: { champ: 'NEd', libelle: 'champ.NEd-compression' },
+  l0: { champ: 'l0', libelle: 'champ.l0' },
+  phiEff: { champ: 'phiEff', libelle: 'champ.phiEff' },
 } as const satisfies Record<string, { champ: keyof EntreeNonArmeCompression; libelle: Cle }>;
 
 export function compression(gen: Generation, e: CompleteCompression): Calcul {
@@ -115,6 +129,66 @@ function niveauCompression(gen: Generation): DefinitionNiveau<EntreeNonArmeCompr
   };
 }
 
+/** Methode simplifiee des voiles et poteaux contreventes elances ((12.10)-(12.12) ; (14.10)-(14.12)). */
+export function compressionElance(gen: Generation, e: CompleteCompression): Calcul {
+  positif(e.b, 'b', 'mm');
+  positif(e.h, 'h', 'mm');
+  positif(e.NEd, 'N_Ed', 'kN');
+  positif(e.l0, 'l_0', 'mm');
+  if (!(Number.isFinite(e.e) && e.e >= 0)) throw new Error('e doit etre positive ou nulle (mm).');
+  const fcd = fcdPl(gen, e.fck);
+  const ei = e.l0 / 400;
+  const etot = e.e + ei;
+  const l0h = e.l0 / e.h;
+  const inter: Cellule['intermediaires'] = {
+    'f_cd,pl': calculee(fcd, 'MPa'),
+    e_i: calculee(ei, 'mm'),
+    e_tot: calculee(etot, 'mm'),
+    'l_0 / h': calculee(l0h, '-'),
+  };
+  let Phi: number;
+  if (gen === '2004') {
+    Phi = Math.min(1.14 * (1 - (2 * etot) / e.h) - 0.02 * l0h, 1 - (2 * etot) / e.h);
+  } else {
+    if (!(Number.isFinite(e.phiEff) && e.phiEff >= 0)) throw new Error('phi_eff doit etre positif ou nul.');
+    const num = 1 - (2.1 + 0.02 * l0h) * (etot / e.h);
+    const den = 1 + l0h ** 2 * (0.9 + (6 * etot) / e.h) * ((0.8 + e.phiEff) / 1000) * (fcd / 20) ** 0.6;
+    inter['numérateur (14.11)'] = calculee(num, '-');
+    inter['dénominateur (14.11)'] = calculee(den, '-');
+    Phi = num / den;
+  }
+  Phi = Math.max(Phi, 0);
+  inter['Φ'] = calculee(Phi, '-');
+  return {
+    statut: { etat: 'calcule' },
+    sollicitation: e.NEd,
+    resistance: (e.b * e.h * fcd * Phi) / 1000,
+    intermediaires: inter,
+    clauses: gen === '2004' ? ['12.6.5.2', '(12.10)', '(12.11)', '(12.12)'] : ['14.4.5.2', '(14.10)', '(14.11)', '(14.12)'],
+  };
+}
+
+function conditionsElance(gen: Generation) {
+  return (e: EntreeNonArmeCompression): Cle | null => {
+    if (gen === '2023' && (e.fck as number) >= 55) return 'motif.na-elance-fck';
+    return (e.l0 as number) / (e.h as number) > 25 ? 'motif.na-elance-l0h' : null;
+  };
+}
+
+function niveauElance(gen: Generation): DefinitionNiveau<EntreeNonArmeCompression> {
+  return {
+    id: 'elance',
+    ordre: 2,
+    position: 'corps',
+    clause: gen === '2004' ? '12.6.5.2' : '14.4.5.2',
+    hypothese: gen === '2004' ? 'niveau.na.elance.2004' : 'niveau.na.elance.2023',
+    donneesRequises: gen === '2004' ? [RN.fck, RN.b, RN.h, RN.e, RN.NEd, RN.l0] : [RN.fck, RN.b, RN.h, RN.e, RN.NEd, RN.l0, RN.phiEff],
+    domaine,
+    conditions: conditionsElance(gen),
+    calculer: (e) => compressionElance(gen, e as CompleteCompression),
+  };
+}
+
 export const nonArmeCompression: Mecanisme<EntreeNonArmeCompression> = {
   id: 'non-arme-compression',
   version: '0.1.0',
@@ -125,10 +199,15 @@ export const nonArmeCompression: Mecanisme<EntreeNonArmeCompression> = {
     { type: 'nombre', id: 'h', libelle: 'champ.h', symbole: 'h', unite: 'mm' },
     { type: 'nombre', id: 'e', libelle: 'champ.e-excentricite', symbole: 'e', unite: 'mm' },
     { type: 'nombre', id: 'NEd', libelle: 'champ.NEd-compression', symbole: 'N_Ed', unite: 'kN' },
+    { type: 'nombre', id: 'l0', libelle: 'champ.l0', symbole: 'l_0', unite: 'mm', facultatif: true },
+    { type: 'nombre', id: 'phiEff', libelle: 'champ.phiEff', symbole: 'φ_eff', unite: '-', facultatif: true },
   ],
   sollicitation: { libelle: 'grandeur.effort-normal', unite: 'kN' },
   resistance: { libelle: 'grandeur.effort-normal-resistant', unite: 'kN' },
-  niveaux: { 'ec2-2004': [niveauCompression('2004')], 'ec2-2023': [niveauCompression('2023')] },
+  niveaux: {
+    'ec2-2004': [niveauCompression('2004'), niveauElance('2004')],
+    'ec2-2023': [niveauCompression('2023'), niveauElance('2023')],
+  },
 };
 
 // ---------------------------------------------------------------------------

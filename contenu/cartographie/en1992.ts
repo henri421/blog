@@ -611,10 +611,12 @@ export const EN1992: Carte = {
           niveaux: [
             n(G1, 'non-arme-compression', 'base', '12.6.1'),
             n(G2, 'non-arme-compression', 'base', '14.4.2'),
+            n(G1, 'non-arme-compression', 'elance', '12.6.5.2'),
+            n(G2, 'non-arme-compression', 'elance', '14.4.5.2'),
             n(G1, 'non-arme-tranchant', 'base', '12.6.3'),
             n(G2, 'non-arme-tranchant', 'base', '14.4.3'),
           ],
-          reserves: 'Méthode simplifiée des voiles et poteaux élancés ((12.10), (12.11) ; (14.10), (14.11)) non codée : lecture de (14.11) à confirmer.',
+          reserves: 'Voiles élancés : l_0 saisie (coefficient β des tableaux 12.1 ou 14.1 appliqué par l’ingénieur), e_i = l_0/400.',
         }),
         c('14.5', 'ELS', ['12.7']),
         c('14.6', 'Dispositions des éléments', ['12.9'], {
