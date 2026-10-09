@@ -60,6 +60,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Précontrainte : mise en tension, frottement et pertes différées | `precontrainte-tension`, `pertes-differees` | 2 / 2 et 1 / 1 |
 | Armatures d’intégrité des planchers-dalles | `integrite` | 0 / 2 |
 | Efforts de déviation des barres courbes | `deviation` | 0 / 2 |
+| Recouvrements par boucles et par barres à tête | `recouvrement-boucle`, `recouvrement-tete` | 0 / 1 et 0 / 1 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 

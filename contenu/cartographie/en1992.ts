@@ -497,8 +497,18 @@ export const EN1992: Carte = {
           ingeree: true,
           reserves: 'Règles de décalage décrites dans l’article, non codées.',
         }),
-        c('11.5.4', 'Recouvrement par boucles en U', []),
-        c('11.5.5', 'Recouvrement par barres à tête', []),
+        c('11.5.4', 'Recouvrement par boucles en U', [], {
+          article: 'recouvrements-boucles-tetes',
+          ingeree: true,
+          niveaux: [n(G2, 'recouvrement-boucle', 'base', '11.5.4(2)')],
+          reserves: 'Recouvrement unique ; recouvrements multiples ((n_s − 1) T_Rd,c, 11.5.4(3)) décrits, non codés.',
+        }),
+        c('11.5.5', 'Recouvrement par barres à tête', [], {
+          article: 'recouvrements-boucles-tetes',
+          ingeree: true,
+          niveaux: [n(G2, 'recouvrement-tete', 'base', '11.5.5(4)')],
+          reserves: 'Recouvrement unique, tête circulaire ; recouvrements multiples (11.5.5(5)) décrits, non codés.',
+        }),
         c('11.5.6', 'Coupleurs mécaniques', []),
         c('11.5.7', 'Jonctions soudées', []),
         c('11.6', 'Armatures de précontrainte par post-tension', ['8.10'], {

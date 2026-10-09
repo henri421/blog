@@ -62,6 +62,7 @@ describe('articles', () => {
       'precontrainte-tension',
       'integrite-planchers-dalles',
       'efforts-deviation',
+      'recouvrements-boucles-tetes',
     ]);
   });
 
