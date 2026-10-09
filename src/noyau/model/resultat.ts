@@ -8,7 +8,11 @@
 
 import type { Cle } from '../../i18n/cle';
 
-export type Generation = 'ec2-2004' | 'ec2-2023';
+/**
+ * Generation d un texte : `<code>-<annee>`. Chaque mecanisme compare deux
+ * generations d un meme texte ; par defaut celles de l EN 1992-1-1.
+ */
+export type Generation = 'ec2-2004' | 'ec2-2023' | 'en1990-2002' | 'en1990-2023' | 'en1991-1-1-2002' | 'en1991-1-1-2025';
 
 /** Identifiant d un niveau d approximation, propre a chaque mecanisme. */
 export type Niveau = string;

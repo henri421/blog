@@ -24,8 +24,9 @@ describe('cartographie EN 1992-1-1', () => {
     for (const c of clauses) if (c.article) expect(slugs.has(c.article), c.clause).toBe(true);
   });
 
-  it('tout article de mecanisme est rattache a au moins une clause', () => {
-    const rattaches = new Set(clauses.map((c) => c.article));
+  it('tout article de mecanisme est rattache a au moins une clause, toutes cartes confondues', () => {
+    const toutes = EUROCODES.flatMap((e) => e.cartes).flatMap((k) => k.chapitres.flatMap((ch) => ch.clauses));
+    const rattaches = new Set(toutes.map((c) => c.article));
     for (const a of articles) if (a.ilots.length > 0) expect(rattaches.has(a.slug), a.slug).toBe(true);
   });
 
@@ -58,6 +59,10 @@ describe('cartographie EN 1992-1-1', () => {
 
   it('test 15 : tout niveau cartographie apparait dans l article de sa clause, hors lacunes connues', () => {
     expect(lacunes(EN1992, articles)).toEqual(LACUNES_CONNUES);
+  });
+
+  it('test 15, autres Eurocodes : aucune lacune', () => {
+    for (const k of EUROCODES.flatMap((e) => e.cartes).filter((c) => c.id !== 'en1992')) expect(lacunes(k, articles), k.id).toEqual([]);
   });
 
   it('une clause dont un niveau manque n a pas son calculateur coche', () => {

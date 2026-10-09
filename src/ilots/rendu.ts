@@ -59,7 +59,7 @@ export function rendreFormulaire(m: Mecanisme<Entree>, e: Entree): string {
 }
 
 function definition(m: Mecanisme<Entree>, c: Cellule) {
-  return m.niveaux[c.generation].find((d) => d.id === c.niveau);
+  return (m.niveaux[c.generation] ?? []).find((d) => d.id === c.niveau);
 }
 
 function libelleStatut(c: Cellule): string {
@@ -81,7 +81,7 @@ function uniteNiveau(unite: string | undefined): string {
 function grandeursPropres(m: Mecanisme<Entree>): string {
   return (Object.keys(m.niveaux) as Generation[])
     .flatMap((g) =>
-      m.niveaux[g]
+      (m.niveaux[g] ?? [])
         .filter((d) => d.grandeurs)
         .map((d) => {
           const { sollicitation: s, resistance: r } = d.grandeurs!;
@@ -124,7 +124,7 @@ export function rendreMatrice(m: Mecanisme<Entree>, matrice: Matrice, choisie: n
 export function legendeNiveaux(m: Mecanisme<Entree>): string {
   const blocs = (Object.keys(m.niveaux) as Generation[])
     .map((g) => {
-      const items = [...m.niveaux[g]]
+      const items = [...(m.niveaux[g] ?? [])]
         .sort((a, b) => a.ordre - b.ordre)
         .map((d) => `<li value="${d.ordre}">${echapper(t(d.hypothese))}</li>`)
         .join('');
@@ -166,4 +166,11 @@ export function champsBalayables(m: Mecanisme<Entree>): Array<{ id: string; libe
   return m.champs.filter((c) => c.type === 'nombre').map((c) => ({ id: c.id, libelle: t(c.libelle) }));
 }
 
-export const GENERATION_COURTE: Record<Generation, string> = { 'ec2-2004': '2004', 'ec2-2023': '2023' };
+export const GENERATION_COURTE: Record<Generation, string> = {
+  'ec2-2004': '2004',
+  'ec2-2023': '2023',
+  'en1990-2002': '2002',
+  'en1990-2023': '2023',
+  'en1991-1-1-2002': '2002',
+  'en1991-1-1-2025': '2025',
+};

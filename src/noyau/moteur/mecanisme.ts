@@ -40,7 +40,19 @@ export interface Mecanisme<E> {
   champs: Champ<E>[];
   sollicitation: GrandeurComparee;
   resistance: GrandeurComparee;
-  niveaux: Record<Generation, DefinitionNiveau<E>[]>;
+  /** Les deux generations comparees, premiere puis deuxieme ; par defaut l EN 1992-1-1. */
+  generations?: readonly [Generation, Generation];
+  niveaux: Partial<Record<Generation, DefinitionNiveau<E>[]>>;
 }
 
-export const GENERATIONS: readonly Generation[] = ['ec2-2004', 'ec2-2023'];
+/** Generations de l EN 1992-1-1, paire par defaut. */
+export const GENERATIONS: readonly [Generation, Generation] = ['ec2-2004', 'ec2-2023'];
+
+export function generationsDe<E>(m: Mecanisme<E>): readonly [Generation, Generation] {
+  return m.generations ?? GENERATIONS;
+}
+
+/** Niveaux d une generation, vides si le mecanisme ne la traite pas. */
+export function niveauxDe<E>(m: Mecanisme<E>, g: Generation): DefinitionNiveau<E>[] {
+  return m.niveaux[g] ?? [];
+}

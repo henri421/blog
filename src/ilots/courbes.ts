@@ -61,7 +61,7 @@ export function tracerBalayage(m: Mecanisme<Entree>, b: Balayage, libelleChamp: 
   const rangs = new Map<string, number>();
   const courbes = b.series
     .map((s) => {
-      const rang = m.niveaux[s.generation].findIndex((d) => d.id === s.niveau);
+      const rang = (m.niveaux[s.generation] ?? []).findIndex((d) => d.id === s.niveau);
       rangs.set(`${s.generation}/${s.niveau}`, rang);
       const morceaux: string[][] = [[]];
       s.taux.forEach((v, i) => {
@@ -81,7 +81,7 @@ export function tracerBalayage(m: Mecanisme<Entree>, b: Balayage, libelleChamp: 
 
   const legende = b.series
     .map((s) => {
-      const def = m.niveaux[s.generation].find((d) => d.id === s.niveau);
+      const def = (m.niveaux[s.generation] ?? []).find((d) => d.id === s.niveau);
       const rang = rangs.get(`${s.generation}/${s.niveau}`) ?? 0;
       const trait = TRAITS[rang % TRAITS.length];
       return `<li><svg width="28" height="10" aria-hidden="true"><line class="serie serie-${s.generation}" x1="0" x2="28" y1="5" y2="5"${
@@ -103,7 +103,7 @@ export function rendreRuptures(m: Mecanisme<Entree>, b: Balayage): string {
   if (b.ruptures.length === 0) return `<p class="note">${echapper(t('ilot.aucune-rupture'))}</p>`;
   const items = b.ruptures
     .map((r) => {
-      const def = m.niveaux[r.generation].find((d) => d.id === r.niveau);
+      const def = (m.niveaux[r.generation] ?? []).find((d) => d.id === r.niveau);
       return `<li>${echapper(t(`generation.${r.generation}`))} · ${echapper(def ? t(def.hypothese) : r.niveau)} : ${echapper(
         t(`statut.${r.avant}`),
       )} → ${echapper(t(`statut.${r.apres}`))} (${valeurFr(r.entre[0])} – ${valeurFr(r.entre[1])})</li>`;

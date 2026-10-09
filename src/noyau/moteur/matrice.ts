@@ -4,7 +4,7 @@
  */
 
 import type { Cellule } from '../model/resultat';
-import { GENERATIONS, type Mecanisme } from './mecanisme';
+import { generationsDe, niveauxDe, type Mecanisme } from './mecanisme';
 import { evaluerNiveaux } from './niveaux';
 
 export const FORMAT_MATRICE = 'ec2-2e-generation/matrice';
@@ -19,7 +19,7 @@ export interface Matrice<E = Record<string, unknown>> {
 
 /** Calcule toutes les cellules : chaque generation, chaque niveau. */
 export function calculerMatrice<E>(m: Mecanisme<E>, e: E): Matrice<E> {
-  const cellules = GENERATIONS.flatMap((g) => evaluerNiveaux(g, m.niveaux[g], e));
+  const cellules = generationsDe(m).flatMap((g) => evaluerNiveaux(g, niveauxDe(m, g), e));
   return { mecanisme: m.id, version: m.version, entree: e, cellules };
 }
 

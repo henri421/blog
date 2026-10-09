@@ -167,8 +167,8 @@ describe('serialisation', () => {
       niveaux: {
         ...fictif.niveaux,
         'ec2-2023': [
-          ...fictif.niveaux['ec2-2023'],
-          { ...fictif.niveaux['ec2-2023'][0], id: 'nouveau', ordre: 5 },
+          ...fictif.niveaux['ec2-2023']!,
+          { ...fictif.niveaux['ec2-2023']![0], id: 'nouveau', ordre: 5 },
         ],
       },
     };
