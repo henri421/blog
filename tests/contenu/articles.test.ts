@@ -60,6 +60,7 @@ describe('articles', () => {
       'analyse-plastique',
       'armature-scellee',
       'precontrainte-tension',
+      'integrite-planchers-dalles',
     ]);
   });
 

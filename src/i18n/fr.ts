@@ -138,6 +138,7 @@ export const fr = {
   'motif.d-inf-500': 'Hauteur utile d’au plus 500 mm : le coefficient kvd ne s’applique pas (I.8.3.1(3)).',
   'motif.ned-pas-compression': 'Effort normal nul ou de traction : la variante (8.32) ne vaut qu’en compression.',
   'motif.annexe-i-effort-normal': 'Effort normal saisi : l’outil ne calcule la déformation εv que sous le moment seul.',
+  'motif.integrite-classe-a': 'Les armatures d’intégrité doivent être de classe de ductilité B ou C (12.5.2(1)).',
   'motif.sans-equivalent-2004': 'La première génération ne donne pas de règle équivalente.',
   'motif.imperfection-element': 'L’excentricité ne vaut que pour un élément isolé.',
   'motif.nb-inf-ned': 'Charge de flambement NB inférieure ou égale à NEd : l’élément est instable avec cette rigidité.',
@@ -193,6 +194,7 @@ export const fr = {
   'meca.esp.titre': 'Espacement des barres et paquets',
   'meca.sou.titre': 'Ancrage par barres transversales soudées',
   'meca.bou.titre': 'Ancrage par boucles en U',
+  'meca.integ.titre': 'Armatures d’intégrité des planchers-dalles',
   'meca.tete.titre': 'Ancrage par tête d’ancrage',
   'meca.man.titre': 'Diamètre des mandrins de cintrage',
   'meca.fat.acier.titre': 'Fatigue des armatures, vérification simplifiée',
@@ -244,6 +246,8 @@ export const fr = {
   'meca.at.titre': 'Cisaillement entre l’âme et la table',
 
   // ---- Grandeurs comparees ----
+  'grandeur.effort-tranchant-accidentel': 'Effort tranchant de la situation accidentelle',
+  'grandeur.resistance-integrite': 'Résistance des armatures d’intégrité',
   'grandeur.effort-tranchant': 'Effort tranchant de calcul',
   'grandeur.effort-tranchant-lineique': 'Effort tranchant principal par unité de longueur',
   'grandeur.resistance-tranchant-lineique': 'Résistance à l’effort tranchant par unité de longueur',
@@ -333,6 +337,12 @@ export const fr = {
   'grandeur.resistance-table': 'Résistance de la table',
 
   // ---- Champs d entree ----
+  'champ.VEd-accidentel': 'Effort tranchant de la situation accidentelle',
+  'champ.AsInt': 'Somme des sections des barres traversant les bords du poteau',
+  'champ.nHog': 'Nombre de barres sur appui traversant b0,5, ancrées',
+  'champ.phiHog': 'Diamètre des barres sur appui',
+  'champ.sHog': 'Espacement des barres sur appui',
+  'champ.cHog': 'Enrobage des barres sur appui',
   'champ.VEd': 'Effort tranchant de calcul',
   'champ.VEd-poinconnement': 'Réaction de calcul du poteau',
   'champ.MEd': 'Moment concomitant',
@@ -690,6 +700,9 @@ export const fr = {
   'niveau.bou.2004.contrainte-reelle': 'σsd saisie ; α1 = 0,7 si cd = c > 3φ, α2 des barres non droites.',
   'niveau.bou.2023.barre-plastifiee': 'σsd = fyd ; longueur droite (11.3) réduite de 20φ, au moins 10φ.',
   'niveau.bou.2023.contrainte-reelle': 'σsd saisie ; longueur droite (11.3) réduite de 20φ, au moins 10φ.',
+  'niveau.integ.2004': 'Règle de moyens : au moins deux barres inférieures par direction traversent le poteau (9.4.1(3)).',
+  'niveau.integ.2023.base': 'VRd,int = ΣAs,int fyd kint (12.10), situation accidentelle, kint = 0,37 (B) ou 0,49 (C).',
+  'niveau.integ.2023.appui': 'Idem, plus la contribution des barres sur appui VRd,hog (12.12), dalle sans armature transversale.',
   'niveau.tete.2004.sans-equivalent': 'Pas de règle : les dispositifs mécaniques relèvent de leur norme de produit ou d’un agrément (8.4.1(5)).',
   'niveau.tete.2023.general': 'Vérification générale (11.8) : σ′sd selon kh,A, νpart (11 ou 8), ad, φh et ddg, plafonnée à kh,A νpart fcd.',
   'niveau.tete.2023.simplifie': 'Conditions de 11.4.7(1) : la tête développe 435 MPa sans longueur d’ancrage supplémentaire.',

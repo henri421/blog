@@ -6,7 +6,7 @@
  * Sous-ensemble reconnu : nombres (point decimal ecrit, virgule affichee),
  * lettres, operateurs, groupes {}, indices et exposants, \frac, \sqrt et
  * \sqrt[n], \left \right, \text, \mathrm, lettres grecques, \min \max \ln
- * \cot \tan \sin \cos, \le \ge \cdot \times \approx \neq \pm \to \infty, et les
+ * \cot \tan \sin \cos, \le \ge \cdot \times \approx \neq \pm \to \infty \sum, et les
  * espaces \, \; \quad. Dans un indice, les lettres consecutives forment un
  * seul identifiant droit (V_{Rd,c}), selon l usage des Eurocodes.
  *
@@ -23,7 +23,7 @@ const GRECQUES: Record<string, string> = {
 
 const OPERATEURS: Record<string, string> = {
   le: '≤', leq: '≤', ge: '≥', geq: '≥', cdot: '·', times: '×', approx: '≈', neq: '≠',
-  pm: '±', to: '→', infty: '∞', lt: '<', gt: '>', ldots: '…', quad: ' ', qquad: '  ', in: '∈',
+  pm: '±', to: '→', infty: '∞', lt: '<', gt: '>', ldots: '…', quad: ' ', qquad: '  ', in: '∈', sum: '∑',
 };
 
 const FONCTIONS = new Set(['min', 'max', 'ln', 'log', 'cot', 'tan', 'sin', 'cos', 'arctan', 'exp', 'sqrt']);

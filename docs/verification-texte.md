@@ -57,8 +57,9 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] **Corrigé** : le remplacement de d par a_v n'est permis que si a_cs < 4 d
   (8.2.2(3)). Le niveau 3 est désormais non applicable au-delà ; l'exemple du
   radier, présenté comme non monotone, a été réécrit.
-- [ ] Hors périmètre : effort normal (k_vp, (8.31) à (8.35)), précontrainte,
-  dalles à deux directions ((8.21) à (8.26), (8.38) à (8.40)).
+- [x] Effort normal ((8.31) à (8.35)) et dalles à deux directions ((8.21) à
+  (8.26), (8.38) à (8.40)) traités depuis le 05/10/2026 ; précontrainte hors
+  périmètre du calculateur.
 
 ## Effort tranchant avec armatures (8.2.3)
 
@@ -102,10 +103,8 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] k_fl = (h − h_c,eff)/h en flexion simple d'une section rectangulaire (9.16).
 - [x] k_b = 0,9 en bonne adhérence, 1,2 sinon (9.18).
 - [x] h_c,eff = min(a_y + 5φ ; 10φ ; 3,5 a_y ; h − x ; h/2) pour un lit (figure 9.3).
-- [ ] Largeur b_c,eff réduite pour des barres « isolées » (figure 9.3 b)) : le
-  critère d'isolement figure sur un dessin non lisible par extraction ; l'outil
-  réduit la largeur à 10 φ par barre au-delà d'un espacement de 10 φ, à
-  confirmer sur la figure.
+- [x] Largeur b_c,eff des barres « isolées » (figure 9.3 b)) : chaque bloc
+  centré sur une barre mesure au plus 10 φ ; conforme au code (relu sur la page rendue le 09/10/2026).
 - [x] Limites w_lim,cal (tableaux 9.1 et 9.2) avec k_surf : signalées dans
   l'article, la limite reste une saisie.
 
@@ -118,16 +117,17 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] Précontrainte : f_yd remplacé par (7.17) ; non codé.
 - [x] 2004 : k1 = 0,44, k3 = 0,54, k2 = k4 = 1,25 (0,6 + 0,0014/ε_cu2), k5 = 0,7,
   k6 = 0,8 (5.5(4), note).
-- [ ] Vérification explicite de la rotation (7.18) à (7.24) : non codée, article
-  à venir.
+- [x] Vérification explicite de la rotation (7.18) à (7.24) (relu sur la page rendue le 09/10/2026) : codée
+  (niveau `rotation` de `redistribution`).
 
 ## Effort tranchant sans armature, effort normal (8.2.2(4) et (5) ; 6.2.2(1))
 
 - [x] Convention de signe de 3.10 : traction positive.
 - [x] k_vp = 1 + N_Ed/|V_Ed| · d/(3 a_cs) ≥ 0,1 (8.31), multiplie d dans (8.27)
   ou a_v dans (8.29) ; ρ_l reste celui de (8.28).
-- [ ] Le symbole devant « /3 » dans (8.31) et (8.34) est perdu à l’extraction ;
-  lu « d » par élimination (seule lecture homogène), à confirmer.
+- [x] (8.31) : k_vp = 1 + N_Ed/|V_Ed| · d/(3 a_cs) ≥ 0,1, confirmé (relu sur la page rendue le 09/10/2026).
+  (8.34) : k_1 = 0,5/a_cs,0 · (e_p + d/3) · A_c/(b_w z) ≤ 0,18 A_c/(b_w z) ;
+  le code inversait le rapport et prenait d pour z : corrigé.
 - [x] Compression : τ_Rdc,min ≤ τ_Rdc,0 − k_1 σ_cp ≤ τ_Rdc,max (8.32),
   τ_Rdc,0 = (8.27) sans plancher (8.33), σ_cp = N_Ed/A_c,
   k_1 = 0,5 a_cs,0/(e_p + d/3) · A_c/(b_w d) ≤ 0,18 A_c/(b_w d) (8.34, NOTE),
@@ -170,8 +170,7 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   avec φ ; 4 barres interdites (11.5.3).
 - [x] 2004 : c_s ≥ max(k_1 φ ; d_g + k_2 ; 20 mm), k_1 = 1, k_2 = 5 mm (8.2(2)) ;
   φ_n remplace φ pour un paquet (8.9.1(3)).
-- [ ] 2004 : φ_n = φ √n_b ≤ 55 mm (8.14) : formule non extraite (image),
-  expression usuelle retenue, à confirmer sur l'exemplaire.
+- [x] 2004 : φ_n = φ √n_b ≤ 55 mm (8.14), confirmé (relu sur la page rendue le 09/10/2026).
 
 ## Ancrage par barres transversales soudées et par boucles (11.4.5, 11.4.6)
 
@@ -185,8 +184,8 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] 2004 : α_4 = 0,7 pour une barre soudée φ_t > 0,6 φ sur l_bd (8.4.4,
   tableau 8.2, figure 8.1 e)) ; α_1 = 0,7 si c_d > 3 φ et α_2 non droit pour une
   boucle, c_d = c (figure 8.3 c)) ; (α_2 α_3 α_5) ≥ 0,7 (8.5).
-- [ ] 2004 : c de la figure 8.3 c) pris égal à l'enrobage perpendiculaire au
-  plan de la boucle (lecture du dessin à confirmer).
+- [x] 2004 : figure 8.3 c), boucle couchée, c_d = c, enrobage perpendiculaire
+  au plan de la boucle (relu sur la page rendue le 09/10/2026).
 
 ## Ancrage par tête d'ancrage (11.4.7)
 
@@ -195,10 +194,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   a_y ≥ 3 φ (non fissuré) ou 4 φ (fissuré), a_x ≥ 2 a_y + 1,2 φ_h,
   s_x ≥ 4 a_y ; φ_h ≤ 4 t_h ; a_x et a_y permutés si a_x < a_y ;
   φ_h = 2 √(A_h/π) (11.7).
-- [ ] (11.8) : contrainte développée par la tête, structure lue
-  k_h,A f_cd + κ_part √f_ck/γ_C (a_d/φ)(φ_h/φ)^(5/6)(d_dg/φ)^(1/3), plafond
-  illisible ; k_h,A = (φ_h/φ)² − 1 (11.9) ; κ_part = 11,0 (non fissuré) ou
-  8,0 (fissuré) ; (11.10) illisible. Non codé.
+- [x] (11.8) : σ'_sd = k_h,A f_cd + ν_part √f_ck/γ_C (a_d/φ)(φ_h/φ)^(5/6)
+  (d_dg/φ)^(1/3) ≤ k_h,A ν_part f_cd ; k_h,A = (φ_h/φ)² − 1 (11.9) ;
+  ν_part = 11,0 ou 8,0 ; a_d selon 11.4.7(2) et (11.10) (relu sur la page rendue le 09/10/2026). Codé (niveau
+  `general`).
 - [x] (11.11) : l_bd = 1,1 (l_bd(σ_sd) − l_bd(σ'_sd)).
 
 ## Diamètre des mandrins (11.3)
@@ -210,9 +209,10 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   12.3.3 ; crochets et coudes standard (figure 11.6) avec ≤ 5 φ d'ancrage
   au-delà de la courbure, c_x ≥ 1,5 φ, c_s ≥ 3 φ ; coudes ≤ 45° avec
   c_x ≥ 2,5 φ, c_s ≥ 5 φ, segments droits ≥ 4 φ, f_yk ≤ 500, f_ck ≥ 25.
-- [ ] (11.1) : lecture σ_sd ≤ 0,65 f_cd φ_mand/φ + √f_ck/γ_C (d_dg/φ)^(1/3)
-  (c_d/φ + 1/2)(k_bend + 0,7 φ_mand/φ), k_bend = 32 (45°/α_bend) ; somme ou
-  produit à confirmer (question 10). (11.2) k_trans également. Non codés.
+- [x] (11.1) : σ_sd ≤ 0,65 f_cd φ_mand/φ + √f_ck/γ_C (d_dg/φ)^(1/3)
+  (c_d/φ + 1/2)(k_bend + 0,7 φ_mand/φ), k_bend = 32 (45°/α_bend) ; (11.2)
+  k_trans = 1 + 4 n_trans (φ/φ_mand)(φ_trans/φ)² (45°/α_bend), φ_trans ≤ 1,35 φ
+  (relu sur la page rendue le 09/10/2026). Codés.
 - [x] 2004 (8.1) : φ_m,min ≥ F_bt (1/a_b + 1/(2 φ))/f_cd, f_cd au plus celle
   du C55/67 ; dispense de 8.3(3).
 
@@ -226,8 +226,8 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] (10.6), (10.7) : en contraintes τ, plafond 0,90 ; τ_Rd,c selon (8.27) ou (8.94).
 - [x] 2004 6.8.6(1) : k_1 = 70 MPa, k_2 = 35 MPa (recommandées) ; (6.77) plafond
   0,9 (f_ck ≤ 50) ou 0,8, σ_c,min de traction prise nulle ; (6.78), (6.79).
-- [ ] 2004 (6.76) : f_cd,fat = k_1 β_cc(t_0) f_cd (1 − f_ck/250), k_1 = 0,85 :
-  formule non extraite (image), expression usuelle retenue.
+- [x] 2004 (6.76) : f_cd,fat = k_1 β_cc(t_0) f_cd (1 − f_ck/250), k_1 = 0,85,
+  confirmé (relu sur la page rendue le 09/10/2026).
 
 ## Béton non armé (14 ; 12)
 
@@ -237,8 +237,9 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] σ_cp = |N_Ed|/A_cc (14.4), τ_cp = 1,5 V_Ed/A_cc (14.5) ; (14.6), (14.7), (14.8).
 - [x] 0,85 h_F/a_F ≥ √(3 σ_gd/f_ctd,pl) (14.13) ; h_F/a_F ≥ 2 (14.14).
 - [x] 2004 : (12.1), (12.2) avec η de 3.1.7(3), (12.3) à (12.7) (k = 1,5), (12.13), (12.14).
-- [ ] (14.11), facteur Φ des voiles élancés : structure illisible à l'extraction ;
-  non codé (ni (12.11) de 2004, par symétrie).
+- [x] (14.11) : Φ = [1 − (2,1 + 0,02 l_0/h) e_tot/h] / [1 + (l_0/h)² (0,9 +
+  6 e_tot/h) ((0,8 + φ_eff)/1000) (f_cd,pl/20)^0,6] ; 2004 (12.11) :
+  Φ = 1,14 (1 − 2 e_tot/h) − 0,02 l_0/h ≤ 1 − 2 e_tot/h (relu sur la page rendue le 09/10/2026). Codés.
 
 ## Appuis des éléments préfabriqués (12.10, 13.7.2 ; 10.9.5)
 
@@ -258,7 +259,7 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 - [x] (13.6), (13.7) l_pt1 = 0,8 l_pt, l_pt2 = 1,2 l_pt ; (13.8) l_disp = √(l_pt² + d²).
 - [x] (13.9) l_bpd = l_pt2 + (γ_C/1,5) 2 α_2 α_3 (σ_pd − σ_pm∞)/(η_1 √f_ck) φ_p,
   α_3 = 1,5 sous fatigue.
-- [ ] (13.5) f_ck(t) = [β_cc(t)]^(2/3) f_ck : lecture littérale de l'extraction,
+- [x] (13.5) f_ck(t) = [β_cc(t)]^(2/3) f_ck, exposant confirmé (relu sur la page rendue le 09/10/2026) ;
   non employée (f_ck(t) saisie).
 - [x] 2004 : (8.15) à (8.21), η_p1 = 2,7/3,2, α_2 = 0,25/0,19, η_p2 = 1,4/1,2,
   f_ctd(t) = α_ct 0,7 f_ctm(t)/γ_c, f_ctk,0.05 plafonnée au C60/75 pour l'ancrage.
@@ -296,8 +297,8 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 ## Déversement (7.5 ; 5.9)
 
 - [x] 7.5(2) imperfection l/300 en l'absence de tolérances du projet.
-- [ ] (7.31), (7.32) : l_0t/b ≤ 50 (resp. 70) et (h/b)^(1/3), barre de fraction perdue ;
-  forme 50/(h/b)^(1/3) de 2004 retenue ; aucune condition h/b relevée.
+- [x] (7.31), (7.32) : l_0t/b ≤ 50/(h/b)^(1/3) (resp. 70), sans condition sur
+  h/b (relu sur la page rendue le 09/10/2026).
 - [x] 2004 (5.40a), (5.40b) : 50/(h/b)^(1/3), h/b ≤ 2,5 ; 70/(h/b)^(1/3), h/b ≤ 3,5.
 
 ## Largeur participante (7.2.3 ; 5.3.2.1)
@@ -339,8 +340,8 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
 
 - [x] (11.4.8(2)) enrobage minimal selon le tableau 11.2 (forage, guide, l_bd,pi) ;
   (3) c_s,pir ≥ max(4 φ ; 40 mm), c_s ≥ max(2 φ ; 20 mm) avec les barres existantes.
-- [ ] (11.12) l_bd,pi = l_bd / k_b,pi ≥ 10 φ α_lb : barre de fraction perdue, k_b,pi
-  traité en diviseur ; α_lb = 1,5 ; f_ck ≤ 50 MPa et σ_sd ≤ 435 MPa dans l_bd.
+- [x] (11.12) l_bd,pi = l_bd / k_b,pi ≥ 10 φ α_lb (relu sur la page rendue le 09/10/2026) ; α_lb = 1,5 ;
+  f_ck ≤ 50 MPa et σ_sd ≤ 435 MPa dans l_bd.
 - [x] 11.4.8(6) : recouvrement avec l_bd,pi à la place de l_bd.
 
 ## Précontrainte, mise en tension et frottement (7.6.2, 7.6.3.2 ; 5.10.2, 5.10.3, 5.10.5.2)

@@ -364,7 +364,7 @@ export const EN1992: Carte = {
             n(G2, 'fissuration', 'base', '9.2.3'),
             n(G2, 'fissuration', 'annexe-s', 'S', 'annexe-informative'),
           ],
-          reserves: 'Critère « barres isolées » de la figure 9.3 b) à confirmer ; annexe S : maîtrise simplifiée (S.4) codée, un seul lit, bonne adhérence ; armatures de peau (S.5) décrites.',
+          reserves: 'Annexe S : maîtrise simplifiée (S.4) codée, un seul lit, bonne adhérence ; armatures de peau (S.5) décrites.',
         }),
         c('9.3.1', 'Flèches : considérations générales', ['7.4.1']),
         c('9.3.2', 'Flèches par le rapport portée / hauteur utile', ['7.4.2'], {
@@ -541,7 +541,12 @@ export const EN1992: Carte = {
         c('12.4.1', 'Dalles : généralités', ['9.3.1']),
         c('12.4.2', 'Dalles : armatures d’effort tranchant', ['9.3.2']),
         c('12.5.1', 'Armatures de poinçonnement', ['9.4.3']),
-        c('12.5.2', 'Armatures d’intégrité des planchers-dalles', []),
+        c('12.5.2', 'Armatures d’intégrité des planchers-dalles', ['9.4.1'], {
+          article: 'integrite-planchers-dalles',
+          ingeree: true,
+          niveaux: [n(G2, 'integrite', 'base', '12.5.2(1)'), n(G2, 'integrite', 'appui', '12.5.2(3)')],
+          reserves: 'Dalles avec armatures d’effort tranchant (12.11) décrites, non codées ; A_s,int et n_hog saisis.',
+        }),
         c('12.6', 'Poteaux', ['9.5']),
         c('12.7', 'Voiles et poutres-cloisons', ['9.6', '9.7']),
         c('12.8', 'Fondations', ['9.8']),
