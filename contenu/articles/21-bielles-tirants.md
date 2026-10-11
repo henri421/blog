@@ -4,13 +4,14 @@ ordre: 21
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-05
-revise: 2026-10-09
+revise: 2026-10-11
 resume: La résistance d’une bielle fissurée ne dépend plus de la seule classe de béton mais de l’angle que fait la bielle avec le tirant qui la traverse ; les nœuds dont le tirant est ancré hors de la région nodale retrouvent toute la résistance du béton.
 motscles: bielles-tirants, treillis, elu
 historique:
   - 2026-10-05 : première rédaction.
   - 2026-10-05 : diffusion d’une force concentrée (6.5.3(3) ; 8.5.5).
   - 2026-10-09 : formule (8.124) relue sur le texte ; réserve retirée.
+  - 2026-10-11 : écarts entre générations décrits sans les présenter comme un gain ou une perte.
 ---
 
 ## Ce qui change
@@ -119,7 +120,7 @@ Pour une force de 1 000 kN sur 200 mm, dans un élément de 1 500 mm de large et
 
 ## L’effet sur une note de calcul existante
 
-- Les **bielles fissurées** à angle moyen (40° à 60°) gagnent un peu de résistance relative ; les bielles plates (moins de 40°) en perdent : à 30°, $\nu$ tombe à 0,55 contre $0.6\,\nu'$ ≈ 0,53 auparavant, mais à 25° il tombe à 0,40.
+- Les **bielles fissurées** à angle moyen (40° à 60°) ont une résistance relative un peu plus élevée ; celle des bielles plates (moins de 40°) est plus faible : à 30°, $\nu$ tombe à 0,55 contre $0.6\,\nu'$ ≈ 0,53 auparavant, mais à 25° il tombe à 0,40.
 - La note doit indiquer l’**angle** entre bielle et tirant et le **mode d’ancrage** des tirants dans les nœuds.
 - Un tirant ancré hors du nœud (plaque, tête, boucle) devient un levier pour soulager les nœuds d’appui.
 

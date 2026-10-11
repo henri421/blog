@@ -4,11 +4,12 @@ ordre: 15
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
-revise: 2026-10-04
+revise: 2026-10-11
 resume: Le modèle de section creuse équivalente demeure ; l’angle des bielles peut se redresser au-delà de 45°, la résistance des bielles prend une valeur forfaitaire nouvelle, et les sections trapues à fort enrobage sont réduites.
 motscles: torsion, treillis, elu
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-11 : écarts entre générations décrits sans les présenter comme un gain ou une perte.
 ---
 
 ## Ce qui change
@@ -91,7 +92,7 @@ La section est trapue et l’enrobage dépasse 0,07 × 400 = 28 mm : en 2023, el
 
 ## L’effet sur une note de calcul existante
 
-- Les sections **trapues à fort enrobage** (poteaux, poutres carrées, enrobages de durabilité ou de feu) perdent de la résistance en torsion par la réduction de section.
+- Les sections **trapues à fort enrobage** (poteaux, poutres carrées, enrobages de durabilité ou de feu) ont une résistance en torsion plus faible, du fait de la réduction de section.
 - En vérification combinée avec l’effort tranchant, chaque paroi se calcule avec un angle unique, commun aux deux sollicitations (6.3.2(2) ; 8.3.5(2)).
 - La vérification combinée torsion, flexion et effort tranchant peut se faire par une formule d’interaction linéaire (8.3.6), plus simple que les conditions de 2004.
 

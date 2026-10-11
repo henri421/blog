@@ -4,11 +4,12 @@ ordre: 22
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-06 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-06
-revise: 2026-10-06
-resume: Les limites de contrainte de l’acier et du béton sous combinaison caractéristique sont conservées ; le seuil du fluage non linéaire passe de 0,45 fck à 0,40 fcm, plus haut pour les bétons courants, et le module effectif du béton gagne 5 %.
+revise: 2026-10-11
+resume: Les limites de contrainte de l’acier et du béton sous combinaison caractéristique sont conservées ; le seuil du fluage non linéaire passe de 0,45 fck à 0,40 fcm, plus haut pour les bétons courants, et le module effectif du béton est plus élevé de 5 %.
 motscles: els, fissuration, poutre
 historique:
   - 2026-10-06 : première rédaction.
+  - 2026-10-11 : écarts entre générations décrits sans les présenter comme un gain ou une perte.
 ---
 
 ## Ce qui change

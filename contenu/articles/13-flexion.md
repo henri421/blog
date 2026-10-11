@@ -4,11 +4,12 @@ ordre: 13
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
-revise: 2026-10-04
+revise: 2026-10-11
 resume: Une seule loi parabole-rectangle pour tous les bétons, la fragilité des hautes résistances passant dans fcd ; pour une poutre courante, le moment résistant ne change presque pas.
 motscles: flexion, elu
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-11 : écarts entre générations décrits sans les présenter comme un gain ou une perte.
 ---
 
 ## Ce qui change
@@ -85,7 +86,7 @@ En 2004, le diagramme du C70/85 a un raccourcissement ultime réduit à {{poutre
 ## L’effet sur une note de calcul existante
 
 - Pour les poutres et dalles **normalement armées**, le moment résistant change de un à deux pour cent : les notes de flexion se transposent sans surprise.
-- Les sections **fortement armées** ou en béton à **haute résistance** perdent davantage ; la vérification de la ductilité (hauteur comprimée) devient aussi plus contraignante, puisque l’axe neutre descend.
+- Les sections **fortement armées** ou en béton à **haute résistance** présentent l’écart le plus marqué ; la vérification de la ductilité (hauteur comprimée) devient aussi plus contraignante, puisque l’axe neutre descend.
 - Les tableaux de paramètres du diagramme de 2004 au-delà de C50/60 disparaissent de la note.
 
 ## Ce qu’il faudra vérifier dans l’annexe nationale

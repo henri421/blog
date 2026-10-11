@@ -4,11 +4,12 @@ ordre: 14
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
-revise: 2026-10-04
+revise: 2026-10-11
 resume: La formule de diffusion reste la même, mais la surface de diffusion se construit autrement et la charge excentrée reçoit enfin une règle explicite.
 motscles: pression-localisee, elu
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-11 : écarts entre générations décrits sans les présenter comme un gain ou une perte.
 ---
 
 ## Ce qui change
@@ -80,7 +81,7 @@ La première génération ne donne pas de règle : le calculateur affiche sa cel
 
 ## L’effet sur une note de calcul existante
 
-- Les appuis **allongés le long d’un bord** gagnent en résistance par la nouvelle construction de la surface de diffusion.
+- Les appuis **allongés le long d’un bord** ont une résistance plus élevée, du fait de la nouvelle construction de la surface de diffusion.
 - Les charges **excentrées**, qui relevaient du jugement, ont désormais une règle à appliquer et à justifier dans la note.
 - L’effort de **traction transversale** (frettage) reste à vérifier séparément, par un modèle à bielles et tirants (8.5).
 

@@ -4,12 +4,13 @@ ordre: 2
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
-revise: 2026-10-04
-resume: Le treillis à inclinaison variable demeure ; la bielle perd de la résistance, et un niveau plus fin la relie à la déformation longitudinale, donc à la sollicitation.
+revise: 2026-10-11
+resume: Le treillis à inclinaison variable demeure ; la résistance de la bielle est plus faible, et un niveau plus fin la relie à la déformation longitudinale, donc à la sollicitation.
 motscles: effort-tranchant, treillis, elu, poutre
 historique:
   - 2026-10-04 : première rédaction.
   - 2026-10-04 : vérification sur le texte ; au niveau 2, cot θ peut dépasser 2,5 (8.2.3(7)), second exemple recalculé.
+  - 2026-10-11 : écarts entre générations décrits sans les présenter comme un gain ou une perte.
 ---
 
 ## Ce qui change

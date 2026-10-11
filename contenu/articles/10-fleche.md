@@ -4,11 +4,12 @@ ordre: 10
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
-revise: 2026-10-04
+revise: 2026-10-11
 resume: Un calcul simplifié sur section brute fait son entrée, et la méthode générale tient compte de la charge la plus forte déjà subie, ce qui augmente la flèche des éléments qui ont fissuré sous charge caractéristique.
 motscles: fleche, els, dalle
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-11 : écarts entre générations décrits sans les présenter comme un gain ou une perte.
 ---
 
 ## Ce qui change
@@ -75,7 +76,7 @@ Dalle de 20 cm portant sur 5 m, HA12 tous les 20 cm ($d$ = 172 mm), béton C25/3
 | 2023, calcul simplifié | — | {{dalle-fleche:ec2-2023/simplifiee.sollicitation}} | {{dalle-fleche:ec2-2023/simplifiee.taux}} |
 | 2023, méthode générale | {{dalle-fleche:ec2-2023/generale.ζ}} | {{dalle-fleche:ec2-2023/generale.sollicitation}} | {{dalle-fleche:ec2-2023/generale.taux}} |
 
-Les états limites encadrent la réponse : {{dalle-fleche:ec2-2004/generale.δ_I}} mm non fissuré, {{dalle-fleche:ec2-2004/generale.δ_II}} mm entièrement fissuré. Réglé sur la charge caractéristique, $\zeta$ passe de {{dalle-fleche:ec2-2004/generale.ζ}} à {{dalle-fleche:ec2-2023/generale.ζ}}, et la flèche gagne près de 4 mm. Le calcul simplifié, avec $k_I$ = {{dalle-fleche:ec2-2023/simplifiee.k_I}} et $k_s$ = {{dalle-fleche:ec2-2023/simplifiee.k_s}}, retrouve la méthode générale à quelques pour cent. La dalle ne respecte $L$/250 dans aucune des trois cellules ; le balayage sur l’épaisseur montre l’épaisseur à partir de laquelle elle le respecte.
+Les états limites encadrent la réponse : {{dalle-fleche:ec2-2004/generale.δ_I}} mm non fissuré, {{dalle-fleche:ec2-2004/generale.δ_II}} mm entièrement fissuré. Réglé sur la charge caractéristique, $\zeta$ passe de {{dalle-fleche:ec2-2004/generale.ζ}} à {{dalle-fleche:ec2-2023/generale.ζ}}, et la flèche augmente de près de 4 mm. Le calcul simplifié, avec $k_I$ = {{dalle-fleche:ec2-2023/simplifiee.k_I}} et $k_s$ = {{dalle-fleche:ec2-2023/simplifiee.k_s}}, retrouve la méthode générale à quelques pour cent. La dalle ne respecte $L$/250 dans aucune des trois cellules ; le balayage sur l’épaisseur montre l’épaisseur à partir de laquelle elle le respecte.
 
 {{calculateur:dalle-fleche}}
 

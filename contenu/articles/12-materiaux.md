@@ -4,11 +4,12 @@ ordre: 12
 statut: publie
 texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-04
-revise: 2026-10-04
+revise: 2026-10-11
 resume: La résistance de calcul en compression intègre la fragilité des bétons à haute résistance et la durée de chargement ; la résistance de calcul en traction est réduite ; le module d’élasticité change de formule.
 motscles: materiaux-beton
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-11 : écarts entre générations décrits sans les présenter comme un gain ou une perte.
 ---
 
 ## Ce qui change
@@ -80,7 +81,7 @@ Pour un C30/37 chargé tôt, seul $k_{tc}$ joue : $f_{cd}$ baisse de 15 %. Si la
 ## L’effet sur une note de calcul existante
 
 - Toutes les vérifications où la **résistance du béton comprimé** gouverne sont touchées : bielles d’effort tranchant, flexion à forte compression, poteaux, pressions localisées. La note doit indiquer l’âge de mise en charge pour justifier $k_{tc}$.
-- Les bétons à **haute résistance** perdent une part notable de leur avantage en résistance de calcul.
+- Pour les bétons à **haute résistance**, l’écart de résistance de calcul avec les bétons courants se réduit nettement.
 - Les vérifications qui utilisent $f_{ctd}$ (ancrage de 2004, interfaces de 2004) n’ont pas d’équivalent direct en 2023, dont les expressions emploient plutôt $\sqrt{f_{ck}}$.
 
 ## Ce qu’il faudra vérifier dans l’annexe nationale
