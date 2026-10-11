@@ -740,7 +740,7 @@ export const fr = {
   'niveau.ch.2004.base': 'Périphérique : min(10 li ; 70 kN) (9.15) ; intérieur : 20 kN par mètre de largeur.',
   'niveau.ch.2023.ossature': 'EN 1991-1-7 A.3.1 : max(0,8 ou 0,4 (gk + ψ qk) st Lt ; 75 kN) (A.1), (A.2).',
   'niveau.esp.2004.base': 'max(k1 φ ; dg + k2 ; 20 mm), φ remplacé par φn = φ √nb ≤ 55 mm pour un paquet ; k1 = 1, k2 = 5 mm.',
-  'niveau.esp.2023.base': 'Barres isolées : max(φ ; Dupper + 5 mm ; 20 mm) ; entre paquets : φb = √(4 As/π).',
+  'niveau.esp.2023.base': 'Barres isolées : max(φ ; Dupper + 5 mm ; 20 mm) ; entre paquets : φb = √(4 As/π) à la place de φ (lecture de l’auteur).',
   'niveau.sou.2004.barre-plastifiee': 'σsd = fyd ; α4 = 0,7 et α2 des barres droites.',
   'niveau.sou.2004.contrainte-reelle': 'σsd saisie ; α4 = 0,7 et α2 des barres droites.',
   'niveau.sou.2023.barre-plastifiee': 'σsd = fyd ; longueur droite (11.3) réduite de 15φ, au moins 5φ.',

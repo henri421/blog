@@ -31,10 +31,10 @@ describe('espacement des barres et paquets', () => {
     expect(cel(e, 'ec2-2023').sollicitation).toBeCloseTo(69.282, 3);
   });
 
-  it('paquet de 2 HA10 : 25 mm en 2004 (granulat), phi_b = 14,14 mm seul en 2023', () => {
+  it('paquet de 2 HA10 : 25 mm (granulat) dans les deux generations, phi_b = 14,14 mm ne gouverne pas', () => {
     const e = { phi: 10, nb: 2, disposition: 'courant', Dupper: 20, csPrevu: 20 };
     expect(cel(e, 'ec2-2004').sollicitation).toBe(25);
-    expect(cel(e, 'ec2-2023').sollicitation).toBeCloseTo(14.1421, 4);
+    expect(cel(e, 'ec2-2023').sollicitation).toBeCloseTo(25, 4);
   });
 
   it('4 barres : refusees en cas courant, admises dans un recouvrement', () => {

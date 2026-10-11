@@ -13,9 +13,11 @@
  *   k_2 = 5 mm) : c_s,min = max(k_1 phi_n ; d_g + k_2 ; 20 mm), phi_n
  *   remplacant phi pour un paquet ; phi_n <= 55 mm (8.14).
  * Deuxieme generation : barres isolees c_s,min = max(phi ; D_upper + 5 mm ;
- *   20 mm) (11.2(2)) ; entre paquets c_s,min = phi_b (11.2(3)). Le texte de
- *   (3) ne cite que phi_b : l outil ne lui ajoute ni D_upper + 5 mm ni 20 mm
- *   (lecture signalee dans l article). Aucun plafond de phi_b n est donne.
+ *   20 mm) (11.2(2)) ; entre paquets, phi_b (11.6) remplace phi dans cette
+ *   regle (11.2(3)) : c_s,min = max(phi_b ; D_upper + 5 mm ; 20 mm). Le
+ *   texte de (3) ne cite que phi_b ; garder les deux autres termes est la
+ *   lecture de l auteur (11/10/2026), signalee dans l article. Aucun plafond
+ *   de phi_b n est donne.
  * Choix de l outil : barres d un paquet de meme diametre (le rapport 1,7 de
  *   8.9.1(1) n est pas traite) ; regles d ancrage et de recouvrement des
  *   paquets (8.9.2, 8.9.3 ; 11.4.3, 11.5.3) decrites dans l article, le
@@ -124,17 +126,20 @@ export function espacement2023(e: Complete): Calcul {
     };
   }
   const phib = diametreEquivalent(e.phi, e.nb);
+  const csmin = Math.max(phib, e.Dupper + K2, PLANCHER);
   return {
     statut: { etat: 'calcule' },
-    sollicitation: phib,
+    sollicitation: csmin,
     resistance: e.csPrevu,
     intermediaires: {
       φ_b: calculee(phib, 'mm'),
+      'D_upper + 5': calculee(e.Dupper + K2, 'mm'),
+      plancher: recommandee(PLANCHER, 'mm'),
       'n_b,max': recommandee(nbMax(e.disposition), '-'),
-      'c_s,min': calculee(phib, 'mm'),
+      'c_s,min': calculee(csmin, 'mm'),
       c_s: saisie(e.csPrevu, 'mm'),
     },
-    clauses: ['11.2(3)', '11.4.3(1)', '(11.6)'],
+    clauses: ['11.2(2)', '11.2(3)', '11.4.3(1)', '(11.6)'],
   };
 }
 
