@@ -32,7 +32,8 @@
  *      resistance (8.27) multipliee par k_vd = 1,35 (100 rho_l d_dg/d)^(1/10)
  *      <= 1 (I.8) ; niveau en reserve, non applicable si d <= 500 mm.
  *      Choix de l outil : k_vd porte sur la valeur de la formule (8.27), le
- *      plancher tau_Rdc,min de 8.2.2(1) est conserve. Le texte vise les
+ *      plancher tau_Rdc,min de 8.2.2(1) est conserve (lecture confirmee par
+ *      l auteur le 11/10/2026). Le texte vise les
  *      elements lineaires : l outil ne peut pas le verifier.
  *
  * Domaine de la deuxieme generation : D_lower >= 8 mm (1.1(3)).
