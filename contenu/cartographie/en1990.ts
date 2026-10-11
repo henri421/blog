@@ -102,7 +102,7 @@ export const EN1990_1: Carte = {
         c('A.3', 'Tours, mâts et cheminées', [], reporte('tours, mâts et cheminées : reporté par l’auteur (05/10/2026)')),
         c('A.4', 'Silos et réservoirs', [], reporte('silos et réservoirs : reporté par l’auteur (05/10/2026)')),
         c('A.5', 'Structures supportant des appareils de levage ou des machines', [], reporte('appareils de levage : reporté par l’auteur (05/10/2026)')),
-        c('A.6', 'Structures côtières', [], reporte('structures côtières : hors construction classique, à confirmer par l’auteur')),
+        c('A.6', 'Structures côtières', [], reporte('structures côtières : hors périmètre, mentionné dans le cadrage, décision de l’auteur (11/10/2026)')),
       ],
     },
     {

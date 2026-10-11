@@ -4,11 +4,12 @@ ordre: 0
 statut: publie
 texte: EN 1992-1-1:2023. Article de cadrage, indépendant de toute expression ; état d’amendement sans incidence sur son contenu.
 redige: 2026-10-04
-revise: 2026-10-04
+revise: 2026-10-11
 resume: Calendrier, périmètre élargi, paramètres nationaux, et le principe des niveaux d’approximation qui structure les articles de ce site.
 motscles: calendrier, niveaux-approximation
 historique:
   - 2026-10-04 : première rédaction.
+  - 2026-10-11 : mention des structures côtières hors périmètre.
 ---
 
 ## Ce qui change
@@ -28,6 +29,8 @@ Entre ces dates, un bureau d’études dispose du texte sans annexe nationale. L
 ## Un périmètre élargi
 
 La deuxième génération rassemble dans un même document des sujets qui vivaient dans des parties séparées ou hors de l’Eurocode : ponts, ouvrages de retenue des liquides, béton renforcé de fibres, bétons à granulats recyclés, armatures inoxydables, évaluation et renforcement des structures existantes. Ces sujets sont hors du périmètre de ce site, qui s’en tient au bâtiment courant et aux mécanismes présents dans les deux générations.
+
+Les structures côtières (quais, digues, murs de mer) sont aussi hors du périmètre de ce site : l’EN 1990-1 leur consacre une annexe propre (A.6), et leurs actions de houle et de courant relèvent d’une autre partie de l’EN 1991. Les articles sur le béton restent valables pour ces ouvrages, en particulier ceux sur l’enrobage et la durabilité.
 
 La numérotation change aussi : l’état limite ultime, le service et les dispositions constructives occupent d’autres sections qu’en 2004. Chaque article donne ses renvois dans la numérotation de la génération concernée, sans table de correspondance générale.
 
