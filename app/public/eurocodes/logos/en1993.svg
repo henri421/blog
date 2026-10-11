@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="grids" display="none">
+</g>
+<g id="bordo_esterno" display="none">
+	<g display="inline">
+		<path d="M24,0v24H0V0H24 M24.25-0.25H24H0h-0.25V0v24v0.25H0h24h0.25V24V0V-0.25L24.25-0.25z"/>
+	</g>
+</g>
+<g id="back_K" display="none">
+	<rect display="inline" width="24" height="24"/>
+</g>
+<g id="back_colour" display="none">
+	<rect display="inline" fill="#5E8AA5" width="24" height="24"/>
+</g>
+<g id="icon_K" display="none">
+	<polygon display="inline" points="14.001,6.001 20.01,6.001 20.01,2.996 4.004,2.996 4.004,6.001 10.001,6.001 11,7 11,17 10,18 
+		4,18 3.995,21 19.998,21 20.002,18 14,18 13,17 13,7.002 	"/>
+</g>
+<g id="icon_W" display="none">
+	<polygon display="inline" fill="#FFFFFF" points="20.01,5.996 20.01,2.996 4.004,2.996 4.004,5.996 10.5,5.996 10.5,18.007 
+		4.014,18.007 4.014,21.007 20.01,21.007 20.01,18.007 13.5,18.007 13.5,5.996 	"/>
+	<polygon display="inline" fill="#FFFFFF" points="14.001,6.001 20.01,6.001 20.01,2.996 4.004,2.996 4.004,6.001 10.001,6.001 
+		11,7 11,17 10,18 4,18 3.995,21 19.998,21 20.002,18 14,18 13,17 13,7.002 	"/>
+</g>
+<g id="icon_colour">
+	<polygon fill="#5E8AA5" points="14.001,6.001 20.01,6.001 20.01,2.996 4.004,2.996 4.004,6.001 10.001,6.001 11,7 11,17 10,18 
+		4,18 3.995,21 19.998,21 20.002,18 14,18 13,17 13,7.002 	"/>
+</g>
+</svg>

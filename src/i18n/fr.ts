@@ -96,6 +96,25 @@ export const fr = {
   'site.index-mots-cles': 'Index par mot-clé',
   'article.mots-cles': 'Mots-clés',
 
+  // ---- Arborescence (CDC v4 §3, lot 5) ----
+  'nav.accueil': 'Accueil',
+  'nav.fil': 'Vous êtes ici',
+  'nav.thematiques': 'Thématiques',
+  'thematique.eurocodes': 'Eurocodes traités ou à traiter',
+  'thematique.a-traiter': 'à traiter',
+  'thematique.avancement': 'Tableau d’avancement',
+  'eurocode.article': 'article publié',
+  'eurocode.articles': 'articles publiés',
+  'eurocode.annoncee': 'clause annoncée',
+  'eurocode.annoncees': 'clauses annoncées',
+  'eurocode.generaux': 'Articles généraux',
+  'eurocode.clauses': 'Clauses et thématiques',
+  'eurocode.note': 'Clauses dans l’ordre de la cartographie. Une clause publiée renvoie à son article ; une clause annoncée n’a pas encore d’article.',
+  'eurocode.publie': 'publié',
+  'eurocode.annonce': 'annoncé',
+  'eurocode.correspondance': 'Première génération',
+  'eurocode.sans-correspondance': 'sans correspondant',
+
   // ---- Generations ----
   'generation.ec2-2004': 'EN 1992-1-1:2004 + A1:2014',
   'generation.ec2-2023': 'EN 1992-1-1:2023',
