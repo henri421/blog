@@ -9,7 +9,7 @@ resume: Calendrier, périmètre élargi, paramètres nationaux, et le principe d
 motscles: calendrier, niveaux-approximation
 historique:
   - 2026-10-04 : première rédaction.
-  - 2026-10-11 : mention des structures côtières hors périmètre.
+  - 2026-10-11 : mention des structures côtières hors périmètre ; ponts (annexe K) dans le périmètre, selon la décision du 05/10.
 ---
 
 ## Ce qui change
@@ -28,7 +28,7 @@ Entre ces dates, un bureau d’études dispose du texte sans annexe nationale. L
 
 ## Un périmètre élargi
 
-La deuxième génération rassemble dans un même document des sujets qui vivaient dans des parties séparées ou hors de l’Eurocode : ponts, ouvrages de retenue des liquides, béton renforcé de fibres, bétons à granulats recyclés, armatures inoxydables, évaluation et renforcement des structures existantes. Ces sujets sont hors du périmètre de ce site, qui s’en tient au bâtiment courant et aux mécanismes présents dans les deux générations.
+La deuxième génération rassemble dans un même document des sujets qui vivaient dans des parties séparées ou hors de l’Eurocode : ponts, ouvrages de retenue des liquides, béton renforcé de fibres, bétons à granulats recyclés, armatures inoxydables, évaluation et renforcement des structures existantes. Ce site couvre la construction courante et les ouvrages d’art : les ponts (annexe K) entrent dans son périmètre. Les autres sujets en sont exclus, et le site s’en tient aux mécanismes présents dans les deux générations.
 
 Les structures côtières (quais, digues, murs de mer) sont aussi hors du périmètre de ce site : l’EN 1990-1 leur consacre une annexe propre (A.6), et leurs actions de houle et de courant relèvent d’une autre partie de l’EN 1991. Les articles sur le béton restent valables pour ces ouvrages, en particulier ceux sur l’enrobage et la durabilité.
 
