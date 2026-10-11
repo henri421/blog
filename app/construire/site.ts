@@ -12,7 +12,9 @@ import { join } from 'node:path';
 import { MECANISMES } from '../../src/noyau/index';
 import { dateFr, datesFr, t, type Cle } from '../../src/i18n/cle';
 import { MOTS_CLES, type MotCle } from '../../contenu/mots-cles';
-import { EUROCODES } from '../../contenu/cartographie/eurocodes';
+import { EUROCODES, type Eurocode } from '../../contenu/cartographie/eurocodes';
+import { THEMATIQUES, type Thematique } from '../../contenu/thematiques';
+import { corpsEurocode, filAriane, filArticle, sommaireThematique, verifierArborescence, vignette, vignettesThematique, etatTexte } from './arborescence';
 import { rendreAvancement } from './avancement';
 import { chantiers as listerChantiers, encadreChantiers, rendreChantiers } from './chantiers';
 import type { Chantier } from '../../contenu/chantiers';
@@ -40,6 +42,9 @@ function tete(titre: string): string {
     <nav class="barre">
       <div class="barre-corps">
         <a class="barre-nom" href="./index.html">${echapper(t('site.titre'))}</a>
+        <span class="barre-menu" aria-label="${echapper(t('nav.thematiques'))}">${THEMATIQUES.map(
+          (th) => `<a class="barre-lien" href="./${th.id}.html">${echapper(th.titre)}</a>`,
+        ).join(' ')}</span>
         <a class="barre-lien" href="${URL_SUITE}" target="_blank" rel="noopener">${echapper(t('site.suite'))} &#8599;</a>
       </div>
     </nav>`;
@@ -105,7 +110,7 @@ export function pageArticle(a: Article, chantiers: Chantier[] = []): string {
   );
   return `${tete(`${a.entete.titre} — ${t('site.titre')}`)}
     <main class="article">
-      <p class="retour"><a href="./index.html">← ${echapper(t('site.retour'))}</a></p>
+      ${filArticle(a.slug)}
       <h1>${echapper(a.entete.titre)}</h1>
       ${enTeteStatut(a)}
       ${liensMotsCles(a.entete.motscles)}
@@ -115,16 +120,30 @@ export function pageArticle(a: Article, chantiers: Chantier[] = []): string {
     <script type="application/json" id="exemples">${exemples}</script>${pied()}`;
 }
 
-export function pageAccueil(articles: Article[], chantiers: Chantier[] = []): string {
-  const cartes = articles
-    .map((a) => {
-      const pastille = a.entete.statut === 'publie' ? '' : `<span class="pastille">${echapper(t('article.brouillon'))}</span>`;
-      return `<li class="carte"><a href="./${a.slug}.html"><span class="carte-titre">${echapper(a.entete.titre)}</span>${pastille}</a>
+/** Fiche d un article dans un sommaire. */
+function carteArticle(a: Article): string {
+  const pastille = a.entete.statut === 'publie' ? '' : `<span class="pastille">${echapper(t('article.brouillon'))}</span>`;
+  return `<li class="carte"><a href="./${a.slug}.html"><span class="carte-titre">${echapper(a.entete.titre)}</span>${pastille}</a>
           <p>${echapper(a.entete.resume)}</p>
           <p class="carte-date">${echapper(t('article.revise'))} ${echapper(dateFr(a.entete.revise))}</p></li>`;
-    })
-    .join('\n        ');
+}
+
+/**
+ * Accueil, niveau 0 (CDC v4 §3) : les thematiques, chacune avec ses
+ * vignettes d Eurocode et le sommaire de ses articles, range par Eurocode.
+ */
+export function pageAccueil(articles: Article[], chantiers: Chantier[] = []): string {
   const publies = articles.some((a) => a.entete.statut === 'publie');
+  const thematiques = THEMATIQUES.map(
+    (th) => `<section class="thematique" id="${th.id}">
+      <h2><a href="./${th.id}.html">${echapper(th.titre)}</a></h2>
+      <p>${echapper(th.resume)}</p>
+      ${vignettesThematique(th, articles)}
+      <p class="retour"><a href="./${th.id}.html#avancement">${echapper(t('thematique.avancement'))}</a></p>
+      <h2>${echapper(t('site.articles'))}</h2>
+      ${sommaireThematique(th, articles, carteArticle)}
+      </section>`,
+  ).join('\n      ');
   return `${tete(t('site.titre'))}
     <main class="accueil">
       <header>
@@ -133,13 +152,36 @@ export function pageAccueil(articles: Article[], chantiers: Chantier[] = []): st
         ${publies ? '' : `<p class="avertissement">${echapper(t('site.chantier'))}</p>`}
       </header>
       <p class="retour"><a href="./mots-cles.html">${echapper(t('site.index-mots-cles'))}</a> · <a href="./chantiers.html">${echapper(t('chantiers.titre'))} (${chantiers.length})</a></p>
-      <h2>${echapper(t('avancement.titre'))}</h2>
+      ${thematiques}
+    </main>${pied()}`;
+}
+
+/**
+ * Page d une thematique, niveau 1 (CDC v4 §3) : vignettes des Eurocodes
+ * traites ou a traiter, puis le tableau d avancement (§6).
+ */
+export function pageThematique(th: Thematique, articles: Article[]): string {
+  return `${tete(`${th.titre} — ${t('site.titre')}`)}
+    <main class="accueil">
+      ${filAriane([{ libelle: th.titre }])}
+      <h1>${echapper(th.titre)}</h1>
+      <p class="sous-titre">${echapper(th.resume)}</p>
+      <h2>${echapper(t('thematique.eurocodes'))}</h2>
+      ${vignettesThematique(th, articles)}
+      <h2 id="avancement">${echapper(t('avancement.titre'))}</h2>
       <p class="note">${echapper(t('avancement.note'))}</p>
-      ${EUROCODES.map((e) => rendreAvancement(e.titre, e.cartes, articles)).join('\n      ')}
-      <h2>${echapper(t('site.articles'))}</h2>
-      <ul class="cartes">
-        ${cartes}
-      </ul>
+      ${th.eurocodes.map((e) => rendreAvancement(e.titre, e.cartes, articles)).join('\n      ')}
+    </main>${pied()}`;
+}
+
+/** Page d un Eurocode, niveau 2 (CDC v4 §3) : clauses de la cartographie, publiees ou annoncees. */
+export function pageEurocode(th: Thematique, e: Eurocode, articles: Article[]): string {
+  return `${tete(`${e.titre} — ${t('site.titre')}`)}
+    <main class="article">
+      ${filAriane([{ libelle: th.titre, lien: `./${th.id}.html` }, { libelle: e.code }])}
+      <ul class="vignettes vignette-seule">${vignette(e, etatTexte(e, articles))}</ul>
+      <h1>${echapper(e.titre)}</h1>
+      ${corpsEurocode(e, articles)}
     </main>${pied()}`;
 }
 
@@ -188,8 +230,13 @@ export function construireSite(racine: string): Record<string, string> {
     writeFileSync(chemin, html, 'utf8');
     pages[nom] = chemin;
   };
+  verifierArborescence(articles);
   const ouverts = listerChantiers(racine, EUROCODES, articles);
   ecrire('index', pageAccueil(articles, ouverts));
+  for (const th of THEMATIQUES) {
+    ecrire(th.id, pageThematique(th, articles));
+    for (const e of th.eurocodes) ecrire(e.id, pageEurocode(th, e, articles));
+  }
   ecrire('mots-cles', pageMotsCles(articles));
   ecrire('chantiers', pageChantiers(articles, ouverts));
   for (const a of articles) ecrire(a.slug, pageArticle(a, ouverts));

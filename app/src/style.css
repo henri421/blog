@@ -64,6 +64,45 @@ a { color: var(--accent); }
 }
 .barre-nom { font-weight: 600; color: var(--texte); text-decoration: none; }
 .barre-lien { color: var(--accent); text-decoration: none; }
+.barre-menu { flex: 1; display: flex; gap: 1rem; }
+
+/* ---- Arborescence (CDC v4 §3) ---- */
+.fil { font-size: 0.9rem; margin: 1rem 0 0; }
+.fil ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.25rem; }
+.fil li + li::before { content: "›"; color: var(--texte-faible); margin-right: 0.25rem; }
+.fil li[aria-current] { color: var(--texte-doux); }
+.vignettes { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.75rem; }
+.vignette > a, .vignette > div {
+  display: flex; gap: 0.75rem; align-items: center; height: 100%; box-sizing: border-box;
+  background: var(--surface); border: 1px solid var(--bordure); border-radius: var(--rayon);
+  padding: 0.6rem 0.8rem; text-decoration: none; color: var(--texte);
+}
+.vignette.a-traiter > div { color: var(--texte-faible); }
+.vignette.a-traiter .vignette-logo { opacity: 0.55; }
+.vignette-logo { width: 56px; height: 56px; flex: none; }
+.vignette-repli {
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid var(--bordure); border-radius: var(--rayon); font-weight: 600; font-size: 0.95rem;
+}
+.vignette-texte { display: flex; flex-direction: column; }
+.vignette-code { font-weight: 600; }
+.vignette-intitule { font-size: 0.9rem; }
+.vignette-etat { font-size: 0.8rem; color: var(--texte-faible); }
+.vignette-seule { grid-template-columns: minmax(0, 22rem); margin-bottom: 0; }
+.sommaire-eurocode { margin-top: 1.5rem; }
+.clauses, .generaux { list-style: none; padding: 0; margin: 0.3rem 0 0.8rem; }
+.clause { display: flex; gap: 0.6rem; align-items: baseline; padding: 0.2rem 0; border-bottom: 1px solid var(--bordure-douce); font-size: 0.92rem; }
+.clause-num { flex: none; min-width: 3.5rem; color: var(--texte-doux); }
+.clause-titre { flex: 1; }
+.clause-corresp { color: var(--texte-faible); font-size: 0.8rem; margin-left: 0.5rem; }
+.clause-etat { flex: none; font-size: 0.8rem; color: var(--texte-faible); }
+.clause.publie .clause-etat { color: var(--texte); }
+.clause.exclu, .clause.reporte { color: var(--texte-faible); }
+
+@media (max-width: 40rem) {
+  .barre-corps { flex-wrap: wrap; }
+  .clause { flex-wrap: wrap; }
+}
 
 main, .pied { max-width: 50rem; margin: 0 auto; padding: 0 1rem; }
 .pied { color: var(--texte-faible); font-size: 0.85rem; border-top: 1px solid var(--bordure-douce); margin-top: 3rem; padding-bottom: 2rem; }
