@@ -66,6 +66,7 @@ describe('articles', () => {
       'combinaisons-elu',
       'reduction-charges-exploitation',
       'classes-consequences',
+      'equilibre-statique',
     ]);
   });
 

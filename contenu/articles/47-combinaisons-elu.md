@@ -20,15 +20,15 @@ Pour un bâtiment, la vérification de la résistance structurale combine les ac
 - **la méthode par défaut** est (8.12), sauf choix contraire de l’annexe nationale. En 2002, le choix entre (6.10) et (6.10a/b) relevait de l’annexe nationale.
 
 $$
-\sum F_d = \gamma_G\,G_k + \gamma_Q\,Q_{k,1} + \gamma_Q\,\psi_0\,Q_{k,2} \qquad (8.12)
+\sum F_d = \gamma_G\,G_k + \gamma_Q\,Q_{k,1} + \gamma_Q\,\psi_0\,Q_{k,2} \qquad \text{(8.12)}
 $$
 
 $$
-\sum F_d = \max\left\{\gamma_G\,G_k + \gamma_Q\,\psi_{0,1}\,Q_{k,1} + \gamma_Q\,\psi_0\,Q_{k,2} \,;\, \xi\,\gamma_G\,G_k + \gamma_Q\,Q_{k,1} + \gamma_Q\,\psi_0\,Q_{k,2}\right\} \qquad (8.13)
+\sum F_d = \max\left\{\gamma_G\,G_k + \gamma_Q\,\psi_{0,1}\,Q_{k,1} + \gamma_Q\,\psi_0\,Q_{k,2} \,;\, \xi\,\gamma_G\,G_k + \gamma_Q\,Q_{k,1} + \gamma_Q\,\psi_0\,Q_{k,2}\right\} \qquad \text{(8.13)}
 $$
 
 $$
-\sum F_d = \max\left\{\gamma_G\,G_k \,;\, \xi\,\gamma_G\,G_k + \gamma_Q\,Q_{k,1} + \gamma_Q\,\psi_0\,Q_{k,2}\right\} \qquad (8.14)
+\sum F_d = \max\left\{\gamma_G\,G_k \,;\, \xi\,\gamma_G\,G_k + \gamma_Q\,Q_{k,1} + \gamma_Q\,\psi_0\,Q_{k,2}\right\} \qquad \text{(8.14)}
 $$
 
 avec $\xi$ = 0,85, et $\xi\,\gamma_G \ge 1.0$ (A.1.7(3)).

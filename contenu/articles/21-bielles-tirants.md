@@ -39,7 +39,7 @@ La contrainte dans la bielle se calcule sur sa section : $\sigma_{cd} = F_{cd}/(
 En 2023, $\nu(\theta_{cs})$ se lit par paliers, 0,40 de 20° à 30°, 0,55 jusqu’à 40°, 0,70 jusqu’à 60°, 0,85 au-delà (8.115 à 8.118), ou se calcule de façon continue :
 
 $$
-\nu = \frac{1}{1.11 + 0.22\,\cot^2\theta_{cs}} \quad (8.119), \qquad \nu = \frac{1}{1.0 + 110\,\varepsilon_1} \le 1.0 \quad (8.121)
+\nu = \frac{1}{1.11 + 0.22\,\cot^2\theta_{cs}} \quad \text{(8.119)}, \qquad \nu = \frac{1}{1.0 + 110\,\varepsilon_1} \le 1.0 \quad \text{(8.121)}
 $$
 
 la seconde à partir de la déformation principale de traction $\varepsilon_1$ tirée d’une analyse de l’élément fissuré. Les angles inférieurs à 20° ne sont pas couverts. Pour un ancrage en partie dans le nœud, le texte prévoit une interpolation que le calculateur ne traite pas.

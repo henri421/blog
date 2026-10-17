@@ -27,7 +27,7 @@ Une charge excentrée concentre la pression d’un côté. La première généra
 ## Le calcul dans les deux générations
 
 $$
-F_{Rdu} = A_{c0}\,f_{cd}\,\sqrt{\frac{A_{c1}}{A_{c0}}} \le 3\,f_{cd}\,A_{c0} \quad (6.63), \qquad \sigma_{Rdu} = f_{cd}\,\sqrt{\frac{A_{c1}}{A_{c0}}} \le \nu_{part}\,f_{cd} \quad (8.126)
+F_{Rdu} = A_{c0}\,f_{cd}\,\sqrt{\frac{A_{c1}}{A_{c0}}} \le 3\,f_{cd}\,A_{c0} \quad \text{(6.63)}, \qquad \sigma_{Rdu} = f_{cd}\,\sqrt{\frac{A_{c1}}{A_{c0}}} \le \nu_{part}\,f_{cd} \quad \text{(8.126)}
 $$
 
 En 2023 : $A_{c0,red} = (a_0 - 2\,e_a)(b_0 - 2\,e_b)$ pour une charge excentrée, $A_{c1} = a_1\,b_1$ avec $b_1 = \min(b_0 + (a_1 - a_0) ; b)$, $\nu_{part}$ = 3,0, et une hauteur de bloc au moins égale à $a_1$.

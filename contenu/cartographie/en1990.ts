@@ -75,7 +75,16 @@ export const EN1990_1: Carte = {
         c('8.1', 'Généralités et limites', ['6.1']),
         c('8.3.1', 'ELU : généralités, équilibre, résistance, fatigue', ['6.4.1']),
         c('8.3.2', 'ELU : valeurs de calcul des effets des actions', ['6.3.2']),
-        c('8.3.3', 'ELU : valeurs de calcul des actions', ['6.3.1']),
+        c('8.3.3', 'ELU : valeurs de calcul des actions', ['6.3.1'], {
+          article: 'equilibre-statique',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'equilibre-statique', 'equ', 'A1.2(A)'),
+            n('en1990-2002', 'equilibre-statique', 'equ-str', 'A1.2(A)'),
+            n('en1990-2023', 'equilibre-statique', 'vc2', '8.3.3.1(5)'),
+          ],
+          reserves: 'Poutre à console sous poids propre et charge variable ; γG,stb = 1,15 sans kF (tableau A.1.8) ; VC3, VC4 (GEO) et actions de l’eau non codés. Texte de 2002 non détenu.',
+        }),
         c('8.3.4', 'ELU : combinaisons d’actions', ['6.4.3'], {
           article: 'combinaisons-elu',
           ingeree: true,
