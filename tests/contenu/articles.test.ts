@@ -69,6 +69,7 @@ describe('articles', () => {
       'equilibre-statique',
       'criteres-service',
       'neige-toitures',
+      'pression-pointe-vent',
     ]);
   });
 

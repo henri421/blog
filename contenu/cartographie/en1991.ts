@@ -119,7 +119,12 @@ export const EN1991_1_4: Carte = {
         c('6.2', 'Valeurs de référence de la vitesse du vent', ['4.2'], { annexes: [ann('K', 'informative'), ann('L', 'informative')] }),
         c('6.3', 'Vitesse moyenne et pression moyenne', ['4.3'], { annexes: [ann('A', 'informative')] }),
         c('6.4', 'Turbulence', ['4.4']),
-        c('6.5', 'Vitesse et pression dynamique de pointe', ['4.5']),
+        c('6.5', 'Vitesse et pression dynamique de pointe', ['4.5'], {
+          article: 'pression-pointe-vent',
+          ingeree: true,
+          niveaux: [n('en1991-1-4-2005', 'pression-pointe', 'qp', '4.5'), n('en1991-1-4-2026', 'pression-pointe', 'qp', '6.5')],
+          reserves: 'Terrain plat (co = 1), cdir = cseason = cprob = 1 ; kr par (6.7), pas par le tableau 6.1 arrondi ; z0 et zmin saisis ; coefficient structural (annexe E) décrit, non codé. Texte de 2005 non détenu.',
+        }),
         c('7', 'Pressions et forces du vent', ['5', '7'], { annexes: [ann('B', 'normative'), ann('C', 'normative'), ann('D', 'normative')] }),
         c('8', 'Coefficient structural', ['6'], { annexes: [ann('E', 'informative'), ann('F', 'informative'), ann('H', 'informative')] }),
         c('9', 'Phénomènes aéroélastiques', ['8'], { annexes: [ann('G', 'informative')] }),
