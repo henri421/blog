@@ -67,6 +67,7 @@ describe('articles', () => {
       'reduction-charges-exploitation',
       'classes-consequences',
       'equilibre-statique',
+      'criteres-service',
     ]);
   });
 

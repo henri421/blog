@@ -103,7 +103,17 @@ export const EN1990_1: Carte = {
         c('8.4.1', 'ELS : généralités', ['6.5.1']),
         c('8.4.2', 'ELS : valeurs de calcul des effets des actions', ['6.5.2']),
         c('8.4.3', 'ELS : combinaisons d’actions', ['6.5.3']),
-        c('8.4.4', 'ELS : critères', ['6.5.4']),
+        c('8.4.4', 'ELS : critères', ['6.5.4'], {
+          article: 'criteres-service',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'fleche-batiment', 'dommage', 'A1.4.3'),
+            n('en1990-2002', 'fleche-batiment', 'apparence', 'A1.4.3'),
+            n('en1990-2023', 'fleche-batiment', 'dommage', 'A.1.8.2.2'),
+            n('en1990-2023', 'fleche-batiment', 'apparence', 'A.1.8.2.2'),
+          ],
+          reserves: 'Flèches verticales seules ; limites saisies (tableau A.1.10 non reproduit) ; combinaisons 8.4.3 décrites dans le même article ; confort, déplacements, vibrations et fondations décrits, non codés ; ψ des catégories H à T du tableau A.1.7 mal alignés dans la version NBN.',
+        }),
         c('8.4.5', 'ELS : propriétés des matériaux et géométrie', ['6.5.4']),
       ],
     },
