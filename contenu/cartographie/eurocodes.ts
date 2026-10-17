@@ -5,7 +5,7 @@
 
 import type { Carte } from './types';
 import { EN1990_1, EN1990_2 } from './en1990';
-import { EN1991_1_1, EN1991_1_2, EN1991_1_3, EN1991_1_4, EN1991_1_5, EN1991_1_6, EN1991_1_7, EN1991_2, EN1991_3, EN1991_4 } from './en1991';
+import { EN1991_1_1, EN1991_1_2, EN1991_1_3, EN1991_1_4, EN1991_1_5, EN1991_1_6, EN1991_1_7, EN1991_1_8, EN1991_1_9, EN1991_2, EN1991_3, EN1991_4 } from './en1991';
 import { EN1992 } from './en1992';
 
 export interface Eurocode {
@@ -43,7 +43,7 @@ export const EUROCODES: Eurocode[] = [
   eurocode('en1991', 'EN 1991', 'Actions sur les structures', {
     logo: 'en1991.svg',
     documentation: 'en1991.md',
-    cartes: [EN1991_1_1, EN1991_1_2, EN1991_1_3, EN1991_1_4, EN1991_1_5, EN1991_1_6, EN1991_1_7, EN1991_2, EN1991_3, EN1991_4],
+    cartes: [EN1991_1_1, EN1991_1_2, EN1991_1_3, EN1991_1_4, EN1991_1_5, EN1991_1_6, EN1991_1_7, EN1991_1_8, EN1991_1_9, EN1991_2, EN1991_3, EN1991_4],
   }),
   eurocode('en1992', 'EN 1992', 'Structures en béton', {
     logo: 'en1992.svg',

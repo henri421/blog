@@ -248,6 +248,22 @@ export const EN1991_2: Carte = {
   ],
 };
 
+export const EN1991_1_8 = REPORTEE(
+  'en1991-1-8',
+  'EN 1991-1-8',
+  'aucune (fondée sur l’ISO 21650:2007)',
+  'Actions des vagues et des courants sur les structures côtières',
+  'structures côtières : hors périmètre, comme l’EN 1990 A.6 (décision de l’auteur du 11/10/2026) ; texte non détenu',
+);
+
+export const EN1991_1_9 = REPORTEE(
+  'en1991-1-9',
+  'EN 1991-1-9',
+  'aucune (fondée sur l’ISO 12494:2001)',
+  'Givre atmosphérique',
+  'givre atmosphérique : concerne surtout les mâts, pylônes et lignes, déjà reportés ; à confirmer par l’auteur (18/10/2026) ; texte non détenu',
+);
+
 export const EN1991_3 = REPORTEE('en1991-3', 'EN 1991-3:2026', 'EN 1991-3:2006', 'Actions des appareils de levage et des machines', 'appareils de levage : reporté par l’auteur (05/10/2026)');
 
 export const EN1991_4 = REPORTEE(
