@@ -63,6 +63,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Recouvrements par boucles et par barres à tête | `recouvrement-boucle`, `recouvrement-tete` | 0 / 1 et 0 / 1 |
 | Combinaisons d’actions à l’ELU (EN 1990) | `combinaison-elu` | 2 / 3 |
 | Réduction des charges d’exploitation et cloisons (EN 1991-1-1) | `reduction-exploitation`, `charge-cloisons` | 2 / 3 et 1 / 1 |
+| Classes de conséquences et facteur kF (EN 1990) | `facteur-consequence` | 1 / 1 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 

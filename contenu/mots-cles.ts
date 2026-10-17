@@ -43,6 +43,7 @@ export const MOTS_CLES = [
   'poutre',
   'combinaisons',
   'actions',
+  'fiabilite',
 ] as const;
 
 export type MotCle = (typeof MOTS_CLES)[number];

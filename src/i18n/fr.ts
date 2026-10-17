@@ -34,6 +34,7 @@ export const fr = {
   // ---- Mots-cles (contenu/mots-cles.ts) ----
   'motcle.combinaisons': 'Combinaisons d’actions',
   'motcle.actions': 'Actions sur les structures',
+  'motcle.fiabilite': 'Fiabilité et classes de conséquences',
   'motcle.calendrier': 'Calendrier et transition',
   'motcle.niveaux-approximation': 'Niveaux d’approximation',
   'motcle.materiaux-beton': 'Propriétés du béton',
@@ -145,6 +146,8 @@ export const fr = {
     'Annexe O, informative : méthodes simplifiées du second ordre ; son emploi dépend de l’annexe nationale, non publiée.',
   'reserve.annexe-i':
     'Annexe I, informative, prévue pour l’évaluation des structures existantes : son emploi dépend de l’annexe nationale, non publiée ; γdef = 1,33 recommandé.',
+  'reserve.en1990-2002-b':
+    'EN 1990:2002, annexe B, informative : le facteur KFI n’était appliqué que si l’annexe nationale ou le projet le retenaient.',
   'statut.donnees-manquantes': 'Données manquantes',
   'statut.iterations': 'Itérations',
 
@@ -218,6 +221,8 @@ export const fr = {
   'motif.scellee-sigma-435': 'La contrainte dans une barre scellée est limitée à 435 MPa, sauf essais (11.4.8(4)).',
   'motif.plastique-rapport-moments': 'Rapport des moments sur appuis aux moments en travée hors de 0,5 à 2 : la capacité de rotation est à vérifier.',
   'motif.cloison-lourde': 'Cloison de plus de 3,0 kN/m : elle se modélise comme une charge linéique, pas comme une charge répartie.',
+  'motif.cc0': 'Classe CC0 : les Eurocodes ou d’autres dispositions peuvent être utilisés (4.3(3)) ; pas de facteur de conséquence.',
+  'motif.cc4': 'Classe CC4 : les Eurocodes ne suffisent pas, des dispositions complémentaires sont nécessaires (4.3, NOTE 3).',
 
   // ---- Mecanismes ----
   'meca.tsa.titre': 'Effort tranchant sans armature d’âme',
@@ -233,6 +238,7 @@ export const fr = {
   'meca.comb.titre': 'Combinaisons d’actions à l’ELU (bâtiments, STR)',
   'meca.red-q.titre': 'Réduction des charges d’exploitation (surface et nombre d’étages)',
   'meca.cloisons.titre': 'Charge répartie équivalente aux cloisons mobiles',
+  'meca.kf.titre': 'Facteur de conséquence sur les actions (classes de conséquences)',
   'meca.tete.titre': 'Ancrage par tête d’ancrage',
   'meca.man.titre': 'Diamètre des mandrins de cintrage',
   'meca.fat.acier.titre': 'Fatigue des armatures, vérification simplifiée',
@@ -362,6 +368,7 @@ export const fr = {
   'grandeur.effet-calcul-elu': 'Valeur de calcul de l’effet des actions Ed',
   'grandeur.coefficient-reduction': 'Coefficient de réduction des charges d’exploitation',
   'grandeur.charge-cloisons': 'Charge répartie équivalente qk,p',
+  'grandeur.facteur-consequence': 'Facteur de conséquence kF',
   'grandeur.unite': 'Limite',
   'grandeur.phi-ef': 'Coefficient de fluage effectif',
   'grandeur.contrainte-eps-ud': 'Contrainte de calcul à la déformation limite εud',
@@ -585,9 +592,11 @@ export const fr = {
   'champ.Q2-effet': 'Effet de l’action variable d’accompagnement Qk,2',
   'champ.psi02': 'Coefficient ψ0 de l’action d’accompagnement',
   'champ.classe-consequences': 'Classe de conséquences',
+  'option.cc.CC0': 'CC0, conséquences minimales',
   'option.cc.CC1': 'CC1, conséquences faibles',
   'option.cc.CC2': 'CC2, conséquences normales',
   'option.cc.CC3': 'CC3, conséquences élevées',
+  'option.cc.CC4': 'CC4, conséquences maximales',
   'champ.A-tributaire': 'Surface chargée (tributaire) par étage',
   'champ.n-etages': 'Nombre d’étages au-dessus de l’élément',
   'champ.categorie-usage': 'Catégorie d’usage',
@@ -830,6 +839,8 @@ export const fr = {
   'niveau.red-q.2025.cumul': 'Cumul permis : αA × αn, au moins 0,50 (6.5.3.2(2)).',
   'niveau.cloisons.2002': 'qk = 0,5, 0,8 ou 1,2 kN/m² selon la classe de poids (≤ 1, ≤ 2, ≤ 3 kN/m) (6.3.1.2(8)).',
   'niveau.cloisons.2025': 'qk,p = max{0,35 ; 0,4 Qk,p}, Qk,p ≤ 3,0 kN/m (6.1).',
+  'niveau.kf.2002': 'KFI = 0,9, 1,0 ou 1,1 (RC1 à RC3) sur les actions défavorables (annexe B, informative).',
+  'niveau.kf.2023': 'kF = 0,9, 1,0 ou 1,1 (CC1 à CC3) ; γG = 1,35 kF, γQ = 1,5 kF (tableaux A.1.8, A.1.9).',
   'niveau.dev.2004': 'l0t/b ≤ 50/(h/b)^(1/3) et h/b ≤ 2,5 (durable) ; 70 et 3,5 (transitoire).',
   'niveau.dev.2023': 'l0t/b ≤ 50/(h/b)^(1/3) (durable), 70/(h/b)^(1/3) (transitoire), sans condition sur h/b.',
   'niveau.lp.2004.reduite': 'Tous les états limites : beff = Σ min(0,2 bi + 0,1 l0 ; 0,2 l0 ; bi) + bw.',

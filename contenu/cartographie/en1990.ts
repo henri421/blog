@@ -23,7 +23,12 @@ export const EN1990_1: Carte = {
       clauses: [
         c('4.1', 'Exigences de base', ['2.1']),
         c('4.2', 'Fiabilité structurale', ['2.2']),
-        c('4.3', 'Conséquences d’une défaillance, classes de conséquences', ['B.3']),
+        c('4.3', 'Conséquences d’une défaillance, classes de conséquences', ['B.3'], {
+          article: 'classes-consequences',
+          ingeree: true,
+          niveaux: [n('en1990-2002', 'facteur-consequence', 'kf', 'B3.3'), n('en1990-2023', 'facteur-consequence', 'kf', '4.3')],
+          reserves: 'Bâtiments (tableau A.1.9) ; CC3a et CC3b des ponts décrites, non codées. Texte de 2002 non détenu.',
+        }),
         c('4.4', 'Robustesse', ['2.1'], { annexes: [ann('E', 'informative')] }),
         c('4.5', 'Durée d’utilisation de projet', ['2.3']),
         c('4.6', 'Durabilité', ['2.4']),

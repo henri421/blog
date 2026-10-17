@@ -65,6 +65,7 @@ describe('articles', () => {
       'recouvrements-boucles-tetes',
       'combinaisons-elu',
       'reduction-charges-exploitation',
+      'classes-consequences',
     ]);
   });
 
