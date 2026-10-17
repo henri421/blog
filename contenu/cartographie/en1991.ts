@@ -85,7 +85,17 @@ export const EN1991_1_3: Carte = {
         c('5', 'Modélisation et classification de la charge de neige', ['2']),
         c('6', 'Charge de neige sur le sol', ['4'], { annexes: [ann('A', 'informative'), ann('B', 'informative')] }),
         c('7.1', 'Toitures : dispositions des charges', ['5.1']),
-        c('7.2', 'Toitures : détermination de la charge', ['5.2']),
+        c('7.2', 'Toitures : détermination de la charge', ['5.2'], {
+          article: 'neige-toitures',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-3-2003', 'neige-toiture', 'uniforme', '5.2(3)'),
+            n('en1991-1-3-2003', 'neige-toiture', 'pluie', '—'),
+            n('en1991-1-3-2025', 'neige-toiture', 'uniforme', '7.2(1)'),
+            n('en1991-1-3-2025', 'neige-toiture', 'pluie', '7.2(4)'),
+          ],
+          reserves: 'Toitures terrasses, disposition uniforme ; versants, toitures multiples, cylindriques, dômes, panneaux inclinés et congères (8.3, calculées à la main dans l’article) non codés. Texte de 2003 non détenu.',
+        }),
         c('7.3', 'Coefficient d’exposition', ['5.2']),
         c('7.4', 'Coefficient thermique', ['5.2']),
         c('7.5', 'Coefficients de forme', ['5.3']),

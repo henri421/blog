@@ -68,6 +68,7 @@ describe('articles', () => {
       'classes-consequences',
       'equilibre-statique',
       'criteres-service',
+      'neige-toitures',
     ]);
   });
 
