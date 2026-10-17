@@ -15,6 +15,7 @@ import { deviation } from './mecanismes/deviation/index';
 import { recouvrementBoucle, recouvrementTete } from './mecanismes/recouvrement-boucle-tete/index';
 import { combinaisonElu } from './mecanismes/combinaison-elu/index';
 import { reductionExploitation } from './mecanismes/reduction-exploitation/index';
+import { chargeCloisons } from './mecanismes/charge-cloisons/index';
 import { mandrin } from './mecanismes/mandrin/index';
 import { fatigueAcier, fatigueBeton, fatigueTranchant } from './mecanismes/fatigue/index';
 import { nonArmeCompression, nonArmeTranchant, semelleNonArmee } from './mecanismes/beton-non-arme/index';
@@ -65,7 +66,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { acierCalcul, analysePlastique, ancrageBoucle, armatureScellee, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, pertesDifferees, postTension, precontrainteTension, pretension, semelleNonArmee, teteAncrage, integrite, deviation, recouvrementBoucle, recouvrementTete, combinaisonElu, reductionExploitation };
+export { acierCalcul, analysePlastique, ancrageBoucle, armatureScellee, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, pertesDifferees, postTension, precontrainteTension, pretension, semelleNonArmee, teteAncrage, integrite, deviation, recouvrementBoucle, recouvrementTete, combinaisonElu, reductionExploitation, chargeCloisons };
 export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, diffusion, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -101,6 +102,7 @@ export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
   [recouvrementTete.id]: recouvrementTete as unknown as Mecanisme<Record<string, unknown>>,
   [combinaisonElu.id]: combinaisonElu as unknown as Mecanisme<Record<string, unknown>>,
   [reductionExploitation.id]: reductionExploitation as unknown as Mecanisme<Record<string, unknown>>,
+  [chargeCloisons.id]: chargeCloisons as unknown as Mecanisme<Record<string, unknown>>,
   [mandrin.id]: mandrin as unknown as Mecanisme<Record<string, unknown>>,
   [fatigueAcier.id]: fatigueAcier as unknown as Mecanisme<Record<string, unknown>>,
   [fatigueBeton.id]: fatigueBeton as unknown as Mecanisme<Record<string, unknown>>,
