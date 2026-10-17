@@ -95,7 +95,7 @@ export const EN1990_1: Carte = {
             n('en1990-2023', 'combinaison-elu', 'e813', '8.3.4.2(2)'),
             n('en1990-2023', 'combinaison-elu', 'e814', '8.3.4.2(2)'),
           ],
-          reserves: 'Situations durables et transitoires, bâtiments, STR (VC1) ; accidentelles, sismiques, EQU et GEO non codées. Texte de 2002 lu au travers de la synthèse NBN-CSTC.',
+          reserves: 'Situations durables et transitoires, bâtiments, STR (VC1) ; accidentelles dans l’article combinaisons-accidentelles, équilibre (VC2) dans equilibre-statique ; sismiques et GEO non codées. Texte de 2002 lu au travers de la synthèse NBN-CSTC.',
         }),
         c('8.3.5', 'ELU : valeurs de calcul des résistances', ['6.3.5']),
         c('8.3.6', 'ELU : propriétés de calcul des matériaux', ['6.3.3']),

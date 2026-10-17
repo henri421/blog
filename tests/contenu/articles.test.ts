@@ -70,6 +70,7 @@ describe('articles', () => {
       'criteres-service',
       'neige-toitures',
       'pression-pointe-vent',
+      'combinaisons-accidentelles',
     ]);
   });
 

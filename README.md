@@ -68,6 +68,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Combinaisons et critères à l’ELS des bâtiments (EN 1990) | `fleche-batiment` | 2 / 2 |
 | Neige sur les toitures terrasses (EN 1991-1-3) | `neige-toiture` | 2 / 2 |
 | Pression dynamique de pointe du vent (EN 1991-1-4) | `pression-pointe` | 1 / 1 |
+| Combinaisons accidentelles et incendie (EN 1990, EN 1991-1-2) | `combinaison-accidentelle` | 1 / 1 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 
