@@ -77,6 +77,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Variables de base et actions de l’eau (EN 1990) | `valeur-permanente` | 3 / 3 |
 | Matériaux, géométrie et résistances de calcul (EN 1990) | `resistance-calcul` | 2 / 2 |
 | Dimensionnement assisté par l’expérimentation (EN 1990) | `essais-caracteristique` | 2 / 2 |
+| Bases de calcul des ponts (EN 1990, A.2) | `combinaison-pont` | 1 / 1 |
 
 ## Principes
 

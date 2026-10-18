@@ -77,6 +77,7 @@ describe('articles', () => {
       'variables-de-base',
       'materiaux-resistances',
       'essais',
+      'ponts-bases',
     ]);
   });
 

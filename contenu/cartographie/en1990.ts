@@ -280,7 +280,15 @@ export const EN1990_1: Carte = {
       titre: 'Annexe A (normative) : règles d’application',
       clauses: [
         c('A.1', 'Bâtiments : coefficients ψ, coefficients partiels, combinaisons', ['A1']),
-        c('A.2', 'Ponts : coefficients ψ, coefficients partiels, combinaisons', ['A2']),
+        c('A.2', 'Ponts : coefficients ψ, coefficients partiels, combinaisons', ['A2'], {
+          article: 'ponts-bases',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'combinaison-pont', 'str', 'A2.3.1'),
+            n('en1990-2023', 'combinaison-pont', 'str', 'A.2.8'),
+          ],
+          reserves: 'Pont routier, gr1a et température, VC1 ; passerelles, ponts ferroviaires, VC2 à VC4 et critères de service décrits. Texte de 2005 non détenu.',
+        }),
         c('A.3', 'Tours, mâts et cheminées', [], reporte('tours, mâts et cheminées : reporté par l’auteur (05/10/2026)')),
         c('A.4', 'Silos et réservoirs', [], reporte('silos et réservoirs : reporté par l’auteur (05/10/2026)')),
         c('A.5', 'Structures supportant des appareils de levage ou des machines', [], reporte('appareils de levage : reporté par l’auteur (05/10/2026)')),
