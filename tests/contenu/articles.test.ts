@@ -103,6 +103,7 @@ describe('articles', () => {
       'ponts-fatigue-routiere',
       'ponts-collisions-geotechnique',
       'ponts-ferroviaires-charges-dynamique',
+      'ponts-ferroviaires-actions-horizontales',
     ]);
   });
 

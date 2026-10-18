@@ -103,6 +103,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Ponts routiers, fatigue (EN 1991-2) | `fatigue-routiere` | 2 / 2 |
 | Ponts routiers, collisions, garde-corps, remblais (EN 1991-2) | `remblai-trafic` | 0 / 1 |
 | Ponts ferroviaires, charges verticales et coefficient dynamique (EN 1991-2) | `coefficient-dynamique-rail` | 1 / 1 |
+| Ponts ferroviaires, forces horizontales et autres actions (EN 1991-2) | `centrifuge-rail` | 1 / 1 |
 
 ## Principes
 
