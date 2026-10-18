@@ -73,6 +73,7 @@ describe('articles', () => {
       'combinaisons-accidentelles',
       'bases-fiabilite',
       'robustesse',
+      'etats-limites-actions-effets',
     ]);
   });
 

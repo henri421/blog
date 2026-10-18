@@ -73,6 +73,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
 | Exigences de base, fiabilité et qualité (EN 1990) | `fiabilite` | 1 / 1 |
 | Robustesse et tirants (EN 1990, EN 1991-1-7) | `tirants-robustesse` | 2 / 2 |
+| États-limites, analyse, actions ou effets (EN 1990) | `actions-effets` | 2 / 2 |
 
 ## Principes
 

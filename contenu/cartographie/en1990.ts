@@ -74,11 +74,31 @@ export const EN1990_1: Carte = {
       numero: '5',
       titre: 'Principes du calcul aux états-limites',
       clauses: [
-        c('5.1', 'États-limites : généralités', ['3.1']),
-        c('5.2', 'Situations de projet', ['3.2']),
-        c('5.3', 'États-limites ultimes', ['3.3']),
-        c('5.4', 'États-limites de service', ['3.4']),
-        c('5.5', 'Modèles structuraux, géotechniques et de charges', ['3.5']),
+        c('5.1', 'États-limites : généralités', ['3.1'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.2', 'Situations de projet', ['3.2'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.3', 'États-limites ultimes', ['3.3'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.4', 'États-limites de service', ['3.4'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.5', 'Modèles structuraux, géotechniques et de charges', ['3.5'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
       ],
     },
     {
@@ -97,8 +117,17 @@ export const EN1990_1: Carte = {
       numero: '7',
       titre: 'Analyse structurale et dimensionnement assisté par l’expérimentation',
       clauses: [
-        c('7.1', 'Modélisation : actions statiques, dynamiques, fatigue, feu', ['5.1'], { annexes: [ann('F', 'informative')] }),
-        c('7.2', 'Analyse linéaire et non linéaire', ['5.1']),
+        c('7.1', 'Modélisation : actions statiques, dynamiques, fatigue, feu', ['5.1'], {
+          annexes: [ann('F', 'informative')],
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('7.2', 'Analyse linéaire et non linéaire', ['5.1'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
         c('7.3', 'Dimensionnement assisté par l’expérimentation', ['5.2'], { annexes: [ann('D', 'informative')] }),
       ],
     },
@@ -106,9 +135,27 @@ export const EN1990_1: Carte = {
       numero: '8',
       titre: 'Méthode des coefficients partiels',
       clauses: [
-        c('8.1', 'Généralités et limites', ['6.1']),
-        c('8.3.1', 'ELU : généralités, équilibre, résistance, fatigue', ['6.4.1']),
-        c('8.3.2', 'ELU : valeurs de calcul des effets des actions', ['6.3.2']),
+        c('8.1', 'Généralités et limites', ['6.1'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('8.3.1', 'ELU : généralités, équilibre, résistance, fatigue', ['6.4.1'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('8.3.2', 'ELU : valeurs de calcul des effets des actions', ['6.3.2'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'actions-effets', 'actions', '6.3.2'),
+            n('en1990-2002', 'actions-effets', 'effets', '6.3.2(4)'),
+            n('en1990-2023', 'actions-effets', 'actions', '8.3.2.2'),
+            n('en1990-2023', 'actions-effets', 'effets', '8.3.2.3'),
+          ],
+          reserves: 'Action unique et loi E = k F^p ; γSd séparé (8.3) non codé. Texte de 2002 non détenu.',
+        }),
         c('8.3.3', 'ELU : valeurs de calcul des actions', ['6.3.1'], {
           article: 'equilibre-statique',
           ingeree: true,
@@ -134,9 +181,21 @@ export const EN1990_1: Carte = {
         c('8.3.5', 'ELU : valeurs de calcul des résistances', ['6.3.5']),
         c('8.3.6', 'ELU : propriétés de calcul des matériaux', ['6.3.3']),
         c('8.3.7', 'ELU : propriétés géométriques de calcul', ['6.3.4']),
-        c('8.4.1', 'ELS : généralités', ['6.5.1']),
-        c('8.4.2', 'ELS : valeurs de calcul des effets des actions', ['6.5.2']),
-        c('8.4.3', 'ELS : combinaisons d’actions', ['6.5.3']),
+        c('8.4.1', 'ELS : généralités', ['6.5.1'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('8.4.2', 'ELS : valeurs de calcul des effets des actions', ['6.5.2'], {
+          article: 'etats-limites-actions-effets',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('8.4.3', 'ELS : combinaisons d’actions', ['6.5.3'], {
+          article: 'criteres-service',
+          ingeree: true,
+          reserves: 'Combinaisons (8.29) à (8.31), identiques à 2002, décrites dans l’article.',
+        }),
         c('8.4.4', 'ELS : critères', ['6.5.4'], {
           article: 'criteres-service',
           ingeree: true,
