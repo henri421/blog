@@ -556,9 +556,25 @@ export const EN1991_2: Carte = {
           ],
           reserves: 'Majoration et trafic ; modèles FLM1 à FLM5 décrits. Texte de 2003 non détenu.',
         }),
-        c('6.7', 'Collisions et situations accidentelles', ['4.7']),
-        c('6.8', 'Actions sur les garde-corps', ['4.8']),
-        c('6.9', 'Charges de trafic sur les ouvrages géotechniques', ['4.9']),
+        c('6.7', 'Collisions et situations accidentelles', ['4.7'], {
+          article: 'ponts-collisions-geotechnique',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('6.8', 'Actions sur les garde-corps', ['4.8'], {
+          article: 'ponts-collisions-geotechnique',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('6.9', 'Charges de trafic sur les ouvrages géotechniques', ['4.9'], {
+          article: 'ponts-collisions-geotechnique',
+          ingeree: true,
+          niveaux: [
+            n('en1991-2-2003', 'remblai-trafic', 'poussee', '4.9'),
+            n('en1991-2-2023', 'remblai-trafic', 'poussee', '6.9.3'),
+          ],
+          reserves: 'Charge simplifiée (6.9.3) ; 6.9.2 et 6.9.4 décrits ; texte de 2003 à relire.',
+        }),
       ],
     },
     {

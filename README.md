@@ -101,6 +101,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Ponts routiers, voies et LM1 (EN 1991-2) | `lm1` | 1 / 1 |
 | Ponts routiers, forces horizontales et groupes (EN 1991-2) | `freinage` | 2 / 2 |
 | Ponts routiers, fatigue (EN 1991-2) | `fatigue-routiere` | 2 / 2 |
+| Ponts routiers, collisions, garde-corps, remblais (EN 1991-2) | `remblai-trafic` | 0 / 1 |
 
 ## Principes
 

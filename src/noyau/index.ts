@@ -5,6 +5,7 @@
  */
 
 import type { Mecanisme } from './moteur/mecanisme';
+import { remblaiTrafic } from './mecanismes/remblai-trafic/index';
 import { fatigueRoutiere } from './mecanismes/fatigue-routiere/index';
 import { freinageMeca } from './mecanismes/freinage/index';
 import { lm1 } from './mecanismes/lm1/index';
@@ -102,7 +103,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { acierCalcul, analysePlastique, ancrageBoucle, armatureScellee, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, pertesDifferees, postTension, precontrainteTension, pretension, semelleNonArmee, teteAncrage, integrite, deviation, recouvrementBoucle, recouvrementTete, combinaisonElu, reductionExploitation, chargeCloisons, facteurConsequence, equilibreStatique, flecheBatiment, neigeToiture, pressionPointe, combinaisonAccidentelle, fiabilite, tirantsRobustesse, actionsEffets, valeurPermanente, resistanceCalcul, essaisCaracteristique, combinaisonPont, passerelleFlux, comptageCycles, appuiFrottement, poidsPropePont, chargeDynamique, gardeCorps, feuNominal, chargeCalorifique, neigeSol, neigeVersants, neigeAcrotere, vitesseReference, pressionInterieure, csdSimplifie, tourbillons, temperaturePont, temperatureBatiment, executionClimat, chocVehicule, explosionGaz, lm1, freinageMeca, fatigueRoutiere };
+export { acierCalcul, analysePlastique, ancrageBoucle, armatureScellee, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, pertesDifferees, postTension, precontrainteTension, pretension, semelleNonArmee, teteAncrage, integrite, deviation, recouvrementBoucle, recouvrementTete, combinaisonElu, reductionExploitation, chargeCloisons, facteurConsequence, equilibreStatique, flecheBatiment, neigeToiture, pressionPointe, combinaisonAccidentelle, fiabilite, tirantsRobustesse, actionsEffets, valeurPermanente, resistanceCalcul, essaisCaracteristique, combinaisonPont, passerelleFlux, comptageCycles, appuiFrottement, poidsPropePont, chargeDynamique, gardeCorps, feuNominal, chargeCalorifique, neigeSol, neigeVersants, neigeAcrotere, vitesseReference, pressionInterieure, csdSimplifie, tourbillons, temperaturePont, temperatureBatiment, executionClimat, chocVehicule, explosionGaz, lm1, freinageMeca, fatigueRoutiere, remblaiTrafic };
 export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, diffusion, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -110,6 +111,7 @@ export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, 
  * type d entree est efface ici : l ilot ne manipule que des champs declares.
  */
 export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
+  [remblaiTrafic.id]: remblaiTrafic as unknown as Mecanisme<Record<string, unknown>>,
   [fatigueRoutiere.id]: fatigueRoutiere as unknown as Mecanisme<Record<string, unknown>>,
   [freinageMeca.id]: freinageMeca as unknown as Mecanisme<Record<string, unknown>>,
   [lm1.id]: lm1 as unknown as Mecanisme<Record<string, unknown>>,
