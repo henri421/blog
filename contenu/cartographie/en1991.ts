@@ -350,7 +350,18 @@ export const EN1991_1_5: Carte = {
       clauses: [
         c('4-6', 'Situations de projet, classification et représentation', ['2', '4']),
         c('7', 'Actions thermiques dans les bâtiments', ['5'], { annexes: [ann('A', 'normative'), ann('C', 'informative')] }),
-        c('8', 'Actions thermiques sur les ponts', ['6'], { annexes: [ann('B', 'normative')] }),
+        c('8', 'Actions thermiques sur les ponts', ['6'], {
+          annexes: [ann('B', 'normative')],
+          article: 'temperature-ponts',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-5-2003', 'temperature-pont', 'contraction', '6.1.3.3'),
+            n('en1991-1-5-2003', 'temperature-pont', 'dilatation', '6.1.3.3'),
+            n('en1991-1-5-2025', 'temperature-pont', 'contraction', '8.1.3.3'),
+            n('en1991-1-5-2025', 'temperature-pont', 'dilatation', '8.1.3.3'),
+          ],
+          reserves: 'Composante uniforme ; gradients (méthodes 1 et 2) décrits. Texte de 2003 non détenu.',
+        }),
         c('9', 'Cheminées, silos, réservoirs, tours de refroidissement', ['7'], reporte('cheminées, silos et tours : reporté par l’auteur (05/10/2026)')),
       ],
     },

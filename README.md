@@ -93,6 +93,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Vent, pressions, forces et pression intérieure (EN 1991-1-4) | `pression-interieure` | 1 / 2 |
 | Vent, coefficient structural (EN 1991-1-4) | `csd-simplifie` | 1 / 1 |
 | Vent, tourbillons et aéroélasticité (EN 1991-1-4) | `tourbillons` | 2 / 2 |
+| Actions thermiques sur les ponts (EN 1991-1-5) | `temperature-pont` | 2 / 2 |
 
 ## Principes
 
