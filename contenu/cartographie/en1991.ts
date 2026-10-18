@@ -89,7 +89,17 @@ export const EN1991_1_1: Carte = {
           ],
           reserves: 'Mode d’application de αn ambigu (un seul αn par tronçon retenu) ; valeurs caractéristiques des tableaux non reproduites ; texte de 2002 lu au travers du guide de Calgaro et al. (2009).',
         }),
-        c('6.6', 'Charges sur les garde-corps et barrières', ['6.4']),
+        c('6.6', 'Charges sur les garde-corps et barrières', ['6.4'], {
+          article: 'garde-corps',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-1-2002', 'garde-corps', 'horizontal', '6.4'),
+            n('en1991-1-1-2002', 'garde-corps', 'vertical', '—'),
+            n('en1991-1-1-2025', 'garde-corps', 'horizontal', '6.6.2'),
+            n('en1991-1-1-2025', 'garde-corps', 'vertical', '6.6.3'),
+          ],
+          reserves: 'Tableau 6.5 non reproduit (qk saisie) ; tribunes décrites. Texte de 2002 non détenu.',
+        }),
       ],
     },
   ],

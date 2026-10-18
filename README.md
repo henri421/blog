@@ -83,6 +83,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Appareils d’appui (EN 1990, annexe G) | `appui-frottement` | 0 / 2 |
 | Poids volumiques et poids propre (EN 1991-1-1) | `poids-propre-pont` | 2 / 2 |
 | Charges d’exploitation des bâtiments (EN 1991-1-1) | `charge-dynamique` | 1 / 1 |
+| Charges sur les garde-corps (EN 1991-1-1) | `garde-corps` | 1 / 2 |
 
 ## Principes
 

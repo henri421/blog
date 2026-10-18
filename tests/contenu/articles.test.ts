@@ -83,6 +83,7 @@ describe('articles', () => {
       'appareils-appui',
       'poids-propre',
       'charges-exploitation',
+      'garde-corps',
     ]);
   });
 
