@@ -76,6 +76,7 @@ describe('articles', () => {
       'etats-limites-actions-effets',
       'variables-de-base',
       'materiaux-resistances',
+      'essais',
     ]);
   });
 

@@ -76,6 +76,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | États-limites, analyse, actions ou effets (EN 1990) | `actions-effets` | 2 / 2 |
 | Variables de base et actions de l’eau (EN 1990) | `valeur-permanente` | 3 / 3 |
 | Matériaux, géométrie et résistances de calcul (EN 1990) | `resistance-calcul` | 2 / 2 |
+| Dimensionnement assisté par l’expérimentation (EN 1990) | `essais-caracteristique` | 2 / 2 |
 
 ## Principes
 

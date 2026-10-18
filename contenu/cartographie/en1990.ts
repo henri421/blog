@@ -160,7 +160,18 @@ export const EN1990_1: Carte = {
           ingeree: true,
           reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
         }),
-        c('7.3', 'Dimensionnement assisté par l’expérimentation', ['5.2'], { annexes: [ann('D', 'informative')] }),
+        c('7.3', 'Dimensionnement assisté par l’expérimentation', ['5.2'], {
+          annexes: [ann('D', 'informative')],
+          article: 'essais',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'essais-caracteristique', 'v-connu', 'D7.2'),
+            n('en1990-2002', 'essais-caracteristique', 'v-inconnu', 'D7.2'),
+            n('en1990-2023', 'essais-caracteristique', 'v-connu', 'D.7.2'),
+            n('en1990-2023', 'essais-caracteristique', 'v-inconnu', 'D.7.2'),
+          ],
+          reserves: 'Loi normale, huit essais au plus ; loi log-normale, méthode B (D.7.3) et modèles de résistance (D.8) décrits. Texte de 2002 non détenu.',
+        }),
       ],
     },
     {
@@ -290,7 +301,11 @@ export const EN1990_1: Carte = {
           ingeree: true,
           reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
         }),
-        c('D', 'Dimensionnement assisté par l’expérimentation (informative)', ['D']),
+        c('D', 'Dimensionnement assisté par l’expérimentation (informative)', ['D'], {
+          article: 'essais',
+          ingeree: true,
+          reserves: 'Annexe décrite dans l’article ; valeur caractéristique calculée (D.7.2).',
+        }),
         c('E', 'Robustesse des bâtiments et des ponts (informative)', [], {
           article: 'robustesse',
           ingeree: true,
