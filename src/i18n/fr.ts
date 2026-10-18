@@ -337,6 +337,13 @@ export const fr = {
   'niveau.neige-sol.2003.exc': 'sAd = Cesl sk, Cesl = 2,0 (4.3).',
   'niveau.neige-sol.2025.retour': 'Même formule (B.1), loi de Gumbel, n > 5 ans.',
   'niveau.neige-sol.2025.exc': 'sAd = Cesl sk, Cesl = 2,0 (6.1).',
+  'meca.versants.titre': 'Neige sur une toiture à deux versants',
+  'champ.alpha-versant': 'Pente du versant chargé α',
+  'motif.versant-plat': 'Pente inférieure à 5° : toiture terrasse (7.5.2).',
+  'niveau.versants.2003.uniforme': 'μ1 = 0,8 (α ≤ 30°), 0,8 (60 − α)/30 (α < 60°), s = μ1 Ce Ct sk.',
+  'niveau.versants.2003.non-uniforme': 'μ1 sur un versant, 0,5 μ1 sur l’autre (figure 5.3).',
+  'niveau.versants.2025.uniforme': 'μ2,b = 0,8 Ce, ou 0,8 Ce (70 − α)/40 (tableau 7.2).',
+  'niveau.versants.2025.non-uniforme': 'μ2,b + μ2,w sur un versant, rien sur l’autre ; δw = 0,16 (7.7).',
   'statut.reserve': 'Calculé, sous réserve',
   'reserve.annexe-p':
     'Annexe P, informative : autre approche de l’enrobage sans classe de résistance à l’exposition ; son emploi dépend de l’annexe nationale, non publiée.',

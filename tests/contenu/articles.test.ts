@@ -87,6 +87,7 @@ describe('articles', () => {
       'feu-courbes-nominales',
       'charge-calorifique',
       'neige-sol',
+      'neige-versants',
     ]);
   });
 

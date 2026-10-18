@@ -200,7 +200,11 @@ export const EN1991_1_3: Carte = {
           ],
           reserves: 'Loi de Gumbel ; cartes (annexe A) et changement climatique décrits. Texte de 2003 non détenu.',
         }),
-        c('7.1', 'Toitures : dispositions des charges', ['5.1']),
+        c('7.1', 'Toitures : dispositions des charges', ['5.1'], {
+          article: 'neige-versants',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
         c('7.2', 'Toitures : détermination de la charge', ['5.2'], {
           article: 'neige-toitures',
           ingeree: true,
@@ -212,9 +216,27 @@ export const EN1991_1_3: Carte = {
           ],
           reserves: 'Toitures terrasses, disposition uniforme ; versants, toitures multiples, cylindriques, dômes, panneaux inclinés et congères (8.3, calculées à la main dans l’article) non codés. Texte de 2003 non détenu.',
         }),
-        c('7.3', 'Coefficient d’exposition', ['5.2']),
-        c('7.4', 'Coefficient thermique', ['5.2']),
-        c('7.5', 'Coefficients de forme', ['5.3']),
+        c('7.3', 'Coefficient d’exposition', ['5.2'], {
+          article: 'neige-toitures',
+          ingeree: true,
+          reserves: 'Coefficients Ce et Ct décrits dans l’article sur les toitures terrasses.',
+        }),
+        c('7.4', 'Coefficient thermique', ['5.2'], {
+          article: 'neige-toitures',
+          ingeree: true,
+          reserves: 'Coefficients Ce et Ct décrits dans l’article sur les toitures terrasses.',
+        }),
+        c('7.5', 'Coefficients de forme', ['5.3'], {
+          article: 'neige-versants',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-3-2003', 'neige-versants', 'uniforme', '5.3.3'),
+            n('en1991-1-3-2003', 'neige-versants', 'non-uniforme', '5.3.3'),
+            n('en1991-1-3-2025', 'neige-versants', 'uniforme', '7.5.3'),
+            n('en1991-1-3-2025', 'neige-versants', 'non-uniforme', '7.5.3'),
+          ],
+          reserves: 'Toiture à deux versants sans retenue ; versants multiples, cylindriques, dômes et toitures attenantes décrits. Texte de 2003 non détenu.',
+        }),
         c('8', 'Effets locaux : congères, débords, barres à neige', ['6'], { annexes: [ann('C', 'informative')] }),
       ],
     },
