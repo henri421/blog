@@ -319,7 +319,15 @@ export const EN1990_1: Carte = {
           ingeree: true,
           reserves: 'Stratégies de robustesse décrites ; tirants calculés selon l’EN 1991-1-7, annexe A.',
         }),
-        c('F', 'Comptage des cycles de fatigue (informative)', []),
+        c('F', 'Comptage des cycles de fatigue (informative)', [], {
+          article: 'comptage-cycles',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'comptage-cycles', 'rainflow', '—'),
+            n('en1990-2023', 'comptage-cycles', 'rainflow', 'F.3'),
+          ],
+          reserves: 'Méthode des demi-cycles, huit valeurs ; méthode du réservoir décrite. Texte de 2002 non détenu.',
+        }),
         c('G', 'Appareils d’appui (normative)', []),
         c('H', 'Vibrations des passerelles (informative)', [], {
           article: 'passerelles-vibrations',

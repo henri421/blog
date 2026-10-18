@@ -79,6 +79,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Dimensionnement assisté par l’expérimentation (EN 1990) | `essais-caracteristique` | 2 / 2 |
 | Bases de calcul des ponts (EN 1990, A.2) | `combinaison-pont` | 1 / 1 |
 | Vibrations des passerelles (EN 1990 H, EN 1991-2 G) | `passerelle-flux` | 1 / 1 |
+| Actions de fatigue et comptage des cycles (EN 1990) | `comptage-cycles` | 0 / 1 |
 
 ## Principes
 

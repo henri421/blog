@@ -79,6 +79,7 @@ describe('articles', () => {
       'essais',
       'ponts-bases',
       'passerelles-vibrations',
+      'comptage-cycles',
     ]);
   });
 
