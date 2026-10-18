@@ -100,6 +100,7 @@ describe('articles', () => {
       'explosions',
       'ponts-routiers-lm1',
       'ponts-forces-horizontales',
+      'ponts-fatigue-routiere',
     ]);
   });
 

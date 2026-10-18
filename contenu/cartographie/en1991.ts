@@ -545,7 +545,17 @@ export const EN1991_2: Carte = {
           ingeree: true,
           reserves: 'Groupes de charges décrits dans l’article. Texte de 2003 non détenu.',
         }),
-        c('6.6', 'Modèles de charge de fatigue', ['4.6']),
+        c('6.6', 'Modèles de charge de fatigue', ['4.6'], {
+          article: 'ponts-fatigue-routiere',
+          ingeree: true,
+          niveaux: [
+            n('en1991-2-2003', 'fatigue-routiere', 'majoration', '4.6.1(6)'),
+            n('en1991-2-2003', 'fatigue-routiere', 'trafic', '4.6.1(3)'),
+            n('en1991-2-2023', 'fatigue-routiere', 'majoration', '6.6.2(2)'),
+            n('en1991-2-2023', 'fatigue-routiere', 'trafic', '6.6.4'),
+          ],
+          reserves: 'Majoration et trafic ; modèles FLM1 à FLM5 décrits. Texte de 2003 non détenu.',
+        }),
         c('6.7', 'Collisions et situations accidentelles', ['4.7']),
         c('6.8', 'Actions sur les garde-corps', ['4.8']),
         c('6.9', 'Charges de trafic sur les ouvrages géotechniques', ['4.9']),
