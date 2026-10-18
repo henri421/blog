@@ -311,7 +311,16 @@ export const EN1991_1_4: Carte = {
           ],
           reserves: 'Pression intérieure et pression nette ; coefficients des annexes B à D non reproduits ; figure 7.13 de 2005 non codée. Texte de 2005 non détenu.',
         }),
-        c('8', 'Coefficient structural', ['6'], { annexes: [ann('E', 'informative'), ann('F', 'informative'), ann('H', 'informative')] }),
+        c('8', 'Coefficient structural', ['6'], {
+          annexes: [ann('E', 'informative'), ann('F', 'informative'), ann('H', 'informative')],
+          article: 'vent-coefficient-structural',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-4-2005', 'csd-simplifie', 'dispense', '6.2(1)'),
+            n('en1991-1-4-2026', 'csd-simplifie', 'dispense', '8.2(1)'),
+          ],
+          reserves: 'Dispenses seulement ; procédure de l’annexe E non codée (valeurs de l’atelier JRC citées). Texte de 2005 non détenu.',
+        }),
         c('9', 'Phénomènes aéroélastiques', ['8'], { annexes: [ann('G', 'informative')] }),
         c('I', 'Pylônes en treillis et mâts haubanés (informative)', [], reporte('pylônes et mâts : reporté par l’auteur (05/10/2026)')),
       ],

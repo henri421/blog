@@ -91,6 +91,7 @@ describe('articles', () => {
       'neige-effets-locaux',
       'vent-vitesse-reference',
       'vent-pressions-forces',
+      'vent-coefficient-structural',
     ]);
   });
 

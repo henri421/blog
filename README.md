@@ -91,6 +91,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Neige, effets locaux (EN 1991-1-3) | `neige-acrotere` | 1 / 1 |
 | Vent, vitesse de référence (EN 1991-1-4) | `vitesse-reference` | 1 / 1 |
 | Vent, pressions, forces et pression intérieure (EN 1991-1-4) | `pression-interieure` | 1 / 2 |
+| Vent, coefficient structural (EN 1991-1-4) | `csd-simplifie` | 1 / 1 |
 
 ## Principes
 
