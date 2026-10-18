@@ -82,6 +82,7 @@ describe('articles', () => {
       'comptage-cycles',
       'appareils-appui',
       'poids-propre',
+      'charges-exploitation',
     ]);
   });
 

@@ -51,10 +51,30 @@ export const EN1991_1_1: Carte = {
           ],
           reserves: 'Écarts des éléments non structuraux des ponts ; poids volumiques (annexe A) non reproduits. Texte de 2002 non détenu.',
         }),
-        c('6.1', 'Charges d’exploitation : situations de projet', ['6.1']),
-        c('6.2', 'Charges d’exploitation : classification', ['6.2']),
-        c('6.3', 'Charges d’exploitation : représentation', ['6.2']),
-        c('6.4', 'Charges d’exploitation : dispositions des charges', ['6.2']),
+        c('6.1', 'Charges d’exploitation : situations de projet', ['6.1'], {
+          article: 'charges-exploitation',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('6.2', 'Charges d’exploitation : classification', ['6.2'], {
+          article: 'charges-exploitation',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-1-2002', 'charge-dynamique', 'dynamique', '6.3.4.2'),
+            n('en1991-1-1-2025', 'charge-dynamique', 'dynamique', '6.5.6.3'),
+          ],
+          reserves: 'Coefficient dynamique des chariots et hélicoptères ; tableau 6.1 non reproduit ; catégories et dispositions décrites. Texte de 2002 non détenu.',
+        }),
+        c('6.3', 'Charges d’exploitation : représentation', ['6.2'], {
+          article: 'charges-exploitation',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('6.4', 'Charges d’exploitation : dispositions des charges', ['6.2'], {
+          article: 'charges-exploitation',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
         c('6.5', 'Charges d’exploitation : valeurs caractéristiques, réductions', ['6.3'], {
           article: 'reduction-charges-exploitation',
           ingeree: true,
