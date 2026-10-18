@@ -90,6 +90,7 @@ describe('articles', () => {
       'neige-versants',
       'neige-effets-locaux',
       'vent-vitesse-reference',
+      'vent-pressions-forces',
     ]);
   });
 
