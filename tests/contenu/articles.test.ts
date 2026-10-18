@@ -81,6 +81,7 @@ describe('articles', () => {
       'passerelles-vibrations',
       'comptage-cycles',
       'appareils-appui',
+      'poids-propre',
     ]);
   });
 

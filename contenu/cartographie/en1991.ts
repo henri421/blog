@@ -19,11 +19,38 @@ export const EN1991_1_1: Carte = {
       numero: '4-6',
       titre: 'Poids volumiques, poids propre, charges d’exploitation des bâtiments',
       clauses: [
-        c('4', 'Poids volumiques des matériaux de construction et stockés', ['4'], { annexes: [ann('A', 'informative')] }),
-        c('5.1', 'Poids propre : situations de projet', ['5.1']),
-        c('5.2', 'Poids propre : classification', ['5.1']),
-        c('5.3', 'Poids propre : représentation', ['5.1']),
-        c('5.4', 'Poids propre : valeurs caractéristiques', ['5.2']),
+        c('4', 'Poids volumiques des matériaux de construction et stockés', ['4'], {
+          annexes: [ann('A', 'informative')],
+          article: 'poids-propre',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.1', 'Poids propre : situations de projet', ['5.1'], {
+          article: 'poids-propre',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.2', 'Poids propre : classification', ['5.1'], {
+          article: 'poids-propre',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.3', 'Poids propre : représentation', ['5.1'], {
+          article: 'poids-propre',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.4', 'Poids propre : valeurs caractéristiques', ['5.2'], {
+          article: 'poids-propre',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-1-2002', 'poids-propre-pont', 'superieure', '5.2.3'),
+            n('en1991-1-1-2002', 'poids-propre-pont', 'inferieure', '5.2.3'),
+            n('en1991-1-1-2025', 'poids-propre-pont', 'superieure', '5.4.3'),
+            n('en1991-1-1-2025', 'poids-propre-pont', 'inferieure', '5.4.3'),
+          ],
+          reserves: 'Écarts des éléments non structuraux des ponts ; poids volumiques (annexe A) non reproduits. Texte de 2002 non détenu.',
+        }),
         c('6.1', 'Charges d’exploitation : situations de projet', ['6.1']),
         c('6.2', 'Charges d’exploitation : classification', ['6.2']),
         c('6.3', 'Charges d’exploitation : représentation', ['6.2']),
