@@ -321,7 +321,11 @@ export const EN1990_1: Carte = {
         }),
         c('F', 'Comptage des cycles de fatigue (informative)', []),
         c('G', 'Appareils d’appui (normative)', []),
-        c('H', 'Vibrations des passerelles (informative)', []),
+        c('H', 'Vibrations des passerelles (informative)', [], {
+          article: 'passerelles-vibrations',
+          ingeree: true,
+          reserves: 'Annexe décrite dans l’article ; accélération calculée selon l’EN 1991-2, annexe G.',
+        }),
       ],
     },
   ],

@@ -220,7 +220,10 @@ export const EN1991_2: Carte = {
     {
       numero: '4-5',
       titre: 'Classification des actions et situations de projet',
-      clauses: [c('4', 'Classification des actions de trafic', ['2']), c('5', 'Situations de projet, simultanéité des charges de trafic', ['3'])],
+      clauses: [
+        c('4', 'Classification des actions de trafic', ['2']),
+        c('5', 'Situations de projet, simultanéité des charges de trafic', ['3']),
+      ],
     },
     {
       numero: '6',
@@ -240,7 +243,17 @@ export const EN1991_2: Carte = {
     {
       numero: '7',
       titre: 'Trottoirs, pistes cyclables et passerelles',
-      clauses: [c('7', 'Charges verticales et horizontales, groupes, collisions, garde-corps, culées', ['5'])],
+      clauses: [
+        c('7', 'Charges verticales et horizontales, groupes, collisions, garde-corps, culées', ['5'], {
+          article: 'passerelles-vibrations',
+          ingeree: true,
+          niveaux: [
+            n('en1991-2-2003', 'passerelle-flux', 'flux', 'A2.4.3.2'),
+            n('en1991-2-2023', 'passerelle-flux', 'flux', 'G.4'),
+          ],
+          reserves: 'Flux de piétons, premier mode vertical, appuis simples ; groupes, joggeurs, latéral et charges statiques des passerelles décrits. Textes de 2003 non détenus.',
+        }),
+      ],
     },
     {
       numero: '8',

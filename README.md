@@ -78,6 +78,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Matériaux, géométrie et résistances de calcul (EN 1990) | `resistance-calcul` | 2 / 2 |
 | Dimensionnement assisté par l’expérimentation (EN 1990) | `essais-caracteristique` | 2 / 2 |
 | Bases de calcul des ponts (EN 1990, A.2) | `combinaison-pont` | 1 / 1 |
+| Vibrations des passerelles (EN 1990 H, EN 1991-2 G) | `passerelle-flux` | 1 / 1 |
 
 ## Principes
 

@@ -78,6 +78,7 @@ describe('articles', () => {
       'materiaux-resistances',
       'essais',
       'ponts-bases',
+      'passerelles-vibrations',
     ]);
   });
 
