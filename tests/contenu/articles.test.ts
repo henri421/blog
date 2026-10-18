@@ -85,6 +85,7 @@ describe('articles', () => {
       'charges-exploitation',
       'garde-corps',
       'feu-courbes-nominales',
+      'charge-calorifique',
     ]);
   });
 

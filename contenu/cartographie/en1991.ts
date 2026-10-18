@@ -135,6 +135,13 @@ export const EN1991_1_2: Carte = {
         }),
         c('5.3', 'Modèles d’incendie physiquement fondés', ['3.3'], {
           annexes: [ann('A', 'informative'), ann('C', 'informative'), ann('D', 'informative'), ann('E', 'informative'), ann('F', 'informative')],
+          article: 'charge-calorifique',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-2-2002', 'charge-calorifique', 'qd', 'E.1'),
+            n('en1991-1-2-2024', 'charge-calorifique', 'qd', 'E.3'),
+          ],
+          reserves: 'Charge calorifique (annexe E) ; courbes paramétrées (A), feux localisés (C) et modèles avancés (D) décrits. Texte de 2002 non détenu.',
         }),
         c('6', 'Actions mécaniques et combinaisons en situation d’incendie', ['4'], {
           article: 'combinaisons-accidentelles',
