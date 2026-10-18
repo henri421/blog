@@ -96,6 +96,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Actions thermiques sur les ponts (EN 1991-1-5) | `temperature-pont` | 2 / 2 |
 | Actions thermiques dans les bâtiments (EN 1991-1-5) | `temperature-batiment` | 1 / 1 |
 | Actions en cours d’exécution (EN 1991-1-6) | `execution-climat` | 1 / 1 |
+| Actions accidentelles dues aux chocs (EN 1991-1-7) | `choc-vehicule` | 2 / 2 |
 
 ## Principes
 

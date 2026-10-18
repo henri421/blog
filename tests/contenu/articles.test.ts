@@ -96,6 +96,7 @@ describe('articles', () => {
       'temperature-batiments',
       'temperature-ponts',
       'actions-execution',
+      'chocs',
     ]);
   });
 
