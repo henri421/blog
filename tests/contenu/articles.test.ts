@@ -89,6 +89,7 @@ describe('articles', () => {
       'neige-sol',
       'neige-versants',
       'neige-effets-locaux',
+      'vent-vitesse-reference',
     ]);
   });
 

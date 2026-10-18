@@ -261,11 +261,38 @@ export const EN1991_1_4: Carte = {
       numero: '4-9',
       titre: 'Actions du vent',
       clauses: [
-        c('4', 'Situations de projet', ['3']),
-        c('5', 'Modélisation des actions du vent', ['4', '5'], { annexes: [ann('J', 'informative')] }),
-        c('6.2', 'Valeurs de référence de la vitesse du vent', ['4.2'], { annexes: [ann('K', 'informative'), ann('L', 'informative')] }),
-        c('6.3', 'Vitesse moyenne et pression moyenne', ['4.3'], { annexes: [ann('A', 'informative')] }),
-        c('6.4', 'Turbulence', ['4.4']),
+        c('4', 'Situations de projet', ['3'], {
+          article: 'vent-vitesse-reference',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+        }),
+        c('5', 'Modélisation des actions du vent', ['4', '5'], {
+          annexes: [ann('J', 'informative')],
+          article: 'vent-vitesse-reference',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+        }),
+        c('6.2', 'Valeurs de référence de la vitesse du vent', ['4.2'], {
+          annexes: [ann('K', 'informative'), ann('L', 'informative')],
+          article: 'vent-vitesse-reference',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-4-2005', 'vitesse-reference', 'qb', '4.2'),
+            n('en1991-1-4-2026', 'vitesse-reference', 'qb', '6.2'),
+          ],
+          reserves: 'calt = 1 ; organisation, rugosité et turbulence décrites. Texte de 2005 non détenu.',
+        }),
+        c('6.3', 'Vitesse moyenne et pression moyenne', ['4.3'], {
+          annexes: [ann('A', 'informative')],
+          article: 'vent-vitesse-reference',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+        }),
+        c('6.4', 'Turbulence', ['4.4'], {
+          article: 'vent-vitesse-reference',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+        }),
         c('6.5', 'Vitesse et pression dynamique de pointe', ['4.5'], {
           article: 'pression-pointe-vent',
           ingeree: true,

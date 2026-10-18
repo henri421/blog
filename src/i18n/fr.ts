@@ -350,6 +350,13 @@ export const fr = {
   'grandeur.neige-pointe': 'Charge de neige de pointe',
   'niveau.acrotere.2003': 'μ2 = γ h/sk entre 0,8 et 2,0 ; ls = 2 h (6.2).',
   'niveau.acrotere.2025': 'μ7 = (0,8/Ce)(2b/ls) ≤ min(0,8 γ hp/(Ce sk) ; 4) ; ls = 4 hp/Ce (8.3, 8.4).',
+  'meca.vb.titre': 'Vitesse et pression de référence du vent, période de retour',
+  'champ.cdir': 'Coefficient de direction cdir',
+  'champ.cseason': 'Coefficient de saison cseason',
+  'champ.T-retour-vent': 'Période de retour',
+  'grandeur.qb': 'Pression dynamique de référence qb',
+  'niveau.vb.2005': 'vb = cdir cseason cprob vb,0 ; cprob avec K = 0,2, n = 0,5.',
+  'niveau.vb.2026': 'vb = cdir cseason cprob calt vb0 × fw,cc (6.1), cprob (6.2).',
   'statut.reserve': 'Calculé, sous réserve',
   'reserve.annexe-p':
     'Annexe P, informative : autre approche de l’enrobage sans classe de résistance à l’exposition ; son emploi dépend de l’annexe nationale, non publiée.',
