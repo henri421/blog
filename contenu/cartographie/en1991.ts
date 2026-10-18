@@ -114,9 +114,25 @@ export const EN1991_1_2: Carte = {
       numero: '4-6',
       titre: 'Actions sur les structures exposées au feu',
       clauses: [
-        c('4', 'Procédure de calcul au feu : scénario, feu de calcul, analyses', ['2']),
-        c('5.1', 'Flux thermique', ['3.1']),
-        c('5.2', 'Courbes de feu nominales', ['3.2']),
+        c('4', 'Procédure de calcul au feu : scénario, feu de calcul, analyses', ['2'], {
+          article: 'feu-courbes-nominales',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.1', 'Flux thermique', ['3.1'], {
+          article: 'feu-courbes-nominales',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('5.2', 'Courbes de feu nominales', ['3.2'], {
+          article: 'feu-courbes-nominales',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-2-2002', 'feu-nominal', 'flux', '3.2'),
+            n('en1991-1-2-2024', 'feu-nominal', 'flux', '5.2'),
+          ],
+          reserves: 'Courbes nominales et flux net, Φ = 1. Texte de 2002 non détenu.',
+        }),
         c('5.3', 'Modèles d’incendie physiquement fondés', ['3.3'], {
           annexes: [ann('A', 'informative'), ann('C', 'informative'), ann('D', 'informative'), ann('E', 'informative'), ann('F', 'informative')],
         }),
@@ -126,9 +142,21 @@ export const EN1991_1_2: Carte = {
           niveaux: [n('en1990-2002', 'combinaison-accidentelle', 'acc', '6.4.3.3'), n('en1990-2023', 'combinaison-accidentelle', 'acc', '8.3.4.3')],
           reserves: 'Combinaison (8.15) et ηfi (6.2) ; formules (6.3), (6.4) pour (8.13) non codées ; actions indirectes du feu non traitées. Textes de 2002 non détenus.',
         }),
-        c('B', 'Éléments extérieurs, méthode simplifiée (informative)', ['B']),
-        c('G', 'Facteur de forme (informative)', ['G']),
-        c('H', 'Charges d’incendie des structures en bois (informative)', []),
+        c('B', 'Éléments extérieurs, méthode simplifiée (informative)', ['B'], {
+          article: 'feu-courbes-nominales',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('G', 'Facteur de forme (informative)', ['G'], {
+          article: 'feu-courbes-nominales',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('H', 'Charges d’incendie des structures en bois (informative)', [], {
+          article: 'feu-courbes-nominales',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
       ],
     },
   ],

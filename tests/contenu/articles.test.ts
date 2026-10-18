@@ -84,6 +84,7 @@ describe('articles', () => {
       'poids-propre',
       'charges-exploitation',
       'garde-corps',
+      'feu-courbes-nominales',
     ]);
   });
 
