@@ -80,6 +80,7 @@ describe('articles', () => {
       'ponts-bases',
       'passerelles-vibrations',
       'comptage-cycles',
+      'appareils-appui',
     ]);
   });
 

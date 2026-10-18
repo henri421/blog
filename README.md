@@ -80,6 +80,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Bases de calcul des ponts (EN 1990, A.2) | `combinaison-pont` | 1 / 1 |
 | Vibrations des passerelles (EN 1990 H, EN 1991-2 G) | `passerelle-flux` | 1 / 1 |
 | Actions de fatigue et comptage des cycles (EN 1990) | `comptage-cycles` | 0 / 1 |
+| Appareils d’appui (EN 1990, annexe G) | `appui-frottement` | 0 / 2 |
 
 ## Principes
 

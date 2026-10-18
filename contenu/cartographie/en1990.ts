@@ -279,7 +279,11 @@ export const EN1990_1: Carte = {
       numero: 'A',
       titre: 'Annexe A (normative) : règles d’application',
       clauses: [
-        c('A.1', 'Bâtiments : coefficients ψ, coefficients partiels, combinaisons', ['A1']),
+        c('A.1', 'Bâtiments : coefficients ψ, coefficients partiels, combinaisons', ['A1'], {
+          article: 'combinaisons-elu',
+          ingeree: true,
+          reserves: 'Coefficients ψ, partiels et kF des bâtiments décrits (articles 47 à 51).',
+        }),
         c('A.2', 'Ponts : coefficients ψ, coefficients partiels, combinaisons', ['A2'], {
           article: 'ponts-bases',
           ingeree: true,
@@ -328,7 +332,17 @@ export const EN1990_1: Carte = {
           ],
           reserves: 'Méthode des demi-cycles, huit valeurs ; méthode du réservoir décrite. Texte de 2002 non détenu.',
         }),
-        c('G', 'Appareils d’appui (normative)', []),
+        c('G', 'Appareils d’appui (normative)', [], {
+          article: 'appareils-appui',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'appui-frottement', 'sans-compensation', '—'),
+            n('en1990-2002', 'appui-frottement', 'compense', '—'),
+            n('en1990-2023', 'appui-frottement', 'sans-compensation', 'G.7.1.2'),
+            n('en1990-2023', 'appui-frottement', 'compense', 'G.7.3.1(2)'),
+          ],
+          reserves: 'Frottement, effort normal identique ; élastomères (G.2, G.3) et déplacements (G.7, G.8) décrits. EN 1337-1 non détenue.',
+        }),
         c('H', 'Vibrations des passerelles (informative)', [], {
           article: 'passerelles-vibrations',
           ingeree: true,
