@@ -86,6 +86,7 @@ describe('articles', () => {
       'garde-corps',
       'feu-courbes-nominales',
       'charge-calorifique',
+      'neige-sol',
     ]);
   });
 

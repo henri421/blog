@@ -86,6 +86,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Charges sur les garde-corps (EN 1991-1-1) | `garde-corps` | 1 / 2 |
 | Actions thermiques du feu, courbes nominales (EN 1991-1-2) | `feu-nominal` | 1 / 1 |
 | Charge calorifique et feux naturels (EN 1991-1-2) | `charge-calorifique` | 1 / 1 |
+| Neige sur le sol, période de retour (EN 1991-1-3) | `neige-sol` | 2 / 2 |
 
 ## Principes
 

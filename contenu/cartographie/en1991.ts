@@ -178,9 +178,28 @@ export const EN1991_1_3: Carte = {
       numero: '4-8',
       titre: 'Charges de neige',
       clauses: [
-        c('4', 'Situations de projet, conditions normales et exceptionnelles', ['3']),
-        c('5', 'Modélisation et classification de la charge de neige', ['2']),
-        c('6', 'Charge de neige sur le sol', ['4'], { annexes: [ann('A', 'informative'), ann('B', 'informative')] }),
+        c('4', 'Situations de projet, conditions normales et exceptionnelles', ['3'], {
+          article: 'neige-sol',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('5', 'Modélisation et classification de la charge de neige', ['2'], {
+          article: 'neige-sol',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('6', 'Charge de neige sur le sol', ['4'], {
+          annexes: [ann('A', 'informative'), ann('B', 'informative')],
+          article: 'neige-sol',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-3-2003', 'neige-sol', 'retour', 'D'),
+            n('en1991-1-3-2003', 'neige-sol', 'exceptionnelle', '4.3'),
+            n('en1991-1-3-2025', 'neige-sol', 'retour', 'B.3'),
+            n('en1991-1-3-2025', 'neige-sol', 'exceptionnelle', '6.2'),
+          ],
+          reserves: 'Loi de Gumbel ; cartes (annexe A) et changement climatique décrits. Texte de 2003 non détenu.',
+        }),
         c('7.1', 'Toitures : dispositions des charges', ['5.1']),
         c('7.2', 'Toitures : détermination de la charge', ['5.2'], {
           article: 'neige-toitures',
