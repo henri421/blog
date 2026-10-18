@@ -494,17 +494,41 @@ export const EN1991_2: Carte = {
       numero: '4-5',
       titre: 'Classification des actions et situations de projet',
       clauses: [
-        c('4', 'Classification des actions de trafic', ['2']),
-        c('5', 'Situations de projet, simultanéité des charges de trafic', ['3']),
+        c('4', 'Classification des actions de trafic', ['2'], {
+          article: 'ponts-routiers-lm1',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('5', 'Situations de projet, simultanéité des charges de trafic', ['3'], {
+          article: 'ponts-routiers-lm1',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
       ],
     },
     {
       numero: '6',
       titre: 'Ponts routiers',
       clauses: [
-        c('6.1', 'Domaine d’application', ['4.1']),
-        c('6.2', 'Représentation des actions, voies conventionnelles', ['4.2']),
-        c('6.3', 'Charges verticales', ['4.3']),
+        c('6.1', 'Domaine d’application', ['4.1'], {
+          article: 'ponts-routiers-lm1',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('6.2', 'Représentation des actions, voies conventionnelles', ['4.2'], {
+          article: 'ponts-routiers-lm1',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('6.3', 'Charges verticales', ['4.3'], {
+          article: 'ponts-routiers-lm1',
+          ingeree: true,
+          niveaux: [
+            n('en1991-2-2003', 'lm1', 'moment', '4.3.2'),
+            n('en1991-2-2023', 'lm1', 'moment', '6.3.2'),
+          ],
+          reserves: 'LM1, tablier isostatique, moment global ; LM2 à LM4 décrits. Texte de 2003 non détenu.',
+        }),
         c('6.4', 'Forces horizontales', ['4.4']),
         c('6.5', 'Groupes de charges de trafic', ['4.5']),
         c('6.6', 'Modèles de charge de fatigue', ['4.6']),

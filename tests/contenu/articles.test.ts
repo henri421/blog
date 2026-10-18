@@ -98,6 +98,7 @@ describe('articles', () => {
       'actions-execution',
       'chocs',
       'explosions',
+      'ponts-routiers-lm1',
     ]);
   });
 
