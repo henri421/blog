@@ -348,8 +348,21 @@ export const EN1991_1_5: Carte = {
       numero: '4-9',
       titre: 'Actions thermiques',
       clauses: [
-        c('4-6', 'Situations de projet, classification et représentation', ['2', '4']),
-        c('7', 'Actions thermiques dans les bâtiments', ['5'], { annexes: [ann('A', 'normative'), ann('C', 'informative')] }),
+        c('4-6', 'Situations de projet, classification et représentation', ['2', '4'], {
+          article: 'temperature-batiments',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('7', 'Actions thermiques dans les bâtiments', ['5'], {
+          annexes: [ann('A', 'normative'), ann('C', 'informative')],
+          article: 'temperature-batiments',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-5-2003', 'temperature-batiment', 'bridage', '5.3'),
+            n('en1991-1-5-2025', 'temperature-batiment', 'bridage', '7.3'),
+          ],
+          reserves: 'Élément à une couche, bridage total ; tableau 7.1 non reproduit. Texte de 2003 non détenu.',
+        }),
         c('8', 'Actions thermiques sur les ponts', ['6'], {
           annexes: [ann('B', 'normative')],
           article: 'temperature-ponts',

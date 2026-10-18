@@ -93,6 +93,7 @@ describe('articles', () => {
       'vent-pressions-forces',
       'vent-coefficient-structural',
       'vent-aeroelasticite',
+      'temperature-batiments',
       'temperature-ponts',
     ]);
   });
