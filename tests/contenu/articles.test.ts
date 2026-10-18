@@ -95,6 +95,7 @@ describe('articles', () => {
       'vent-aeroelasticite',
       'temperature-batiments',
       'temperature-ponts',
+      'actions-execution',
     ]);
   });
 

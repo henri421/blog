@@ -390,11 +390,36 @@ export const EN1991_1_6: Carte = {
       numero: '4-7',
       titre: 'Actions en cours d’exécution',
       clauses: [
-        c('4', 'Situations de projet', ['3']),
-        c('5', 'Classification des actions', ['2']),
-        c('6', 'Valeurs caractéristiques des actions d’exécution', ['4'], { annexes: [ann('A', 'normative')] }),
-        c('7', 'Imperfections, stabilité latérale, actions dynamiques', []),
-        c('B', 'Ponts en cours d’exécution (normative)', ['A2']),
+        c('4', 'Situations de projet', ['3'], {
+          article: 'actions-execution',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+        }),
+        c('5', 'Classification des actions', ['2'], {
+          article: 'actions-execution',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+        }),
+        c('6', 'Valeurs caractéristiques des actions d’exécution', ['4'], {
+          annexes: [ann('A', 'normative')],
+          article: 'actions-execution',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-6-2005', 'execution-climat', 'qb', '3.1'),
+            n('en1991-1-6-2026', 'execution-climat', 'qb', '6.1'),
+          ],
+          reserves: 'Vent seulement, cdir = 1 ; actions de construction (tableaux 6.2, 6.3) décrites. Texte de 2005 non détenu.',
+        }),
+        c('7', 'Imperfections, stabilité latérale, actions dynamiques', [], {
+          article: 'actions-execution',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+        }),
+        c('B', 'Ponts en cours d’exécution (normative)', ['A2'], {
+          article: 'actions-execution',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+        }),
       ],
     },
   ],

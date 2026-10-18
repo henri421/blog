@@ -425,6 +425,11 @@ export const fr = {
   'grandeur.effort-bridage': 'Effort de bridage |N|',
   'niveau.tbat.2003': 'TN = (Tin + Tout)/2, ΔTN = TN − T0 (5.3).',
   'niveau.tbat.2025': 'TN = (Tin + Tout)/2, ΔTN = TN − T0 (7.1).',
+  'meca.exec.titre': 'Pression de référence du vent pendant une phase d’exécution',
+  'champ.duree-execution': 'Durée de la phase d’exécution',
+  'motif.exec-meteo': 'Phase de 5 jours au plus : valeurs à tirer de données météorologiques fiables (tableau 6.1).',
+  'niveau.exec.2005': 'Période de retour 2, 5, 10 ou 50 ans selon la durée (tableau 3.1).',
+  'niveau.exec.2026': 'Probabilité annuelle 0,02 ; coefficient de saison jusqu’à un an (tableau 6.1).',
   'statut.reserve': 'Calculé, sous réserve',
   'reserve.annexe-p':
     'Annexe P, informative : autre approche de l’enrobage sans classe de résistance à l’exposition ; son emploi dépend de l’annexe nationale, non publiée.',
