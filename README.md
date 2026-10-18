@@ -71,6 +71,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Combinaisons accidentelles et incendie (EN 1990, EN 1991-1-2) | `combinaison-accidentelle` | 1 / 1 |
 | Second ordre des poteaux isolés | `elancement-limite`, `courbure-nominale`, `rigidite-nominale` | 1 / 1, 1 / 2 et 2 / 1 |
 | Armatures minimales | `non-fragilite`, `fissuration-minimale`, `armature-tranchant-minimale` | 1 / 2, 1 / 1 et 1 / 2 |
+| Exigences de base, fiabilité et qualité (EN 1990) | `fiabilite` | 1 / 1 |
 
 ## Principes
 

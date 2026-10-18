@@ -12,7 +12,7 @@ import type { Cle } from '../../i18n/cle';
  * Generation d un texte : `<code>-<annee>`. Chaque mecanisme compare deux
  * generations d un meme texte ; par defaut celles de l EN 1992-1-1.
  */
-export type Generation = 'ec2-2004' | 'ec2-2023' | 'en1990-2002' | 'en1990-2023' | 'en1991-1-1-2002' | 'en1991-1-1-2025' | 'en1991-1-3-2003' | 'en1991-1-3-2025' | 'en1991-1-4-2005' | 'en1991-1-4-2026';
+export type Generation = 'ec2-2004' | 'ec2-2023' | 'en1990-2002' | 'en1990-2023' | 'en1991-1-1-2002' | 'en1991-1-1-2025' | 'en1991-1-3-2003' | 'en1991-1-3-2025' | 'en1991-1-4-2005' | 'en1991-1-4-2026' | 'en1991-1-2-2002' | 'en1991-1-2-2024' | 'en1991-1-5-2003' | 'en1991-1-5-2025' | 'en1991-1-6-2005' | 'en1991-1-6-2026' | 'en1991-1-7-2006' | 'en1991-1-7-2025' | 'en1991-2-2003' | 'en1991-2-2023';
 
 /** Identifiant d un niveau d approximation, propre a chaque mecanisme. */
 export type Niveau = string;

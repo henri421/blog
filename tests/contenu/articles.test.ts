@@ -71,6 +71,7 @@ describe('articles', () => {
       'neige-toitures',
       'pression-pointe-vent',
       'combinaisons-accidentelles',
+      'bases-fiabilite',
     ]);
   });
 

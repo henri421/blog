@@ -21,8 +21,20 @@ export const EN1990_1: Carte = {
       numero: '4',
       titre: 'Règles générales',
       clauses: [
-        c('4.1', 'Exigences de base', ['2.1']),
-        c('4.2', 'Fiabilité structurale', ['2.2']),
+        c('4.1', 'Exigences de base', ['2.1'], {
+          article: 'bases-fiabilite',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+        }),
+        c('4.2', 'Fiabilité structurale', ['2.2'], {
+          article: 'bases-fiabilite',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'fiabilite', 'beta', 'C6'),
+            n('en1990-2023', 'fiabilite', 'beta', 'C.3.4'),
+          ],
+          reserves: 'Cibles de l’annexe C ; 4.1, 4.5 à 4.8 et l’annexe B décrits dans le même article. Texte de 2002 non détenu.',
+        }),
         c('4.3', 'Conséquences d’une défaillance, classes de conséquences', ['B.3'], {
           article: 'classes-consequences',
           ingeree: true,
@@ -30,10 +42,27 @@ export const EN1990_1: Carte = {
           reserves: 'Bâtiments (tableau A.1.9) ; CC3a et CC3b des ponts décrites, non codées. Texte de 2002 non détenu.',
         }),
         c('4.4', 'Robustesse', ['2.1'], { annexes: [ann('E', 'informative')] }),
-        c('4.5', 'Durée d’utilisation de projet', ['2.3']),
-        c('4.6', 'Durabilité', ['2.4']),
-        c('4.7', 'Compatibilité avec le développement durable', []),
-        c('4.8', 'Management de la qualité', ['2.5'], { annexes: [ann('B', 'informative')] }),
+        c('4.5', 'Durée d’utilisation de projet', ['2.3'], {
+          article: 'bases-fiabilite',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+        }),
+        c('4.6', 'Durabilité', ['2.4'], {
+          article: 'bases-fiabilite',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+        }),
+        c('4.7', 'Compatibilité avec le développement durable', [], {
+          article: 'bases-fiabilite',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+        }),
+        c('4.8', 'Management de la qualité', ['2.5'], {
+          annexes: [ann('B', 'informative')],
+          article: 'bases-fiabilite',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+        }),
       ],
     },
     {
@@ -133,8 +162,16 @@ export const EN1990_1: Carte = {
       numero: 'B-H',
       titre: 'Autres annexes',
       clauses: [
-        c('B', 'Mesures de gestion technique (informative)', ['B']),
-        c('C', 'Fiabilité et calibration des codes (informative)', ['C']),
+        c('B', 'Mesures de gestion technique (informative)', ['B'], {
+          article: 'bases-fiabilite',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+        }),
+        c('C', 'Fiabilité et calibration des codes (informative)', ['C'], {
+          article: 'bases-fiabilite',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+        }),
         c('D', 'Dimensionnement assisté par l’expérimentation (informative)', ['D']),
         c('E', 'Robustesse des bâtiments et des ponts (informative)', []),
         c('F', 'Comptage des cycles de fatigue (informative)', []),
