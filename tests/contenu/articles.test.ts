@@ -75,6 +75,7 @@ describe('articles', () => {
       'robustesse',
       'etats-limites-actions-effets',
       'variables-de-base',
+      'materiaux-resistances',
     ]);
   });
 

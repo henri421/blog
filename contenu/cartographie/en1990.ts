@@ -133,8 +133,16 @@ export const EN1990_1: Carte = {
           ingeree: true,
           reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
         }),
-        c('6.2', 'Propriétés des matériaux et des produits', ['4.2']),
-        c('6.3', 'Propriétés géométriques', ['4.3']),
+        c('6.2', 'Propriétés des matériaux et des produits', ['4.2'], {
+          article: 'materiaux-resistances',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('6.3', 'Propriétés géométriques', ['4.3'], {
+          article: 'materiaux-resistances',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
       ],
     },
     {
@@ -202,9 +210,27 @@ export const EN1990_1: Carte = {
           ],
           reserves: 'Situations durables et transitoires, bâtiments, STR (VC1) ; accidentelles dans l’article combinaisons-accidentelles, équilibre (VC2) dans equilibre-statique ; sismiques et GEO non codées. Texte de 2002 lu au travers de la synthèse NBN-CSTC.',
         }),
-        c('8.3.5', 'ELU : valeurs de calcul des résistances', ['6.3.5']),
-        c('8.3.6', 'ELU : propriétés de calcul des matériaux', ['6.3.3']),
-        c('8.3.7', 'ELU : propriétés géométriques de calcul', ['6.3.4']),
+        c('8.3.5', 'ELU : valeurs de calcul des résistances', ['6.3.5'], {
+          article: 'materiaux-resistances',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'resistance-calcul', 'mfa', '6.3.5'),
+            n('en1990-2002', 'resistance-calcul', 'rfa', '6.3.5'),
+            n('en1990-2023', 'resistance-calcul', 'mfa', '8.3.5.2'),
+            n('en1990-2023', 'resistance-calcul', 'rfa', '8.3.5.3'),
+          ],
+          reserves: 'Une propriété, loi R = k X^q ; (8.21) multi-matériaux et (8.22) fatigue décrites. Texte de 2002 non détenu.',
+        }),
+        c('8.3.6', 'ELU : propriétés de calcul des matériaux', ['6.3.3'], {
+          article: 'materiaux-resistances',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('8.3.7', 'ELU : propriétés géométriques de calcul', ['6.3.4'], {
+          article: 'materiaux-resistances',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
         c('8.4.1', 'ELS : généralités', ['6.5.1'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
@@ -231,7 +257,11 @@ export const EN1990_1: Carte = {
           ],
           reserves: 'Flèches verticales seules ; limites saisies (tableau A.1.10 non reproduit) ; combinaisons 8.4.3 décrites dans le même article ; confort, déplacements, vibrations et fondations décrits, non codés ; ψ des catégories H à T du tableau A.1.7 mal alignés dans la version NBN.',
         }),
-        c('8.4.5', 'ELS : propriétés des matériaux et géométrie', ['6.5.4']),
+        c('8.4.5', 'ELS : propriétés des matériaux et géométrie', ['6.5.4'], {
+          article: 'materiaux-resistances',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
       ],
     },
     {

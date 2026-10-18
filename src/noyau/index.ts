@@ -5,6 +5,7 @@
  */
 
 import type { Mecanisme } from './moteur/mecanisme';
+import { resistanceCalcul } from './mecanismes/resistance-calcul/index';
 import { valeurPermanente } from './mecanismes/valeur-permanente/index';
 import { actionsEffets } from './mecanismes/actions-effets/index';
 import { tirantsRobustesse } from './mecanismes/tirants-robustesse/index';
@@ -76,7 +77,7 @@ export { GENERATIONS } from './moteur/mecanisme';
 export { calculerMatrice, relire, rejouer, serialiser, type Matrice } from './moteur/matrice';
 export { balayer, valeursRegulieres, type Balayage, type Rupture, type Serie } from './moteur/balayer';
 export { courbureNominale, elancementLimite, rigiditeNominale };
-export { acierCalcul, analysePlastique, ancrageBoucle, armatureScellee, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, pertesDifferees, postTension, precontrainteTension, pretension, semelleNonArmee, teteAncrage, integrite, deviation, recouvrementBoucle, recouvrementTete, combinaisonElu, reductionExploitation, chargeCloisons, facteurConsequence, equilibreStatique, flecheBatiment, neigeToiture, pressionPointe, combinaisonAccidentelle, fiabilite, tirantsRobustesse, actionsEffets, valeurPermanente };
+export { acierCalcul, analysePlastique, ancrageBoucle, armatureScellee, ancrageSoude, appuiPrefabrique, coefficientsPartiels, deversementMeca, encuvement, chainages, contraintesEls, espacement, fatigueAcier, fatigueBeton, fatigueTranchant, flexionDeviee, fluageEffectif, jointPlancherMeca, largeurParticipante, mandrin, nonArmeCompression, nonArmeTranchant, pertesDifferees, postTension, precontrainteTension, pretension, semelleNonArmee, teteAncrage, integrite, deviation, recouvrementBoucle, recouvrementTete, combinaisonElu, reductionExploitation, chargeCloisons, facteurConsequence, equilibreStatique, flecheBatiment, neigeToiture, pressionPointe, combinaisonAccidentelle, fiabilite, tirantsRobustesse, actionsEffets, valeurPermanente, resistanceCalcul };
 export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, diffusion, cisaillementInterface, elancement, enrobage, fissuration, fissurationMinimale, fleche, flexion, imperfections, materiauxBeton, nonFragilite, poinconnement, poinconnementArme, pressionLocalisee, redistribution, torsion, tranchantAvecArmature, tranchantDalleBidirectionnelle, tranchantSansArmature };
 
 /**
@@ -84,6 +85,7 @@ export { ameTable, ancrage, ancrageCrochet, armatureTranchantMinimale, bielles, 
  * type d entree est efface ici : l ilot ne manipule que des champs declares.
  */
 export const MECANISMES: Record<string, Mecanisme<Record<string, unknown>>> = {
+  [resistanceCalcul.id]: resistanceCalcul as unknown as Mecanisme<Record<string, unknown>>,
   [valeurPermanente.id]: valeurPermanente as unknown as Mecanisme<Record<string, unknown>>,
   [actionsEffets.id]: actionsEffets as unknown as Mecanisme<Record<string, unknown>>,
   [tirantsRobustesse.id]: tirantsRobustesse as unknown as Mecanisme<Record<string, unknown>>,

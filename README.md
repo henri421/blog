@@ -75,6 +75,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Robustesse et tirants (EN 1990, EN 1991-1-7) | `tirants-robustesse` | 2 / 2 |
 | États-limites, analyse, actions ou effets (EN 1990) | `actions-effets` | 2 / 2 |
 | Variables de base et actions de l’eau (EN 1990) | `valeur-permanente` | 3 / 3 |
+| Matériaux, géométrie et résistances de calcul (EN 1990) | `resistance-calcul` | 2 / 2 |
 
 ## Principes
 
