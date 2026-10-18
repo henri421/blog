@@ -92,6 +92,7 @@ describe('articles', () => {
       'vent-vitesse-reference',
       'vent-pressions-forces',
       'vent-coefficient-structural',
+      'vent-aeroelasticite',
     ]);
   });
 
