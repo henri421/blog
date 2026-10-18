@@ -185,7 +185,18 @@ export const EN1991_1_7: Carte = {
       numero: '4-6',
       titre: 'Actions accidentelles',
       clauses: [
-        c('4', 'Stratégies et classes de conséquences', ['3'], { annexes: [ann('A', 'informative'), ann('B', 'informative')] }),
+        c('4', 'Stratégies et classes de conséquences', ['3'], {
+          annexes: [ann('A', 'informative'), ann('B', 'informative')],
+          article: 'robustesse',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-7-2006', 'tirants-robustesse', 'internes', 'A.5.1'),
+            n('en1991-1-7-2006', 'tirants-robustesse', 'peripheriques', 'A.5.2'),
+            n('en1991-1-7-2025', 'tirants-robustesse', 'internes', 'A.3.1'),
+            n('en1991-1-7-2025', 'tirants-robustesse', 'peripheriques', 'A.3.2'),
+          ],
+          reserves: 'Tirants horizontaux (A.1 à A.4) ; tirants verticaux (A.5), éléments clés et analyse de risque (annexe B) décrits. Texte de 2006 non détenu.',
+        }),
         c('5', 'Chocs : véhicules, chariots, trains, bateaux, hélicoptères', ['4'], { annexes: [ann('C', 'informative')] }),
         c('6', 'Explosions intérieures', ['5'], { annexes: [ann('D', 'informative')] }),
         c('E', 'Actions dues aux débris (informative)', []),

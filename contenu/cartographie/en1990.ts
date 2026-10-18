@@ -41,7 +41,12 @@ export const EN1990_1: Carte = {
           niveaux: [n('en1990-2002', 'facteur-consequence', 'kf', 'B3.3'), n('en1990-2023', 'facteur-consequence', 'kf', '4.3')],
           reserves: 'Bâtiments (tableau A.1.9) ; CC3a et CC3b des ponts décrites, non codées. Texte de 2002 non détenu.',
         }),
-        c('4.4', 'Robustesse', ['2.1'], { annexes: [ann('E', 'informative')] }),
+        c('4.4', 'Robustesse', ['2.1'], {
+          annexes: [ann('E', 'informative')],
+          article: 'robustesse',
+          ingeree: true,
+          reserves: 'Stratégies de robustesse décrites ; tirants calculés selon l’EN 1991-1-7, annexe A.',
+        }),
         c('4.5', 'Durée d’utilisation de projet', ['2.3'], {
           article: 'bases-fiabilite',
           ingeree: true,
@@ -173,7 +178,11 @@ export const EN1990_1: Carte = {
           reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
         }),
         c('D', 'Dimensionnement assisté par l’expérimentation (informative)', ['D']),
-        c('E', 'Robustesse des bâtiments et des ponts (informative)', []),
+        c('E', 'Robustesse des bâtiments et des ponts (informative)', [], {
+          article: 'robustesse',
+          ingeree: true,
+          reserves: 'Stratégies de robustesse décrites ; tirants calculés selon l’EN 1991-1-7, annexe A.',
+        }),
         c('F', 'Comptage des cycles de fatigue (informative)', []),
         c('G', 'Appareils d’appui (normative)', []),
         c('H', 'Vibrations des passerelles (informative)', []),

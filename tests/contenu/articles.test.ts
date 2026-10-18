@@ -72,6 +72,7 @@ describe('articles', () => {
       'pression-pointe-vent',
       'combinaisons-accidentelles',
       'bases-fiabilite',
+      'robustesse',
     ]);
   });
 
