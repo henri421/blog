@@ -596,8 +596,20 @@ export const EN1991_2: Carte = {
       numero: '8',
       titre: 'Ponts ferroviaires',
       clauses: [
-        c('8.1-8.3', 'Domaine, représentation, charges verticales', ['6.1', '6.2', '6.3']),
-        c('8.4', 'Effets dynamiques, résonance', ['6.4']),
+        c('8.1-8.3', 'Domaine, représentation, charges verticales', ['6.1', '6.2', '6.3'], {
+          article: 'ponts-ferroviaires-charges-dynamique',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2003 non détenu.',
+        }),
+        c('8.4', 'Effets dynamiques, résonance', ['6.4'], {
+          article: 'ponts-ferroviaires-charges-dynamique',
+          ingeree: true,
+          niveaux: [
+            n('en1991-2-2003', 'coefficient-dynamique-rail', 'phi', '6.4.5'),
+            n('en1991-2-2023', 'coefficient-dynamique-rail', 'phi', '8.4.5'),
+          ],
+          reserves: 'Coefficient Φ seulement ; critères de 8.4.4 et analyse dynamique décrits, non codés ; tableau 8.2 non reproduit. Texte de 2003 non détenu.',
+        }),
         c('8.5', 'Forces horizontales', ['6.5']),
         c('8.6', 'Actions aérodynamiques du passage des trains', ['6.6']),
         c('8.7', 'Déraillement et autres actions', ['6.7']),
