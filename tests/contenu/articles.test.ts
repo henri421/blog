@@ -101,6 +101,7 @@ describe('articles', () => {
       'ponts-routiers-lm1',
       'ponts-forces-horizontales',
       'ponts-fatigue-routiere',
+      'ponts-collisions-geotechnique',
     ]);
   });
 
