@@ -344,6 +344,12 @@ export const fr = {
   'niveau.versants.2003.non-uniforme': 'μ1 sur un versant, 0,5 μ1 sur l’autre (figure 5.3).',
   'niveau.versants.2025.uniforme': 'μ2,b = 0,8 Ce, ou 0,8 Ce (70 − α)/40 (tableau 7.2).',
   'niveau.versants.2025.non-uniforme': 'μ2,b + μ2,w sur un versant, rien sur l’autre ; δw = 0,16 (7.7).',
+  'meca.acrotere.titre': 'Accumulation de neige le long d’un acrotère',
+  'champ.hp-acrotere': 'Hauteur de l’acrotère hp',
+  'champ.b-toiture-acrotere': 'Dimension horizontale de la toiture b',
+  'grandeur.neige-pointe': 'Charge de neige de pointe',
+  'niveau.acrotere.2003': 'μ2 = γ h/sk entre 0,8 et 2,0 ; ls = 2 h (6.2).',
+  'niveau.acrotere.2025': 'μ7 = (0,8/Ce)(2b/ls) ≤ min(0,8 γ hp/(Ce sk) ; 4) ; ls = 4 hp/Ce (8.3, 8.4).',
   'statut.reserve': 'Calculé, sous réserve',
   'reserve.annexe-p':
     'Annexe P, informative : autre approche de l’enrobage sans classe de résistance à l’exposition ; son emploi dépend de l’annexe nationale, non publiée.',

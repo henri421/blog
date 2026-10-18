@@ -88,6 +88,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Charge calorifique et feux naturels (EN 1991-1-2) | `charge-calorifique` | 1 / 1 |
 | Neige sur le sol, période de retour (EN 1991-1-3) | `neige-sol` | 2 / 2 |
 | Neige sur les toitures à versants (EN 1991-1-3) | `neige-versants` | 2 / 2 |
+| Neige, effets locaux (EN 1991-1-3) | `neige-acrotere` | 1 / 1 |
 
 ## Principes
 

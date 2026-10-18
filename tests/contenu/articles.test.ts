@@ -88,6 +88,7 @@ describe('articles', () => {
       'charge-calorifique',
       'neige-sol',
       'neige-versants',
+      'neige-effets-locaux',
     ]);
   });
 

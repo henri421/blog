@@ -237,7 +237,16 @@ export const EN1991_1_3: Carte = {
           ],
           reserves: 'Toiture à deux versants sans retenue ; versants multiples, cylindriques, dômes et toitures attenantes décrits. Texte de 2003 non détenu.',
         }),
-        c('8', 'Effets locaux : congères, débords, barres à neige', ['6'], { annexes: [ann('C', 'informative')] }),
+        c('8', 'Effets locaux : congères, débords, barres à neige', ['6'], {
+          annexes: [ann('C', 'informative')],
+          article: 'neige-effets-locaux',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-3-2003', 'neige-acrotere', 'acrotere', '6.2'),
+            n('en1991-1-3-2025', 'neige-acrotere', 'acrotere', '8.3'),
+          ],
+          reserves: 'Acrotère (8.3) ; obstructions, débords, barres à neige et noues d’intersection décrits. Texte de 2003 non détenu.',
+        }),
       ],
     },
   ],
