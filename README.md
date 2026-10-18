@@ -99,6 +99,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Actions accidentelles dues aux chocs (EN 1991-1-7) | `choc-vehicule` | 2 / 2 |
 | Explosions intérieures et débris (EN 1991-1-7) | `explosion-gaz` | 1 / 1 |
 | Ponts routiers, voies et LM1 (EN 1991-2) | `lm1` | 1 / 1 |
+| Ponts routiers, forces horizontales et groupes (EN 1991-2) | `freinage` | 2 / 2 |
 
 ## Principes
 
