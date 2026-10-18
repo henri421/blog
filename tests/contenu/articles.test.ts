@@ -97,6 +97,7 @@ describe('articles', () => {
       'temperature-ponts',
       'actions-execution',
       'chocs',
+      'explosions',
     ]);
   });
 

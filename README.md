@@ -97,6 +97,7 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Actions thermiques dans les bâtiments (EN 1991-1-5) | `temperature-batiment` | 1 / 1 |
 | Actions en cours d’exécution (EN 1991-1-6) | `execution-climat` | 1 / 1 |
 | Actions accidentelles dues aux chocs (EN 1991-1-7) | `choc-vehicule` | 2 / 2 |
+| Explosions intérieures et débris (EN 1991-1-7) | `explosion-gaz` | 1 / 1 |
 
 ## Principes
 

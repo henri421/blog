@@ -458,8 +458,21 @@ export const EN1991_1_7: Carte = {
           ],
           reserves: 'Véhicules routiers ; tableaux 5.1 et 5.2 non reproduits ; chariots, trains, bateaux, hélicoptères décrits. Texte de 2006 non détenu.',
         }),
-        c('6', 'Explosions intérieures', ['5'], { annexes: [ann('D', 'informative')] }),
-        c('E', 'Actions dues aux débris (informative)', []),
+        c('6', 'Explosions intérieures', ['5'], {
+          annexes: [ann('D', 'informative')],
+          article: 'explosions',
+          ingeree: true,
+          niveaux: [
+            n('en1991-1-7-2006', 'explosion-gaz', 'pd', 'D.2'),
+            n('en1991-1-7-2025', 'explosion-gaz', 'pd', 'D.4'),
+          ],
+          reserves: 'Gaz naturel, local unique ; poussières, tunnels, conduites et débris (annexe E) décrits. Texte de 2006 non détenu.',
+        }),
+        c('E', 'Actions dues aux débris (informative)', [], {
+          article: 'explosions',
+          ingeree: true,
+          reserves: 'Annexe décrite dans l’article.',
+        }),
       ],
     },
   ],
