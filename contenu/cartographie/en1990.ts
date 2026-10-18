@@ -105,10 +105,34 @@ export const EN1990_1: Carte = {
       numero: '6',
       titre: 'Variables de base',
       clauses: [
-        c('6.1.1', 'Classification des actions', ['4.1.1']),
-        c('6.1.2', 'Valeurs représentatives des actions', ['4.1.2', '4.1.3']),
-        c('6.1.3', 'Types particuliers d’actions', ['4.1.4', '4.1.5']),
-        c('6.1.4', 'Influences de l’environnement', ['4.1.6']),
+        c('6.1.1', 'Classification des actions', ['4.1.1'], {
+          article: 'variables-de-base',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('6.1.2', 'Valeurs représentatives des actions', ['4.1.2', '4.1.3'], {
+          article: 'variables-de-base',
+          ingeree: true,
+          niveaux: [
+            n('en1990-2002', 'valeur-permanente', 'unique', '4.1.2(3)'),
+            n('en1990-2002', 'valeur-permanente', 'superieure', '4.1.2(4)'),
+            n('en1990-2002', 'valeur-permanente', 'inferieure', '4.1.2(4)'),
+            n('en1990-2023', 'valeur-permanente', 'unique', '6.1.2.2(3)'),
+            n('en1990-2023', 'valeur-permanente', 'superieure', '6.1.2.2(6)'),
+            n('en1990-2023', 'valeur-permanente', 'inferieure', '6.1.2.2(6)'),
+          ],
+          reserves: 'Actions permanentes (loi normale) ; actions de l’eau et valeurs représentatives des actions variables décrites. Texte de 2002 non détenu.',
+        }),
+        c('6.1.3', 'Types particuliers d’actions', ['4.1.4', '4.1.5'], {
+          article: 'variables-de-base',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
+        c('6.1.4', 'Influences de l’environnement', ['4.1.6'], {
+          article: 'variables-de-base',
+          ingeree: true,
+          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+        }),
         c('6.2', 'Propriétés des matériaux et des produits', ['4.2']),
         c('6.3', 'Propriétés géométriques', ['4.3']),
       ],

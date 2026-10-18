@@ -74,6 +74,7 @@ describe('articles', () => {
       'bases-fiabilite',
       'robustesse',
       'etats-limites-actions-effets',
+      'variables-de-base',
     ]);
   });
 
