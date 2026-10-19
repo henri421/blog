@@ -14,6 +14,7 @@ docs/*
 !docs/cartographie/
 !docs/amendements.md
 !docs/verification-texte.md
+!docs/plan-en1990-en1991.md
 
 # Cahier des charges : conserve en local
 CDC-*.md
@@ -24,3 +25,6 @@ PLAN-*.md
 
 # Questions a l auteur : locales
 QUESTIONS.md
+
+# Textes normatifs (licences nominatives) : jamais dans le depot
+*.pdf
