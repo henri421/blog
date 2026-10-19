@@ -429,6 +429,17 @@ texte. Aucun extrait du texte n'est conservé dans le dépôt.
   valeurs à un an donne 3,21, 3,83, 4,42. (C.3) n'est posée qu'en NOTE 2 de
   C.6, pour des maxima annuels indépendants. Le tableau arrondit ; l'outil garde
   la conversion exacte, et l'exemple `fiabilite-cc2` reste à 3,83.
+- [x] `frequence-propre` : A1.4.4(1) à (4) : fréquence propre maintenue
+  au-dessus d'une valeur appropriée, convenue avec le client ou l'autorité
+  compétente ; sinon analyse plus fine de la réponse dynamique avec
+  l'amortissement ; aucune valeur seuil ; renvoi à l'EN 1991-1-1, à
+  l'EN 1991-1-4 et à l'ISO 10137. La relation n = (λ/2π)·√(g/f) n'est pas dans
+  le texte : elle vient de la mécanique (docs/validation/frequence-propre.md).
+- [ ] `frequence-propre`, deuxième génération : 8.4.4 et A.1.8.3 de
+  l'EN 1990-1:2023+A1:2026 non relus dans la session du 2026-10-19 (texte non
+  disponible dans la session). Contrôler que le principe d'une fréquence seuil
+  est conservé et qu'il n'est pas remplacé par un critère d'accélération ou de
+  facteur de réponse.
 - [x] **Écart 4 (traité)** : renvois harmonisés sur la forme du texte (B.3.2,
   B.3.3, C.6, D.7.2, tableaux B.2, B.3, D.1) dans les mécanismes, le
   dictionnaire, la cartographie et la validation.

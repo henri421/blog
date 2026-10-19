@@ -265,8 +265,12 @@ export const EN1990_1: Carte = {
             n('en1990-2002', 'fleche-batiment', 'apparence', 'A1.4.3'),
             n('en1990-2023', 'fleche-batiment', 'dommage', 'A.1.8.2.2'),
             n('en1990-2023', 'fleche-batiment', 'apparence', 'A.1.8.2.2'),
+            n('en1990-2002', 'frequence-propre', 'concentree', 'A1.4.4'),
+            n('en1990-2002', 'frequence-propre', 'repartie', 'A1.4.4'),
+            n('en1990-2023', 'frequence-propre', 'concentree', 'A.1.8.3'),
+            n('en1990-2023', 'frequence-propre', 'repartie', 'A.1.8.3'),
           ],
-          reserves: 'Flèches verticales seules ; limites saisies (tableau A.1.10 non reproduit) ; combinaisons 8.4.3 décrites dans le même article ; confort, déplacements, vibrations et fondations décrits, non codés ; ψ des catégories H à T du tableau A.1.7 mal alignés dans la version NBN. Texte de 2002 lu le 2026-10-19 (A1.4.3 : aucune limite chiffrée).',
+          reserves: 'Flèches verticales, limites saisies (tableau A.1.10 non reproduit) ; vibrations des planchers par la fréquence propre, seuil saisi, analyse dynamique non faite (A.1.8.3 à relire) ; combinaisons 8.4.3 décrites dans le même article ; confort, déplacements et fondations décrits, non codés ; ψ des catégories H à T du tableau A.1.7 mal alignés dans la version NBN. Texte de 2002 lu le 2026-10-19 (A1.4.3 : aucune limite chiffrée).',
         }),
         c('8.4.5', 'ELS : propriétés des matériaux et géométrie', ['6.5.4'], {
           article: 'materiaux-resistances',

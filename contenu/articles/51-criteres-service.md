@@ -10,6 +10,7 @@ motscles: combinaisons, els, fleche
 historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : première génération lue sur le texte de 2002 (6.5.3, A1.4.2, A1.4.3) : combinaisons et décomposition de la flèche confirmées, absence de limite chiffrée confirmée.
+  - 2026-10-19 : section sur les vibrations des planchers et calculateur `frequence-propre` (A1.4.4 de 2002 lu sur le texte ; A.1.8.3 de 2023 à relire sur ce point).
 ---
 
 ## Ce qui change
@@ -71,14 +72,64 @@ Le critère de dommage donne {{plancher-cloisons:en1990-2023/dommage.sollicitati
 
 {{calculateur:plancher-cloisons}}
 
+## Vibrations des planchers : la fréquence propre
+
+**Ce que dit le texte.** En 2002, l’annexe A1 demande de maintenir la fréquence propre de la structure ou de l’élément au-dessus d’une valeur appropriée, fixée selon la fonction du bâtiment et la source des vibrations, en accord avec le client ou l’autorité compétente (A1.4.4(2)). Si la fréquence est plus basse, il faut une analyse plus fine de la réponse dynamique, qui tient compte de l’amortissement (A1.4.4(3)). Le texte ne donne aucune valeur seuil : il renvoie à l’EN 1991-1-1, à l’EN 1991-1-4 et à l’ISO 10137. La deuxième génération traite les vibrations en 8.4.4 et en A.1.8.3 ; l’outil y applique le même principe, à confirmer sur le texte.
+
+**D’où vient la fréquence.** La norme ne dit pas comment estimer la fréquence ; la mécanique le fait à partir de la flèche instantanée $f$ sous les masses qui vibrent (poids propre, finitions, et la part quasi permanente des charges d’exploitation si le projet la retient) :
+
+$$
+n = \frac{\lambda}{2\pi}\sqrt{\frac{g}{f}}
+$$
+
+Pour une masse concentrée sur un ressort sans masse, $\lambda$ = 1 : c’est une borne prudente. Pour le premier mode d’une poutre isostatique dont la masse est uniformément répartie, $f$ étant sa flèche à mi-portée sous ce même poids, $\lambda = \pi^2\sqrt{5/384}$ = 1,126. L’outil calcule les deux et compare chacune au seuil convenu, qu’il ne fixe pas. Il constate ; au-dessous du seuil, il déclare qu’une analyse dynamique est requise, sans la faire.
+
+Poutre de plancher de bureaux, flèche instantanée sous les masses vibrantes $f$ = 12 mm. Seuil retenu pour l’exemple : 3,5 Hz, à convenir pour le projet.
+
+```exemple
+{
+  "nom": "plancher-bureaux-vibration",
+  "mecanisme": "frequence-propre",
+  "entree": { "f": 12, "nlim": 3.5 },
+  "attendus": {
+    "en1990-2002/concentree.resistance": "4,55",
+    "en1990-2002/repartie.resistance": "5,12",
+    "en1990-2023/concentree.resistance": "4,55",
+    "en1990-2002/concentree.taux": "0,769",
+    "en1990-2002/concentree.f pour n_lim": "20,3"
+  }
+}
+```
+
+La fréquence vaut {{plancher-bureaux-vibration:en1990-2002/concentree.resistance}} Hz avec la borne prudente, {{plancher-bureaux-vibration:en1990-2002/repartie.resistance}} Hz avec la masse répartie : le seuil de 3,5 Hz est respecté (taux {{plancher-bureaux-vibration:en1990-2002/concentree.taux}}). Il le resterait jusqu’à une flèche de {{plancher-bureaux-vibration:en1990-2002/concentree.f pour n_lim}} mm. Pour une salle de sport, où le projet retiendrait par exemple 7 Hz, la même poutre ne suffit pas :
+
+```exemple
+{
+  "nom": "plancher-sport-vibration",
+  "mecanisme": "frequence-propre",
+  "entree": { "f": 12, "nlim": 7 },
+  "attendus": {
+    "en1990-2002/concentree.taux": "1,539",
+    "en1990-2002/repartie.taux": "1,366",
+    "en1990-2002/concentree.f pour n_lim": "5,07"
+  }
+}
+```
+
+Les taux valent {{plancher-sport-vibration:en1990-2002/concentree.taux}} et {{plancher-sport-vibration:en1990-2002/repartie.taux}} : une analyse dynamique est requise, ou une flèche ramenée sous {{plancher-sport-vibration:en1990-2002/concentree.f pour n_lim}} mm avec la borne prudente.
+
+{{calculateur:plancher-bureaux-vibration}}
+
 ## L’effet sur une note de calcul existante
 
 - Les **combinaisons** ELS d’une note de 2002 restent valables.
 - Le critère de **dommage aux cloisons** porte sur $w_2 + w_3$ au sens de 2023 : la partie quasi permanente des charges d’exploitation y entre par le fluage.
 - Les limites viennent de l’EN 1990 et non plus de l’Eurocode du matériau ; elles sont des paramètres nationaux.
+- Une note qui justifiait les vibrations par une fréquence propre au-dessus d’un seuil convenu reste valable dans son principe ; le seuil et la méthode d’estimation de la fréquence doivent y être écrits.
 - Les **mouvements de fondation** deviennent une action permanente à combiner, avec des limites de tassement différentiel et de distorsion angulaire selon la sensibilité de la structure.
 
 ## Ce qu’il faudra vérifier dans l’annexe nationale
 
 - Les limites des tableaux A.1.10, A.1.11 et A.1.13 à A.1.15.
+- Les critères de vibration des planchers (fréquence seuil ou critère de réponse), que ni 2002 ni l’outil ne chiffrent.
 - Les coefficients ψ du tableau A.1.7, en particulier pour les nouvelles catégories, dont la mise en page de la version française de l’A1:2026 prête à confusion.
