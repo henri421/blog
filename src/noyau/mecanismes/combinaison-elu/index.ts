@@ -4,11 +4,13 @@
  *
  * Unites : celles des effets saisis (kN, kN.m...) ; le calcul est lineaire.
  *
- * Premiere generation (EN 1990:2002, 6.4.3.2, tableau A1.2(B), valeurs
- *   recommandees) :
+ * Premiere generation (EN 1990:2002, 6.4.3.2, tableau A1.2(B), NOTE 2,
+ *   valeurs recommandees, lu sur le texte le 2026-10-19) :
  *   (6.10)  1,35 G + 1,5 Q1 + 1,5 psi0,2 Q2 ;
  *   (6.10a) 1,35 G + 1,5 psi0,1 Q1 + 1,5 psi0,2 Q2 ;
  *   (6.10b) xi 1,35 G + 1,5 Q1 + 1,5 psi0,2 Q2, xi = 0,85 ; la plus defavorable.
+ *   La NOTE 1 du tableau laisse le choix a l annexe nationale et lui permet de
+ *   reduire (6.10a) aux seules actions permanentes (origine de (8.14)).
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 8.3.4.2, tableau A.1.8, cas VC1 ;
  *   tableau A.1.9) : gamma_G = 1,35 k_F, gamma_Q = 1,5 k_F, k_F = 0,9, 1,0 ou
  *   1,1 (CC1, CC2, CC3), xi = 0,85 :

@@ -4,10 +4,11 @@
  *
  * Unites : celles de F et de E saisies par l utilisateur (k les relie).
  *
- * Premiere generation (EN 1990:2002, 6.3.2, (6.2a) ; 6.3.2(4), texte non
- *   detenu, a relire) : E_d = E(gamma_F F) ; pour un effet qui croit moins vite
- *   que l action, le coefficient s applique a l effet de la valeur
- *   representative.
+ * Premiere generation (EN 1990:2002, 6.3.2, (6.2a), (6.2b) ; 6.3.2(4) a) et
+ *   b), lu sur le texte le 2026-10-19) : E_d = E(gamma_F F) ; pour un effet
+ *   qui croit moins vite que l action, le coefficient s applique a l effet de
+ *   la valeur representative ; la NOTE de 6.3.2(4) range les structures a
+ *   cables et a membranes hors de la regle a).
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 8.3.2.1 a 8.3.2.3, (8.4),
  *   (8.5)) : (8.4) E_d = E(gamma_F F), par defaut pour les systemes lineaires
  *   et non lineaires ; (8.5) E_d = gamma_E E(F), pour les cables et membranes

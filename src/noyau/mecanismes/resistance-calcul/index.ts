@@ -4,8 +4,10 @@
  *
  * Unites : celles de X et de R saisies par l utilisateur.
  *
- * Premiere generation (EN 1990:2002, 6.3.5, (6.6a) a (6.6c), texte non detenu,
- *   a relire) : R_d = R(eta X_k / gamma_M) ou R_d = R_k / gamma_M.
+ * Premiere generation (EN 1990:2002, 6.3.3, (6.3) ; 6.3.5, (6.6) a (6.6d), lu
+ *   sur le texte le 2026-10-19) : R_d = R(eta X_k / gamma_M) (6.6a) ou
+ *   R_d = R_k / gamma_M (6.6c) ; (6.6d), plusieurs materiaux en analyse non
+ *   lineaire, non codee.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 8.3.5.1 a 8.3.5.3, (8.18) a
  *   (8.20), 8.3.6, (8.23)) : MFA (8.19) R_d = R(eta X_k / gamma_M) ;
  *   RFA (8.20) R_d = R(eta X_k) / gamma_R ; gamma_M = gamma_R = gamma_m gamma_Rd.

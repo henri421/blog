@@ -4,14 +4,20 @@
  *
  * Unites : celles des essais.
  *
- * Premiere generation (EN 1990:2002, annexe D, D7.2, (D.1) a (D.3), tableau D1,
- *   texte non detenu, a relire) et deuxieme generation (EN 1990-1:2023+A1:2026,
- *   annexe D, D.7.2, (D.1) a (D.3), tableau D.1) : X_k = m_x (1 - k_n V_x)
- *   (V_x connu) ou X_k = m_x - k_n s_x (V_x inconnu).
+ * Premiere generation (EN 1990:2002, annexe D, D.7.1(5), D.7.2, (D.1) a (D.3),
+ *   tableau D.1, lus sur le texte le 2026-10-19) et deuxieme generation
+ *   (EN 1990-1:2023+A1:2026, annexe D, D.7.2, (D.1) a (D.3), tableau D.1) :
+ *   X_k = m_x (1 - k_n V_x) (V_x connu) ou X_k = m_x - k_n s_x (V_x inconnu).
+ *   D.7.1(5) de 2002 recommande deja de ne pas supposer V_x inconnu inferieur
+ *   a 0,10 : affiche en intermediaire, non applique (decision de l auteur
+ *   attendue).
  * Choix de l outil : k_n calcule et non lu dans le tableau D.1 :
  *   V_x connu : k_n = u_0,95 sqrt(1 + 1/n) ;
  *   V_x inconnu : k_n = t_(n-1 ; 0,95) sqrt(1 + 1/n), t de Student calcule par
- *   integration numerique. Huit essais au plus ; loi log-normale non codee.
+ *   integration numerique. Le tableau D.1 tronque plutot qu il n arrondit :
+ *   ecart de 0,01 a 0,02 (n = 1 : 2,33 contre 2,31 ; n = 4 : 1,84 contre
+ *   1,83 ; n = 8, V_x inconnu : 2,01 contre 2,00), sans effet sur X_k au-dela
+ *   du centieme relatif. Huit essais au plus ; loi log-normale non codee.
  */
 
 import type { Cle } from '../../../i18n/cle';
@@ -137,5 +143,5 @@ export const essaisCaracteristique: Mecanisme<EntreeEssaisCaracteristique> = {
   ],
   sollicitation: { libelle: 'grandeur.sans-objet', unite: '-' },
   resistance: { libelle: 'grandeur.valeur-caracteristique-essais', unite: '-' },
-  niveaux: { 'en1990-2002': niveaux('D7.2', ['D7.2', '(D.1)', 'tableau D1'], '2002'), 'en1990-2023': niveaux('D.7.2', ['D.7.2', '(D.1) à (D.3)', 'tableau D.1'], '2023') },
+  niveaux: { 'en1990-2002': niveaux('D.7.2', ['D.7.2', '(D.1)', 'tableau D.1'], '2002'), 'en1990-2023': niveaux('D.7.2', ['D.7.2', '(D.1) à (D.3)', 'tableau D.1'], '2023') },
 };

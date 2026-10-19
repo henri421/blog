@@ -10,4 +10,4 @@ Calcul indépendant du code.
 | CC0, CC4 | sans objet | — | — |
 
 $\gamma_{G,fav}$ = 1,0 dans tous les cas : le facteur ne multiplie pas les actions
-favorables (tableau A.1.8, note h ; B3.3 en 2002).
+favorables (tableau A.1.8, note h ; B.3.3 en 2002).

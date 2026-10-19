@@ -10,8 +10,8 @@
  *   charge variable q sur la console seule (destabilisatrice q a2/2). Verifie :
  *   M_dst,d <= M_stb,d ; sinon A doit etre ancre, d un effort
  *   (M_dst,d - M_stb,d)/L.
- * Premiere generation (EN 1990:2002, tableau A1.2(A), valeurs recommandees,
- *   texte de 2002 non detenu) :
+ * Premiere generation (EN 1990:2002, tableau A1.2(A), NOTES 1 et 2, valeurs
+ *   recommandees, lu sur le texte le 2026-10-19) :
  *   EQU : gamma_G,sup = 1,10, gamma_G,inf = 0,90, gamma_Q = 1,5 ;
  *   NOTE 2 : 1,35 / 1,15 / 1,5 en verification combinee avec la resistance,
  *   si 1,00 sur les deux parties n est pas plus defavorable.

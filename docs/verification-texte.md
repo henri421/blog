@@ -350,3 +350,88 @@ corrigendum de 2010) et sur l'amendement NBN EN 1992-1-1/A1:2014.
   σ_p,m(x,0) ≤ 0,75 f_pk et ≤ 0,85 f_p0,1k. 2004 : k_1 à k_3, k_7, k_8 recommandés identiques.
 - [x] (7.34) Δσ_p,μ = σ_p,max [1 − exp(−μ(α_μ + k_μ x))], 0,005 < k_μ < 0,01 /m ; (5.45) identique.
 - [x] (7.35) pertes différées : même expression que (5.46), facteur 0,8 sur la relaxation.
+
+## EN 1990:2002 (vérification du 2026-10-19)
+
+Vérifiée le 2026-10-19 sur l'EN 1990:2002 (version française, édition d'avril
+2002, 88 pages), **sans l'amendement A1:2005** : l'annexe A2 (ponts) n'est pas
+détenue, et `combinaison-pont` reste cité de mémoire. Chaque valeur a été lue
+sur la page rendue, les tableaux perdant leurs valeurs à l'extraction de
+texte. Aucun extrait du texte n'est conservé dans le dépôt.
+
+- [x] `valeur-permanente` : 4.1.2(2) à (5). Valeur unique si la variabilité
+  est faible, coefficient de variation dans la fourchette 0,05 à 0,10 (NOTE de
+  4.1.2(3)) ; fractiles 5 % et 95 % d'une loi supposée gaussienne ; 4.1.2(4)
+  impose deux valeurs aux structures très sensibles aux variations de G même à
+  faible variabilité (ajouté à l'article 58 et au commentaire du mécanisme).
+- [x] `actions-effets` : 6.3.2, (6.2), (6.2a), (6.2b) ; règles a) et b) de
+  6.3.2(4) ; la NOTE exclut les structures à câbles et à membranes de la
+  règle a).
+- [x] `resistance-calcul` : 6.3.3, (6.3) ; 6.3.5, (6.6), (6.6a) à (6.6d).
+  **Corrigé** (article 59) : (6.6d), qui traite les éléments en plusieurs
+  matériaux analysés de façon non linéaire, existait en 2002 ; (8.21) ne
+  l'ajoute pas, il le reconduit.
+- [x] `combinaison-elu` : 6.4.3.2, (6.10), (6.10a), (6.10b) ; tableau A1.2(B),
+  NOTE 2 : γG,sup = 1,35, γG,inf = 1,00, γQ = 1,50, ξ = 0,85. La NOTE 1 laisse
+  le choix des expressions à l'annexe nationale et lui permet de réduire
+  (6.10a) aux seules actions permanentes : origine de (8.14), ajouté à
+  l'article 47.
+- [x] Tableau A1.2(B), NOTE 3 : toutes les actions permanentes d'une même
+  origine prennent γG,sup ou γG,inf selon l'effet total. **Corrigé**
+  (article 50) : la source unique hors équilibre était présentée comme « peu
+  codifiée » en 2002.
+- [x] `combinaison-accidentelle`, partie EN 1990 : 6.4.3.3, (6.11a), (6.11b) ;
+  tableau A1.3 et sa note : valeur fréquente ou quasi permanente de l'action
+  variable principale, au choix de l'annexe nationale selon l'action
+  accidentelle. La partie EN 1991-1-2:2002 (ηfi) reste citée de mémoire.
+- [x] `equilibre-statique` : tableau A1.2(A), NOTE 1 : 1,10, 0,90, 1,50 ;
+  NOTE 2 : 1,35 et 1,15 en vérification combinée, à condition que γG,inf =
+  1,00 appliqué aux deux parties ne soit pas plus défavorable.
+- [x] Coefficients ψ du tableau A1.1 utilisés par les exemples : bureaux
+  (catégorie B) ψ0 = 0,7, ψ1 = 0,5, ψ2 = 0,3 ; neige sous 1 000 m ψ0 = 0,5,
+  ψ2 = 0 (articles 47 et 54) ; conformes.
+- [x] `fleche-batiment` : A1.4.2, A1.4.3, figure A1.1 : w_c, w1, w2, w3, w_tot,
+  w_max ; aucune limite chiffrée, critères à convenir avec le client ou fixés
+  par l'annexe nationale (A1.4.2(2)) : niveaux 2002 non applicables confirmés.
+  Aspect en combinaison quasi permanente (A1.4.3(4)). Combinaisons de service
+  (6.14a) à (6.16b) (6.5.3) identiques à (8.29) à (8.31).
+- [x] `facteur-consequence` : B.3.3, tableau B.3 : KFI = 0,9, 1,0, 1,1 pour
+  RC1 à RC3, aux seules actions défavorables ; la NOTE préfère pour RC3
+  d'autres mesures que KFI (ajouté à l'article 49). Association RC1 à RC3 avec
+  CC1 à CC3 : B.3.2(2).
+- [x] Durée d'utilisation de projet : 2.3, tableau 2.1, cinq catégories ; la
+  note a) exclut déjà des structures provisoires les structures démontables
+  destinées au réemploi (précisé à l'article 49).
+- [x] Situations de projet (3.2) : durables, transitoires, accidentelles,
+  sismiques ; la fatigue n'est pas une situation en 2002 (article 57
+  conforme).
+- [x] `essais-caracteristique` : D.7.2, (D.1) à (D.3), tableau D.1 ; la
+  formule k_n = t(n−1 ; 0,95)·√(1 + 1/n) reproduit la ligne « Vx inconnu ».
+- [x] **Écart 2 (traité)** : le tableau D.1 tronque plutôt qu'il n'arrondit.
+  Valeurs calculées contre valeurs du tableau, Vx connu : n = 1, 2,33 contre
+  2,31 ; n = 3, 1,90 contre 1,89 ; n = 4, 1,84 contre 1,83 ; n = 6, 1,78
+  contre 1,77. Vx inconnu : n = 8, 2,01 contre 2,00 ; n = 20, 1,77 contre
+  1,76. L'outil garde le calcul ; l'écart est dit dans le commentaire du
+  mécanisme et dans l'article 60.
+- [x] **Corrigé** (article 60) : les hypothèses des tableaux D.1 et D.2 (lois
+  normale ou log-normale, moyenne inconnue, Vx parfaitement connu ou
+  totalement inconnu), la préférence pour le cas « Vx connu » estimé
+  prudemment et le plancher Vx ≥ 0,10 figurent déjà en D.7.1(5) de 2002.
+  L'article les présentait comme des précisions de la deuxième génération.
+- [ ] **Écart 1 (décision de l'auteur attendue)** : D.7.1(5) recommande de ne
+  pas supposer Vx inférieur à 0,10 lorsqu'il est inconnu. L'outil l'affiche en
+  intermédiaire sans l'appliquer. Exemple `acier-1940` de l'article 60 :
+  plancher appliqué, Xk = 306,75 × (1 − 2,631 × 0,10) ≈ 226,0 au lieu de
+  294,7 (niveau « Vx inconnu »).
+- [ ] **Écart 3 (décision de l'auteur attendue)** : tableau B.2, β sur 50 ans
+  = 3,3, 3,8, 4,3 (RC1 à RC3), donné directement ; la conversion (C.3) des
+  valeurs à un an donne 3,21, 3,83, 4,42. (C.3) n'est posée qu'en NOTE 2 de
+  C.6, pour des maxima annuels indépendants. L'exemple `fiabilite-cc2` (3,83)
+  reste en l'état jusqu'à la décision.
+- [x] **Écart 4 (traité)** : renvois harmonisés sur la forme du texte (B.3.2,
+  B.3.3, C.6, D.7.2, tableaux B.2, B.3, D.1) dans les mécanismes, le
+  dictionnaire, la cartographie et la validation.
+- [x] Cartographie : correspondances corrigées sur la table des matières de
+  2002 : 6.1.4 ↔ 4.1.7 (et non 4.1.6, actions géotechniques) ; 8.1 ↔ 6.1,
+  6.2 ; 8.3.1 ↔ 6.4.1, 6.4.2 ; 8.4.2 ↔ 6.5.1 ; 8.4.4 ↔ 6.5.2 et A1.4 (et non
+  6.5.4, coefficients des matériaux).

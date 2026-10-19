@@ -4,9 +4,11 @@
  *
  * Unites : celles de G_m ; V sans dimension.
  *
- * Premiere generation (EN 1990:2002, 4.1.2(2) a (5), texte non detenu, a
- *   relire) : valeur unique G_k = G_m si V est faible (0,05 a 0,10 selon la
- *   NOTE) ; sinon fractiles 95 % et 5 %.
+ * Premiere generation (EN 1990:2002, 4.1.2(2) a (5), lu sur le texte le
+ *   2026-10-19) : valeur unique G_k = G_m si V est faible (0,05 a 0,10 selon
+ *   la NOTE de 4.1.2(3)) ; sinon fractiles 95 % et 5 % d une loi supposee
+ *   gaussienne ; deux valeurs meme a faible variabilite pour une structure
+ *   tres sensible aux variations de G (4.1.2(4)), cas laisse a l ingenieur.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 6.1.2.2(2) a (6)) : V faible si
  *   V <= 5 % pour l equilibre statique ou le soulevement, V <= 10 % sinon ;
  *   G_k,sup et G_k,inf aux fractiles 95 % et 5 % de la loi normale.

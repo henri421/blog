@@ -5,8 +5,9 @@
  *
  * Unites : celles des effets saisis (kN, kN.m...) ; le calcul est lineaire.
  *
- * Premiere generation (EN 1990:2002, 6.4.3.3, (6.11b) ; EN 1991-1-2:2002,
- *   4.3.1, 4.3.2, (4.5), textes de 2002 non detenus) :
+ * Premiere generation (EN 1990:2002, 6.4.3.3, (6.11a), (6.11b), tableau A1.3,
+ *   lus sur le texte le 2026-10-19 ; EN 1991-1-2:2002, 4.3.1, 4.3.2, (4.5),
+ *   texte non detenu, cite de memoire) :
  *   E_d = G + A_d + (psi1,1 ou psi2,1) Q1 + psi2,2 Q2 ;
  *   eta_fi = (G + psi_fi Q1) / (1,35 G + 1,5 Q1).
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 8.3.4.3, (8.15), tableau A.1.3 ;

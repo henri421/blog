@@ -4,10 +4,11 @@
  *
  * Unites : sans dimension.
  *
- * Premiere generation (EN 1990:2002, annexe B informative, B3.3, tableau B3,
- *   texte de 2002 non detenu, valeurs usuelles) : K_FI = 0,9 ; 1,0 ; 1,1 pour
- *   RC1 a RC3 (associees a CC1 a CC3), applique aux seules actions
- *   defavorables ; pas de CC0 ni de CC4.
+ * Premiere generation (EN 1990:2002, annexe B informative, B.3.3, tableau B.3,
+ *   lu sur le texte le 2026-10-19) : K_FI = 0,9 ; 1,0 ; 1,1 pour RC1 a RC3
+ *   (associees a CC1 a CC3, B.3.2(2)), applique aux seules actions
+ *   defavorables ; pour RC3, la NOTE prefere d autres mesures a K_FI ; pas de
+ *   CC0 ni de CC4.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 4.3, tableaux A.1.8 et A.1.9) :
  *   k_F = 0,9 ; 1,0 ; 1,1 pour CC1 a CC3, gamma_G = 1,35 k_F et gamma_Q =
  *   1,5 k_F (VC1) ; gamma_G,fav et gamma_G,stb ne sont pas multiplies.
@@ -51,11 +52,11 @@ const niveau2002: DefinitionNiveau<EntreeFacteurConsequence> = {
   ordre: 1,
   position: 'annexe-informative',
   reserve: 'reserve.en1990-2002-b',
-  clause: 'B3.3',
+  clause: 'B.3.3',
   hypothese: 'niveau.kf.2002',
   donneesRequises: [R.cc],
   conditions: extreme,
-  calculer: (e) => calculer(e, ['B3.3', 'tableau B3']),
+  calculer: (e) => calculer(e, ['B.3.3', 'tableau B.3']),
 };
 
 const niveau2023: DefinitionNiveau<EntreeFacteurConsequence> = {

@@ -4,9 +4,12 @@
  *
  * Unites : annees ; beta et P_f sans dimension.
  *
- * Premiere generation (EN 1990:2002, annexe B, tableau B2, et annexe C,
- *   (C.3), textes de 2002 non detenus) : beta_1 = 4,2 ; 4,7 ; 5,2 pour RC1 a
- *   RC3 (CC1 a CC3) ; Phi(beta_n) = [Phi(beta_1)]^n.
+ * Premiere generation (EN 1990:2002, annexe B, B.3.2, tableau B.2, et annexe
+ *   C, C.6, NOTE 2, (C.3), lus sur le texte le 2026-10-19) : beta_1 = 4,2 ;
+ *   4,7 ; 5,2 pour RC1 a RC3 (CC1 a CC3) ; Phi(beta_n) = [Phi(beta_1)]^n, posee
+ *   en note pour des maxima annuels independants. Le tableau B.2 donne aussi
+ *   directement beta_50 = 3,3 ; 3,8 ; 4,3, valeurs arrondies que (C.3) ne
+ *   reproduit pas exactement (3,21 ; 3,83 ; 4,42) : ecart soumis a l auteur.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 4.2, annexe C, tableau C.3,
  *   tableau C.2) : memes valeurs, meme conversion, P_f = Phi(-beta).
  * Choix de l outil : conversion par independance des annees successives ;
@@ -92,11 +95,11 @@ const niveau2002: DefinitionNiveau<EntreeFiabilite> = {
   ordre: 1,
   position: 'annexe-informative',
   reserve: 'reserve.en1990-annexe-c',
-  clause: 'C6',
+  clause: 'C.6',
   hypothese: 'niveau.fiab.2002',
   donneesRequises: [R.cc, R.T],
   conditions: extremes,
-  calculer: (e) => calculer(e as Complete, ['B3.2', 'tableau B2', 'C6']),
+  calculer: (e) => calculer(e as Complete, ['B.3.2', 'tableau B.2', 'C.6', '(C.3)']),
 };
 
 const niveau2023: DefinitionNiveau<EntreeFiabilite> = {

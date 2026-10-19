@@ -4,10 +4,11 @@
  *
  * Unites : m pour la portee ; mm pour les fleches.
  *
- * Premiere generation (EN 1990:2002, A1.4.3, figure A1.1, texte de 2002 non
- *   detenu) : w1 (permanentes, initiale), w2 (permanentes, long terme), w3
+ * Premiere generation (EN 1990:2002, A1.4.2, A1.4.3, figure A1.1, lu sur le
+ *   texte le 2026-10-19) : w1 (permanentes, initiale), w2 (permanentes, long terme), w3
  *   (actions variables), w_tot = w1 + w2 + w3, w_max = w_tot - w_c ; aucune
- *   limite chiffree (a convenir pour le projet) : niveaux non applicables.
+ *   limite chiffree, criteres a convenir avec le client ou fixes par l annexe
+ *   nationale (A1.4.2(2)) : niveaux non applicables.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, A.1.8.2.2, figure A.1.1,
  *   tableau A.1.10) : w2 inclut la partie quasi permanente des actions
  *   variables, w3 l exclut ; limitation des dommages aux elements auxiliaires

@@ -5,8 +5,8 @@
  * devient la partie 1 (structures neuves). La partie 2 (structures
  * existantes, EN 1990-2:2026) est hors du perimetre de la version 1.
  * Etablie sur la table des matieres ; aucune clause n est encore lue en
- * detail (`ingeree` a faux). Correspondance avec l EN 1990:2002 + A1:2005
- * donnee au niveau du chapitre, a confirmer sur le texte.
+ * detail (`ingeree` a faux). Correspondance avec l EN 1990:2002 confirmee
+ * sur le texte le 2026-10-19 (sans l A1:2005, non detenu : annexe A2).
  */
 
 import type { Carte } from './types';
@@ -24,22 +24,22 @@ export const EN1990_1: Carte = {
         c('4.1', 'Exigences de base', ['2.1'], {
           article: 'bases-fiabilite',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 lu le 2026-10-19.',
         }),
         c('4.2', 'Fiabilité structurale', ['2.2'], {
           article: 'bases-fiabilite',
           ingeree: true,
           niveaux: [
-            n('en1990-2002', 'fiabilite', 'beta', 'C6'),
+            n('en1990-2002', 'fiabilite', 'beta', 'C.6'),
             n('en1990-2023', 'fiabilite', 'beta', 'C.3.4'),
           ],
-          reserves: 'Cibles de l’annexe C ; 4.1, 4.5 à 4.8 et l’annexe B décrits dans le même article. Texte de 2002 non détenu.',
+          reserves: 'Cibles de l’annexe C ; 4.1, 4.5 à 4.8 et l’annexe B décrits dans le même article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('4.3', 'Conséquences d’une défaillance, classes de conséquences', ['B.3'], {
           article: 'classes-consequences',
           ingeree: true,
-          niveaux: [n('en1990-2002', 'facteur-consequence', 'kf', 'B3.3'), n('en1990-2023', 'facteur-consequence', 'kf', '4.3')],
-          reserves: 'Bâtiments (tableau A.1.9) ; CC3a et CC3b des ponts décrites, non codées. Texte de 2002 non détenu.',
+          niveaux: [n('en1990-2002', 'facteur-consequence', 'kf', 'B.3.3'), n('en1990-2023', 'facteur-consequence', 'kf', '4.3')],
+          reserves: 'Bâtiments (tableau A.1.9) ; CC3a et CC3b des ponts décrites, non codées. Texte de 2002 lu le 2026-10-19.',
         }),
         c('4.4', 'Robustesse', ['2.1'], {
           annexes: [ann('E', 'informative')],
@@ -50,23 +50,23 @@ export const EN1990_1: Carte = {
         c('4.5', 'Durée d’utilisation de projet', ['2.3'], {
           article: 'bases-fiabilite',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 lu le 2026-10-19.',
         }),
         c('4.6', 'Durabilité', ['2.4'], {
           article: 'bases-fiabilite',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 lu le 2026-10-19.',
         }),
         c('4.7', 'Compatibilité avec le développement durable', [], {
           article: 'bases-fiabilite',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Sans équivalent dans le texte de 2002 (lu le 2026-10-19).',
         }),
         c('4.8', 'Management de la qualité', ['2.5'], {
           annexes: [ann('B', 'informative')],
           article: 'bases-fiabilite',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 lu le 2026-10-19.',
         }),
       ],
     },
@@ -77,27 +77,27 @@ export const EN1990_1: Carte = {
         c('5.1', 'États-limites : généralités', ['3.1'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('5.2', 'Situations de projet', ['3.2'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('5.3', 'États-limites ultimes', ['3.3'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('5.4', 'États-limites de service', ['3.4'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('5.5', 'Modèles structuraux, géotechniques et de charges', ['3.5'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
       ],
     },
@@ -108,7 +108,7 @@ export const EN1990_1: Carte = {
         c('6.1.1', 'Classification des actions', ['4.1.1'], {
           article: 'variables-de-base',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('6.1.2', 'Valeurs représentatives des actions', ['4.1.2', '4.1.3'], {
           article: 'variables-de-base',
@@ -121,27 +121,27 @@ export const EN1990_1: Carte = {
             n('en1990-2023', 'valeur-permanente', 'superieure', '6.1.2.2(6)'),
             n('en1990-2023', 'valeur-permanente', 'inferieure', '6.1.2.2(6)'),
           ],
-          reserves: 'Actions permanentes (loi normale) ; actions de l’eau et valeurs représentatives des actions variables décrites. Texte de 2002 non détenu.',
+          reserves: 'Actions permanentes (loi normale) ; actions de l’eau et valeurs représentatives des actions variables décrites. Texte de 2002 lu le 2026-10-19.',
         }),
         c('6.1.3', 'Types particuliers d’actions', ['4.1.4', '4.1.5'], {
           article: 'variables-de-base',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
-        c('6.1.4', 'Influences de l’environnement', ['4.1.6'], {
+        c('6.1.4', 'Influences de l’environnement', ['4.1.7'], {
           article: 'variables-de-base',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('6.2', 'Propriétés des matériaux et des produits', ['4.2'], {
           article: 'materiaux-resistances',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('6.3', 'Propriétés géométriques', ['4.3'], {
           article: 'materiaux-resistances',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
       ],
     },
@@ -153,24 +153,24 @@ export const EN1990_1: Carte = {
           annexes: [ann('F', 'informative')],
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('7.2', 'Analyse linéaire et non linéaire', ['5.1'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('7.3', 'Dimensionnement assisté par l’expérimentation', ['5.2'], {
           annexes: [ann('D', 'informative')],
           article: 'essais',
           ingeree: true,
           niveaux: [
-            n('en1990-2002', 'essais-caracteristique', 'v-connu', 'D7.2'),
-            n('en1990-2002', 'essais-caracteristique', 'v-inconnu', 'D7.2'),
+            n('en1990-2002', 'essais-caracteristique', 'v-connu', 'D.7.2'),
+            n('en1990-2002', 'essais-caracteristique', 'v-inconnu', 'D.7.2'),
             n('en1990-2023', 'essais-caracteristique', 'v-connu', 'D.7.2'),
             n('en1990-2023', 'essais-caracteristique', 'v-inconnu', 'D.7.2'),
           ],
-          reserves: 'Loi normale, huit essais au plus ; loi log-normale, méthode B (D.7.3) et modèles de résistance (D.8) décrits. Texte de 2002 non détenu.',
+          reserves: 'Loi normale, huit essais au plus ; loi log-normale, méthode B (D.7.3) et modèles de résistance (D.8) décrits. Texte de 2002 lu le 2026-10-19.',
         }),
       ],
     },
@@ -178,15 +178,15 @@ export const EN1990_1: Carte = {
       numero: '8',
       titre: 'Méthode des coefficients partiels',
       clauses: [
-        c('8.1', 'Généralités et limites', ['6.1'], {
+        c('8.1', 'Généralités et limites', ['6.1', '6.2'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
-        c('8.3.1', 'ELU : généralités, équilibre, résistance, fatigue', ['6.4.1'], {
+        c('8.3.1', 'ELU : généralités, équilibre, résistance, fatigue', ['6.4.1', '6.4.2'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('8.3.2', 'ELU : valeurs de calcul des effets des actions', ['6.3.2'], {
           article: 'etats-limites-actions-effets',
@@ -197,7 +197,7 @@ export const EN1990_1: Carte = {
             n('en1990-2023', 'actions-effets', 'actions', '8.3.2.2'),
             n('en1990-2023', 'actions-effets', 'effets', '8.3.2.3'),
           ],
-          reserves: 'Action unique et loi E = k F^p ; γSd séparé (8.3) non codé. Texte de 2002 non détenu.',
+          reserves: 'Action unique et loi E = k F^p ; γSd séparé (8.3) non codé. Texte de 2002 lu le 2026-10-19.',
         }),
         c('8.3.3', 'ELU : valeurs de calcul des actions', ['6.3.1'], {
           article: 'equilibre-statique',
@@ -207,7 +207,7 @@ export const EN1990_1: Carte = {
             n('en1990-2002', 'equilibre-statique', 'equ-str', 'A1.2(A)'),
             n('en1990-2023', 'equilibre-statique', 'vc2', '8.3.3.1(5)'),
           ],
-          reserves: 'Poutre à console sous poids propre et charge variable ; γG,stb = 1,15 sans kF (tableau A.1.8) ; VC3, VC4 (GEO) et actions de l’eau non codés. Texte de 2002 non détenu.',
+          reserves: 'Poutre à console sous poids propre et charge variable ; γG,stb = 1,15 sans kF (tableau A.1.8) ; VC3, VC4 (GEO) et actions de l’eau non codés. Texte de 2002 lu le 2026-10-19.',
         }),
         c('8.3.4', 'ELU : combinaisons d’actions', ['6.4.3'], {
           article: 'combinaisons-elu',
@@ -219,7 +219,7 @@ export const EN1990_1: Carte = {
             n('en1990-2023', 'combinaison-elu', 'e813', '8.3.4.2(2)'),
             n('en1990-2023', 'combinaison-elu', 'e814', '8.3.4.2(2)'),
           ],
-          reserves: 'Situations durables et transitoires, bâtiments, STR (VC1) ; accidentelles dans l’article combinaisons-accidentelles, équilibre (VC2) dans equilibre-statique ; sismiques et GEO non codées. Texte de 2002 lu au travers de la synthèse NBN-CSTC.',
+          reserves: 'Situations durables et transitoires, bâtiments, STR (VC1) ; accidentelles dans l’article combinaisons-accidentelles, équilibre (VC2) dans equilibre-statique ; sismiques et GEO non codées. Texte de 2002 lu le 2026-10-19.',
         }),
         c('8.3.5', 'ELU : valeurs de calcul des résistances', ['6.3.5'], {
           article: 'materiaux-resistances',
@@ -230,34 +230,34 @@ export const EN1990_1: Carte = {
             n('en1990-2023', 'resistance-calcul', 'mfa', '8.3.5.2'),
             n('en1990-2023', 'resistance-calcul', 'rfa', '8.3.5.3'),
           ],
-          reserves: 'Une propriété, loi R = k X^q ; (8.21) multi-matériaux et (8.22) fatigue décrites. Texte de 2002 non détenu.',
+          reserves: 'Une propriété, loi R = k X^q ; (8.21) multi-matériaux et (8.22) fatigue décrites. Texte de 2002 lu le 2026-10-19.',
         }),
         c('8.3.6', 'ELU : propriétés de calcul des matériaux', ['6.3.3'], {
           article: 'materiaux-resistances',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('8.3.7', 'ELU : propriétés géométriques de calcul', ['6.3.4'], {
           article: 'materiaux-resistances',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('8.4.1', 'ELS : généralités', ['6.5.1'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
-        c('8.4.2', 'ELS : valeurs de calcul des effets des actions', ['6.5.2'], {
+        c('8.4.2', 'ELS : valeurs de calcul des effets des actions', ['6.5.1'], {
           article: 'etats-limites-actions-effets',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
         c('8.4.3', 'ELS : combinaisons d’actions', ['6.5.3'], {
           article: 'criteres-service',
           ingeree: true,
-          reserves: 'Combinaisons (8.29) à (8.31), identiques à 2002, décrites dans l’article.',
+          reserves: 'Combinaisons (8.29) à (8.31), identiques à (6.14b) à (6.16b) de 2002, décrites dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
-        c('8.4.4', 'ELS : critères', ['6.5.4'], {
+        c('8.4.4', 'ELS : critères', ['6.5.2', 'A1.4'], {
           article: 'criteres-service',
           ingeree: true,
           niveaux: [
@@ -266,12 +266,12 @@ export const EN1990_1: Carte = {
             n('en1990-2023', 'fleche-batiment', 'dommage', 'A.1.8.2.2'),
             n('en1990-2023', 'fleche-batiment', 'apparence', 'A.1.8.2.2'),
           ],
-          reserves: 'Flèches verticales seules ; limites saisies (tableau A.1.10 non reproduit) ; combinaisons 8.4.3 décrites dans le même article ; confort, déplacements, vibrations et fondations décrits, non codés ; ψ des catégories H à T du tableau A.1.7 mal alignés dans la version NBN.',
+          reserves: 'Flèches verticales seules ; limites saisies (tableau A.1.10 non reproduit) ; combinaisons 8.4.3 décrites dans le même article ; confort, déplacements, vibrations et fondations décrits, non codés ; ψ des catégories H à T du tableau A.1.7 mal alignés dans la version NBN. Texte de 2002 lu le 2026-10-19 (A1.4.3 : aucune limite chiffrée).',
         }),
         c('8.4.5', 'ELS : propriétés des matériaux et géométrie', ['6.5.4'], {
           article: 'materiaux-resistances',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2002 lu le 2026-10-19.',
         }),
       ],
     },
@@ -282,7 +282,7 @@ export const EN1990_1: Carte = {
         c('A.1', 'Bâtiments : coefficients ψ, coefficients partiels, combinaisons', ['A1'], {
           article: 'combinaisons-elu',
           ingeree: true,
-          reserves: 'Coefficients ψ, partiels et kF des bâtiments décrits (articles 47 à 51).',
+          reserves: 'Coefficients ψ, partiels et kF des bâtiments décrits (articles 47 à 51). Texte de 2002 lu le 2026-10-19.',
         }),
         c('A.2', 'Ponts : coefficients ψ, coefficients partiels, combinaisons', ['A2'], {
           article: 'ponts-bases',
@@ -291,7 +291,7 @@ export const EN1990_1: Carte = {
             n('en1990-2002', 'combinaison-pont', 'str', 'A2.3.1'),
             n('en1990-2023', 'combinaison-pont', 'str', 'A.2.8'),
           ],
-          reserves: 'Pont routier, gr1a et température, VC1 ; passerelles, ponts ferroviaires, VC2 à VC4 et critères de service décrits. Texte de 2005 non détenu.',
+          reserves: 'Pont routier, gr1a et température, VC1 ; passerelles, ponts ferroviaires, VC2 à VC4 et critères de service décrits. Texte de 2002 lu, A1:2005 non détenu.',
         }),
         c('A.3', 'Tours, mâts et cheminées', [], reporte('tours, mâts et cheminées : reporté par l’auteur (05/10/2026)')),
         c('A.4', 'Silos et réservoirs', [], reporte('silos et réservoirs : reporté par l’auteur (05/10/2026)')),
@@ -306,17 +306,17 @@ export const EN1990_1: Carte = {
         c('B', 'Mesures de gestion technique (informative)', ['B'], {
           article: 'bases-fiabilite',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 lu le 2026-10-19.',
         }),
         c('C', 'Fiabilité et calibration des codes (informative)', ['C'], {
           article: 'bases-fiabilite',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 non détenu.',
+          reserves: 'Clause décrite dans l’article (pas de calcul propre). Texte de 2002 lu le 2026-10-19.',
         }),
         c('D', 'Dimensionnement assisté par l’expérimentation (informative)', ['D'], {
           article: 'essais',
           ingeree: true,
-          reserves: 'Annexe décrite dans l’article ; valeur caractéristique calculée (D.7.2).',
+          reserves: 'Annexe décrite dans l’article ; valeur caractéristique calculée (D.7.2). Texte de 2002 lu le 2026-10-19.',
         }),
         c('E', 'Robustesse des bâtiments et des ponts (informative)', [], {
           article: 'robustesse',
@@ -330,7 +330,7 @@ export const EN1990_1: Carte = {
             n('en1990-2002', 'comptage-cycles', 'rainflow', '—'),
             n('en1990-2023', 'comptage-cycles', 'rainflow', 'F.3'),
           ],
-          reserves: 'Méthode des demi-cycles, huit valeurs ; méthode du réservoir décrite. Texte de 2002 non détenu.',
+          reserves: 'Méthode des demi-cycles, huit valeurs ; méthode du réservoir décrite. Sans équivalent dans le texte de 2002 (lu le 2026-10-19).',
         }),
         c('G', 'Appareils d’appui (normative)', [], {
           article: 'appareils-appui',
@@ -341,12 +341,12 @@ export const EN1990_1: Carte = {
             n('en1990-2023', 'appui-frottement', 'sans-compensation', 'G.7.1.2'),
             n('en1990-2023', 'appui-frottement', 'compense', 'G.7.3.1(2)'),
           ],
-          reserves: 'Frottement, effort normal identique ; élastomères (G.2, G.3) et déplacements (G.7, G.8) décrits. EN 1337-1 non détenue.',
+          reserves: 'Frottement, effort normal identique ; élastomères (G.2, G.3) et déplacements (G.7, G.8) décrits. EN 1337-1 non détenue ; texte de 2002 lu, A1:2005 non détenu.',
         }),
         c('H', 'Vibrations des passerelles (informative)', [], {
           article: 'passerelles-vibrations',
           ingeree: true,
-          reserves: 'Annexe décrite dans l’article ; accélération calculée selon l’EN 1991-2, annexe G.',
+          reserves: 'Annexe décrite dans l’article ; accélération calculée selon l’EN 1991-2, annexe G. Texte de 2002 lu, A1:2005 non détenu.',
         }),
       ],
     },
