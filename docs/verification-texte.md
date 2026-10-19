@@ -447,3 +447,52 @@ texte. Aucun extrait du texte n'est conservé dans le dépôt.
   2002 : 6.1.4 ↔ 4.1.7 (et non 4.1.6, actions géotechniques) ; 8.1 ↔ 6.1,
   6.2 ; 8.3.1 ↔ 6.4.1, 6.4.2 ; 8.4.2 ↔ 6.5.1 ; 8.4.4 ↔ 6.5.2 et A1.4 (et non
   6.5.4, coefficients des matériaux).
+
+## AN-LU de l'EN 1990 (2020) et NBN B 03-003:2003 (lecture du 2026-10-19)
+
+Lues le 2026-10-19 sur les pages rendues : EN 1990:2002+A1:2005/AN-LU:2020
+(11 pages) et NBN B 03-003:2003 (version corrigée et réimprimée, 15 pages).
+Les niveaux AN-LU sont affichés à côté des valeurs recommandées, jamais à leur
+place (décision de l'auteur du 2026-10-19). Aucun tableau n'est reproduit.
+
+- [x] A1.2.2 : ψ0 = 0,3 pour une action variable de courte durée (moins d'un
+  mois) qui en accompagne une autre de courte durée, dominante ou
+  d'accompagnement principale. La règle vise l'action qui accompagne :
+  codée sur ψ0,2 seulement (`combinaison-elu`, niveau `lu`).
+- [x] A1.3.1(1) : valeurs des tableaux A1.2(A) à (C) normatives ; (6.10) en
+  général ; (6.10a)/(6.10b) admises si la variabilité du poids propre est
+  faible, ξ = 0,85 seulement si Gk,sup est certifié sur base statistique avec
+  V < 10 %, sinon ξ = 1,00 ; ξ = 1,00 en géotechnique (non codé).
+- [x] A1.3.1(1) : la NOTE 2 du tableau A1.2(A) (vérification combinée) n'est
+  pas applicable (`equilibre-statique`, niveau `lu`). Écart avec le plan, qui
+  ne le signalait pas.
+- [x] A1.3.2, tableau A1.3 : valeur fréquente ψ1,1 en situation
+  accidentelle ; au feu, ψ2 pour l'action d'accompagnement principale, sauf le
+  vent pris à ψ1 (`combinaison-accidentelle`, niveau `acc-lu`). Le plan
+  disait « valeur quasi permanente » sans l'exception du vent.
+- [x] Annexe B : informative ; tableaux A1.2 calés sur CC2 ; correction par
+  KFI (tableau B.3) pour CC1 et CC3, soumise à l'approbation du client et de
+  l'autorité compétente (`facteur-consequence`, niveau `kf-lu`). Le tableau
+  B.6 de coordination des classes CC, CCA et d'importance est expliqué dans
+  l'article 49, non codé ni reproduit.
+- [x] A1.4.2(2) : renvoi à la NBN B 03-003 pour les flèches et pour les
+  vibrations des bâtiments ; passerelles 4,5 Hz (vertical) et 3,5 Hz
+  (horizontal), cités dans l'article 62.
+- [x] NBN B 03-003, 3.4 et figure 5 : w1 contreflèche, wa = w − w1 avant pose
+  de l'élément à protéger, wb, wc, wabc = wa + wb + wc ; 7 : exemple du
+  plancher carrelé (cas 10, wb + wc ; cas 18, wabc). Combinaisons rares et
+  fréquentes au sens de la NBN B 03-001. Colonne wabc + w1 non codée.
+- [x] NBN B 03-003, 8 et tableau 6 : vérification en deux étapes ;
+  (2πn/λ)² = 9,81/f, λ = 1 (éléments linéaires), λ = 1,126 (dalles
+  isostatiques portant dans les deux sens) ; flèches équivalentes retrouvées
+  par le calcul (docs/validation/frequence-propre.md). **Corrigé** : la
+  remarque faite à l'auteur le 2026-10-19, selon laquelle le plan attribuait
+  à tort 1,126 aux dalles, était fausse : le plan suivait la NBN, qui retient
+  cette valeur en première approximation prudente.
+- [x] A2.1.1(1) NOTE 3 : 100 ans pour les ponts ; A1.1(1) NOTE : 50 ou 100 ans
+  pour les bâtiments, à fixer de préférence par le maître de l'ouvrage
+  (article 55).
+- [x] A2.4.4.3.2(1) : analyse dynamique de l'interaction véhicule et pont si
+  la portée dépasse 20 m et la vitesse 160 km/h (article 86, non codé).
+- [x] Annexes C et D : informatives ; C soumise à approbation (articles 55
+  et 60).

@@ -9,6 +9,11 @@
  *   (associees a CC1 a CC3, B.3.2(2)), applique aux seules actions
  *   defavorables ; pour RC3, la NOTE prefere d autres mesures a K_FI ; pas de
  *   CC0 ni de CC4.
+ * Niveau AN-LU (AN-LU:2020, annexe B, lu sur le texte le 2026-10-19) :
+ *   l annexe B reste informative ; les tableaux A1.2 correspondent a CC2, et
+ *   pour CC1 et CC3 ils peuvent etre corriges par K_FI, sous reserve de
+ *   l approbation du client et de l autorite competente. Memes valeurs,
+ *   reserve propre.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 4.3, tableaux A.1.8 et A.1.9) :
  *   k_F = 0,9 ; 1,0 ; 1,1 pour CC1 a CC3, gamma_G = 1,35 k_F et gamma_Q =
  *   1,5 k_F (VC1) ; gamma_G,fav et gamma_G,stb ne sont pas multiplies.
@@ -59,6 +64,18 @@ const niveau2002: DefinitionNiveau<EntreeFacteurConsequence> = {
   calculer: (e) => calculer(e, ['B.3.3', 'tableau B.3']),
 };
 
+const niveauLu: DefinitionNiveau<EntreeFacteurConsequence> = {
+  id: 'kf-lu',
+  ordre: 2,
+  position: 'annexe-informative',
+  reserve: 'reserve.an-lu-annexe-b',
+  clause: 'AN-LU annexe B',
+  hypothese: 'niveau.kf.2002.lu',
+  donneesRequises: [R.cc],
+  conditions: extreme,
+  calculer: (e) => calculer(e, ['AN-LU annexe B', 'tableau B.3']),
+};
+
 const niveau2023: DefinitionNiveau<EntreeFacteurConsequence> = {
   id: 'kf',
   ordre: 1,
@@ -91,5 +108,5 @@ export const facteurConsequence: Mecanisme<EntreeFacteurConsequence> = {
   ],
   sollicitation: { libelle: 'grandeur.sans-objet', unite: '-' },
   resistance: { libelle: 'grandeur.facteur-consequence', unite: '-' },
-  niveaux: { 'en1990-2002': [niveau2002], 'en1990-2023': [niveau2023] },
+  niveaux: { 'en1990-2002': [niveau2002, niveauLu], 'en1990-2023': [niveau2023] },
 };

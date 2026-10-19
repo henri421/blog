@@ -18,6 +18,13 @@
  *   (8.13) les deux expressions de (6.10a), (6.10b) ;
  *   (8.14) gamma_G G seul, ou xi gamma_G G + gamma_Q Q1 + gamma_Q psi0,2 Q2 ;
  *   xi gamma_G >= 1,0 (A.1.7(3)).
+ * Niveau AN-LU (EN 1990:2002+A1:2005/AN-LU:2020, A1.2.2 et A1.3.1(1),
+ *   lu sur le texte le 2026-10-19), affiche a cote des valeurs recommandees :
+ *   (6.10) en general ; (6.10a), (6.10b) admises si la variabilite du poids
+ *   propre est faible, avec xi = 0,85 seulement si G_k,sup du composant est
+ *   certifie sur base statistique (V < 10 %), sinon xi = 1,00, ce qui revient
+ *   a (6.10) ; psi0 = 0,3 pour une action variable de courte duree (moins d un
+ *   mois) qui en accompagne une autre de courte duree.
  * Choix de l outil : une action permanente defavorable, une action variable
  *   dominante et une d accompagnement, saisies comme effets ; psi0 saisis
  *   (tableau A1.1 ; A.1.6) ; l ingenieur permute lui-meme l action dominante ;
@@ -29,7 +36,7 @@ import type { Cle } from '../../../i18n/cle';
 import type { Cellule } from '../../model/resultat';
 import type { Mecanisme } from '../../moteur/mecanisme';
 import type { DefinitionNiveau } from '../../moteur/niveaux';
-import { calculee, recommandee } from '../../moteur/grandeurs';
+import { calculee, nationale, recommandee, saisie } from '../../moteur/grandeurs';
 import { positif } from '../../materiaux';
 
 export interface EntreeCombinaisonElu {
@@ -43,6 +50,10 @@ export interface EntreeCombinaisonElu {
   psi02?: number;
   /** Classe de consequences : 'CC1', 'CC2' ou 'CC3' (2023). */
   cc?: string;
+  /** AN-LU : G_k,sup certifie sur base statistique, 'oui' ou 'non'. */
+  certifie?: string;
+  /** AN-LU : Q1 et Q2 toutes deux de courte duree (moins d un mois), 'oui' ou 'non'. */
+  courteDuree?: string;
 }
 
 type Calcul = Omit<Cellule, 'generation' | 'niveau'>;
@@ -59,6 +70,8 @@ const R = {
   Q2: { champ: 'Q2', libelle: 'champ.Q2-effet' },
   psi02: { champ: 'psi02', libelle: 'champ.psi02' },
   cc: { champ: 'cc', libelle: 'champ.classe-consequences' },
+  certifie: { champ: 'certifie', libelle: 'champ.gk-certifie' },
+  courteDuree: { champ: 'courteDuree', libelle: 'champ.courte-duree' },
 } as const satisfies Record<string, { champ: keyof EntreeCombinaisonElu; libelle: Cle }>;
 
 export function kF(cc: string): number {
@@ -118,6 +131,37 @@ export function e610ab(e: Complete): Calcul {
     { 'γ_G': recommandee(GAMMA_G, '-'), 'γ_Q': recommandee(GAMMA_Q, '-'), 'ξ': recommandee(XI, '-'), '(6.10a)': calculee(a, '-'), '(6.10b)': calculee(b, '-') },
     ['6.4.3.2(3)', '(6.10a)', '(6.10b)', 'tableau A1.2(B)'],
   );
+}
+
+/** AN-LU A1.2.2 : psi0 de l action d accompagnement de courte duree. */
+export const PSI0_COURTE_DUREE_LU = 0.3;
+/** AN-LU A1.3.1(1), NOTE 2 du tableau A1.2(B) modifiee : xi sans certification. */
+export const XI_NON_CERTIFIE_LU = 1.0;
+
+export function e610Lu(e: Complete): Calcul {
+  verifier(e);
+  const xi = e.certifie === 'oui' ? XI : XI_NON_CERTIFIE_LU;
+  const courte = e.courteDuree === 'oui';
+  const f = { ...e, psi02: courte ? PSI0_COURTE_DUREE_LU : e.psi02 };
+  const a = expression(f, F2002, 1, e.psi01);
+  const b = expression(f, F2002, xi, 1);
+  const Ed = Math.max(a, b);
+  return {
+    ...cellule(
+      e,
+      Ed,
+      {
+        'γ_G': recommandee(GAMMA_G, '-'),
+        'γ_Q': recommandee(GAMMA_Q, '-'),
+        'ξ': nationale(xi, '-'),
+        'ψ_0,2': courte ? nationale(PSI0_COURTE_DUREE_LU, '-') : saisie(e.psi02, '-'),
+        '(6.10a)': calculee(a, '-'),
+        '(6.10b)': calculee(b, '-'),
+      },
+      ['AN-LU A1.3.1(1)', 'AN-LU A1.2.2', '(6.10)', '(6.10a)', '(6.10b)'],
+    ),
+    statut: { etat: 'reserve', motif: 'reserve.an-lu-en1990' },
+  };
 }
 
 function facteurs2023(e: Complete): Facteurs & { k: number } {
@@ -191,6 +235,24 @@ export const combinaisonElu: Mecanisme<EntreeCombinaisonElu> = {
         { valeur: 'CC3', libelle: 'option.cc.CC3' },
       ],
     },
+    {
+      type: 'choix',
+      id: 'certifie',
+      libelle: 'champ.gk-certifie',
+      options: [
+        { valeur: 'non', libelle: 'option.non' },
+        { valeur: 'oui', libelle: 'option.oui' },
+      ],
+    },
+    {
+      type: 'choix',
+      id: 'courteDuree',
+      libelle: 'champ.courte-duree',
+      options: [
+        { valeur: 'non', libelle: 'option.non' },
+        { valeur: 'oui', libelle: 'option.oui' },
+      ],
+    },
   ],
   sollicitation: { libelle: 'grandeur.effet-calcul-elu', unite: 'kN' },
   resistance: { libelle: 'grandeur.sans-objet', unite: '-' },
@@ -198,6 +260,7 @@ export const combinaisonElu: Mecanisme<EntreeCombinaisonElu> = {
     'en1990-2002': [
       niveau('e610', 1, '6.4.3.2(3)', 'niveau.comb.2002.e610', communs, e610),
       niveau('e610ab', 2, '6.4.3.2(3)', 'niveau.comb.2002.e610ab', communs, e610ab),
+      niveau('lu', 3, 'AN-LU A1.3.1(1)', 'niveau.comb.2002.lu', [...communs, R.certifie, R.courteDuree], e610Lu),
     ],
     'en1990-2023': [
       niveau('e812', 1, '8.3.4.2(2)', 'niveau.comb.2023.e812', avecCc, e812),

@@ -26,3 +26,23 @@ describe('combinaison accidentelle et eta_fi (EN 1990, EN 1991-1-2)', () => {
     expect(cel({ ...feu, Ad: 150, psi22: 0.2 }, 'en1990-2023').sollicitation).toBe(1060);
   });
 });
+
+describe('combinaison accidentelle, niveau AN-LU (A1.3.2, tableau A1.3)', () => {
+  const lu = (situationLu: string) => calculerMatrice(combinaisonAccidentelle, { ...feu, situationLu }).cellules.find((c) => c.generation === 'en1990-2002' && c.niveau === 'acc-lu')!;
+
+  it('incendie : psi2,1 impose, 800 + 0,3 x 300 = 890 ; eta_fi = 890/1530 = 0,5817', () => {
+    const c = lu('incendie');
+    expect(c.sollicitation).toBeCloseTo(890, 10);
+    expect(c.intermediaires['η_fi'].valeur).toBeCloseTo(0.581699, 6);
+    expect(c.intermediaires['ψ_fi']).toMatchObject({ valeur: 0.3, provenance: 'nationale' });
+  });
+
+  it('incendie avec le vent pour Q1 : psi1,1 impose, 950', () => {
+    expect(lu('incendie-vent').sollicitation).toBeCloseTo(950, 10);
+  });
+
+  it('autre situation accidentelle : psi1,1 impose, 950, quel que soit le choix recommande', () => {
+    expect(lu('choc').sollicitation).toBeCloseTo(950, 10);
+    expect(lu('choc').statut).toEqual({ etat: 'reserve', motif: 'reserve.an-lu-en1990' });
+  });
+});

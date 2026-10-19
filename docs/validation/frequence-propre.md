@@ -22,3 +22,16 @@ Contrôle inverse, $f = g\,(\lambda / 2\pi n)^2$, $\lambda$ = 1 :
 Ordre de grandeur pour une dalle carrée simplement appuyée (non codée) :
 $\lambda \approx$ 1,26, d'après la flèche centrale 0,00406 $q a^4/D$ et le
 premier mode $(\pi/a^2)\sqrt{D/m}$.
+
+## Niveaux AN-LU (NBN B 03-003, 8, tableau 6)
+
+La NBN pose $(2\pi n/\lambda)^2 = 9,81/f$ ($f$ en m), $\lambda$ = 1 pour les
+éléments linéaires et 1,126 pour les dalles isostatiques portant dans les deux
+sens.
+
+$f$ = 12 mm : élément linéaire 4,5506 Hz ; dalle 1,126 × 4,5506 = 5,1239 Hz.
+
+Contrôle des flèches équivalentes de la NBN : dalle à 3,5 Hz,
+9810 × (1,126 / 21,991)² = 25,72 mm ; dalle à 7 Hz, 6,43 mm ; élément
+linéaire à 3,5 Hz, 20,28 mm ; à 7 Hz, 5,07 mm. La NBN arrondit à 25,7, 6,4, 20
+et 5 mm.

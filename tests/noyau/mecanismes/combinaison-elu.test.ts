@@ -40,3 +40,41 @@ describe('combinaisons d actions ELU (EN 1990)', () => {
     expect(cel(sans, 'en1990-2002', 'e610').statut.etat).toBe('calcule');
   });
 });
+
+describe('combinaisons ELU, niveau AN-LU (AN-LU:2020, A1.2.2, A1.3.1(1))', () => {
+  // G = 100, vent dominant 40 (psi0 = 0,6), neige d accompagnement 30 (psi0 = 0,5).
+  const moment = { G: 100, Q1: 40, psi01: 0.6, Q2: 30, psi02: 0.5, cc: 'CC2' };
+  const lu = (certifie: string, courteDuree: string) => cel({ ...moment, certifie, courteDuree }, 'en1990-2002', 'lu');
+
+  it('valeurs recommandees inchangees : (6.10) 217,5 ; enveloppe (6.10a, 6.10b) 197,25', () => {
+    expect(cel(moment, 'en1990-2002', 'e610').sollicitation).toBeCloseTo(217.5, 10);
+    expect(cel(moment, 'en1990-2002', 'e610ab').sollicitation).toBeCloseTo(197.25, 10);
+  });
+
+  it('non certifie, courte duree : xi = 1,00, psi0,2 = 0,3 : 208,5 (6.10a : 184,5)', () => {
+    const c = lu('non', 'oui');
+    expect(c.sollicitation).toBeCloseTo(208.5, 10);
+    expect(c.intermediaires['(6.10a)'].valeur).toBeCloseTo(184.5, 10);
+    expect(c.intermediaires['ξ']).toMatchObject({ valeur: 1, provenance: 'nationale' });
+    expect(c.intermediaires['ψ_0,2']).toMatchObject({ valeur: 0.3, provenance: 'nationale' });
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.an-lu-en1990' });
+  });
+
+  it('certifie, courte duree : xi = 0,85 : 188,25', () => {
+    expect(lu('oui', 'oui').sollicitation).toBeCloseTo(188.25, 10);
+  });
+
+  it('non certifie, sans courte duree : revient a (6.10), 217,5 ; psi0,2 saisi', () => {
+    const c = lu('non', 'non');
+    expect(c.sollicitation).toBeCloseTo(217.5, 10);
+    expect(c.intermediaires['ψ_0,2'].provenance).toBe('saisie');
+  });
+
+  it('certifie, sans courte duree : egal a l enveloppe recommandee, 197,25', () => {
+    expect(lu('oui', 'non').sollicitation).toBeCloseTo(197.25, 10);
+  });
+
+  it('choix AN-LU absents : niveau non applicable, jamais suppose', () => {
+    expect(cel(moment, 'en1990-2002', 'lu').statut.etat).toBe('non-applicable');
+  });
+});

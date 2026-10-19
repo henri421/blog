@@ -146,7 +146,7 @@ export const EN1991_1_2: Carte = {
         c('6', 'Actions mécaniques et combinaisons en situation d’incendie', ['4'], {
           article: 'combinaisons-accidentelles',
           ingeree: true,
-          niveaux: [n('en1990-2002', 'combinaison-accidentelle', 'acc', '6.4.3.3'), n('en1990-2023', 'combinaison-accidentelle', 'acc', '8.3.4.3')],
+          niveaux: [n('en1990-2002', 'combinaison-accidentelle', 'acc', '6.4.3.3'), n('en1990-2002', 'combinaison-accidentelle', 'acc-lu', 'AN-LU A1.3.2'), n('en1990-2023', 'combinaison-accidentelle', 'acc', '8.3.4.3')],
           reserves: 'Combinaison (8.15) et ηfi (6.2) ; formules (6.3), (6.4) pour (8.13) non codées ; actions indirectes du feu non traitées. Textes de 2002 non détenus.',
         }),
         c('B', 'Éléments extérieurs, méthode simplifiée (informative)', ['B'], {

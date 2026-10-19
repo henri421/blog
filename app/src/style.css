@@ -196,6 +196,7 @@ td.refus { color: var(--refus); font-weight: 600; }
 .provenance-saisie { color: var(--texte); }
 .provenance-calculee { color: var(--texte-doux); }
 .provenance-recommandee { color: var(--compression); }
+.provenance-nationale { color: var(--traction); }
 .ilot-balayage { margin-top: 0.75rem; }
 .ilot-balayage summary { cursor: pointer; font-weight: 600; }
 .balayage-reglages { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; align-items: center; margin: 0.5rem 0; font-size: 0.85rem; }

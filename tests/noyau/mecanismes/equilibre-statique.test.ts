@@ -38,3 +38,12 @@ describe('equilibre statique d une poutre a console (EN 1990)', () => {
     expect(c.resistance).toBe(125);
   });
 });
+
+describe('equilibre statique, niveau AN-LU (A1.3.1(1))', () => {
+  it('tableau A1.2(A) seul : 119,88 contre 112,50 kN.m, NOTE 2 ecartee', () => {
+    const c = cel(console36, 'en1990-2002', 'lu');
+    expect(c.sollicitation).toBeCloseTo(119.88, 10);
+    expect(c.resistance).toBeCloseTo(112.5, 10);
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.an-lu-en1990' });
+  });
+});

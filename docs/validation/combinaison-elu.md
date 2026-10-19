@@ -15,3 +15,21 @@ Calcul indépendant du code (Python). Poteau : $G_k$ = 800 kN, $Q_{k,1}$ = 300 k
 | (8.12) CC1, $k_F$ = 0,9 | 0,9 × 1605 | 1444,5 |
 
 Rapport $E_d/(G + Q_1 + Q_2)$ pour (8.12) CC2 : 1605/1200 = 1,3375.
+
+## Niveau AN-LU (AN-LU:2020, A1.2.2 et A1.3.1(1))
+
+Effets d'un moment fléchissant : $G$ = 100 kN·m, vent dominant $W$ = 40 kN·m
+($\psi_0$ = 0,6), neige d'accompagnement $S$ = 30 kN·m ($\psi_0$ = 0,5, altitude
+inférieure à 1 000 m). Vent et neige sont deux actions de courte durée.
+
+| Cas | (6.10a) | (6.10b) | Retenu |
+|---|---|---|---|
+| Recommandé, (6.10) | | | 135 + 60 + 22,5 = **217,5** |
+| Recommandé, $\xi$ = 0,85 | 135 + 36 + 22,5 = 193,5 | 114,75 + 60 + 22,5 = 197,25 | **197,25** |
+| LU, non certifié ($\xi$ = 1,00), $\psi_{0,2}$ = 0,3 | 135 + 36 + 13,5 = 184,5 | 135 + 60 + 13,5 = 208,5 | **208,5** |
+| LU, certifié ($\xi$ = 0,85), $\psi_{0,2}$ = 0,3 | 184,5 | 114,75 + 60 + 13,5 = 188,25 | **188,25** |
+| LU, non certifié, actions non de courte durée | 193,5 | 217,5 | **217,5** = (6.10) |
+
+La règle des 0,3 vise l'action qui en accompagne une autre de courte durée :
+elle s'applique à $\psi_{0,2}$, pas au $\psi_{0,1}$ de l'action dominante dans
+(6.10a) (AN-LU, A1.2.2, lu sur la page rendue).

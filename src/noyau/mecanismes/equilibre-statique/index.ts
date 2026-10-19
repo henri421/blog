@@ -15,6 +15,9 @@
  *   EQU : gamma_G,sup = 1,10, gamma_G,inf = 0,90, gamma_Q = 1,5 ;
  *   NOTE 2 : 1,35 / 1,15 / 1,5 en verification combinee avec la resistance,
  *   si 1,00 sur les deux parties n est pas plus defavorable.
+ * Niveau AN-LU (AN-LU:2020, A1.3.1(1), lu sur le texte le 2026-10-19) : le
+ *   tableau A1.2(A) s applique a l EQU avec ses valeurs recommandees ; la
+ *   NOTE 2 (verification combinee) n est pas applicable au Luxembourg.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 8.3.3.1(5), (8.8), tableau A.1.8,
  *   VC2) : VC2(a) gamma_G = 1,35 k_F, gamma_G,stb = 1,15, gamma_Q = 1,5 k_F ;
  *   VC2(b) gamma_G = gamma_G,stb = 1,0, gamma_Q = 1,5 k_F ; le moins favorable.
@@ -95,6 +98,11 @@ export function equ2002(e: Complete): Calcul {
   return cellule(e, moments(e, f), facteurs(f.dst, f.stb, f.Q), ['tableau A1.2(A)']);
 }
 
+export function equLu(e: Complete): Calcul {
+  const c = equ2002(e);
+  return { ...c, clauses: ['AN-LU A1.3.1(1)', 'tableau A1.2(A)'], statut: { etat: 'reserve', motif: 'reserve.an-lu-en1990' } };
+}
+
 /** Le moins favorable de deux jeux : plus grand rapport M_dst / M_stb. */
 function pire(e: Complete, fa: Facteurs, fb: Facteurs): { m: { dst: number; stb: number }; a: { dst: number; stb: number }; b: { dst: number; stb: number } } {
   const a = moments(e, fa);
@@ -156,7 +164,7 @@ export const equilibreStatique: Mecanisme<EntreeEquilibreStatique> = {
   sollicitation: { libelle: 'grandeur.moment-destabilisant', unite: 'kN·m' },
   resistance: { libelle: 'grandeur.moment-stabilisant', unite: 'kN·m' },
   niveaux: {
-    'en1990-2002': [niveau('equ', 1, 'A1.2(A)', 'niveau.equ.2002.equ', communs, equ2002), niveau('equ-str', 2, 'A1.2(A)', 'niveau.equ.2002.equ-str', communs, equStr2002)],
+    'en1990-2002': [niveau('equ', 1, 'A1.2(A)', 'niveau.equ.2002.equ', communs, equ2002), niveau('equ-str', 2, 'A1.2(A)', 'niveau.equ.2002.equ-str', communs, equStr2002), niveau('lu', 3, 'AN-LU A1.3.1(1)', 'niveau.equ.2002.lu', communs, equLu)],
     'en1990-2023': [niveau('vc2', 1, '8.3.3.1(5)', 'niveau.equ.2023.vc2', [...communs, R.cc], vc2)],
   },
 };

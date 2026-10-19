@@ -124,7 +124,13 @@ Le texte complet est publié sur la page `avertissement.html` du site.
 
 - Contenu entièrement rédigé par l'auteur : aucun texte, tableau ni figure de la
   norme ou du Model Code n'est reproduit ; renvois de clause uniquement.
-- Valeurs recommandées des deux générations, sans annexe nationale.
+- Valeurs recommandées des deux générations par défaut. En première
+  génération, des niveaux supplémentaires appliquent les choix de l'annexe
+  nationale luxembourgeoise de l'EN 1990 (AN-LU:2020) et de la NBN B 03-003,
+  à laquelle elle renvoie (décision de l'auteur du 2026-10-19). Ils sont
+  affichés à côté des valeurs recommandées, jamais à leur place ; leurs
+  paramètres portent la provenance « annexe nationale (LU) ». La deuxième
+  génération n'a pas encore d'annexe nationale luxembourgeoise.
 - Tous les niveaux d'approximation sont rendus ; un niveau non applicable est
   affiché avec son motif et ses données manquantes, jamais masqué. Un niveau
   plus fin moins favorable est montré tel quel.

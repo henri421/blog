@@ -47,3 +47,19 @@ describe('frequence propre des planchers (EN 1990, vibrations)', () => {
     expect(c.statut.etat).toBe('non-applicable');
   });
 });
+
+describe('frequence propre, niveaux AN-LU (NBN B 03-003, 8, tableau 6)', () => {
+  it('element lineaire, lambda = 1 : 4,5506 Hz ; dalle bidirectionnelle, lambda = 1,126 : 5,1239 Hz', () => {
+    const lin = cel(bureau, 'en1990-2002', 'lu-lineaire');
+    const dalle = cel(bureau, 'en1990-2002', 'lu-dalle');
+    expect(lin.resistance).toBeCloseTo(4.550551, 5);
+    expect(dalle.resistance).toBeCloseTo(5.12392, 4);
+    expect(dalle.intermediaires['λ']).toMatchObject({ valeur: 1.126, provenance: 'nationale' });
+    expect(dalle.statut).toEqual({ etat: 'reserve', motif: 'reserve.an-lu-nbn-b03003' });
+  });
+
+  it('fleches equivalentes du tableau 6 retrouvees : 25,72 mm (dalle, 3,5 Hz), 6,43 mm (dalle, 7 Hz)', () => {
+    expect(flecheLimite(1.126, 3.5)).toBeCloseTo(25.7188, 3);
+    expect(flecheLimite(1.126, 7)).toBeCloseTo(6.4297, 3);
+  });
+});

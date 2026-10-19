@@ -28,3 +28,11 @@ describe('facteur de consequence (EN 1990)', () => {
     }
   });
 });
+
+describe('facteur de consequence, niveau AN-LU (annexe B)', () => {
+  it('CC3 : K_FI = 1,1, sous reserve d approbation', () => {
+    const c = calculerMatrice(facteurConsequence, { cc: 'CC3' }).cellules.find((x) => x.generation === 'en1990-2002' && x.niveau === 'kf-lu')!;
+    expect(c.resistance).toBe(1.1);
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.an-lu-annexe-b' });
+  });
+});

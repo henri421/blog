@@ -8,6 +8,7 @@ import type { Grandeur } from '../model/resultat';
 export const saisie = (valeur: number, unite: string): Grandeur => ({ valeur, unite, provenance: 'saisie' });
 export const calculee = (valeur: number, unite: string): Grandeur => ({ valeur, unite, provenance: 'calculee' });
 export const recommandee = (valeur: number, unite: string): Grandeur => ({ valeur, unite, provenance: 'recommandee' });
+export const nationale = (valeur: number, unite: string): Grandeur => ({ valeur, unite, provenance: 'nationale' });
 
 export interface Maximum {
   x: number;

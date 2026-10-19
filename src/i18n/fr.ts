@@ -23,7 +23,7 @@ export const fr = {
   'avertissement.p3':
     'Les normes citées restent la propriété de leurs éditeurs (CEN et organismes nationaux de normalisation). Pour les appliquer, il faut se procurer leur texte officiel auprès d’un distributeur autorisé. Ce site est indépendant de ces organismes ; il n’engage que son auteur.',
   'avertissement.p4':
-    'Aucune annexe nationale n’est reproduite : les calculateurs emploient les valeurs recommandées des Eurocodes.',
+    'Aucune annexe nationale n’est reproduite. Les calculateurs emploient les valeurs recommandées des Eurocodes ; quelques niveaux, signalés comme tels et affichés à côté, appliquent en outre des choix de l’annexe nationale luxembourgeoise de l’EN 1990 et de la NBN B 03-003, cités avec leur clause.',
   'avertissement.p5':
     'Les calculateurs sont fournis sans aucune garantie (licence MIT). Ils constatent et ne prescrivent pas ; ils ne remplacent ni la norme, ni le jugement d’un ingénieur, ni une note de calcul vérifiée. L’auteur décline toute responsabilité quant à leur emploi.',
   'avertissement.p6':
@@ -31,7 +31,7 @@ export const fr = {
   'avertissement.lien': 'Avertissement : ce site ne reproduit pas les normes',
   'avertissement.issues': 'Signaler un passage',
   'site.avertissement':
-    'Contenu rédigé par l’auteur, sans reproduction de la norme. Valeurs recommandées des deux générations, sans annexe nationale. L’outil constate, il ne prescrit pas.',
+    'Contenu rédigé par l’auteur, sans reproduction de la norme. Valeurs recommandées des deux générations ; niveaux de l’annexe nationale luxembourgeoise signalés à part. L’outil constate, il ne prescrit pas.',
 
   // ---- En-tete de statut d un article ----
   'article.statut': 'Statut de l’article',
@@ -545,6 +545,29 @@ export const fr = {
   'provenance.saisie': 'saisie',
   'provenance.calculee': 'calculée',
   'provenance.recommandee': 'valeur recommandée',
+  'provenance.nationale': 'annexe nationale (LU)',
+  'reserve.an-lu-en1990': 'Niveau de l’annexe nationale luxembourgeoise de l’EN 1990 (AN-LU:2020), affiché à côté des valeurs recommandées, sans les remplacer.',
+  'reserve.an-lu-annexe-b': 'Annexe B informative au Luxembourg (AN-LU:2020) : son emploi pour différencier la fiabilité est soumis à l’approbation du client et de l’autorité compétente.',
+  'reserve.an-lu-nbn-b03003': 'Critère de la NBN B 03-003:2003, à laquelle renvoie l’AN-LU:2020 (A1.4.2(2)) sauf indication contraire ; limite saisie par l’ingénieur.',
+  'niveau.comb.2002.lu': 'AN-LU : (6.10) en général ; (6.10a)/(6.10b) avec ξ = 0,85 seulement si Gk,sup est certifié (V < 10 %), sinon ξ = 1,00 ; ψ0 = 0,3 pour une action de courte durée qui en accompagne une autre (A1.2.2, A1.3.1(1)).',
+  'niveau.equ.2002.lu': 'AN-LU : tableau A1.2(A) normatif, 1,10 et 0,90 ; la vérification combinée de la NOTE 2 n’est pas applicable (A1.3.1(1)).',
+  'niveau.acc.2002.lu': 'AN-LU : ψ1,1 Q1 en situation accidentelle ; au feu ψ2,1 Q1, sauf vent pris à ψ1,1 (A1.3.2, tableau A1.3).',
+  'niveau.kf.2002.lu': 'AN-LU : tableaux A1.2 calés sur CC2 ; correction par KFI pour CC1 et CC3, soumise à approbation (annexe B).',
+  'niveau.fleche-bat.2002.lu-element': 'NBN B 03-003 : résistance de l’élément rapporté, wb + wc ≤ l/nbc, combinaisons rares (7, tableaux 4 et 5).',
+  'niveau.fleche-bat.2002.lu-aspect': 'NBN B 03-003 : aspect, wabc = wa + wb + wc ≤ l/nabc, combinaisons fréquentes (7, tableaux 4 et 5).',
+  'niveau.freq.2002.lu-lineaire': 'NBN B 03-003 : élément linéaire, λ = 1, n ≥ valeur critique de la destination ; sinon calcul dynamique requis, non fait par l’outil (8, tableau 6).',
+  'niveau.freq.2002.lu-dalle': 'NBN B 03-003 : dalle isostatique portant dans les deux sens, λ = 1,126, n ≥ valeur critique ; sinon calcul dynamique requis, non fait par l’outil (8, tableau 6).',
+  'champ.gk-certifie': 'AN-LU : Gk,sup certifié sur base statistique (V < 10 %)',
+  'champ.courte-duree': 'AN-LU : Q1 et Q2 toutes deux de courte durée (moins d’un mois)',
+  'champ.situation-accidentelle-lu': 'AN-LU : situation accidentelle',
+  'option.situation-lu.incendie': 'incendie, Q1 autre que le vent',
+  'option.situation-lu.incendie-vent': 'incendie, Q1 = vent',
+  'option.situation-lu.choc': 'autre situation accidentelle (choc, explosion…)',
+  'champ.wa-nbn': 'NBN : flèche avant pose de l’élément à protéger wa',
+  'champ.wb-nbn': 'NBN : accroissement dû à l’élément et aux parachèvements wb',
+  'champ.wc-nbn': 'NBN : accroissement sous actions variables wc',
+  'champ.nbc-nbn': 'NBN : dénominateur de la limite sur wb + wc',
+  'champ.nabc-nbn': 'NBN : dénominateur de la limite sur wabc',
 
   // ---- Motifs ----
   'motif.donnees-manquantes': 'Une ou plusieurs données exigées par ce niveau ne sont pas saisies.',

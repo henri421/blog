@@ -34,7 +34,12 @@ export type Statut =
 /** Position du niveau dans la norme (CDC v4 §7.2). */
 export type PositionNormative = 'corps' | 'annexe-normative' | 'annexe-informative';
 
-export type Provenance = 'saisie' | 'calculee' | 'recommandee';
+/**
+ * `nationale` : valeur fixee par l annexe nationale luxembourgeoise de
+ * l EN 1990 (AN-LU:2020) ou par la norme a laquelle elle renvoie ; employee
+ * seulement dans les niveaux AN-LU, affiches a cote des valeurs recommandees.
+ */
+export type Provenance = 'saisie' | 'calculee' | 'recommandee' | 'nationale';
 
 export interface Grandeur {
   valeur: number;

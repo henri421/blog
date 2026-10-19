@@ -11,3 +11,7 @@ Calcul indépendant du code.
 
 $\gamma_{G,fav}$ = 1,0 dans tous les cas : le facteur ne multiplie pas les actions
 favorables (tableau A.1.8, note h ; B.3.3 en 2002).
+
+Niveau AN-LU (annexe B) : mêmes valeurs ($K_{FI}$ = 1,1 en CC3), réserve
+propre : correction des tableaux A1.2 soumise à l'approbation du client et de
+l'autorité compétente.

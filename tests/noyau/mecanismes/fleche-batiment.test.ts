@@ -25,3 +25,31 @@ describe('criteres de fleche des batiments (EN 1990)', () => {
     expect(cel(plancher, 'en1990-2002', 'apparence').statut.etat).toBe('non-applicable');
   });
 });
+
+describe('criteres de fleche, niveaux AN-LU (NBN B 03-003)', () => {
+  // Plancher carrele de 6,00 m : wa = 8, wb = 6, wc = 5 mm ; limites l/500 et l/300.
+  const carrele = { l: 6, wa: 8, wb: 6, wcNbn: 5, nbc: 500, nabc: 300 };
+
+  it('revetement raide : wb + wc = 11 mm contre 12,0 mm, taux 0,917', () => {
+    const c = cel(carrele, 'en1990-2002', 'lu-element');
+    expect(c.sollicitation).toBe(11);
+    expect(c.resistance).toBeCloseTo(12, 12);
+    expect(c.taux).toBeCloseTo(11 / 12, 12);
+    expect(c.statut).toEqual({ etat: 'reserve', motif: 'reserve.an-lu-nbn-b03003' });
+  });
+
+  it('aspect : wabc = 19 mm contre 20,0 mm, taux 0,95', () => {
+    const c = cel(carrele, 'en1990-2002', 'lu-aspect');
+    expect(c.sollicitation).toBe(19);
+    expect(c.resistance).toBeCloseTo(20, 12);
+  });
+
+  it('donnees NBN absentes : niveaux non applicables, niveaux recommandes inchanges', () => {
+    expect(cel(plancher, 'en1990-2002', 'lu-element').statut.etat).toBe('non-applicable');
+    expect(cel(plancher, 'en1990-2023', 'dommage').sollicitation).toBe(14);
+  });
+
+  it('accroissement negatif : erreur nommee', () => {
+    expect(() => calculerMatrice(flecheBatiment, { ...carrele, wb: -1 })).toThrow(/wb doit etre/);
+  });
+});

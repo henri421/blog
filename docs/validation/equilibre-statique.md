@@ -22,3 +22,7 @@ $q_k$ = 5 kN/m sur la console. Moments autour de B :
 Variante non retenue par l’outil : si (8.8) s’appliquait à $\gamma_G$ = 1,35 $k_F$,
 $\gamma_{G,stb}$ vaudrait 1,265 en CC3, $M_{stb,d}$ = 158,125 kN·m et le rapport
 0,947 : pas d’ancrage.
+
+Niveau AN-LU (A1.3.1(1)) : tableau A1.2(A) seul, la NOTE 2 n'étant pas
+applicable ; mêmes valeurs que la vérification EQU de 2002 : 119,88 contre
+112,50 kN·m, ancrage de 1,48 kN.

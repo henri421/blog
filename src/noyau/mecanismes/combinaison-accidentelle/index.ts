@@ -10,6 +10,10 @@
  *   texte non detenu, cite de memoire) :
  *   E_d = G + A_d + (psi1,1 ou psi2,1) Q1 + psi2,2 Q2 ;
  *   eta_fi = (G + psi_fi Q1) / (1,35 G + 1,5 Q1).
+ * Niveau AN-LU (AN-LU:2020, A1.3.2, tableau A1.3, lu sur le texte le
+ *   2026-10-19) : en situation accidentelle, valeur frequente psi1,1 Q1 ; au
+ *   feu, valeur quasi permanente psi2,1 Q1, sauf si Q1 est le vent, pris a sa
+ *   valeur frequente. Choix impose, et non laisse a l utilisateur.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 8.3.4.3, (8.15), tableau A.1.3 ;
  *   EN 1991-1-2:2024, 6.3.1(2), (6.1), (6.2)) : meme combinaison ;
  *   eta_fi = (G + psi_fi Q1) / (gamma_G G + gamma_Q,1 Q1), gamma_G = 1,35 k_F,
@@ -24,7 +28,7 @@ import type { Cle } from '../../../i18n/cle';
 import type { Cellule } from '../../model/resultat';
 import type { Mecanisme } from '../../moteur/mecanisme';
 import type { DefinitionNiveau } from '../../moteur/niveaux';
-import { calculee, recommandee, saisie } from '../../moteur/grandeurs';
+import { calculee, nationale, recommandee, saisie } from '../../moteur/grandeurs';
 import { positif } from '../../materiaux';
 import { GAMMA_G, GAMMA_Q, kF } from '../combinaison-elu/index';
 
@@ -40,6 +44,8 @@ export interface EntreeCombinaisonAccidentelle {
   /** 'frequente' ou 'quasi-permanente' pour Q1. */
   valeur?: string;
   cc?: string;
+  /** AN-LU : 'choc' (accidentelle hors feu), 'incendie', 'incendie-vent' (feu, Q1 = vent). */
+  situationLu?: string;
 }
 
 type Calcul = Omit<Cellule, 'generation' | 'niveau'>;
@@ -55,6 +61,7 @@ const R = {
   psi22: { champ: 'psi22', libelle: 'champ.psi22' },
   valeur: { champ: 'valeur', libelle: 'champ.valeur-q1-accidentelle' },
   cc: { champ: 'cc', libelle: 'champ.classe-consequences' },
+  situationLu: { champ: 'situationLu', libelle: 'champ.situation-accidentelle-lu' },
 } as const satisfies Record<string, { champ: keyof EntreeCombinaisonAccidentelle; libelle: Cle }>;
 
 function verifier(e: Complete): void {
@@ -86,6 +93,19 @@ export function accidentelle(e: Complete, k: number, clauses: string[]): Calcul 
     intermediaires: { 'ψ_fi': saisie(psi, '-'), k_F: recommandee(k, '-'), 'E_d,acc': calculee(Ed, '-'), 'η_fi': calculee(eta, '-') },
     clauses,
   };
+}
+
+/** AN-LU A1.3.2 : coefficient de Q1 impose selon la situation. */
+export function psiLu(e: Complete): { psi: number; frequente: boolean } {
+  const frequente = e.situationLu !== 'incendie';
+  return { psi: frequente ? e.psi11 : e.psi21, frequente };
+}
+
+export function accidentelleLu(e: Complete): Calcul {
+  const { frequente } = psiLu(e);
+  const c = accidentelle({ ...e, valeur: frequente ? 'frequente' : 'quasi-permanente' }, 1, ['AN-LU A1.3.2', 'tableau A1.3', '(6.11b)']);
+  const psi = c.intermediaires['ψ_fi'].valeur;
+  return { ...c, intermediaires: { ...c.intermediaires, 'ψ_fi': nationale(psi, '-'), [frequente ? 'ψ_1,1 (imposé)' : 'ψ_2,1 (imposé)']: nationale(psi, '-') }, statut: { etat: 'reserve', motif: 'reserve.an-lu-en1990' } };
 }
 
 const requis = [R.G, R.Ad, R.Q1, R.psi11, R.psi21, R.Q2, R.psi22, R.valeur];
@@ -126,11 +146,24 @@ export const combinaisonAccidentelle: Mecanisme<EntreeCombinaisonAccidentelle> =
         { valeur: 'CC3', libelle: 'option.cc.CC3' },
       ],
     },
+    {
+      type: 'choix',
+      id: 'situationLu',
+      libelle: 'champ.situation-accidentelle-lu',
+      options: [
+        { valeur: 'incendie', libelle: 'option.situation-lu.incendie' },
+        { valeur: 'incendie-vent', libelle: 'option.situation-lu.incendie-vent' },
+        { valeur: 'choc', libelle: 'option.situation-lu.choc' },
+      ],
+    },
   ],
   sollicitation: { libelle: 'grandeur.effet-calcul-accidentel', unite: 'kN' },
   resistance: { libelle: 'grandeur.sans-objet', unite: '-' },
   niveaux: {
-    'en1990-2002': [niveau('6.4.3.3', 'niveau.acc.2002', requis, (e) => accidentelle(e, 1, ['6.4.3.3', '(6.11b)', 'EN 1991-1-2 4.3']))],
+    'en1990-2002': [
+      niveau('6.4.3.3', 'niveau.acc.2002', requis, (e) => accidentelle(e, 1, ['6.4.3.3', '(6.11b)', 'EN 1991-1-2 4.3'])),
+      { id: 'acc-lu', ordre: 2, position: 'corps', clause: 'AN-LU A1.3.2', hypothese: 'niveau.acc.2002.lu', donneesRequises: [R.G, R.Ad, R.Q1, R.psi11, R.psi21, R.Q2, R.psi22, R.situationLu], conditions: () => null, calculer: (e) => accidentelleLu(e as Complete) },
+    ],
     'en1990-2023': [niveau('8.3.4.3', 'niveau.acc.2023', [...requis, R.cc], (e) => accidentelle(e, kF(e.cc), ['8.3.4.3', '(8.15)', 'EN 1991-1-2 6.3', '(6.2)']))],
   },
 };

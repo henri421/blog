@@ -38,7 +38,7 @@ export const EN1990_1: Carte = {
         c('4.3', 'Conséquences d’une défaillance, classes de conséquences', ['B.3'], {
           article: 'classes-consequences',
           ingeree: true,
-          niveaux: [n('en1990-2002', 'facteur-consequence', 'kf', 'B.3.3'), n('en1990-2023', 'facteur-consequence', 'kf', '4.3')],
+          niveaux: [n('en1990-2002', 'facteur-consequence', 'kf', 'B.3.3'), n('en1990-2002', 'facteur-consequence', 'kf-lu', 'AN-LU annexe B'), n('en1990-2023', 'facteur-consequence', 'kf', '4.3')],
           reserves: 'Bâtiments (tableau A.1.9) ; CC3a et CC3b des ponts décrites, non codées. Texte de 2002 lu le 2026-10-19.',
         }),
         c('4.4', 'Robustesse', ['2.1'], {
@@ -205,6 +205,7 @@ export const EN1990_1: Carte = {
           niveaux: [
             n('en1990-2002', 'equilibre-statique', 'equ', 'A1.2(A)'),
             n('en1990-2002', 'equilibre-statique', 'equ-str', 'A1.2(A)'),
+            n('en1990-2002', 'equilibre-statique', 'lu', 'AN-LU A1.3.1(1)'),
             n('en1990-2023', 'equilibre-statique', 'vc2', '8.3.3.1(5)'),
           ],
           reserves: 'Poutre à console sous poids propre et charge variable ; γG,stb = 1,15 sans kF (tableau A.1.8) ; VC3, VC4 (GEO) et actions de l’eau non codés. Texte de 2002 lu le 2026-10-19.',
@@ -215,6 +216,7 @@ export const EN1990_1: Carte = {
           niveaux: [
             n('en1990-2002', 'combinaison-elu', 'e610', '6.4.3.2(3)'),
             n('en1990-2002', 'combinaison-elu', 'e610ab', '6.4.3.2(3)'),
+            n('en1990-2002', 'combinaison-elu', 'lu', 'AN-LU A1.3.1(1)'),
             n('en1990-2023', 'combinaison-elu', 'e812', '8.3.4.2(2)'),
             n('en1990-2023', 'combinaison-elu', 'e813', '8.3.4.2(2)'),
             n('en1990-2023', 'combinaison-elu', 'e814', '8.3.4.2(2)'),
@@ -269,6 +271,10 @@ export const EN1990_1: Carte = {
             n('en1990-2002', 'frequence-propre', 'repartie', 'A1.4.4'),
             n('en1990-2023', 'frequence-propre', 'concentree', 'A.1.8.3'),
             n('en1990-2023', 'frequence-propre', 'repartie', 'A.1.8.3'),
+            n('en1990-2002', 'fleche-batiment', 'lu-element', 'NBN B 03-003 7'),
+            n('en1990-2002', 'fleche-batiment', 'lu-aspect', 'NBN B 03-003 7'),
+            n('en1990-2002', 'frequence-propre', 'lu-lineaire', 'NBN B 03-003 8'),
+            n('en1990-2002', 'frequence-propre', 'lu-dalle', 'NBN B 03-003 8'),
           ],
           reserves: 'Flèches verticales, limites saisies (tableau A.1.10 non reproduit) ; vibrations des planchers par la fréquence propre, seuil saisi, analyse dynamique non faite (A.1.8.3 à relire) ; combinaisons 8.4.3 décrites dans le même article ; confort, déplacements et fondations décrits, non codés ; ψ des catégories H à T du tableau A.1.7 mal alignés dans la version NBN. Texte de 2002 lu le 2026-10-19 (A1.4.3 : aucune limite chiffrée).',
         }),
