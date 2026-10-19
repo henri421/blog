@@ -2,7 +2,7 @@
 titre: Bases de calcul des ponts (EN 1990, annexe A.2)
 ordre: 61
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), annexe A.2 (A.2.3 à A.2.9, tableaux A.2.1, A.2.2, A.2.7, A.2.10 et A.2.11) lue sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française) lue sur le texte le 2026-10-19, mais l’annexe A2 relève de l’A1:2005, non détenu : elle reste citée de mémoire et à relire ; état d’amendement non encore vérifié.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), annexe A.2 (A.2.3 à A.2.9, tableaux A.2.1, A.2.2, A.2.7, A.2.10 et A.2.11) lue sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française) lue sur le texte le 2026-10-19, mais l’annexe A2 relève de l’A1:2005, non détenu : elle reste citée de mémoire et à relire ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (A2.1.1, A2.2.6, A2.3.1) lue sur le texte le 2026-10-19, l’annexe A2 elle-même restant citée de mémoire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Pour les ponts, coefficients partiels et coefficients ψ restent ceux de l’A1:2005, mais une classe CC3 dédoublée (CC3a, CC3b) module désormais les actions, et la vérification de l’équilibre adopte un γG,stb de 1,25 propre aux ponts.
@@ -10,6 +10,7 @@ motscles: combinaisons, actions, elu
 historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : corps de l’EN 1990:2002 lu sur le texte ; l’annexe A2 (A1:2005), non détenue, reste citée de mémoire.
+  - 2026-10-19 : section sur l’annexe nationale luxembourgeoise (durée de 100 ans, ψ0 = 0,3 facultatif, approche 2).
 ---
 
 ## Ce qui change
@@ -58,6 +59,10 @@ Moments à mi-travée : poids propre 4000 kN·m, tandem TS 2500 kN·m, charge UD
 Le trafic domine ({{pont-autoroute:en1990-2023/str.sollicitation}} kN·m, contre {{pont-autoroute:en1990-2023/str.thermique dominante}} kN·m quand la température domine). En CC3a, le résultat est celui de 2005. Le même pont classé CC3b par le maître d’ouvrage passerait à 12 474 kN·m.
 
 {{calculateur:pont-autoroute}}
+
+## Au Luxembourg : l’annexe nationale de 2020
+
+L’AN-LU:2020 fixe la durée d’utilisation de projet des ponts à 100 ans, rend normatives les valeurs recommandées des coefficients partiels et des coefficients $\psi$ des tableaux A2.1 à A2.3, et retient l’approche 2 pour la géotechnique. Elle ajoute aux ponts routiers et ferroviaires une règle de courte durée : quand une action de moins d’un mois est suivie dans la combinaison d’une autre action de courte durée, $\psi_0$ = 0,3 **peut** être utilisé pour la seconde si c’est la neige, le vent ou une variation de température de l’air. La règle est facultative pour les ponts, alors qu’elle s’impose aux bâtiments (article 47). Comme pour les bâtiments, la NOTE 2 du tableau A1.2(B) modifiée s’applique au tableau A2.4(B) : (6.10) en général, $\xi$ = 0,85 seulement avec un poids propre certifié. Ces règles ne sont pas codées dans le calculateur des ponts, l’annexe A2 n’étant pas détenue.
 
 ## L’effet sur une note de calcul existante
 

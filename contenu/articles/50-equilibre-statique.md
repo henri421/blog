@@ -2,7 +2,7 @@
 titre: Équilibre statique et principe de la source unique
 ordre: 50
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 6.1.1(3) et (4), 8.3.3.1, formule (8.8) et tableau A.1.8 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), tableaux A1.2(A) et A1.2(B), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 6.1.1(3) et (4), 8.3.3.1, formule (8.8) et tableau A.1.8 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), tableaux A1.2(A) et A1.2(B), lue sur le texte le 2026-10-19, sans l’A1:2005 ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (A1.3.1(1)) lue sur le texte le 2026-10-19 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Les coefficients 1,10 et 0,90 de la vérification EQU disparaissent. Le cas VC2 les remplace et reprend la vérification combinée que la première génération ne proposait qu’en note, avec 1,35 et 1,15 sur les parties d’une même action permanente.
@@ -10,6 +10,7 @@ motscles: combinaisons, actions, elu, stabilite
 historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : première génération lue sur le texte de 2002 : coefficients du tableau A1.2(A) confirmés ; **corrigé** : la source unique hors équilibre était déjà codifiée en 2002 (tableau A1.2(B), NOTE 3), et non « peu codifiée ».
+  - 2026-10-19 : section sur l’annexe nationale luxembourgeoise : NOTE 2 du tableau A1.2(A) non applicable (A1.3.1(1)).
 ---
 
 ## Ce qui change
@@ -51,6 +52,7 @@ Poutre sur deux appuis A et B, portée $L$ = 5 m, prolongée au-delà de B par u
     "en1990-2002/equ.resistance": "112,50",
     "en1990-2002/equ.F_ancrage": "1,48",
     "en1990-2002/equ-str.sollicitation": "136,08",
+    "en1990-2002/lu.sollicitation": "119,88",
     "en1990-2023/vc2.sollicitation": "136,08",
     "en1990-2023/vc2.resistance": "143,75",
     "en1990-2023/vc2.F_ancrage": "0,00"
@@ -58,7 +60,7 @@ Poutre sur deux appuis A et B, portée $L$ = 5 m, prolongée au-delà de B par u
 }
 ```
 
-En 2002, la vérification EQU donne un moment déstabilisant de {{console:en1990-2002/equ.sollicitation}} kN·m contre {{console:en1990-2002/equ.resistance}} kN·m stabilisants : il faut ancrer l’appui A pour {{console:en1990-2002/equ.F_ancrage}} kN. Avec VC2, en classe CC2, le cas (a) gouverne : {{console:en1990-2023/vc2.sollicitation}} kN·m contre {{console:en1990-2023/vc2.resistance}} kN·m, et l’équilibre est assuré sans ancrage. La vérification combinée de la NOTE 2 de 2002 donnait déjà ce résultat.
+En 2002, la vérification EQU donne un moment déstabilisant de {{console:en1990-2002/equ.sollicitation}} kN·m contre {{console:en1990-2002/equ.resistance}} kN·m stabilisants : il faut ancrer l’appui A pour {{console:en1990-2002/equ.F_ancrage}} kN. Avec VC2, en classe CC2, le cas (a) gouverne : {{console:en1990-2023/vc2.sollicitation}} kN·m contre {{console:en1990-2023/vc2.resistance}} kN·m, et l’équilibre est assuré sans ancrage. La vérification combinée de la NOTE 2 de 2002 donnait déjà ce résultat, sauf au Luxembourg (voir ci-dessous).
 
 ```exemple
 {
@@ -75,6 +77,10 @@ En 2002, la vérification EQU donne un moment déstabilisant de {{console:en1990
 En classe CC3, $k_F$ = 1,1 multiplie la partie déstabilisatrice ({{console-cc3:en1990-2023/vc2.sollicitation}} kN·m), mais pas $\gamma_{G,stb}$, que le tableau A.1.8 fixe à 1,15 : il faut un ancrage de {{console-cc3:en1990-2023/vc2.F_ancrage}} kN. **Point à surveiller** : si l’on appliquait la formule (8.8) à $\gamma_G = 1.35\,k_F$, on obtiendrait $\gamma_{G,stb}$ = 1,265 en CC3, et plus d’ancrage. L’outil suit le tableau, qui donne une valeur chiffrée ; l’annexe nationale devra lever l’ambiguïté.
 
 {{calculateur:console}}
+
+## Au Luxembourg : pas de vérification combinée
+
+L’AN-LU:2020 rend normatif le tableau A1.2(A) pour l’équilibre statique, mais déclare sa NOTE 2 non applicable : la vérification combinée de l’équilibre et de la résistance, avec 1,35 et 1,15, n’y est pas admise. L’équilibre se vérifie avec 1,10 et 0,90, puis la résistance de l’ancrage avec le tableau A1.2(B). Pour la console, le niveau luxembourgeois du calculateur redonne {{console:en1990-2002/lu.sollicitation}} kN·m déstabilisants : l’ancrage de {{console:en1990-2002/equ.F_ancrage}} kN reste dû, alors que la vérification combinée l’évitait.
 
 ## L’effet sur une note de calcul existante
 

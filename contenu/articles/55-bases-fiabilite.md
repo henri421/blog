@@ -2,7 +2,7 @@
 titre: Exigences de base, fiabilité et gestion de la qualité
 ordre: 55
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 4.1, 4.2, 4.5 à 4.8, annexes B et C (tableaux C.2 et C.3) lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.1 à 2.5, annexes B et C (tableaux B.2, C.2 et (C.3)), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 4.1, 4.2, 4.5 à 4.8, annexes B et C (tableaux C.2 et C.3) lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.1 à 2.5, annexes B et C (tableaux B.2, C.2 et (C.3)), lue sur le texte le 2026-10-19, sans l’A1:2005 ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (A1.1(1), A2.1.1(1), annexes B et C) lue sur le texte le 2026-10-19 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Les exigences de base et les cibles de fiabilité ne changent pas. La deuxième génération ajoute le développement durable aux exigences, sépare la gestion de la qualité en quatre échelles (DQL, DCL, EXC, IL) et réécrit l’annexe C pour aider les pays à fixer leurs cibles.
@@ -10,6 +10,7 @@ motscles: fiabilite
 historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : première génération lue sur le texte de 2002 : cibles β du tableau B.2 confirmées ; ses valeurs à 50 ans sont des arrondis, l’outil garde la conversion exacte (C.3) (décision de l’auteur du 2026-10-19).
+  - 2026-10-19 : section sur l’annexe nationale luxembourgeoise (durée d’utilisation, annexes B et C).
 ---
 
 ## Ce qui change
@@ -52,6 +53,12 @@ Les cibles sont données sur 1 an et sur 50 ans. Si les années sont indépendan
 $\beta_1$ = {{fiabilite-cc2:en1990-2023/beta.β_1}} donne $\beta_{50}$ = {{fiabilite-cc2:en1990-2023/beta.resistance}}, soit une probabilité de défaillance d’environ $6.5 \times 10^{-5}$ sur 50 ans. Le tableau C.3 arrondit à 3,8, comme le tableau B.2 de 2002 ; l’outil garde la valeur exacte de la conversion. Pour CC1, la conversion exacte donne 3,21 et non 3,3 : les deux colonnes du tableau ne sont pas strictement cohérentes, ce qui n’a pas d’effet pratique puisque les coefficients partiels sont calibrés globalement.
 
 {{calculateur:fiabilite-cc2}}
+
+## Au Luxembourg : l’annexe nationale de 2020
+
+**Durée d’utilisation de projet.** Le tableau 2.1 de 2002 reste indicatif ; la durée se fixe de préférence par le maître de l’ouvrage. Pour un bâtiment, l’AN-LU:2020 propose de choisir entre 50 ans (bâtiments courants, catégorie 4) et 100 ans (bâtiments monumentaux, catégorie 5), selon une prévision réaliste de la durée probable. Les ponts sont projetés pour 100 ans. Un élément remplaçable de la catégorie 2 n’a une durée réduite que s’il est facile à inspecter et que son remplacement est prévu ; sinon la durée de l’ensemble s’applique.
+
+**Fiabilité.** Les tableaux de coefficients partiels correspondent à la classe CC2. Les annexes B et C gardent leur caractère informatif, et leur emploi pour viser une autre fiabilité est soumis à l’approbation du client et de l’autorité compétente, sauf si l’Eurocode de matériau ou la norme de produit le prévoit. L’annexe nationale rattache la classe CC2 ($\beta$ = 4,7 sur un an) à une probabilité de dépassement de l’ordre de $1.3 \times 10^{-6}$ par an, soit $\Phi(-4.7)$.
 
 ## L’effet sur une note de calcul existante
 

@@ -2,7 +2,7 @@
 titre: Classes de conséquences et facteur kF
 ordre: 49
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 4.3, 4.5, A.1.3, A.1.4, A.2.3 et tableaux A.1.8, A.1.9, A.2.11 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.3, tableau 2.1 et annexe B (B.3, tableaux B.1 à B.3), lue sur le texte le 2026-10-19, sans l’A1:2005 ; la ligne « Ponts » du premier tableau relève de l’A1:2005, non détenu, et reste citée de mémoire ; état d’amendement non encore vérifié.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 4.3, 4.5, A.1.3, A.1.4, A.2.3 et tableaux A.1.8, A.1.9, A.2.11 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.3, tableau 2.1 et annexe B (B.3, tableaux B.1 à B.3), lue sur le texte le 2026-10-19, sans l’A1:2005 ; la ligne « Ponts » du premier tableau relève de l’A1:2005, non détenu, et reste citée de mémoire ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (A1.1(1), annexe B) lue sur le texte le 2026-10-19 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Les trois classes de conséquences de 2002 deviennent cinq, de CC0 à CC4. Elles passent de l’annexe informative au corps du texte, et leur facteur kF s’applique désormais d’office aux coefficients des actions défavorables.
@@ -10,6 +10,7 @@ motscles: fiabilite, actions, elu
 historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : première génération lue sur le texte de 2002 (2.3, annexe B) : valeurs confirmées ; note de B.3.3 sur la classe RC3 et note du tableau 2.1 ajoutées.
+  - 2026-10-19 : section sur l’annexe nationale luxembourgeoise (annexe B, classes coordonnées, éléments secondaires) ; niveau AN-LU du calculateur.
 ---
 
 ## Ce qui change
@@ -73,6 +74,14 @@ Un hangar de stockage agricole relève de CC1, une salle de concert de CC3.
 Pour le hangar, les coefficients deviennent $\gamma_G$ = {{hangar-cc1:en1990-2023/kf.γ_G}} et $\gamma_Q$ = {{hangar-cc1:en1990-2023/kf.γ_Q}}. Pour la salle de concert, $\gamma_G$ = {{salle-cc3:en1990-2023/kf.γ_G}} et $\gamma_Q$ = {{salle-cc3:en1990-2023/kf.γ_Q}}. En 2002, les mêmes valeurs s’obtenaient avec $K_{FI}$, mais seulement si l’annexe nationale ou le projet le retenaient. L’article 47 montre l’effet sur une combinaison complète.
 
 {{calculateur:hangar-cc1}}
+
+## Au Luxembourg : l’annexe nationale de 2020
+
+**L’annexe B reste informative.** L’AN-LU:2020 rappelle que les tableaux A1.2 correspondent à la classe CC2. Pour CC1 et CC3, ils peuvent être corrigés par $K_{FI}$, mais l’emploi de l’annexe B pour différencier la fiabilité est soumis à l’approbation du client et de l’autorité compétente. Le calculateur affiche ce niveau à côté du niveau de 2002, avec cette réserve.
+
+**Des classes de conséquences coordonnées.** L’EN 1990, l’EN 1991-1-7 et l’EN 1998-1 classent chacune les ouvrages à leur façon, et ces classements sont indépendants : une maison unifamiliale peut être CC2 au sens de l’EN 1990 et de classe 1 au sens de l’EN 1991-1-7. Pour éviter la confusion, l’AN-LU renomme les classes de l’EN 1991-1-7 « classes de conséquences en cas d’accident » (CCA) et propose un tableau de correspondance entre les trois normes, pour les bâtiments, les ponts et les structures industrielles (tableau B.6 AN-LU, à consulter dans le texte).
+
+**Les éléments secondaires.** L’AN-LU définit un élément secondaire : un élément dont le remplacement est prévu dès la construction et dont la défaillance ne touche que sa propre stabilité et les éléments de remplissage qu’il porte (éléments de façades rideaux, châssis, cloisons, faux plafonds). Il peut viser une fiabilité plus faible et une durée d’utilisation plus courte, avec les normes et codes de bonne pratique qui le concernent ; les coefficients de l’annexe nationale ne s’appliquent qu’aux éléments structuraux. Un escalier qui porte seul des personnes n’est jamais secondaire, et une protection au feu fait partie de l’élément qu’elle protège.
 
 ## L’effet sur une note de calcul existante
 

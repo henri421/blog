@@ -2,7 +2,7 @@
 titre: Combinaisons et critères à l’ELS des bâtiments
 ordre: 51
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 8.4.3, formules (8.29) à (8.32), A.1.6.3, A.1.8 et figure A.1.1 lus sur le texte le 2026-10-18 ; tableau A.1.7 lu sur la page rendue, dont l’alignement est ambigu pour les catégories H à T ; EN 1990:2002 (version française), 6.5.3, A1.4 et figure A1.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 8.4.3, formules (8.29) à (8.32), A.1.6.3, A.1.8 et figure A.1.1 lus sur le texte le 2026-10-18 ; tableau A.1.7 lu sur la page rendue, dont l’alignement est ambigu pour les catégories H à T ; EN 1990:2002 (version française), 6.5.3, A1.4 et figure A1.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (A1.4.2(2)) et NBN B 03-003:2003 (3.4, 7, 8, tableau 6) lues sur le texte le 2026-10-19 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Les trois combinaisons de service ne changent pas. L’annexe A de l’EN 1990 propose désormais des limites de flèche, de déplacement et de mouvement des fondations, et redéfinit les parties de la flèche.
@@ -11,6 +11,7 @@ historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : première génération lue sur le texte de 2002 (6.5.3, A1.4.2, A1.4.3) : combinaisons et décomposition de la flèche confirmées, absence de limite chiffrée confirmée.
   - 2026-10-19 : section sur les vibrations des planchers et calculateur `frequence-propre` (A1.4.4 de 2002 lu sur le texte ; A.1.8.3 de 2023 à relire sur ce point).
+  - 2026-10-19 : flèches et vibrations selon la NBN B 03-003, à laquelle renvoie l’AN-LU:2020 (A1.4.2(2)) ; niveaux AN-LU des deux calculateurs ; λ = 1,126 rattaché aux dalles par la NBN.
 ---
 
 ## Ce qui change
@@ -74,7 +75,7 @@ Le critère de dommage donne {{plancher-cloisons:en1990-2023/dommage.sollicitati
 
 ## Vibrations des planchers : la fréquence propre
 
-**Ce que dit le texte.** En 2002, l’annexe A1 demande de maintenir la fréquence propre de la structure ou de l’élément au-dessus d’une valeur appropriée, fixée selon la fonction du bâtiment et la source des vibrations, en accord avec le client ou l’autorité compétente (A1.4.4(2)). Si la fréquence est plus basse, il faut une analyse plus fine de la réponse dynamique, qui tient compte de l’amortissement (A1.4.4(3)). Le texte ne donne aucune valeur seuil : il renvoie à l’EN 1991-1-1, à l’EN 1991-1-4 et à l’ISO 10137. La deuxième génération traite les vibrations en 8.4.4 et en A.1.8.3 ; l’outil y applique le même principe, à confirmer sur le texte.
+**Ce que dit le texte.** En 2002, l’annexe A1 demande de maintenir la fréquence propre de la structure ou de l’élément au-dessus d’une valeur appropriée, fixée selon la fonction du bâtiment et la source des vibrations, en accord avec le client ou l’autorité compétente (A1.4.4(2)). Si la fréquence est plus basse, il faut une analyse plus fine de la réponse dynamique, qui tient compte de l’amortissement (A1.4.4(3)). Le texte ne donne aucune valeur seuil : il renvoie à l’EN 1991-1-1, à l’EN 1991-1-4 et à l’ISO 10137. Au Luxembourg, l’AN-LU:2020 renvoie pour les bâtiments à la NBN B 03-003 (voir plus bas). La deuxième génération traite les vibrations en 8.4.4 et en A.1.8.3 ; l’outil y applique le même principe, à confirmer sur le texte.
 
 **D’où vient la fréquence.** La norme ne dit pas comment estimer la fréquence ; la mécanique le fait à partir de la flèche instantanée $f$ sous les masses qui vibrent (poids propre, finitions, et la part quasi permanente des charges d’exploitation si le projet la retient) :
 
@@ -82,9 +83,9 @@ $$
 n = \frac{\lambda}{2\pi}\sqrt{\frac{g}{f}}
 $$
 
-Pour une masse concentrée sur un ressort sans masse, $\lambda$ = 1 : c’est une borne prudente. Pour le premier mode d’une poutre isostatique dont la masse est uniformément répartie, $f$ étant sa flèche à mi-portée sous ce même poids, $\lambda = \pi^2\sqrt{5/384}$ = 1,126. L’outil calcule les deux et compare chacune au seuil convenu, qu’il ne fixe pas. Il constate ; au-dessous du seuil, il déclare qu’une analyse dynamique est requise, sans la faire.
+Pour une masse concentrée sur un ressort sans masse, $\lambda$ = 1 : c’est une borne prudente. Pour le premier mode d’une poutre isostatique dont la masse est uniformément répartie, $f$ étant sa flèche à mi-portée sous ce même poids, $\lambda = \pi^2\sqrt{5/384}$ = 1,126. La NBN B 03-003 retient en première approximation $\lambda$ = 1 pour les éléments linéaires et $\lambda$ = 1,126 pour les dalles portant dans les deux sens : deux valeurs prudentes, puisqu’une dalle carrée simplement appuyée donnerait environ 1,26. L’outil calcule les deux et compare chacune au seuil convenu, qu’il ne fixe pas. Il constate ; au-dessous du seuil, il déclare qu’une analyse dynamique est requise, sans la faire.
 
-Poutre de plancher de bureaux, flèche instantanée sous les masses vibrantes $f$ = 12 mm. Seuil retenu pour l’exemple : 3,5 Hz, à convenir pour le projet.
+Poutre de plancher de bureaux, flèche instantanée sous les masses vibrantes $f$ = 12 mm. Seuil retenu pour l’exemple : 3,5 Hz, valeur critique de la NBN B 03-003 pour une structure ordinaire supportant des personnes (tableau 6).
 
 ```exemple
 {
@@ -96,12 +97,13 @@ Poutre de plancher de bureaux, flèche instantanée sous les masses vibrantes $f
     "en1990-2002/repartie.resistance": "5,12",
     "en1990-2023/concentree.resistance": "4,55",
     "en1990-2002/concentree.taux": "0,769",
-    "en1990-2002/concentree.f pour n_lim": "20,3"
+    "en1990-2002/concentree.f pour n_lim": "20,3",
+    "en1990-2002/lu-dalle.resistance": "5,12"
   }
 }
 ```
 
-La fréquence vaut {{plancher-bureaux-vibration:en1990-2002/concentree.resistance}} Hz avec la borne prudente, {{plancher-bureaux-vibration:en1990-2002/repartie.resistance}} Hz avec la masse répartie : le seuil de 3,5 Hz est respecté (taux {{plancher-bureaux-vibration:en1990-2002/concentree.taux}}). Il le resterait jusqu’à une flèche de {{plancher-bureaux-vibration:en1990-2002/concentree.f pour n_lim}} mm. Pour une salle de sport, où le projet retiendrait par exemple 7 Hz, la même poutre ne suffit pas :
+La fréquence vaut {{plancher-bureaux-vibration:en1990-2002/concentree.resistance}} Hz avec la borne prudente, {{plancher-bureaux-vibration:en1990-2002/repartie.resistance}} Hz avec la masse répartie : le seuil de 3,5 Hz est respecté (taux {{plancher-bureaux-vibration:en1990-2002/concentree.taux}}). Il le resterait jusqu’à une flèche de {{plancher-bureaux-vibration:en1990-2002/concentree.f pour n_lim}} mm. Pour une salle de sport, où la même norme retient 7 Hz, la même poutre ne suffit pas :
 
 ```exemple
 {
@@ -120,11 +122,50 @@ Les taux valent {{plancher-sport-vibration:en1990-2002/concentree.taux}} et {{pl
 
 {{calculateur:plancher-bureaux-vibration}}
 
+## Au Luxembourg : les flèches selon la NBN B 03-003
+
+L’EN 1990:2002 ne chiffre aucune limite. L’AN-LU:2020 renvoie, sauf indication contraire, à la norme belge NBN B 03-003:2003 (A1.4.2(2)). Celle-ci découpe la flèche autrement que l’EN 1990, autour de l’élément à protéger (un carrelage, une cloison, un revêtement d’étanchéité) :
+
+| | NBN B 03-003 |
+|---|---|
+| $w_1$ | contreflèche |
+| $w_a$ | flèche avant la pose de l’élément à protéger, instantanée et différée partielle, contreflèche déduite |
+| $w_b$ | accroissement dû à cet élément, aux parachèvements ultérieurs et au fluage qui suit leur pose |
+| $w_c$ | accroissement sous les actions variables, instantané et différé |
+| $w_{abc}$ | $w_a + w_b + w_c$ |
+
+$w_b + w_c$ correspond à la flèche « après exécution de l’élément » visée par A1.4.3(3) de l’EN 1990:2002. Les limites dépendent de l’exigence de performance et de la combinaison (rare ou fréquente au sens de la NBN B 03-001), dans trois tableaux : éléments verticaux, éléments sur deux appuis au moins, consoles. L’aspect se vérifie sur $w_{abc}$ en combinaison fréquente dans la NBN, en quasi permanente dans l’EN 1990. L’outil code les deux critères les plus courants ; l’ingénieur saisit les dénominateurs lus dans la norme.
+
+Plancher carrelé de 6,00 m sur deux appuis, sans contreflèche : $w_a$ = 8 mm avant la pose du carrelage, $w_b$ = 6 mm, $w_c$ = 5 mm. Dénominateurs : 500 pour un revêtement de sol raide, 300 pour l’aspect (tableau 4).
+
+```exemple
+{
+  "nom": "plancher-carrele-lu",
+  "mecanisme": "fleche-batiment",
+  "entree": { "l": 6, "wc": 0, "wa": 8, "wb": 6, "wcNbn": 5, "nbc": 500, "nabc": 300 },
+  "attendus": {
+    "en1990-2002/lu-element.sollicitation": "11,0",
+    "en1990-2002/lu-element.resistance": "12,0",
+    "en1990-2002/lu-element.taux": "0,916",
+    "en1990-2002/lu-aspect.sollicitation": "19,0",
+    "en1990-2002/lu-aspect.resistance": "20,0",
+    "en1990-2002/lu-aspect.taux": "0,950"
+  }
+}
+```
+
+Le carrelage est protégé de justesse : {{plancher-carrele-lu:en1990-2002/lu-element.sollicitation}} mm pour {{plancher-carrele-lu:en1990-2002/lu-element.resistance}} mm. L’aspect gouverne presque autant ({{plancher-carrele-lu:en1990-2002/lu-aspect.sollicitation}} mm pour {{plancher-carrele-lu:en1990-2002/lu-aspect.resistance}} mm), ce que la norme signale elle-même pour les planchers souples.
+
+{{calculateur:plancher-carrele-lu}}
+
+**Vibrations.** Pour les mouvements synchronisés de personnes, la NBN B 03-003 vérifie en deux étapes : si la fréquence propre dépasse la valeur critique de la destination (tableau 6), les effets sont négligeables ; sinon, un calcul dynamique est requis. Le calculateur de vibrations affiche ces niveaux à côté des niveaux recommandés : pour la dalle bidirectionnelle de même flèche, {{plancher-bureaux-vibration:en1990-2002/lu-dalle.resistance}} Hz.
+
 ## L’effet sur une note de calcul existante
 
 - Les **combinaisons** ELS d’une note de 2002 restent valables.
 - Le critère de **dommage aux cloisons** porte sur $w_2 + w_3$ au sens de 2023 : la partie quasi permanente des charges d’exploitation y entre par le fluage.
 - Les limites viennent de l’EN 1990 et non plus de l’Eurocode du matériau ; elles sont des paramètres nationaux.
+- Au Luxembourg, une note de 2002 qui vérifiait les flèches selon la NBN B 03-003 reste dans le cadre de l’AN-LU ; les définitions de $w_a$, $w_b$ et $w_c$ ne sont pas celles de $w_1$, $w_2$ et $w_3$ de l’EN 1990, et ne se transposent pas terme à terme.
 - Une note qui justifiait les vibrations par une fréquence propre au-dessus d’un seuil convenu reste valable dans son principe ; le seuil et la méthode d’estimation de la fréquence doivent y être écrits.
 - Les **mouvements de fondation** deviennent une action permanente à combiner, avec des limites de tassement différentiel et de distorsion angulaire selon la sensibilité de la structure.
 

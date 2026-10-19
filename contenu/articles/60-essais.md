@@ -2,7 +2,7 @@
 titre: Dimensionnement assisté par l’expérimentation
 ordre: 60
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 7.3 et annexe D (D.7, tableaux D.1 et D.2) lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 5.2 et annexe D (D.7, tableaux D.1 et D.2), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 7.3 et annexe D (D.7, tableaux D.1 et D.2) lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 5.2 et annexe D (D.7, tableaux D.1 et D.2), lue sur le texte le 2026-10-19, sans l’A1:2005 ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (annexe D) lue sur le texte le 2026-10-19 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: L’évaluation statistique des essais ne change pas. Comme en 2002, le texte recommande d’utiliser un coefficient de variation connu, estimé prudemment, plutôt que celui d’un petit échantillon, et de ne pas le supposer inférieur à 0,10 quand il est inconnu.
@@ -10,6 +10,7 @@ motscles: materiaux-beton, fiabilite
 historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : première génération lue sur le texte de 2002 (annexe D) : **corrigé** : les hypothèses des tableaux, la préférence pour « Vx connu » et le plancher Vx ≥ 0,10 figuraient déjà en D.7.1(5) de 2002 ; écart d’arrondi entre k_n calculé et tableau D.1 signalé. Plancher appliqué par l’outil (décision de l’auteur du 2026-10-19) : exemple recalculé, 226,0 MPa au lieu de 294,7 MPa avec $V_x$ inconnu.
+  - 2026-10-19 : mention de l’annexe nationale luxembourgeoise (annexe D informative).
 ---
 
 ## Ce qui change
@@ -56,6 +57,10 @@ L’exemple d’évaluation présenté à l’atelier JRC de juin 2025 (EN 1990-
 Avec $V_x$ connu, $f_{yk}$ = {{acier-1940:en1990-2023/v-connu.resistance}} MPa. Avec $V_x$ inconnu ($k_n$ = {{acier-1940:en1990-2023/v-inconnu.k_n}}), le coefficient de variation de l’échantillon vaut 0,015 : quatre valeurs très groupées ne prouvent pas que la population l’est autant. L’outil applique donc le plancher de 0,10 et rend $f_{yk}$ = {{acier-1940:en1990-2023/v-inconnu.resistance}} MPa ; sans plancher, on obtiendrait {{acier-1940:en1990-2023/v-inconnu.X_k sans plancher}} MPa. L’atelier retenait 299 MPa, en combinant $k_n$ = 2,63 et un $V_x$ arrondi à 0,01. L’écart montre l’intérêt d’un $V_x$ connu et justifié : c’est lui qui permet de valoriser un petit nombre d’essais. Les deux générations donnent les mêmes valeurs.
 
 {{calculateur:acier-1940}}
+
+## Au Luxembourg
+
+L’AN-LU:2020 maintient le caractère informatif de l’annexe D de 2002, sans autre précision : son emploi relève du projet.
 
 ## L’effet sur une note de calcul existante
 

@@ -2,7 +2,7 @@
 titre: Vibrations des passerelles sous les piétons
 ordre: 62
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), A.2.9.3 et annexe H (tableaux H.1 et H.2) ; EN 1991-2:2023, article 7 et annexe G ((G.1) à (G.5), tableaux G.1 et G.2) ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1990:2002 (version française) lue sur le texte le 2026-10-19, mais A2.4.3.2 relève de l’A1:2005 ; A1:2005 et EN 1991-2:2003 (5.7) cités de mémoire, ces textes n’étant pas détenus et restant à relire ; état d’amendement non encore vérifié.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), A.2.9.3 et annexe H (tableaux H.1 et H.2) ; EN 1991-2:2023, article 7 et annexe G ((G.1) à (G.5), tableaux G.1 et G.2) ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1990:2002 (version française) lue sur le texte le 2026-10-19, mais A2.4.3.2 relève de l’A1:2005 ; A1:2005 et EN 1991-2:2003 (5.7) cités de mémoire, ces textes n’étant pas détenus et restant à relire ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (A1.4.2(2)) lue sur le texte le 2026-10-19 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: La première génération demandait de vérifier le confort des passerelles sans fournir de modèle de charge. La deuxième génération fournit des classes de trafic, des niveaux de confort et des charges harmoniques, dans l’esprit des guides Sétra et HiVoSS.
@@ -10,6 +10,7 @@ motscles: els, actions
 historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : corps de l’EN 1990:2002 lu sur le texte ; A2.4.3.2 (A1:2005) et l’EN 1991-2:2003, non détenus, restent cités de mémoire.
+  - 2026-10-19 : section sur les fréquences critiques de l’annexe nationale luxembourgeoise (A1.4.2(2)).
 ---
 
 ## Ce qui change
@@ -55,6 +56,10 @@ Passerelle sur deux appuis, portée 40 m, largeur 3 m, masse 6000 kg/m, amortiss
 La charge harmonique vaut {{passerelle-beton:en1991-2-2023/flux.p}} N/m² et l’accélération à la résonance {{passerelle-beton:en1991-2-2023/flux.sollicitation}} m/s² : le confort CL2 est atteint, le confort maximal CL3 (0,5 m/s²) est tout juste dépassé. La même passerelle en acier (2000 kg/m, amortissement 0,5 %) dépasserait 2,6 m/s² : il faudrait un amortisseur.
 
 {{calculateur:passerelle-beton}}
+
+## Au Luxembourg : deux fréquences critiques
+
+L’AN-LU:2020 (A1.4.2(2)) admet de négliger l’amplification par résonance si les fréquences propres de la passerelle dépassent 4,5 Hz pour les vibrations verticales et 3,5 Hz pour les vibrations horizontales. Ces seuils couvrent le premier et le second harmonique de la marche. En vertical, 4,5 Hz est proche de la borne de 4,6 Hz que 2023 retient pour un pont sensible au second harmonique ; en latéral, 3,5 Hz est nettement plus prudent que la borne de 1,2 Hz. Ils seront confrontés à A2.4.3.2 de l’EN 1990:2002+A1:2005 dès que ce texte sera détenu.
 
 ## L’effet sur une note de calcul existante
 

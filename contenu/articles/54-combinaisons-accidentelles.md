@@ -2,7 +2,7 @@
 titre: Combinaisons accidentelles et incendie
 ordre: 54
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 8.3.4.3 et tableau A.1.3 ; EN 1991-1-2:2024, 6.3, formules (6.1) à (6.4) ; EN 1991-1-7:2025, avant-propos et domaine ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 6.4.3.3 et tableau A1.3, lue sur le texte le 2026-10-19, sans l’A1:2005 ; EN 1991-1-2:2002 (4.3) citée de mémoire, le texte n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 8.3.4.3 et tableau A.1.3 ; EN 1991-1-2:2024, 6.3, formules (6.1) à (6.4) ; EN 1991-1-7:2025, avant-propos et domaine ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 6.4.3.3 et tableau A1.3, lue sur le texte le 2026-10-19, sans l’A1:2005 ; EN 1991-1-2:2002 (4.3) citée de mémoire, le texte n’étant pas détenu et restant à relire ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (A1.3.2, tableau A1.3) lue sur le texte le 2026-10-19 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: La combinaison accidentelle ne change pas, ni le coefficient ηfi de la vérification simplifiée au feu. Mais ηfi se rapporte maintenant à des coefficients modulés par kF, et l’EN 1991-1-7 renvoie la robustesse à l’EN 1990.
@@ -10,6 +10,7 @@ motscles: combinaisons, actions, robustesse
 historique:
   - 2026-10-18 : première rédaction.
   - 2026-10-19 : partie EN 1990 de la première génération lue sur le texte de 2002 ((6.11a), (6.11b), tableau A1.3) : conforme ; l’EN 1991-1-2:2002 reste citée de mémoire.
+  - 2026-10-19 : section sur l’annexe nationale luxembourgeoise (A1.3.2) et niveau AN-LU du calculateur.
 ---
 
 ## Ce qui change
@@ -70,6 +71,36 @@ Le poteau de l’article 47 : $G_k$ = 800 kN ; bureaux $Q_{k,1}$ = 300 kN, $\psi
 L’effort au feu vaut {{poteau-feu:en1990-2023/acc.sollicitation}} kN dans les deux générations, et $\eta_{fi}$ = {{poteau-feu:en1990-2023/acc.η_fi}} en CC2. En CC3, l’effort au feu est le même ({{poteau-feu-cc3:en1990-2023/acc.sollicitation}} kN), mais $\eta_{fi}$ tombe à {{poteau-feu-cc3:en1990-2023/acc.η_fi}}, parce que l’effort à froid a augmenté de 10 %.
 
 {{calculateur:poteau-feu}}
+
+## Au Luxembourg : un choix imposé
+
+En 2002, le tableau A1.3 laissait à l’annexe nationale le choix entre la valeur fréquente et la valeur quasi permanente de l’action variable principale. L’AN-LU:2020 tranche : valeur fréquente $\psi_{1,1}\,Q_{k,1}$ en situation accidentelle ; au feu, valeur quasi permanente $\psi_{2,1}\,Q_{k,1}$, sauf si l’action variable principale est le vent, prise alors à sa valeur fréquente (A1.3.2). Le calculateur affiche ce niveau à côté du choix libre, d’après la situation indiquée.
+
+```exemple
+{
+  "nom": "poteau-feu-lu",
+  "mecanisme": "combinaison-accidentelle",
+  "entree": { "G": 800, "Ad": 0, "Q1": 300, "psi11": 0.5, "psi21": 0.3, "Q2": 100, "psi22": 0, "valeur": "quasi-permanente", "cc": "CC2", "situationLu": "incendie" },
+  "attendus": {
+    "en1990-2002/acc-lu.sollicitation": "890"
+  }
+}
+```
+
+```exemple
+{
+  "nom": "poteau-choc-lu",
+  "mecanisme": "combinaison-accidentelle",
+  "entree": { "G": 800, "Ad": 0, "Q1": 300, "psi11": 0.5, "psi21": 0.3, "Q2": 100, "psi22": 0, "valeur": "quasi-permanente", "cc": "CC2", "situationLu": "choc" },
+  "attendus": {
+    "en1990-2002/acc-lu.sollicitation": "950"
+  }
+}
+```
+
+Au feu, le poteau de bureaux reste à {{poteau-feu-lu:en1990-2002/acc-lu.sollicitation}} kN. Pour un choc, la valeur fréquente est imposée : {{poteau-choc-lu:en1990-2002/acc-lu.sollicitation}} kN, hors action accidentelle elle-même.
+
+{{calculateur:poteau-feu-lu}}
 
 ## L’effet sur une note de calcul existante
 

@@ -2,13 +2,14 @@
 titre: Ponts ferroviaires, charges verticales et coefficient dynamique
 ordre: 86
 statut: publie
-texte: EN 1991-2:2023 (NBN, version française), 8.1 à 8.4 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (6.1 à 6.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
+texte: EN 1991-2:2023 (NBN, version française), 8.1 à 8.4 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (6.1 à 6.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; AN-LU:2020 de l’EN 1990:2002+A1:2005 (A2.4.4.3.2(1)) lue sur le texte le 2026-10-19 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
-revise: 2026-10-18
+revise: 2026-10-19
 resume: Les modèles ferroviaires LM71, SW/0, SW/2 et le coefficient dynamique Φ2 ou Φ3 passent de la section 6 à la section 8 sans changer de forme. Les choix laissés aux parties sont mieux encadrés, et Φ3 devient la valeur par défaut.
 motscles: actions
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : section sur la condition d’analyse dynamique de l’annexe nationale luxembourgeoise (A2.4.4.3.2(1)).
 ---
 
 ## Ce qui change
@@ -48,6 +49,10 @@ Voie normalement entretenue, portée déterminante de 20 m, sans couverture.
 $\Phi_3$ = {{tablier-20m:en1991-2-2023/phi.sollicitation}} dans les deux générations (formule de 2003 citée de mémoire, à relire). Une voie soigneusement entretenue donnerait $\Phi_2$ = 1,16.
 
 {{calculateur:tablier-20m}}
+
+## Au Luxembourg : quand l’analyse dynamique s’impose
+
+L’AN-LU:2020 de l’EN 1990 (A2.4.4.3.2(1)) demande une analyse dynamique de l’interaction entre le véhicule et le pont lorsque deux conditions sont réunies : portée supérieure à 20 m et vitesse du train supérieure à 160 km/h. Le tablier de 20 m de l’exemple est à la limite ; une travée de 25 m sur une ligne à 200 km/h ne se justifierait plus par le seul coefficient dynamique. Cette condition n’est pas encore affichée par le calculateur.
 
 ## L’effet sur une note de calcul existante
 
