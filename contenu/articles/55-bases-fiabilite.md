@@ -9,7 +9,7 @@ resume: Les exigences de base et les cibles de fiabilité ne changent pas. La de
 motscles: fiabilite
 historique:
   - 2026-10-18 : première rédaction.
-  - 2026-10-19 : première génération lue sur le texte de 2002 : cibles β du tableau B.2 confirmées ; l’écart entre ses valeurs à 50 ans et la conversion (C.3) est soumis à l’auteur.
+  - 2026-10-19 : première génération lue sur le texte de 2002 : cibles β du tableau B.2 confirmées ; ses valeurs à 50 ans sont des arrondis, l’outil garde la conversion exacte (C.3) (décision de l’auteur du 2026-10-19).
 ---
 
 ## Ce qui change
@@ -49,7 +49,7 @@ Les cibles sont données sur 1 an et sur 50 ans. Si les années sont indépendan
 }
 ```
 
-$\beta_1$ = {{fiabilite-cc2:en1990-2023/beta.β_1}} donne $\beta_{50}$ = {{fiabilite-cc2:en1990-2023/beta.resistance}}, soit une probabilité de défaillance d’environ $6.5 \times 10^{-5}$ sur 50 ans. Le tableau C.3 arrondit à 3,8. Pour CC1, la conversion exacte donne 3,21 et non 3,3 : les deux colonnes du tableau ne sont pas strictement cohérentes, ce qui n’a pas d’effet pratique puisque les coefficients partiels sont calibrés globalement.
+$\beta_1$ = {{fiabilite-cc2:en1990-2023/beta.β_1}} donne $\beta_{50}$ = {{fiabilite-cc2:en1990-2023/beta.resistance}}, soit une probabilité de défaillance d’environ $6.5 \times 10^{-5}$ sur 50 ans. Le tableau C.3 arrondit à 3,8, comme le tableau B.2 de 2002 ; l’outil garde la valeur exacte de la conversion. Pour CC1, la conversion exacte donne 3,21 et non 3,3 : les deux colonnes du tableau ne sont pas strictement cohérentes, ce qui n’a pas d’effet pratique puisque les coefficients partiels sont calibrés globalement.
 
 {{calculateur:fiabilite-cc2}}
 

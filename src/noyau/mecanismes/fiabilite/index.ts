@@ -9,7 +9,10 @@
  *   4,7 ; 5,2 pour RC1 a RC3 (CC1 a CC3) ; Phi(beta_n) = [Phi(beta_1)]^n, posee
  *   en note pour des maxima annuels independants. Le tableau B.2 donne aussi
  *   directement beta_50 = 3,3 ; 3,8 ; 4,3, valeurs arrondies que (C.3) ne
- *   reproduit pas exactement (3,21 ; 3,83 ; 4,42) : ecart soumis a l auteur.
+ *   reproduit pas exactement (3,21 ; 3,83 ; 4,42).
+ * Choix de l outil (decision de l auteur du 2026-10-19) : beta_T calcule
+ *   exactement par (C.3) dans les deux generations, le tableau n etant qu un
+ *   arrondi.
  * Deuxieme generation (EN 1990-1:2023+A1:2026, 4.2, annexe C, tableau C.3,
  *   tableau C.2) : memes valeurs, meme conversion, P_f = Phi(-beta).
  * Choix de l outil : conversion par independance des annees successives ;

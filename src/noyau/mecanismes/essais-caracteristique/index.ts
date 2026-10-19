@@ -8,9 +8,12 @@
  *   tableau D.1, lus sur le texte le 2026-10-19) et deuxieme generation
  *   (EN 1990-1:2023+A1:2026, annexe D, D.7.2, (D.1) a (D.3), tableau D.1) :
  *   X_k = m_x (1 - k_n V_x) (V_x connu) ou X_k = m_x - k_n s_x (V_x inconnu).
- *   D.7.1(5) de 2002 recommande deja de ne pas supposer V_x inconnu inferieur
- *   a 0,10 : affiche en intermediaire, non applique (decision de l auteur
- *   attendue).
+ *   D.7.1(5) de 2002, reconduit en 2023, recommande de ne pas supposer V_x
+ *   inconnu inferieur a 0,10.
+ * Choix de l outil (decision de l auteur du 2026-10-19) : le plancher est
+ *   applique, par prudence, au cas V_x inconnu : X_k = m_x (1 - k_n V_x) avec
+ *   V_x = max(s_x / m_x ; 0,10), identique a m_x - k_n s_x au-dessus du
+ *   plancher ; la valeur sans plancher reste affichee en intermediaire.
  * Choix de l outil : k_n calcule et non lu dans le tableau D.1 :
  *   V_x connu : k_n = u_0,95 sqrt(1 + 1/n) ;
  *   V_x inconnu : k_n = t_(n-1 ; 0,95) sqrt(1 + 1/n), t de Student calcule par
@@ -101,11 +104,31 @@ export function connu(e: EntreeEssaisCaracteristique, clauses: string[]): Calcul
   return { statut: { etat: 'calcule' }, resistance: Xk, intermediaires: { n: saisie(n, '-'), m_x: calculee(m, '-'), V_x: saisie(V, '-'), k_n: calculee(kn, '-'), X_k: calculee(Xk, '-') }, clauses };
 }
 
+/** Plancher du coefficient de variation inconnu (D.7.1(5)). */
+export const VX_MIN = 0.1;
+
 export function inconnu(e: EntreeEssaisCaracteristique, clauses: string[]): Calcul {
   const { n, m, s } = stats(valeurs(e));
   const kn = knInconnu(n);
-  const Xk = m - kn * s;
-  return { statut: { etat: 'calcule' }, resistance: Xk, intermediaires: { n: saisie(n, '-'), m_x: calculee(m, '-'), s_x: calculee(s, '-'), V_x: calculee(s / m, '-'), k_n: calculee(kn, '-'), 'V_x minimal (note)': recommandee(0.1, '-'), X_k: calculee(Xk, '-') }, clauses };
+  const Vech = s / m;
+  const plancher = Vech < VX_MIN;
+  const V = plancher ? VX_MIN : Vech;
+  const Xk = m * (1 - kn * V);
+  return {
+    statut: { etat: 'calcule' },
+    resistance: Xk,
+    intermediaires: {
+      n: saisie(n, '-'),
+      m_x: calculee(m, '-'),
+      s_x: calculee(s, '-'),
+      'V_x échantillon': calculee(Vech, '-'),
+      V_x: plancher ? recommandee(VX_MIN, '-') : calculee(V, '-'),
+      k_n: calculee(kn, '-'),
+      'X_k sans plancher': calculee(m - kn * s, '-'),
+      X_k: calculee(Xk, '-'),
+    },
+    clauses: plancher ? [...clauses, 'D.7.1(5)'] : clauses,
+  };
 }
 
 const R = {

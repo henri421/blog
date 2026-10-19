@@ -9,7 +9,7 @@ resume: L’évaluation statistique des essais ne change pas. Comme en 2002, le 
 motscles: materiaux-beton, fiabilite
 historique:
   - 2026-10-18 : première rédaction.
-  - 2026-10-19 : première génération lue sur le texte de 2002 (annexe D) : **corrigé** : les hypothèses des tableaux, la préférence pour « Vx connu » et le plancher Vx ≥ 0,10 figuraient déjà en D.7.1(5) de 2002 ; écart d’arrondi entre k_n calculé et tableau D.1 signalé. L’application du plancher par l’outil attend la décision de l’auteur.
+  - 2026-10-19 : première génération lue sur le texte de 2002 (annexe D) : **corrigé** : les hypothèses des tableaux, la préférence pour « Vx connu » et le plancher Vx ≥ 0,10 figuraient déjà en D.7.1(5) de 2002 ; écart d’arrondi entre k_n calculé et tableau D.1 signalé. Plancher appliqué par l’outil (décision de l’auteur du 2026-10-19) : exemple recalculé, 226,0 MPa au lieu de 294,7 MPa avec $V_x$ inconnu.
 ---
 
 ## Ce qui change
@@ -45,19 +45,22 @@ L’exemple d’évaluation présenté à l’atelier JRC de juin 2025 (EN 1990-
   "entree": { "x1": 312, "x2": 301, "x3": 308, "x4": 306, "Vx": 0.01 },
   "attendus": {
     "en1990-2023/v-connu.resistance": "301,1",
-    "en1990-2023/v-inconnu.resistance": "294,7",
+    "en1990-2023/v-inconnu.resistance": "226,0",
+    "en1990-2023/v-inconnu.X_k sans plancher": "294,7",
+    "en1990-2002/v-inconnu.resistance": "226,0",
     "en1990-2023/v-inconnu.k_n": "2,631"
   }
 }
 ```
 
-Avec $V_x$ connu, $f_{yk}$ = {{acier-1940:en1990-2023/v-connu.resistance}} MPa ; avec $V_x$ estimé sur l’échantillon ($k_n$ = {{acier-1940:en1990-2023/v-inconnu.k_n}}), $f_{yk}$ = {{acier-1940:en1990-2023/v-inconnu.resistance}} MPa. L’atelier retenait 299 MPa, en combinant $k_n$ = 2,63 et un $V_x$ arrondi à 0,01, alors que celui de l’échantillon vaut 0,015. Les deux générations donnent les mêmes valeurs.
+Avec $V_x$ connu, $f_{yk}$ = {{acier-1940:en1990-2023/v-connu.resistance}} MPa. Avec $V_x$ inconnu ($k_n$ = {{acier-1940:en1990-2023/v-inconnu.k_n}}), le coefficient de variation de l’échantillon vaut 0,015 : quatre valeurs très groupées ne prouvent pas que la population l’est autant. L’outil applique donc le plancher de 0,10 et rend $f_{yk}$ = {{acier-1940:en1990-2023/v-inconnu.resistance}} MPa ; sans plancher, on obtiendrait {{acier-1940:en1990-2023/v-inconnu.X_k sans plancher}} MPa. L’atelier retenait 299 MPa, en combinant $k_n$ = 2,63 et un $V_x$ arrondi à 0,01. L’écart montre l’intérêt d’un $V_x$ connu et justifié : c’est lui qui permet de valoriser un petit nombre d’essais. Les deux générations donnent les mêmes valeurs.
 
 {{calculateur:acier-1940}}
 
 ## L’effet sur une note de calcul existante
 
 - Aucun sur les formules ; une note d’essais doit dire si $V_x$ est connu ou estimé, et justifier une valeur connue.
+- Une note qui a calculé $X_k = m_x - k_n\,s_x$ sur un échantillon peu dispersé sans appliquer le plancher $V_x$ ≥ 0,10 surestime la valeur caractéristique : elle est à reprendre, en 2002 comme en 2023.
 - Pour les structures existantes, l’EN 1990-2 complète cette annexe par la mise à jour bayésienne des propriétés.
 
 ## Ce qu’il faudra vérifier dans l’annexe nationale

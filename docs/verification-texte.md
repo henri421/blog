@@ -418,16 +418,17 @@ texte. Aucun extrait du texte n'est conservé dans le dépôt.
   totalement inconnu), la préférence pour le cas « Vx connu » estimé
   prudemment et le plancher Vx ≥ 0,10 figurent déjà en D.7.1(5) de 2002.
   L'article les présentait comme des précisions de la deuxième génération.
-- [ ] **Écart 1 (décision de l'auteur attendue)** : D.7.1(5) recommande de ne
-  pas supposer Vx inférieur à 0,10 lorsqu'il est inconnu. L'outil l'affiche en
-  intermédiaire sans l'appliquer. Exemple `acier-1940` de l'article 60 :
+- [x] **Écart 1 (décision de l'auteur du 2026-10-19 : appliquer, par
+  prudence)** : D.7.1(5) recommande de ne pas supposer Vx inférieur à 0,10
+  lorsqu'il est inconnu. L'outil l'applique désormais aux deux générations ;
+  la valeur sans plancher reste en intermédiaire. Exemple `acier-1940` de l'article 60 :
   plancher appliqué, Xk = 306,75 × (1 − 2,631 × 0,10) ≈ 226,0 au lieu de
   294,7 (niveau « Vx inconnu »).
-- [ ] **Écart 3 (décision de l'auteur attendue)** : tableau B.2, β sur 50 ans
+- [x] **Écart 3 (décision de l'auteur du 2026-10-19 : valeur exacte)** : tableau B.2, β sur 50 ans
   = 3,3, 3,8, 4,3 (RC1 à RC3), donné directement ; la conversion (C.3) des
   valeurs à un an donne 3,21, 3,83, 4,42. (C.3) n'est posée qu'en NOTE 2 de
-  C.6, pour des maxima annuels indépendants. L'exemple `fiabilite-cc2` (3,83)
-  reste en l'état jusqu'à la décision.
+  C.6, pour des maxima annuels indépendants. Le tableau arrondit ; l'outil garde
+  la conversion exacte, et l'exemple `fiabilite-cc2` reste à 3,83.
 - [x] **Écart 4 (traité)** : renvois harmonisés sur la forme du texte (B.3.2,
   B.3.3, C.6, D.7.2, tableaux B.2, B.3, D.1) dans les mécanismes, le
   dictionnaire, la cartographie et la validation.
