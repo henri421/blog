@@ -4,9 +4,10 @@
  *
  * Unites : m, Hz, m/s, kg/m.
  *
- * Premiere generation (EN 1991-1-4:2005 + A1:2010, 7.13 et annexe E, E.1.3.1,
- *   (E.2), E.1.3.3, (E.4), texte non detenu, a relire) : v_crit = b n / St ;
- *   effet a etudier si v_crit <= 1,25 v_m ; Sc = 2 delta_s m / (rho b2).
+ * Premiere generation (EN 1991-1-4:2005, annexe E, E.1.2, (E.1), E.1.3.1,
+ *   (E.2), E.1.3.3, (E.4), lus sur le texte le 2026-10-19 ; A1:2010 et AC:2010
+ *   non detenus) : v_crit = b n / St ; effet a etudier sauf si
+ *   v_crit > 1,25 v_m ; Sc = 2 delta_s m / (rho b2).
  * Deuxieme generation (EN 1991-1-4:2026, 9.3, annexe G, (G.15), (G.18)) :
  *   meme vitesse critique et meme critere ; nombre de Scruton generalise
  *   Sc_G = 2 delta_s m / (rho b d), d profondeur dans la direction du vent.
@@ -70,7 +71,7 @@ export function scruton(e: Complete, generalise: boolean, clauses: string[]): Ca
 }
 
 function niveaux(gen: '2005' | '2026'): DefinitionNiveau<EntreeTourbillons>[] {
-  const c = gen === '2005' ? { v: ['E.1.3.1', '(E.2)', '7.13'], s: ['E.1.3.3', '(E.4)'] } : { v: ['9.3', '(G.15)'], s: ['G.5.3.4', '(G.18)'] };
+  const c = gen === '2005' ? { v: ['E.1.2', '(E.1)', 'E.1.3.1', '(E.2)'], s: ['E.1.3.3', '(E.4)'] } : { v: ['9.3', '(G.15)'], s: ['G.5.3.4', '(G.18)'] };
   return [
     { id: 'critere', ordre: 1, position: 'corps', clause: c.v[0], hypothese: `niveau.tourbillons.${gen}.critere` as Cle, donneesRequises: [R.b, R.n, R.St, R.vm], conditions: () => null, calculer: (e) => critique(e as Complete, c.v) },
     { id: 'scruton', ordre: 2, position: 'annexe-informative', reserve: gen === '2005' ? 'reserve.en1991-1-4-e2005' : 'reserve.en1991-1-4-g', clause: c.s[0], hypothese: `niveau.tourbillons.${gen}.scruton` as Cle, donneesRequises: [R.b, R.d, R.m, R.deltas], conditions: () => null, calculer: (e) => scruton(e as Complete, gen === '2026', c.s) },

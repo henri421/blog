@@ -16,9 +16,10 @@ describe('coefficient structural pris egal a 1 (EN 1991-1-4)', () => {
     for (const g of ['en1991-1-4-2005', 'en1991-1-4-2026']) expect(cel({ type: 'batiment-contrevente', h: 33, d: 21 }, g).resistance).toBe(1);
   });
 
-  it('tour de 100 m : calcul detaille ; tablier : dispense en 2026 seulement', () => {
+  it('tour de 100 m : calcul detaille ; tablier : dispense dans les deux generations (8.2 en 2005)', () => {
     expect(cel({ type: 'batiment-contrevente', h: 100, d: 30 }, 'en1991-1-4-2026').statut.etat).toBe('non-applicable');
     expect(cel({ type: 'tablier', h: 10 }, 'en1991-1-4-2026').resistance).toBe(1);
-    expect(cel({ type: 'tablier', h: 10 }, 'en1991-1-4-2005').statut.etat).toBe('non-applicable');
+    expect(cel({ type: 'tablier', h: 10 }, 'en1991-1-4-2005').resistance).toBe(1);
+    expect(cel({ type: 'tablier', h: 10 }, 'en1991-1-4-2005').clauses).toEqual(['8.2 NOTE 2']);
   });
 });

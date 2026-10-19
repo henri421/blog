@@ -2,13 +2,14 @@
 titre: Vent, vitesse de référence et organisation de la norme
 ordre: 73
 statut: publie
-texte: EN 1991-1-4:2026 (NBN, version française), articles 4 et 5, 6.2 à 6.4, formules (6.1) à (6.10), figure 5.1, annexes A, J, K et L lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (3, 4.1 à 4.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-4:2026 (NBN, version française), articles 4 et 5, 6.2 à 6.4, formules (6.1) à (6.10), figure 5.1, annexes A, J, K et L lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 (NF EN, novembre 2005) : 1.1, 3, 4.1 à 4.4 et A.2 lus sur le texte le 2026-10-19, A1:2010 et AC:2010 non détenus ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
+revise: 2026-10-19
 resume: L’EN 1991-1-4 est réorganisée autour d’un logigramme, ses coefficients aérodynamiques passent dans des annexes normatives, et la vitesse de référence reçoit un coefficient d’altitude et un facteur de changement climatique.
 motscles: actions
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : 1re génération relue sur le texte de 2005 ; secteur angulaire et distance au vent de 2005 précisés.
 ---
 
 ## Ce qui change
@@ -22,7 +23,7 @@ historique:
 | Coefficient structural | section 6, annexes B et C | article 8, annexe E |
 | Caractéristiques dynamiques | annexe F | annexe H |
 
-**Domaine étendu** aux structures élancées jusqu’à 300 m, aux mâts haubanés et pylônes en treillis (annexe I, reprise de l’EN 1993-3-1), aux silos et réservoirs, aux structures givrées. Trois annexes informatives nouvelles : essais en soufflerie et mécanique des fluides numérique (J), vitesses tirées de mesures (K), modèles probabilistes (L).
+**Domaine étendu** aux structures élancées jusqu’à 300 m (200 m en 2005), aux mâts haubanés et pylônes en treillis, que l’édition de 2005 excluait, (annexe I, reprise de l’EN 1993-3-1), aux silos et réservoirs, aux structures givrées. Trois annexes informatives nouvelles : essais en soufflerie et mécanique des fluides numérique (J), vitesses tirées de mesures (K), modèles probabilistes (L).
 
 **Ponts.** Une catégorisation nouvelle (5.4) classe les ponts selon leur susceptibilité à l’excitation aérodynamique : négligeable, vulnérable, très susceptible (essais en soufflerie).
 
@@ -32,7 +33,7 @@ $$
 v_b = c_{dir}\,c_{season}\,c_{prob}\,c_{alt}\,v_{b0} \qquad \text{(6.1)}
 $$
 
-Le coefficient de probabilité entre dans la formule de base (il était en note en 2005), un coefficient d’altitude $c_{alt}$ (1,0 par défaut) apparaît, et **les effets du changement climatique doivent être pris en compte**, par défaut en multipliant $v_{b0}$ par $f_{w,cc} \ge 1$. Le coefficient de probabilité garde sa forme :
+Le coefficient de probabilité entre dans la formule de base (il était en note en 2005, 4.2(2)P, NOTE 4), un coefficient d’altitude $c_{alt}$ (1,0 par défaut) apparaît, et **les effets du changement climatique doivent être pris en compte**, par défaut en multipliant $v_{b0}$ par $f_{w,cc} \ge 1$. Le coefficient de probabilité garde sa forme :
 
 $$
 c_{prob} = \left(\frac{1 - K\,\ln(-\ln(1 - p))}{1 - K\,\ln(-\ln 0.98)}\right)^n \qquad \text{(6.2)}
@@ -40,7 +41,7 @@ $$
 
 avec $K$ = 0,2 et $n$ = 0,5.
 
-**Rugosité et turbulence (6.3, 6.4).** Inchangées sur le fond ; les catégories de terrain s’évaluent dans un secteur de 30° autour de la direction du vent, sur une distance au vent qui dépend de la hauteur de l’ouvrage (6.8). Voir l’article sur la pression de pointe pour l’effet de la nouvelle formule de $q_p$.
+**Rugosité et turbulence (6.3, 6.4).** Inchangées sur le fond. Les catégories de terrain s’évaluent dans un secteur de 30° autour de la direction du vent, sur une distance au vent qui dépend de la hauteur de l’ouvrage (6.8). En 2005, le secteur de 30° n’était qu’une valeur recommandée en note (4.3.2(2)) et la distance au vent relevait de l’annexe A.2 : 1 ou 2 km selon la catégorie (procédure 1), ou une procédure 2 au choix. Voir l’article sur la pression de pointe pour l’effet de la nouvelle formule de $q_p$.
 
 ## Pourquoi
 

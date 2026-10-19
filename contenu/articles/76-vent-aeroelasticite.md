@@ -2,18 +2,19 @@
 titre: Vent, tourbillons et phénomènes aéroélastiques
 ordre: 76
 statut: publie
-texte: EN 1991-1-4:2026 (NBN, version française), article 9 et annexe G (G.5, formules (G.15) à (G.18)) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (7.13, 8, annexe E) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-4:2026 (NBN, version française), article 9 et annexe G (G.5, formules (G.15) à (G.18)) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 (NF EN, novembre 2005) : annexe E, E.1.2 à E.1.3.3, formules (E.1), (E.2) et (E.4), lue sur le texte le 2026-10-19, A1:2010 et AC:2010 non détenus ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
+revise: 2026-10-19
 resume: Le critère de vérification des tourbillons ne change pas, mais le nombre de Scruton est généralisé aux sections rectangulaires, ce qui peut le diviser par deux pour une section allongée dans le sens du vent. Galop, divergence, flottement et effets de sillage sont réorganisés en annexe G.
 motscles: actions, stabilite
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : 1re génération relue sur le texte de 2005 (annexe E).
 ---
 
 ## Ce qui change
 
-**Tourbillons (9.3).** La vérification reste exigée si $v_{crit}/v_m \le 1.25$, avec $v_{crit} = b\,n/St$. L’annexe G regroupe la vitesse critique, le nombre de Strouhal, le nombre de Reynolds à la vitesse critique (G.17) et l’amplitude de réponse.
+**Tourbillons (9.3).** La vérification reste exigée si $v_{crit}/v_m \le 1.25$, avec $v_{crit} = b\,n/St$, comme en 2005 ((E.1), (E.2)). L’annexe G regroupe la vitesse critique, le nombre de Strouhal, le nombre de Reynolds à la vitesse critique (G.17) et l’amplitude de réponse.
 
 **Nombre de Scruton généralisé (G.18).**
 
@@ -21,7 +22,7 @@ $$
 Sc_G = \frac{2\,\delta_s\,m_{i,e}}{\rho\,b\,d} \qquad \text{(G.18)}
 $$
 
-En 2005, le dénominateur était $\rho\,b^2$. Pour un cylindre ($d = b$), rien ne change ; pour une section rectangulaire plus profonde que large, $Sc$ diminue, et la structure paraît plus sensible.
+En 2005, le dénominateur était $\rho\,b^2$ (E.4). Pour un cylindre ($d = b$), rien ne change ; pour une section rectangulaire plus profonde que large, $Sc$ diminue, et la structure paraît plus sensible.
 
 **Autres phénomènes.** Galop (9.4) : négligeable pour les cylindres isolés, sauf givre asymétrique ; les sections en L, I, U, T y sont sujettes. Divergence et flottement (9.5) : à éviter, critères en annexe G. Effets de sillage (9.6) : à considérer pour les bâtiments très élancés, les cheminées et les ponts en tandem, sauf distance de plus de 15 fois la largeur ou fréquence supérieure à 1 Hz.
 

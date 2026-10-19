@@ -4,14 +4,18 @@
  *
  * Unites : m, Hz.
  *
- * Premiere generation (EN 1991-1-4:2005 + A1:2010, 6.2(1), texte non detenu,
- *   a relire) : c_s c_d = 1 pour a) batiments de hauteur < 15 m ; b) facades
- *   et toitures de frequence propre > 5 Hz ; c) batiments a ossature avec murs
- *   de contreventement, h < 100 m et h < 4 d ; d) cheminees circulaires,
- *   h < 60 m et h < 6,5 d.
+ * Premiere generation (EN 1991-1-4:2005, 6.2(1) et 8.2, lus sur le texte le
+ *   2026-10-19 ; A1:2010 et AC:2010 non detenus) : c_s c_d = 1 pour
+ *   a) batiments de hauteur < 15 m ; b) facades et toitures de frequence
+ *   propre > 5 Hz ; c) batiments a ossature avec murs de contreventement,
+ *   h < 100 m et h < 4 d ; d) cheminees circulaires, h < 60 m et h < 6,5 d ;
+ *   tabliers de ponts sans calcul dynamique (8.2, NOTE 2 ; NOTE 3 : en general
+ *   ponts routiers et ferroviaires normaux de travee < 40 m).
  * Deuxieme generation (EN 1991-1-4:2026, 8.2(1)) : c_sd = 1 pour a) a c)
  *   identiques ; d) tabliers de ponts du domaine de D.8.1 sans calcul
  *   dynamique (5.4(9)) ; les cheminees ne sont plus dispensees.
+ *   Pour les tabliers, la decision de se passer du calcul dynamique revient a
+ *   l ingenieur dans les deux generations.
  * Choix de l outil : resultat 1,0 si dispense, sinon niveau non applicable
  *   (calcul detaille par l annexe E).
  */
@@ -53,14 +57,15 @@ export function dispense(e: EntreeCsdSimplifie, gen: '2005' | '2026'): boolean {
     case 'cheminee':
       return gen === '2005' && h < 60 && h < 6.5 * d;
     case 'tablier':
-      return gen === '2026';
+      return true;
     default:
       return false;
   }
 }
 
-function calculer(e: EntreeCsdSimplifie, clause: string): Calcul {
-  return { statut: { etat: 'calcule' }, resistance: 1, intermediaires: { h: saisie(e.h ?? 0, 'm'), c_sd: recommandee(1, '-') }, clauses: [clause] };
+function calculer(e: EntreeCsdSimplifie, gen: '2005' | '2026', clause: string): Calcul {
+  const clauses = gen === '2005' && e.type === 'tablier' ? ['8.2 NOTE 2'] : [clause];
+  return { statut: { etat: 'calcule' }, resistance: 1, intermediaires: { h: saisie(e.h ?? 0, 'm'), c_sd: recommandee(1, '-') }, clauses };
 }
 
 function niveau(gen: '2005' | '2026', clause: string, hypothese: Cle): DefinitionNiveau<EntreeCsdSimplifie> {
@@ -72,7 +77,7 @@ function niveau(gen: '2005' | '2026', clause: string, hypothese: Cle): Definitio
     hypothese,
     donneesRequises: [R.type, R.h],
     conditions: (e) => (dispense(e, gen) ? null : 'motif.csd-detaille'),
-    calculer: (e) => calculer(e, clause),
+    calculer: (e) => calculer(e, gen, clause),
   };
 }
 

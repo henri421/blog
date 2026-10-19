@@ -5,15 +5,20 @@
  *
  * Unites : Pa, m2.
  *
- * Premiere generation (EN 1991-1-4:2005 + A1:2010, 5.2, 7.2.9, figure 7.13,
- *   texte non detenu, a relire) : w = q_p (c_pe - c_pi) ; c_pi = +0,2 ou -0,3
- *   (le plus defavorable) si le rapport d ouvertures n est pas connu ; sinon
- *   c_pi lu sur la figure 7.13 en fonction du rapport mu (non code).
+ * Premiere generation (EN 1991-1-4:2005, 5.2, (5.1), (5.2), 7.2.9(6),
+ *   figure 7.13, (7.3), lus sur le texte le 2026-10-19 ; A1:2010 et AC:2010
+ *   non detenus) : w = q_p (c_pe - c_pi) ; sans face dominante, c_pi lu sur la
+ *   figure 7.13 en fonction de mu = A_n/(A_p + A_n) (7.3) et de h/d ; c_pi =
+ *   +0,2 ou -0,3 (le plus defavorable) si mu ne peut pas etre evalue (NOTE 2).
+ *   La figure 7.13 est faite de segments droits : (0,33 ; 0,35) a (0,90 ;
+ *   -0,30) puis -0,30 pour h/d <= 0,25 ; (0,33 ; 0,35) a (0,95 ; -0,50) puis
+ *   -0,50 pour h/d >= 1 ; interpolation lineaire entre les deux (NOTE).
  * Deuxieme generation (EN 1991-1-4:2026, 7.2, (7.2) a (7.4), B.6(5) et (14),
  *   (B.18)) : meme valeur par defaut ; ouvertures permanentes sans face
  *   dominante : c_pi = (A_p2 c_pe,p + A_n2 c_pe,n)/(A_p2 + A_n2).
  * Choix de l outil : q_p identique a l exterieur et a l interieur ; resultat
- *   en valeur absolue de la pression nette la plus defavorable.
+ *   en valeur absolue de la pression nette la plus defavorable ; en 2005,
+ *   mu < 1/3 (A_p > 2 A_n, face dominante, 7.2.9(4) et (5)) hors figure.
  */
 
 import type { Cle } from '../../../i18n/cle';
@@ -30,6 +35,8 @@ export interface EntreePressionInterieure {
   An?: number;
   cpep?: number;
   cpen?: number;
+  /** Rapport hauteur sur profondeur du batiment (2005, figure 7.13). */
+  hd?: number;
 }
 
 type Calcul = Omit<Cellule, 'generation' | 'niveau'>;
@@ -42,10 +49,34 @@ const R = {
   An: { champ: 'An', libelle: 'champ.An' },
   cpep: { champ: 'cpep', libelle: 'champ.cpep' },
   cpen: { champ: 'cpen', libelle: 'champ.cpen' },
+  hd: { champ: 'hd', libelle: 'champ.hd-batiment' },
 } as const satisfies Record<string, { champ: keyof EntreePressionInterieure; libelle: Cle }>;
 
 export function cpiOuvertures(Ap: number, An: number, cpep: number, cpen: number): number {
   return (Ap * Ap * cpep + An * An * cpen) / (Ap * Ap + An * An);
+}
+
+/** Figure 7.13 de l EN 1991-1-4:2005 (mu >= 1/3). */
+export function cpiFigure713(mu: number, hd: number): number {
+  const bas = mu >= 0.9 ? -0.3 : 0.35 - (0.65 * (mu - 0.33)) / (0.9 - 0.33);
+  const haut = mu >= 0.95 ? -0.5 : 0.35 - (0.85 * (mu - 0.33)) / (0.95 - 0.33);
+  const t = Math.min(1, Math.max(0, (hd - 0.25) / 0.75));
+  return bas + t * (haut - bas);
+}
+
+function rapportOuvertures(e: EntreePressionInterieure): number | null {
+  if (e.Ap === undefined || e.An === undefined || !(e.Ap >= 0 && e.An >= 0 && e.Ap + e.An > 0)) return null;
+  return e.An / (e.Ap + e.An);
+}
+
+export function figure2005(e: Complete): Calcul {
+  positif(e.qp, 'qp', 'Pa');
+  positif(e.hd, 'hd', '-');
+  const mu = rapportOuvertures(e);
+  if (mu === null) throw new Error('Il faut des ouvertures.');
+  const cpi = cpiFigure713(mu, e.hd);
+  const w = e.qp * (e.cpe - cpi);
+  return { statut: { etat: 'calcule' }, sollicitation: Math.abs(w), intermediaires: { 'μ': calculee(mu, '-'), 'h/d': saisie(e.hd, '-'), c_pi: calculee(cpi, '-'), w: calculee(w, 'Pa') }, clauses: ['7.2.9(6)', 'figure 7.13', '(7.3)', '(5.1)', '(5.2)'] };
 }
 
 export function defaut(e: Complete, clauses: string[]): Calcul {
@@ -66,6 +97,11 @@ export function ouvertures(e: Complete): Calcul {
 
 const base = [R.qp, R.cpe];
 const avecOuvertures = [R.qp, R.cpe, R.Ap, R.An, R.cpep, R.cpen];
+const figure = [R.qp, R.cpe, R.Ap, R.An, R.hd];
+const horsFigure = (e: EntreePressionInterieure): Cle | null => {
+  const mu = rapportOuvertures(e);
+  return mu !== null && mu < 1 / 3 ? 'motif.cpi-face-dominante-2005' : null;
+};
 
 export const pressionInterieure: Mecanisme<EntreePressionInterieure> = {
   id: 'pression-interieure',
@@ -79,13 +115,14 @@ export const pressionInterieure: Mecanisme<EntreePressionInterieure> = {
     { type: 'nombre', id: 'An', libelle: 'champ.An', symbole: 'A_n', unite: 'm²', facultatif: true },
     { type: 'nombre', id: 'cpep', libelle: 'champ.cpep', symbole: 'c_pe,p', unite: '-', facultatif: true },
     { type: 'nombre', id: 'cpen', libelle: 'champ.cpen', symbole: 'c_pe,n', unite: '-', facultatif: true },
+    { type: 'nombre', id: 'hd', libelle: 'champ.hd-batiment', symbole: 'h/d', unite: '-', facultatif: true },
   ],
   sollicitation: { libelle: 'grandeur.pression-nette', unite: 'Pa' },
   resistance: { libelle: 'grandeur.sans-objet', unite: '-' },
   niveaux: {
     'en1991-1-4-2005': [
-      { id: 'defaut', ordre: 1, position: 'corps', clause: '7.2.9', hypothese: 'niveau.cpi.defaut', donneesRequises: base, conditions: () => null, calculer: (e) => defaut(e as Complete, ['7.2.9(6)', '(5.1)', '(5.2)']) },
-      { id: 'ouvertures', ordre: 2, position: 'corps', clause: '7.2.9', hypothese: 'niveau.cpi.2005.ouvertures', donneesRequises: avecOuvertures, conditions: () => 'motif.cpi-figure-2005', calculer: () => { throw new Error('Figure 7.13 non codee.'); } },
+      { id: 'defaut', ordre: 1, position: 'corps', clause: '7.2.9', hypothese: 'niveau.cpi.defaut', donneesRequises: base, conditions: () => null, calculer: (e) => defaut(e as Complete, ['7.2.9(6) NOTE 2', '(5.1)', '(5.2)']) },
+      { id: 'ouvertures', ordre: 2, position: 'corps', clause: '7.2.9', hypothese: 'niveau.cpi.2005.ouvertures', donneesRequises: figure, conditions: horsFigure, calculer: (e) => figure2005(e as Complete) },
     ] as DefinitionNiveau<EntreePressionInterieure>[],
     'en1991-1-4-2026': [
       { id: 'defaut', ordre: 1, position: 'corps', clause: 'B.6(5)', hypothese: 'niveau.cpi.defaut', donneesRequises: base, conditions: () => null, calculer: (e) => defaut(e as Complete, ['B.6(5)', '(7.2)', '(7.3)']) },
