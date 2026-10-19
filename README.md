@@ -105,6 +105,21 @@ génération, et ce que cela implique pour une note de calcul existante.
 | Ponts ferroviaires, charges verticales et coefficient dynamique (EN 1991-2) | `coefficient-dynamique-rail` | 1 / 1 |
 | Ponts ferroviaires, forces horizontales et autres actions (EN 1991-2) | `centrifuge-rail` | 1 / 1 |
 
+## Avertissement
+
+Ce site n'est pas une reproduction des Eurocodes ni d'aucune autre norme. Les
+articles sont rédigés par l'auteur, avec ses propres mots ; ils ne recopient ni
+le texte, ni les tableaux, ni les figures. Les formules et les valeurs ne sont
+citées que ponctuellement, avec leur renvoi, dans un but pédagogique et
+scientifique. Les normes restent la propriété de leurs éditeurs (CEN et
+organismes nationaux de normalisation) et doivent être acquises auprès d'un
+distributeur autorisé ; ce projet en est indépendant. La licence MIT couvre le
+code et les textes de l'auteur, pas le contenu des normes citées. Les
+calculateurs sont fournis sans garantie et ne remplacent ni la norme ni le
+jugement d'un ingénieur. Un ayant droit qui estimerait qu'un passage dépasse
+la courte citation peut ouvrir une issue : le passage sera revu ou retiré.
+Le texte complet est publié sur la page `avertissement.html` du site.
+
 ## Principes
 
 - Contenu entièrement rédigé par l'auteur : aucun texte, tableau ni figure de la

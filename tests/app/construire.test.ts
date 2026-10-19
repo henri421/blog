@@ -103,3 +103,14 @@ describe('en-tete et exemples', () => {
     expect(() => lireArticle('x', `${entete}{{calculateur:absent}}`)).toThrow(/absent/);
   });
 });
+
+describe('avertissement juridique', () => {
+  it('la page dit que le site ne reproduit pas les normes et renvoie aux issues du depot', async () => {
+    const { pageAvertissement, DEPOT_ISSUES } = await import('../../app/construire/site');
+    const html = pageAvertissement();
+    expect(html).toContain('ne reproduit pas les normes');
+    expect(html).toContain('n’est pas une reproduction des Eurocodes');
+    expect(html).toContain(`href="${DEPOT_ISSUES}"`);
+    expect(html).toContain('href="./avertissement.html"');
+  });
+});

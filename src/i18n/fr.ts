@@ -15,6 +15,21 @@ export const fr = {
   'site.chantier': 'Site en préparation : aucun article n’est encore publié.',
   'site.articles': 'Articles',
   'site.retour': 'Tous les articles',
+  'avertissement.titre': 'Avertissement : ce site ne reproduit pas les normes',
+  'avertissement.p1':
+    'Ce site n’est pas une reproduction des Eurocodes ni d’aucune autre norme. Les articles sont rédigés par l’auteur, avec ses propres mots, à partir de sa lecture des textes. Ils expliquent ce qui change entre deux générations et pourquoi ; ils ne recopient ni le texte, ni les tableaux, ni les figures.',
+  'avertissement.p2':
+    'Une formule n’est citée que lorsqu’elle est l’objet du calcul commenté. Les valeurs numériques sont citées ponctuellement, avec le renvoi à la clause, au tableau ou à l’expression d’origine. Ces courtes citations ont un but pédagogique et scientifique ; elles ne dispensent pas de consulter la norme.',
+  'avertissement.p3':
+    'Les normes citées restent la propriété de leurs éditeurs (CEN et organismes nationaux de normalisation). Pour les appliquer, il faut se procurer leur texte officiel auprès d’un distributeur autorisé. Ce site est indépendant de ces organismes ; il n’engage que son auteur.',
+  'avertissement.p4':
+    'Aucune annexe nationale n’est reproduite : les calculateurs emploient les valeurs recommandées des Eurocodes.',
+  'avertissement.p5':
+    'Les calculateurs sont fournis sans aucune garantie (licence MIT). Ils constatent et ne prescrivent pas ; ils ne remplacent ni la norme, ni le jugement d’un ingénieur, ni une note de calcul vérifiée. L’auteur décline toute responsabilité quant à leur emploi.',
+  'avertissement.p6':
+    'Un ayant droit qui estimerait qu’un passage dépasse la courte citation peut le signaler par une issue sur le dépôt du projet ; le passage sera revu ou retiré.',
+  'avertissement.lien': 'Avertissement : ce site ne reproduit pas les normes',
+  'avertissement.issues': 'Signaler un passage',
   'site.avertissement':
     'Contenu rédigé par l’auteur, sans reproduction de la norme. Valeurs recommandées des deux générations, sans annexe nationale. L’outil constate, il ne prescrit pas.',
 

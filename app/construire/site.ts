@@ -63,7 +63,7 @@ function liensMotsCles(motscles: MotCle[]): string {
 
 function pied(): string {
   return `
-    <footer class="pied"><p>${echapper(t('site.avertissement'))}</p></footer>
+    <footer class="pied"><p>${echapper(t('site.avertissement'))} <a href="./avertissement.html">${echapper(t('avertissement.lien'))}</a></p></footer>
     <script type="module" src="./src/page.ts"></script>
   </body>
 </html>
@@ -201,6 +201,20 @@ export function pageMotsCles(articles: Article[]): string {
     </main>${pied()}`;
 }
 
+/** Avertissement juridique : le site explique les normes, il ne les reproduit pas. */
+export const DEPOT_ISSUES = 'https://github.com/henri421/blog/issues';
+
+export function pageAvertissement(): string {
+  const cles: Cle[] = ['avertissement.p1', 'avertissement.p2', 'avertissement.p3', 'avertissement.p4', 'avertissement.p5', 'avertissement.p6'];
+  return `${tete(`${t('avertissement.titre')} — ${t('site.titre')}`)}
+    <main class="article">
+      <p class="retour"><a href="./index.html">← ${echapper(t('site.retour'))}</a></p>
+      <h1>${echapper(t('avertissement.titre'))}</h1>
+      ${cles.map((c) => `<p>${echapper(t(c))}</p>`).join('\n      ')}
+      <p><a href="${DEPOT_ISSUES}">${echapper(t('avertissement.issues'))}</a></p>
+    </main>${pied()}`;
+}
+
 /** Suivi des chantiers ouverts (decision de l auteur du 05/10/2026, a la place des brouillons). */
 export function pageChantiers(articles: Article[], chantiers: Chantier[]): string {
   return `${tete(`${t('chantiers.titre')} — ${t('site.titre')}`)}
@@ -239,6 +253,7 @@ export function construireSite(racine: string): Record<string, string> {
   }
   ecrire('mots-cles', pageMotsCles(articles));
   ecrire('chantiers', pageChantiers(articles, ouverts));
+  ecrire('avertissement', pageAvertissement());
   for (const a of articles) ecrire(a.slug, pageArticle(a, ouverts));
   return pages;
 }
