@@ -2,7 +2,7 @@
 titre: Bielles et nœuds
 ordre: 21
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié.
 redige: 2026-10-05
 revise: 2026-10-11
 resume: La résistance d’une bielle fissurée ne dépend plus de la seule classe de béton mais de l’angle que fait la bielle avec le tirant qui la traverse ; les nœuds dont le tirant est ancré hors de la région nodale retrouvent toute la résistance du béton.

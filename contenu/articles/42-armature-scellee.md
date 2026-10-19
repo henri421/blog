@@ -2,7 +2,7 @@
 titre: Ancrage des armatures scellées
 ordre: 42
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; état d’amendement non encore vérifié.
 redige: 2026-10-09
 revise: 2026-10-09
 resume: Les barres d’armature scellées dans un béton existant entrent dans l’Eurocode 2 ; leur longueur d’ancrage se déduit de celle d’une barre coulée en place, divisée par un facteur d’efficacité propre au produit de scellement.

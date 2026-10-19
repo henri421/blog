@@ -2,7 +2,7 @@
 titre: Limitation des contraintes en service
 ordre: 22
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-06 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-06 ; état d’amendement non encore vérifié.
 redige: 2026-10-06
 revise: 2026-10-11
 resume: Les limites de contrainte de l’acier et du béton sous combinaison caractéristique sont conservées ; le seuil du fluage non linéaire passe de 0,45 fck à 0,40 fcm, plus haut pour les bétons courants, et le module effectif du béton est plus élevé de 5 %.

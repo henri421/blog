@@ -2,7 +2,7 @@
 titre: Actions de fatigue et comptage des cycles
 ordre: 63
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 5.2, 6.1.3.3, 8.3.3.6, 8.3.4.5, 8.3.5.4 et annexe F lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 3.1(5), 4.1.4 et 6.4.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 5.2, 6.1.3.3, 8.3.3.6, 8.3.4.5, 8.3.5.4 et annexe F lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 3.1(5), 4.1.4 et 6.4.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: La fatigue devient une situation de projet de l’EN 1990, avec ses actions, sa combinaison et sa résistance de calcul. Une annexe nouvelle décrit les deux méthodes de comptage des cycles, par demi-cycles et par réservoir.

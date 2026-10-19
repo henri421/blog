@@ -2,7 +2,7 @@
 titre: Bases de calcul des ponts (EN 1990, annexe A.2)
 ordre: 61
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), annexe A.2 (A.2.3 à A.2.9, tableaux A.2.1, A.2.2, A.2.7, A.2.10 et A.2.11) lue sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française) lue sur le texte le 2026-10-19, mais l’annexe A2 relève de l’A1:2005, non détenu : elle reste citée de mémoire et à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), annexe A.2 (A.2.3 à A.2.9, tableaux A.2.1, A.2.2, A.2.7, A.2.10 et A.2.11) lue sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française) lue sur le texte le 2026-10-19, mais l’annexe A2 relève de l’A1:2005, non détenu : elle reste citée de mémoire et à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Pour les ponts, coefficients partiels et coefficients ψ restent ceux de l’A1:2005, mais une classe CC3 dédoublée (CC3a, CC3b) module désormais les actions, et la vérification de l’équilibre adopte un γG,stb de 1,25 propre aux ponts.

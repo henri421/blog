@@ -2,7 +2,7 @@
 titre: Actions en cours d’exécution
 ordre: 79
 statut: publie
-texte: EN 1991-1-6:2026 (NBN, version française), articles 4 à 7, tableaux 5.1, 6.1 à 6.3 et annexes A et B lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-6:2005 (2 à 4, tableau 3.1) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-6:2026 (NBN, version française), articles 4 à 7, tableaux 5.1, 6.1 à 6.3 et annexes A et B lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-6:2005 (2 à 4, tableau 3.1) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les périodes de retour réduites des actions climatiques pendant l’exécution disparaissent. Au-delà de cinq jours, on retient la valeur caractéristique à 50 ans, modulée par un coefficient de saison si la phase dure moins d’un an.

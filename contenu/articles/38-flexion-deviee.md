@@ -2,7 +2,7 @@
 titre: Compression avec flexion déviée
 ordre: 38
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-08
 resume: Les critères de dispense et la formule d’interaction de la flexion déviée sont repris à l’identique ; seule change la résistance à l’effort normal qui fixe l’exposant, avec le nouveau fcd.

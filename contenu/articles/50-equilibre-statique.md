@@ -2,7 +2,7 @@
 titre: Équilibre statique et principe de la source unique
 ordre: 50
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 6.1.1(3) et (4), 8.3.3.1, formule (8.8) et tableau A.1.8 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), tableaux A1.2(A) et A1.2(B), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 6.1.1(3) et (4), 8.3.3.1, formule (8.8) et tableau A.1.8 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), tableaux A1.2(A) et A1.2(B), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Les coefficients 1,10 et 0,90 de la vérification EQU disparaissent. Le cas VC2 les remplace et reprend la vérification combinée que la première génération ne proposait qu’en note, avec 1,35 et 1,15 sur les parties d’une même action permanente.

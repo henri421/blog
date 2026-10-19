@@ -2,7 +2,7 @@
 titre: Dimensionnement assisté par l’expérimentation
 ordre: 60
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 7.3 et annexe D (D.7, tableaux D.1 et D.2) lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 5.2 et annexe D (D.7, tableaux D.1 et D.2), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 7.3 et annexe D (D.7, tableaux D.1 et D.2) lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 5.2 et annexe D (D.7, tableaux D.1 et D.2), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: L’évaluation statistique des essais ne change pas. Comme en 2002, le texte recommande d’utiliser un coefficient de variation connu, estimé prudemment, plutôt que celui d’un petit échantillon, et de ne pas le supposer inférieur à 0,10 quand il est inconnu.

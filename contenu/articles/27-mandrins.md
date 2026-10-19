@@ -2,7 +2,7 @@
 titre: Diamètre des mandrins de cintrage
 ordre: 27
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-09
 resume: Les diamètres minimaux contre l’endommagement des barres ne changent pas. La vérification du béton dans la courbure, qui conduisait en 2004 à de très grands mandrins dès qu’une barre plastifiée était coudée près d’une paroi, est remplacée par des dispenses élargies et une nouvelle formule.

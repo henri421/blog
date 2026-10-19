@@ -2,7 +2,7 @@
 titre: Actions thermiques du feu, courbes nominales
 ordre: 68
 statut: publie
-texte: EN 1991-1-2:2024 (NBN, version française), articles 4, 5.1 et 5.2, formules (5.1) à (5.6), annexes B et G lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-2:2002 (2, 3.1, 3.2) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-2:2024 (NBN, version française), articles 4, 5.1 et 5.2, formules (5.1) à (5.6), annexes B et G lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-2:2002 (2, 3.1, 3.2) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les trois courbes de feu nominales et le flux thermique net ne changent pas. La deuxième génération réorganise la procédure de calcul au feu, précise son domaine et étend les annexes sur les feux localisés et le facteur de forme.

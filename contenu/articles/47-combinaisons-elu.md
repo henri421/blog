@@ -2,7 +2,7 @@
 titre: Combinaisons d’actions à l’ELU
 ordre: 47
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; EN 1990:2002 (version française), 6.4.3.2 et tableaux A1.1, A1.2(B), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; EN 1990:2002 (version française), 6.4.3.2 et tableaux A1.1, A1.2(B), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
 redige: 2026-10-09
 revise: 2026-10-19
 resume: Les combinaisons fondamentales gardent leurs coefficients 1,35 et 1,5, mais ceux-ci dépendent désormais de la classe de conséquences, et une troisième méthode apparaît, où les actions permanentes seules forment une combinaison à part.

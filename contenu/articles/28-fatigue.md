@@ -2,7 +2,7 @@
 titre: Fatigue, vérifications simplifiées
 ordre: 28
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-08
 resume: Les étendues de contrainte admises dans les armatures deviennent des valeurs par diamètre et par type, tirées des courbes S-N à 10⁸ cycles. La résistance du béton à la fatigue baisse un peu, et le plafond de 0,9 vaut désormais pour toutes les classes.

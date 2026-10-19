@@ -2,7 +2,7 @@
 titre: Armatures d’intégrité des planchers-dalles
 ordre: 44
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; état d’amendement non encore vérifié.
 redige: 2026-10-09
 revise: 2026-10-09
 resume: Les deux barres inférieures qui traversaient le poteau deviennent des armatures d’intégrité dimensionnées pour suspendre la dalle après un poinçonnement, en situation accidentelle.

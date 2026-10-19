@@ -2,7 +2,7 @@
 titre: Vent, tourbillons et phénomènes aéroélastiques
 ordre: 76
 statut: publie
-texte: EN 1991-1-4:2026 (NBN, version française), article 9 et annexe G (G.5, formules (G.15) à (G.18)) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (7.13, 8, annexe E) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-4:2026 (NBN, version française), article 9 et annexe G (G.5, formules (G.15) à (G.18)) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (7.13, 8, annexe E) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Le critère de vérification des tourbillons ne change pas, mais le nombre de Scruton est généralisé aux sections rectangulaires, ce qui peut le diviser par deux pour une section allongée dans le sens du vent. Galop, divergence, flottement et effets de sillage sont réorganisés en annexe G.

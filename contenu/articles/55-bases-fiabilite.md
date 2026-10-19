@@ -2,7 +2,7 @@
 titre: Exigences de base, fiabilité et gestion de la qualité
 ordre: 55
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 4.1, 4.2, 4.5 à 4.8, annexes B et C (tableaux C.2 et C.3) lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.1 à 2.5, annexes B et C (tableaux B.2, C.2 et (C.3)), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 4.1, 4.2, 4.5 à 4.8, annexes B et C (tableaux C.2 et C.3) lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.1 à 2.5, annexes B et C (tableaux B.2, C.2 et (C.3)), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Les exigences de base et les cibles de fiabilité ne changent pas. La deuxième génération ajoute le développement durable aux exigences, sépare la gestion de la qualité en quatre échelles (DQL, DCL, EXC, IL) et réécrit l’annexe C pour aider les pays à fixer leurs cibles.

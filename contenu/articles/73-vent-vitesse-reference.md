@@ -2,7 +2,7 @@
 titre: Vent, vitesse de référence et organisation de la norme
 ordre: 73
 statut: publie
-texte: EN 1991-1-4:2026 (NBN, version française), articles 4 et 5, 6.2 à 6.4, formules (6.1) à (6.10), figure 5.1, annexes A, J, K et L lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (3, 4.1 à 4.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-4:2026 (NBN, version française), articles 4 et 5, 6.2 à 6.4, formules (6.1) à (6.10), figure 5.1, annexes A, J, K et L lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (3, 4.1 à 4.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: L’EN 1991-1-4 est réorganisée autour d’un logigramme, ses coefficients aérodynamiques passent dans des annexes normatives, et la vitesse de référence reçoit un coefficient d’altitude et un facteur de changement climatique.

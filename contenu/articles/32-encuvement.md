@@ -2,7 +2,7 @@
 titre: Fondations en encuvement
 ordre: 32
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-08
 resume: La profondeur minimale d’un encuvement à parois lisses ne vaut plus 1,2 fois le côté du poteau dans tous les cas ; elle croît avec l’excentricité de l’effort, jusqu’à 2 fois le côté. Le coefficient de frottement suit désormais la rugosité de la surface.

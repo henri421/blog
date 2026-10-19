@@ -2,7 +2,7 @@
 titre: Ancrage par barres transversales soudées et par boucles en U
 ordre: 25
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-08
 resume: Comme pour les crochets, les coefficients multiplicateurs de 2004 deviennent des longueurs à retrancher : 15 φ pour une barre transversale soudée, 20 φ pour une boucle en U. La longueur d’une boucle diminue nettement ; celle d’une barre soudée augmente un peu à forte contrainte.

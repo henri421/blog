@@ -2,7 +2,7 @@
 titre: Variables de base, valeurs représentatives et actions de l’eau
 ordre: 58
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 6.1.1 à 6.1.4 lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 4.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 6.1.1 à 6.1.4 lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 4.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: La deuxième génération chiffre le seuil de faible variabilité des actions permanentes (5 % pour l’équilibre, 10 % sinon), définit le principe de la source unique, donne aux actions de l’eau un statut propre et précise la signification des valeurs fréquente et quasi permanente.

@@ -2,7 +2,7 @@
 titre: Armatures minimales de flexion et de fissuration
 ordre: 11
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-06
 resume: L’armature de non-fragilité découle désormais d’un principe, le moment résistant au moins égal au moment de fissuration, et le coefficient d’épaisseur de l’armature de fissuration se règle sur la plus petite dimension de la section.

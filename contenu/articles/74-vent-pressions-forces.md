@@ -2,7 +2,7 @@
 titre: Vent, pressions, forces et pression intérieure
 ordre: 74
 statut: publie
-texte: EN 1991-1-4:2026 (NBN, version française), article 7, formules (7.1) à (7.6), annexes B (dont B.6, (B.16) à (B.21), tableau B.18), C et D lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (5, 7, 8) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-4:2026 (NBN, version française), article 7, formules (7.1) à (7.6), annexes B (dont B.6, (B.16) à (B.21), tableau B.18), C et D lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (5, 7, 8) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les coefficients aérodynamiques passent dans des annexes normatives et s’enrichissent de coefficients globaux pour les bâtiments. La pression intérieure due à des ouvertures permanentes se calcule désormais par une formule, et non plus sur une figure.

@@ -2,7 +2,7 @@
 titre: Actions thermiques sur les ponts
 ordre: 78
 statut: publie
-texte: EN 1991-1-5:2025 (NBN, version française), article 8 (8.1.1 à 8.1.4, tableau 8.1, formules (8.1) à (8.6)) et annexe B lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-5:2003 (6.1, figure 6.1) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-5:2025 (NBN, version française), article 8 (8.1.1 à 8.1.4, tableau 8.1, formules (8.1) à (8.6)) et annexe B lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-5:2003 (6.1, figure 6.1) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les températures extrêmes des tabliers se déduisent toujours des températures de l’air sous abri, mais la température initiale du pont devient incertaine, avec une plage ΔT0, et les températures de l’air reçoivent un terme de changement climatique.

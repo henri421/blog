@@ -2,7 +2,7 @@
 titre: Poinçonnement avec armatures de poinçonnement
 ordre: 9
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: La part du béton n’est plus un forfait de 75 % mais dépend de la sollicitation, l’efficacité des armatures est réduite selon leur diamètre et l’ouverture de la fissure, et le plafond dépend du système d’armatures.

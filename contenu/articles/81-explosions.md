@@ -2,7 +2,7 @@
 titre: Explosions intérieures et débris
 ordre: 81
 statut: publie
-texte: EN 1991-1-7:2025 (NBN, version française), article 6, tableau 4.1, annexes D (formules (D.1) à (D.3)) et E lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-7:2006 + A1:2014 (5, annexe D) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-7:2025 (NBN, version française), article 6, tableau 4.1, annexes D (formules (D.1) à (D.3)) et E lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-7:2006 + A1:2014 (5, annexe D) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: La pression de calcul d’une explosion de gaz dans un local muni d’évents ne change pas. La deuxième génération exclut les détonations et les explosions en cascade, précise les classes de conséquences des bâtiments et ajoute une annexe sur les débris.

@@ -2,7 +2,7 @@
 titre: Combinaisons et critères à l’ELS des bâtiments
 ordre: 51
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 8.4.3, formules (8.29) à (8.32), A.1.6.3, A.1.8 et figure A.1.1 lus sur le texte le 2026-10-18 ; tableau A.1.7 lu sur la page rendue, dont l’alignement est ambigu pour les catégories H à T ; EN 1990:2002 (version française), 6.5.3, A1.4 et figure A1.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 8.4.3, formules (8.29) à (8.32), A.1.6.3, A.1.8 et figure A.1.1 lus sur le texte le 2026-10-18 ; tableau A.1.7 lu sur la page rendue, dont l’alignement est ambigu pour les catégories H à T ; EN 1990:2002 (version française), 6.5.3, A1.4 et figure A1.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Les trois combinaisons de service ne changent pas. L’annexe A de l’EN 1990 propose désormais des limites de flèche, de déplacement et de mouvement des fondations, et redéfinit les parties de la flèche.

@@ -2,7 +2,7 @@
 titre: Ponts ferroviaires, forces horizontales et autres actions
 ordre: 87
 statut: publie
-texte: EN 1991-2:2023 (NBN, version française), 8.5 à 8.10 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (6.5 à 6.9 et 6.3.6.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-2:2023 (NBN, version française), 8.5 à 8.10 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (6.5 à 6.9 et 6.3.6.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Force centrifuge, lacet, accélération et freinage gardent leurs formules. Le déraillement, les groupes de charges et la fatigue sont reconduits sous une numérotation nouvelle. Les ouvrages géotechniques reçoivent un modèle simplifié de 100 kN/m pour LM71.

@@ -2,7 +2,7 @@
 titre: Pression dynamique de pointe du vent
 ordre: 53
 statut: publie
-texte: EN 1991-1-4:2026 (NBN, version française), sans amendement ni corrigendum pris en compte ; 6.2, 6.3.1, 6.3.2, 6.4 et 6.5, formules (6.3) à (6.13) lues sur le texte le 2026-10-18 ; EN 1991-1-4:2005 + A1:2010 citée selon ses formules usuelles (4.3 à 4.5), le texte complet de 2005 n’étant pas détenu ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-4:2026 (NBN, version française), sans amendement ni corrigendum pris en compte ; 6.2, 6.3.1, 6.3.2, 6.4 et 6.5, formules (6.3) à (6.13) lues sur le texte le 2026-10-18 ; EN 1991-1-4:2005 + A1:2010 citée selon ses formules usuelles (4.3 à 4.5), le texte complet de 2005 n’étant pas détenu ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Le profil moyen du vent ne change pas, mais la pression de pointe devient quadratique en intensité de turbulence. Elle augmente fortement près du sol en terrain rugueux, de 26 % pour un petit immeuble en ville, et un facteur de changement climatique s’ajoute.

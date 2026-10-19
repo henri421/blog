@@ -2,7 +2,7 @@
 titre: Analyse plastique sans vérification de la capacité de rotation
 ordre: 41
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-08
 resume: L’analyse plastique d’une poutre ou d’une dalle sans calcul de la capacité de rotation reste soumise à une limite de hauteur d’axe neutre ; la limite plus sévère des bétons à haute résistance disparaît.

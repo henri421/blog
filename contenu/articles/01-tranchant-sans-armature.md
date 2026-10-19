@@ -2,7 +2,7 @@
 titre: Effort tranchant sans armature d’âme
 ordre: 1
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS ; niveaux 4 et 5 tirés de l’annexe I (informative), I.8.3.1, formules (I.7) et (I.8) relues sur l’exemplaire le 2026-10-05.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié ; niveaux 4 et 5 tirés de l’annexe I (informative), I.8.3.1, formules (I.7) et (I.8) relues sur l’exemplaire le 2026-10-05.
 redige: 2026-10-04
 revise: 2026-10-09
 resume: Une expression empirique cède la place à un modèle de fissure critique ; la granulométrie entre dans le calcul, et un plancher de résistance gouverne souvent les dalles courantes.

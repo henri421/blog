@@ -2,7 +2,7 @@
 titre: Vent, coefficient structural
 ordre: 75
 statut: publie
-texte: EN 1991-1-4:2026 (NBN, version française), 7.6, article 8 et annexes E, F et H lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (6, annexes B, C et F) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; valeurs de l’exemple tirées de l’atelier JRC de juin 2025 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-4:2026 (NBN, version française), 7.6, article 8 et annexes E, F et H lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (6, annexes B, C et F) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; valeurs de l’exemple tirées de l’atelier JRC de juin 2025 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les deux procédures de 2005 pour le coefficient structural sont fusionnées en une seule, avec de nouvelles fonctions de réponse. Les cheminées ne sont plus dispensées de calcul dynamique, mais les tabliers de ponts courants le sont.

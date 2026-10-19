@@ -2,7 +2,7 @@
 titre: Ponts routiers, modèles de charge de fatigue
 ordre: 84
 statut: publie
-texte: EN 1991-2:2023 (NBN, version française), 6.6, formule (6.7), tableaux 6.7 à 6.10 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (4.6) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-2:2023 (NBN, version française), 6.6, formule (6.7), tableaux 6.7 à 6.10 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (4.6) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les cinq modèles de charge de fatigue routiers et les catégories de trafic sont repris de 2003 ; la majoration dynamique près des joints est réécrite sous une forme équivalente.

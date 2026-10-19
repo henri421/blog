@@ -2,7 +2,7 @@
 titre: Neige sur le sol, période de retour et neige exceptionnelle
 ordre: 70
 statut: publie
-texte: EN 1991-1-3:2025 (NBN, version française), articles 4 à 6, formule (6.1), annexes A et B (formule (B.1)) et C lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-3:2003 + A1:2015 (2 à 4, annexes C et D) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-3:2025 (NBN, version française), articles 4 à 6, formule (6.1), annexes A et B (formule (B.1)) et C lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-3:2003 + A1:2015 (2 à 4, annexes C et D) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: La charge de neige sur le sol se définit comme avant, mais elle doit désormais tenir compte du changement climatique. L’ajustement à une autre période de retour et la neige exceptionnelle gardent leurs formules.

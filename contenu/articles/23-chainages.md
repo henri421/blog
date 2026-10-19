@@ -2,7 +2,7 @@
 titre: Chaînages de robustesse
 ordre: 23
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française) et EN 1991-1-7:2025, annexe A (informative), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-06 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française) et EN 1991-1-7:2025, annexe A (informative), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-06 ; état d’amendement non encore vérifié.
 redige: 2026-10-06
 revise: 2026-10-06
 resume: Les efforts des chaînages périphériques et intérieurs ne sont plus des valeurs forfaitaires propres au béton ; ils renvoient à l’EN 1991-1-7 et croissent avec les charges du plancher, avec un minimum de 75 kN.

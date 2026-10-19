@@ -2,7 +2,7 @@
 titre: Combinaisons accidentelles et incendie
 ordre: 54
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 8.3.4.3 et tableau A.1.3 ; EN 1991-1-2:2024, 6.3, formules (6.1) à (6.4) ; EN 1991-1-7:2025, avant-propos et domaine ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 6.4.3.3 et tableau A1.3, lue sur le texte le 2026-10-19, sans l’A1:2005 ; EN 1991-1-2:2002 (4.3) citée de mémoire, le texte n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 8.3.4.3 et tableau A.1.3 ; EN 1991-1-2:2024, 6.3, formules (6.1) à (6.4) ; EN 1991-1-7:2025, avant-propos et domaine ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 6.4.3.3 et tableau A1.3, lue sur le texte le 2026-10-19, sans l’A1:2005 ; EN 1991-1-2:2002 (4.3) citée de mémoire, le texte n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: La combinaison accidentelle ne change pas, ni le coefficient ηfi de la vérification simplifiée au feu. Mais ηfi se rapporte maintenant à des coefficients modulés par kF, et l’EN 1991-1-7 renvoie la robustesse à l’EN 1990.

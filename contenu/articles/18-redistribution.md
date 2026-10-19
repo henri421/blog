@@ -2,7 +2,7 @@
 titre: Redistribution des moments
 ordre: 18
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-09
 resume: La limite de redistribution ne dépend plus de deux coefficients calés pour le béton ordinaire mais de la déformation de l’acier au moment où le béton s’écrase ; pour les bétons à haute résistance, la règle devient nettement plus généreuse.

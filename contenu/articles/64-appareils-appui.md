@@ -2,7 +2,7 @@
 titre: Bases de calcul des appareils d’appui
 ordre: 64
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), annexe G (normative), formules (G.1) à (G.8) et tableau G.3 lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; première génération : règles de l’EN 1337-1:2000, non détenue, citée de mémoire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), annexe G (normative), formules (G.1) à (G.8) et tableau G.3 lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; première génération : règles de l’EN 1337-1:2000, non détenue, citée de mémoire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les règles de calcul des efforts et des déplacements des appareils d’appui quittent la norme de produit EN 1337-1 pour une annexe normative de l’EN 1990, avec un schéma type des appareils d’appui, une incertitude géométrique de ± 20 mm et des coefficients de frottement modulés selon le nombre d’appareils.

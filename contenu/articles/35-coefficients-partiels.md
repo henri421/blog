@@ -2,7 +2,7 @@
 titre: Coefficients partiels des matériaux
 ordre: 35
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-08
 resume: Les coefficients γC = 1,5 et γS = 1,15 ne changent pas, mais deux nouveaux apparaissent, γV pour l’effort tranchant sans armature et γCE pour la rigidité, et la résistance de calcul du béton intègre désormais la durée du chargement et la fragilité des hautes résistances.

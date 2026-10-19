@@ -2,7 +2,7 @@
 titre: Propriétés de calcul du béton
 ordre: 12
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-11
 resume: La résistance de calcul en compression intègre la fragilité des bétons à haute résistance et la durée de chargement ; la résistance de calcul en traction est réduite ; le module d’élasticité change de formule.

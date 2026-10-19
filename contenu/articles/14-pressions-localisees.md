@@ -2,7 +2,7 @@
 titre: Pressions localisées
 ordre: 14
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-11
 resume: La formule de diffusion reste la même, mais la surface de diffusion se construit autrement et la charge excentrée reçoit enfin une règle explicite.

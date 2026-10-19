@@ -2,7 +2,7 @@
 titre: Charges sur les garde-corps et barrières
 ordre: 67
 statut: publie
-texte: EN 1991-1-1:2025 (NBN, version française), 6.6 et tableau 6.5 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-1:2002 (6.4, tableau 6.12) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-1:2025 (NBN, version française), 6.6 et tableau 6.5 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-1:2002 (6.4, tableau 6.12) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: La charge horizontale des garde-corps reste appliquée à leur hauteur, au plus 1,2 m. La deuxième génération ajoute une charge verticale sur la main courante et une charge locale pour les garde-corps d’entretien.

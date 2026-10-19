@@ -2,7 +2,7 @@
 titre: Cisaillement aux interfaces entre bétons d’âges différents
 ordre: 7
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: La cohésion n’est plus proportionnelle à la résistance en traction mais à la racine de fck, une classe « très rugueuse » apparaît, et un second niveau traite les armatures d’interface mal ancrées par l’effet de goujon.

@@ -2,7 +2,7 @@
 titre: Ponts routiers, voies conventionnelles et modèle de charge 1
 ordre: 82
 statut: publie
-texte: EN 1991-2:2023 (NBN, version française), articles 4 et 5, 6.1 à 6.3, tableaux 6.1 et 6.2, formules (6.1) à (6.4) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (2 à 4.3) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-2:2023 (NBN, version française), articles 4 et 5, 6.1 à 6.3, tableaux 6.1 et 6.2, formules (6.1) à (6.4) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (2 à 4.3) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les modèles de trafic routier ne changent pas : mêmes voies conventionnelles, même modèle LM1. L’EN 1991-2 étend son domaine aux ouvrages géotechniques sous trafic et s’aligne sur l’annexe A.2 de l’EN 1990.

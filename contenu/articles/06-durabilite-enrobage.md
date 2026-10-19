@@ -2,7 +2,7 @@
 titre: Durabilité et enrobage des armatures
 ordre: 6
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-06
 resume: L’enrobage ne se déduit plus d’une classe structurale fondée sur la résistance du béton, mais d’une classe de résistance à l’exposition qui mesure directement la tenue du béton à la carbonatation ou aux chlorures.

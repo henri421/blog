@@ -2,7 +2,7 @@
 titre: Torsion
 ordre: 15
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-11
 resume: Le modèle de section creuse équivalente demeure ; l’angle des bielles peut se redresser au-delà de 45°, la résistance des bielles prend une valeur forfaitaire nouvelle, et les sections trapues à fort enrobage sont réduites.

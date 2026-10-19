@@ -2,7 +2,7 @@
 titre: Ancrage par tête d’ancrage
 ordre: 26
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-09
 resume: Les barres à tête entrent dans l’Eurocode 2. Sous des conditions simples de géométrie, de béton et de distances aux bords, la tête suffit à ancrer une barre plastifiée, sans aucune longueur d’adhérence.

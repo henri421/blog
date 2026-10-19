@@ -2,7 +2,7 @@
 titre: Ponts routiers, forces horizontales et groupes de charges
 ordre: 83
 statut: publie
-texte: EN 1991-2:2023 (NBN, version française), 6.4 et 6.5, formules (6.5) et (6.6), tableaux 6.4 à 6.6 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (4.4, 4.5) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-2:2023 (NBN, version française), 6.4 et 6.5, formules (6.5) et (6.6), tableaux 6.4 à 6.6 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (4.4, 4.5) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les forces de freinage, d’accélération et centrifuges, ainsi que les groupes de charges de trafic, sont repris de 2003 sans changement de valeur ; seule la présentation est alignée sur l’EN 1990, annexe A.2.

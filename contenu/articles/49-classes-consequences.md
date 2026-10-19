@@ -2,7 +2,7 @@
 titre: Classes de conséquences et facteur kF
 ordre: 49
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 4.3, 4.5, A.1.3, A.1.4, A.2.3 et tableaux A.1.8, A.1.9, A.2.11 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.3, tableau 2.1 et annexe B (B.3, tableaux B.1 à B.3), lue sur le texte le 2026-10-19, sans l’A1:2005 ; la ligne « Ponts » du premier tableau relève de l’A1:2005, non détenu, et reste citée de mémoire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 4.3, 4.5, A.1.3, A.1.4, A.2.3 et tableaux A.1.8, A.1.9, A.2.11 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.3, tableau 2.1 et annexe B (B.3, tableaux B.1 à B.3), lue sur le texte le 2026-10-19, sans l’A1:2005 ; la ligne « Ponts » du premier tableau relève de l’A1:2005, non détenu, et reste citée de mémoire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: Les trois classes de conséquences de 2002 deviennent cinq, de CC0 à CC4. Elles passent de l’annexe informative au corps du texte, et leur facteur kF s’applique désormais d’office aux coefficients des actions défavorables.

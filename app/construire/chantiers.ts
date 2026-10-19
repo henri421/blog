@@ -102,10 +102,10 @@ export function chantiersCartographie(eurocodes: Eurocode[], articles: Article[]
 /** Tous les chantiers ouverts, dans l ordre de presentation. */
 export function chantiers(racine: string, eurocodes: Eurocode[], articles: Article[]): Chantier[] {
   const amendement: Chantier = {
-    id: 'ilnas',
+    id: 'amendements',
     nature: 'amendement',
-    titre: t('chantiers.ilnas-titre'),
-    detail: t('chantiers.ilnas-detail'),
+    titre: t('chantiers.amendement-titre'),
+    detail: t('chantiers.amendement-detail'),
     articles: articles.filter((a) => /amendement non encore vérifié/.test(a.entete.texte)).map((a) => a.slug),
     ouvert: OUVERTURE_V4,
   };
@@ -142,7 +142,7 @@ export function rendreChantiers(liste: Chantier[], articles: Article[]): string 
   }).join('\n      ');
 }
 
-/** Encadre d un article : ses chantiers propres, hors verification ILNAS deja dans l en-tete. */
+/** Encadre d un article : ses chantiers propres, hors verification d amendement deja dans l en-tete. */
 export function encadreChantiers(slug: string, liste: Chantier[]): string {
   const propres = liste.filter((c) => c.nature !== 'amendement' && c.articles.includes(slug));
   if (propres.length === 0) return '';

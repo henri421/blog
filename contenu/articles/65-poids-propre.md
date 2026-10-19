@@ -2,7 +2,7 @@
 titre: Poids volumiques et poids propre
 ordre: 65
 statut: publie
-texte: EN 1991-1-1:2025 (NBN, version française), articles 4 et 5 et annexe A lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-1:2002 (4, 5) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-1:2025 (NBN, version française), articles 4 et 5 et annexe A lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-1:2002 (4, 5) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Le poids propre se calcule comme avant, mais la deuxième génération renvoie à l’EN 1990 pour décider entre valeur unique et valeurs haute et basse, traite le poids propre total comme une action de source unique et parle d’éléments non structuraux plutôt que d’éléments non porteurs.

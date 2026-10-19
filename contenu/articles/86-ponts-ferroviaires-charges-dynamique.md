@@ -2,7 +2,7 @@
 titre: Ponts ferroviaires, charges verticales et coefficient dynamique
 ordre: 86
 statut: publie
-texte: EN 1991-2:2023 (NBN, version française), 8.1 à 8.4 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (6.1 à 6.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-2:2023 (NBN, version française), 8.1 à 8.4 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (6.1 à 6.4) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les modèles ferroviaires LM71, SW/0, SW/2 et le coefficient dynamique Φ2 ou Φ3 passent de la section 6 à la section 8 sans changer de forme. Les choix laissés aux parties sont mieux encadrés, et Φ3 devient la valeur par défaut.

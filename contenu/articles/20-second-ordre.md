@@ -2,7 +2,7 @@
 titre: Second ordre des poteaux isolés
 ordre: 20
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié auprès de l’ILNAS ; méthodes de calcul tirées de l’annexe O (informative).
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié ; méthodes de calcul tirées de l’annexe O (informative).
 redige: 2026-10-05
 revise: 2026-10-09
 resume: Les méthodes simplifiées du second ordre quittent le corps du texte pour une annexe informative ; la courbure nominale d’un poteau contreventé prend une distribution constante, et le moment du second ordre augmente d’un quart.

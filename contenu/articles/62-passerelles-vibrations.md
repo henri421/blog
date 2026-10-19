@@ -2,7 +2,7 @@
 titre: Vibrations des passerelles sous les piétons
 ordre: 62
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), A.2.9.3 et annexe H (tableaux H.1 et H.2) ; EN 1991-2:2023, article 7 et annexe G ((G.1) à (G.5), tableaux G.1 et G.2) ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1990:2002 (version française) lue sur le texte le 2026-10-19, mais A2.4.3.2 relève de l’A1:2005 ; A1:2005 et EN 1991-2:2003 (5.7) cités de mémoire, ces textes n’étant pas détenus et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), A.2.9.3 et annexe H (tableaux H.1 et H.2) ; EN 1991-2:2023, article 7 et annexe G ((G.1) à (G.5), tableaux G.1 et G.2) ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1990:2002 (version française) lue sur le texte le 2026-10-19, mais A2.4.3.2 relève de l’A1:2005 ; A1:2005 et EN 1991-2:2003 (5.7) cités de mémoire, ces textes n’étant pas détenus et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: La première génération demandait de vérifier le confort des passerelles sans fournir de modèle de charge. La deuxième génération fournit des classes de trafic, des niveaux de confort et des charges harmoniques, dans l’esprit des guides Sétra et HiVoSS.

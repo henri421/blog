@@ -2,7 +2,7 @@
 titre: Neige sur les toitures à versants, cylindriques et attenantes
 ordre: 71
 statut: publie
-texte: EN 1991-1-3:2025 (NBN, version française), 7.1, 7.3 à 7.5.7, formules (7.7) à (7.16), tableaux 7.2 et 7.3, figure 7.3 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-3:2003 + A1:2015 (5.2, 5.3) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-3:2025 (NBN, version française), 7.1, 7.3 à 7.5.7, formules (7.7) à (7.16), tableaux 7.2 et 7.3, figure 7.3 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-3:2003 + A1:2015 (5.2, 5.3) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: La charge non uniforme d’une toiture à deux versants n’est plus la moitié de la charge uniforme sur un versant : un versant est déchargé, l’autre reçoit en plus la neige apportée par le vent, d’autant plus que le site est exposé.

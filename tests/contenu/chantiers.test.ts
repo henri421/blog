@@ -44,12 +44,12 @@ describe('suivi des chantiers', () => {
     for (const a of articles) expect(a.entete.statut, a.slug).toBe('publie');
   });
 
-  it('l article concerne affiche son encadre, sans repeter la verification ILNAS', () => {
+  it('l article concerne affiche son encadre, sans repeter la verification d amendement', () => {
     const tsa = articles.find((a) => a.slug === 'tranchant-sans-armature')!;
     const html = pageArticle(tsa, liste);
     expect(html).toContain('class="chantiers-article"');
     expect(html).toContain('I.8.3.1');
-    expect(html).not.toContain('auprès de l’ILNAS</strong>');
+    expect(html).not.toContain('État d’amendement à vérifier</strong>');
   });
 
   it('les points non coches de la verification sur le texte sont rattaches a leur article', () => {

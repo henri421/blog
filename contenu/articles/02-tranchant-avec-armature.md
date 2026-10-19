@@ -2,7 +2,7 @@
 titre: Effort tranchant avec armatures d’âme
 ordre: 2
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-11
 resume: Le treillis à inclinaison variable demeure ; la résistance de la bielle est plus faible, et un niveau plus fin la relie à la déformation longitudinale, donc à la sollicitation.

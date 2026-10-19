@@ -2,7 +2,7 @@
 titre: Transmission et ancrage de la précontrainte par pré-tension
 ordre: 31
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-08 ; état d’amendement non encore vérifié.
 redige: 2026-10-08
 revise: 2026-10-09
 resume: La contrainte d’adhérence de 2004 disparaît au profit d’une expression directe en racine de fck. Pour un toron courant, la longueur de transmission change peu ; l’ancrage à l’ELU raccourcit un peu, sauf sous fatigue, où son complément au-delà de la transmission augmente de moitié.

@@ -2,7 +2,7 @@
 titre: Ouverture de fissure calculée
 ordre: 4
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-09
 resume: L’espacement maximal devient un espacement moyen converti par un coefficient, l’enrobage pèse moins, et la courbure de la section augmente l’ouverture en surface.

@@ -2,7 +2,7 @@
 titre: Flèches par le rapport portée / hauteur utile
 ordre: 17
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: La formule d’élancement limite cède la place à un tableau à deux entrées, pourcentage mécanique d’armature et part de charge d’exploitation, nettement plus sévère pour les dalles faiblement armées de logement.

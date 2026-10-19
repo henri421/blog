@@ -2,7 +2,7 @@
 titre: Actions accidentelles dues aux chocs
 ordre: 80
 statut: publie
-texte: EN 1991-1-7:2025 (NBN, version française), articles 4 et 5, tableaux 4.1, 4.2, 5.1 et 5.2, figure 5.2 et annexe C (formules (C.1) à (C.4)) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-7:2006 + A1:2014 (3, 4, annexe C) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-7:2025 (NBN, version française), articles 4 et 5, tableaux 4.1, 4.2, 5.1 et 5.2, figure 5.2 et annexe C (formules (C.1) à (C.4)) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-7:2006 + A1:2014 (3, 4, annexe C) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les forces de choc des véhicules ne changent pas. L’EN 1991-1-7 réorganise ses classes de conséquences, renvoie la robustesse à l’EN 1990, précise les chocs de bateaux et sort de son domaine l’accostage, l’amarrage et les détonations.

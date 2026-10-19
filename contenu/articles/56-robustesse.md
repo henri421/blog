@@ -2,7 +2,7 @@
 titre: Robustesse et tirants
 ordre: 56
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 4.4 et annexe E ; EN 1991-1-7:2025, 4.1, 4.2, tableau 4.1 et annexe A, formules (A.1) à (A.5) ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-7:2006 + A1:2014 (3, annexe A) citée de mémoire, le texte de première génération n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 4.4 et annexe E ; EN 1991-1-7:2025, 4.1, 4.2, tableau 4.1 et annexe A, formules (A.1) à (A.5) ; textes lus le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-7:2006 + A1:2014 (3, annexe A) citée de mémoire, le texte de première génération n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: La robustesse devient une exigence de l’EN 1990 et ses stratégies quittent l’EN 1991-1-7. Les efforts de calcul des tirants restent ceux de 2006 ; l’annexe A de l’EN 1991-1-7 se limite désormais aux tirants et aux éléments clés.

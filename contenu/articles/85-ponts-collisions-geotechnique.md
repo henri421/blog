@@ -2,7 +2,7 @@
 titre: Ponts routiers, collisions, garde-corps et ouvrages géotechniques
 ordre: 85
 statut: publie
-texte: EN 1991-2:2023 (NBN, version française), 6.7 à 6.9 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (4.7 à 4.9) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-2:2023 (NBN, version française), 6.7 à 6.9 lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-2:2003 (4.7 à 4.9) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Pour les culées, murs et remblais sous trafic routier, l’EN 1991-2 propose désormais des modèles de charge propres, dont une charge uniforme simplifiée de 20 kN/m² sur une voie. Les garde-corps renvoient à des classes de chargement.

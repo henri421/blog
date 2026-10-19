@@ -2,7 +2,7 @@
 titre: Efforts de déviation des barres courbes
 ordre: 45
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; état d’amendement non encore vérifié.
 redige: 2026-10-09
 revise: 2026-10-09
 resume: Une barre tendue courbe cherche à se redresser et peut arracher l’enrobage côté centre de courbure. La deuxième génération chiffre ce que le béton seul peut retenir, y compris dans un recouvrement, et demande sinon des armatures transversales.

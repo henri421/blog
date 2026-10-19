@@ -76,8 +76,8 @@ export const fr = {
   'chantiers.article': 'Chantiers ouverts sur cet article',
   'chantiers.tous': 'Tous les chantiers',
   'chantiers.ouvert': 'ouvert le',
-  'chantiers.ilnas-titre': 'État d’amendement à vérifier auprès de l’ILNAS',
-  'chantiers.ilnas-detail':
+  'chantiers.amendement-titre': 'État d’amendement à vérifier',
+  'chantiers.amendement-detail':
     'Les articles s’appuient sur le texte détenu, sans amendement ni corrigendum. Les amendements et corrigenda publiés, annexes comprises, restent à établir clause par clause.',
   'chantiers.nature.amendement': 'Amendements et corrigenda',
   'chantiers.nature.niveau-manquant': 'Niveaux de calcul pas encore rendus',

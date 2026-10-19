@@ -2,7 +2,7 @@
 titre: Poinçonnement des dalles sans armature de poinçonnement
 ordre: 3
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Le périmètre de contrôle se rapproche du poteau, la résistance s’exprime avec un facteur de gradient et la granulométrie, et la distance au moment nul ouvre un niveau plus fin.

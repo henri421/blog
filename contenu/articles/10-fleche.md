@@ -2,7 +2,7 @@
 titre: Flèche à long terme par le calcul
 ordre: 10
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-11
 resume: Un calcul simplifié sur section brute fait son entrée, et la méthode générale tient compte de la charge la plus forte déjà subie, ce qui augmente la flèche des éléments qui ont fissuré sous charge caractéristique.

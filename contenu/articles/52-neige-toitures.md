@@ -2,7 +2,7 @@
 titre: Neige sur les toitures terrasses
 ordre: 52
 statut: publie
-texte: EN 1991-1-3:2025 (NBN, version française), sans amendement ni corrigendum pris en compte ; 6.1, 6.2, 7.2 à 7.5.2.2 et 8.3, formules (7.1), (7.3), (7.4) et (8.3) lus sur le texte le 2026-10-18 ; EN 1991-1-3:2003 + A1:2015 citée selon ses formules usuelles (5.2, 5.3.2, 6.2), le texte complet de 2003 n’étant pas détenu ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-3:2025 (NBN, version française), sans amendement ni corrigendum pris en compte ; 6.1, 6.2, 7.2 à 7.5.2.2 et 8.3, formules (7.1), (7.3), (7.4) et (8.3) lus sur le texte le 2026-10-18 ; EN 1991-1-3:2003 + A1:2015 citée selon ses formules usuelles (5.2, 5.3.2, 6.2), le texte complet de 2003 n’étant pas détenu ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: La charge de neige sur une toiture terrasse dépend désormais de la taille de la toiture, d’un facteur de changement climatique et, pour les sites peu enneigés, d’une surcharge de pluie sur la neige. Les congères le long des acrotères sont nettement relevées.

@@ -2,7 +2,7 @@
 titre: Neige, effets locaux (acrotères, obstacles, débords)
 ordre: 72
 statut: publie
-texte: EN 1991-1-3:2025 (NBN, version française), article 8, formules (8.1) à (8.7) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-3:2003 + A1:2015 (article 6) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-3:2025 (NBN, version française), article 8, formules (8.1) à (8.7) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-3:2003 + A1:2015 (article 6) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les effets locaux de la neige distinguent désormais les acrotères (allongés) et les obstructions (compactes). Le coefficient d’accumulation le long d’un acrotère peut atteindre 4, contre 2 en première génération, et une noue d’intersection de toitures reçoit son propre cas de charge.

@@ -2,7 +2,7 @@
 titre: Actions thermiques dans les bâtiments
 ordre: 77
 statut: publie
-texte: EN 1991-1-5:2025 (NBN, version française), articles 4 à 7, formule (7.1), tableau 7.1 et annexes A et C lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-5:2003 (4, 5, tableaux 5.1 à 5.3) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-5:2025 (NBN, version française), articles 4 à 7, formule (7.1), tableau 7.1 et annexes A et C lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-5:2003 (4, 5, tableaux 5.1 à 5.3) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: Les températures des bâtiments tiennent désormais dans un seul tableau, avec une température de refroidissement nocturne pour les éléments légers et l’obligation de tenir compte du changement climatique.

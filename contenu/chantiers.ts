@@ -4,7 +4,7 @@
  *
  * Les autres chantiers sont derives a la construction : niveaux cartographies
  * absents d un article, reserves de la cartographie, points non coches de
- * docs/verification-texte.md, verification ILNAS des amendements. Un
+ * docs/verification-texte.md, verification de l etat d amendement. Un
  * chantier se ferme en le retirant de cette liste ou en levant sa cause.
  */
 

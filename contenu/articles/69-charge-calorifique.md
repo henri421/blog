@@ -2,7 +2,7 @@
 titre: Charge calorifique et feux naturels
 ordre: 69
 statut: publie
-texte: EN 1991-1-2:2024 (NBN, version française), 5.3 et annexes A, C, D, E et F (formule (E.1), tableaux E.1 à E.3) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-2:2002 (3.3, annexes A à F) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-2:2024 (NBN, version française), 5.3 et annexes A, C, D, E et F (formule (E.1), tableaux E.1 à E.3) lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-2:2002 (3.3, annexes A à F) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-18
 resume: La densité de charge calorifique de calcul reçoit un coefficient nouveau, δq3, qui la module selon la classe de conséquences du bâtiment, et le tableau des mesures actives de lutte contre le feu est revu.

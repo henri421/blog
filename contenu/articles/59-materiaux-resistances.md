@@ -2,7 +2,7 @@
 titre: Propriétés des matériaux, géométrie et résistances de calcul
 ordre: 59
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 6.2, 6.3, 8.3.5 à 8.3.7 et 8.4.5, formules (8.18) à (8.23) lues sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 4.2, 4.3, 6.3.3 à 6.3.5, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 6.2, 6.3, 8.3.5 à 8.3.7 et 8.4.5, formules (8.18) à (8.23) lues sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 4.2, 4.3, 6.3.3 à 6.3.5, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié.
 redige: 2026-10-18
 revise: 2026-10-19
 resume: La deuxième génération nomme les deux façons d’appliquer le coefficient partiel de résistance, sur la propriété du matériau (MFA) ou sur la résistance (RFA), et ajoute une formule pour les éléments multi-matériaux analysés de façon non linéaire. Le choix compte quand la résistance n’est pas proportionnelle à la propriété.

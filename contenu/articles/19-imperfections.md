@@ -2,7 +2,7 @@
 titre: Imperfections géométriques
 ordre: 19
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-05 ; état d’amendement non encore vérifié.
 redige: 2026-10-05
 revise: 2026-10-05
 resume: L’inclinaison de calcul garde sa forme, mais sa réduction avec la hauteur descend plus bas ; les forces horizontales équivalentes sur les contreventements des bâtiments hauts baissent nettement.

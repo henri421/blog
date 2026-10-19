@@ -1,7 +1,7 @@
 # Registre des amendements et corrigenda (lot 4)
 
 Le cahier des charges (§2) prévoyait de ne publier un article qu’après
-vérification de l’état d’amendement des clauses qu’il traite auprès de l’ILNAS.
+vérification de l’état d’amendement des clauses qu’il traite.
 
 **Décision de l’auteur du 2026-10-04** : publier sans attendre, les articles
 n’étant pas une retranscription de la norme. En contrepartie, l’en-tête de
@@ -11,7 +11,7 @@ sera révisé (historique daté) si un amendement touche ses clauses.
 
 Texte détenu : EN 1992-1-1:2023, sans amendement ni corrigendum.
 
-## Vérification auprès de l’ILNAS
+## Vérification
 
 | Date | Interlocuteur ou source | Amendements publiés | Corrigenda publiés |
 |---|---|---|---|

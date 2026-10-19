@@ -2,7 +2,7 @@
 titre: Cisaillement entre l’âme et la table
 ordre: 8
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-04 ; état d’amendement non encore vérifié.
 redige: 2026-10-04
 revise: 2026-10-04
 resume: Le seuil de dispense ne dépend plus de la résistance en traction du béton mais de l’armature transversale minimale en place, et les bielles de la table comprimée peuvent se coucher davantage.

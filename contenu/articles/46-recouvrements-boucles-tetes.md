@@ -2,7 +2,7 @@
 titre: Recouvrements par boucles et par barres à tête
 ordre: 46
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; état d’amendement non encore vérifié.
 redige: 2026-10-09
 revise: 2026-10-09
 resume: Les joints coulés entre éléments préfabriqués, par boucles en U ou par barres à tête, reçoivent une vérification propre. Le béton entre les boucles ou les têtes est une bielle confinée, dont la résistance dépend fortement des armatures transversales qui la traversent.

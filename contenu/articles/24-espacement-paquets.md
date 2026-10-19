@@ -2,7 +2,7 @@
 titre: Espacement des barres et paquets de barres
 ordre: 24
 statut: publie
-texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-07 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1992-1-1:2023 (NBN, version française), sans amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-07 ; état d’amendement non encore vérifié.
 redige: 2026-10-07
 revise: 2026-10-11
 resume: La distance libre entre barres isolées ne change pas ; pour les paquets, le diamètre équivalent se définit par l’aire, n’est plus plafonné à 55 mm, et il remplace le diamètre dans la règle de distance entre paquets.
