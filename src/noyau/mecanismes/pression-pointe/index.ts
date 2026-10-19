@@ -7,8 +7,10 @@
  * Commun : q_b = 0,5 rho v_b2, rho = 1,25 kg/m3 ; k_r = 0,19 (z_0/0,05)^0,07 ;
  *   c_r(z) = k_r ln(z/z_0) ; I(z) = 1/ln(z/z_0) ; z remplace par z_min en
  *   dessous de z_min ; z <= z_max = 200 m.
- * Premiere generation (EN 1991-1-4:2005 + A1:2010, 4.3 a 4.5, (4.4), (4.7),
- *   (4.8), texte de 2005 non detenu) : q_p = [1 + 7 I_v] 0,5 rho v_m2.
+ * Premiere generation (EN 1991-1-4:2005, 4.3 a 4.5, (4.4), (4.5), (4.7),
+ *   (4.8), (4.10), tableau 4.1, lus sur le texte le 2026-10-19 ; A1:2010 et
+ *   AC:2010 non detenus) : q_p = [1 + 7 I_v] 0,5 rho v_m2, avec k_I = 1 et
+ *   c_o = 1 ; le 7 vient d un facteur de pointe de 3,5 (4.5, NOTE 3).
  * Deuxieme generation (EN 1991-1-4:2026, 6.2(2), (6.6), (6.7), (6.10), (6.12),
  *   (6.13)) : q_p = c_r2 [1 + g_u I_u]2 q_b, g_u = 2,9 ; v_b0 multiplie par
  *   f_w,cc >= 1 (changement climatique).

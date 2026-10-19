@@ -264,13 +264,13 @@ export const EN1991_1_4: Carte = {
         c('4', 'Situations de projet', ['3'], {
           article: 'vent-vitesse-reference',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
         c('5', 'Modélisation des actions du vent', ['4', '5'], {
           annexes: [ann('J', 'informative')],
           article: 'vent-vitesse-reference',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
         c('6.2', 'Valeurs de référence de la vitesse du vent', ['4.2'], {
           annexes: [ann('K', 'informative'), ann('L', 'informative')],
@@ -280,24 +280,24 @@ export const EN1991_1_4: Carte = {
             n('en1991-1-4-2005', 'vitesse-reference', 'qb', '4.2'),
             n('en1991-1-4-2026', 'vitesse-reference', 'qb', '6.2'),
           ],
-          reserves: 'calt = 1 ; organisation, rugosité et turbulence décrites. Texte de 2005 non détenu.',
+          reserves: 'calt = 1 ; organisation, rugosité et turbulence décrites. Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
         c('6.3', 'Vitesse moyenne et pression moyenne', ['4.3'], {
           annexes: [ann('A', 'informative')],
           article: 'vent-vitesse-reference',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
         c('6.4', 'Turbulence', ['4.4'], {
           article: 'vent-vitesse-reference',
           ingeree: true,
-          reserves: 'Clause décrite dans l’article. Texte de 2005 non détenu.',
+          reserves: 'Clause décrite dans l’article. Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
         c('6.5', 'Vitesse et pression dynamique de pointe', ['4.5'], {
           article: 'pression-pointe-vent',
           ingeree: true,
           niveaux: [n('en1991-1-4-2005', 'pression-pointe', 'qp', '4.5'), n('en1991-1-4-2026', 'pression-pointe', 'qp', '6.5')],
-          reserves: 'Terrain plat (co = 1), cdir = cseason = cprob = 1 ; kr par (6.7), pas par le tableau 6.1 arrondi ; z0 et zmin saisis ; coefficient structural (annexe E) décrit, non codé. Texte de 2005 non détenu.',
+          reserves: 'Terrain plat (co = 1), cdir = cseason = cprob = 1 ; kr par (6.7), pas par le tableau 6.1 arrondi ; z0 et zmin saisis ; coefficient structural (annexe E) décrit, non codé. Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
         c('7', 'Pressions et forces du vent', ['5', '7'], {
           annexes: [ann('B', 'normative'), ann('C', 'normative'), ann('D', 'normative')],
@@ -309,7 +309,7 @@ export const EN1991_1_4: Carte = {
             n('en1991-1-4-2026', 'pression-interieure', 'defaut', 'B.6(5)'),
             n('en1991-1-4-2026', 'pression-interieure', 'ouvertures', 'B.6(14)'),
           ],
-          reserves: 'Pression intérieure et pression nette ; coefficients des annexes B à D non reproduits ; figure 7.13 de 2005 non codée. Texte de 2005 non détenu.',
+          reserves: 'Pression intérieure et pression nette ; coefficients des annexes B à D non reproduits ; figure 7.13 de 2005 codée (segments droits, h/d interpolé). Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
         c('8', 'Coefficient structural', ['6'], {
           annexes: [ann('E', 'informative'), ann('F', 'informative'), ann('H', 'informative')],
@@ -319,19 +319,19 @@ export const EN1991_1_4: Carte = {
             n('en1991-1-4-2005', 'csd-simplifie', 'dispense', '6.2(1)'),
             n('en1991-1-4-2026', 'csd-simplifie', 'dispense', '8.2(1)'),
           ],
-          reserves: 'Dispenses seulement ; procédure de l’annexe E non codée (valeurs de l’atelier JRC citées). Texte de 2005 non détenu.',
+          reserves: 'Dispenses seulement ; procédure de l’annexe E non codée (valeurs de l’atelier JRC citées). Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
-        c('9', 'Phénomènes aéroélastiques', ['8'], {
+        c('9', 'Phénomènes aéroélastiques', ['E'], {
           annexes: [ann('G', 'informative')],
           article: 'vent-aeroelasticite',
           ingeree: true,
           niveaux: [
-            n('en1991-1-4-2005', 'tourbillons', 'critere', 'E.1.3.1'),
+            n('en1991-1-4-2005', 'tourbillons', 'critere', 'E.1.2'),
             n('en1991-1-4-2005', 'tourbillons', 'scruton', 'E.1.3.3'),
             n('en1991-1-4-2026', 'tourbillons', 'critere', '9.3'),
             n('en1991-1-4-2026', 'tourbillons', 'scruton', 'G.5.3.4'),
           ],
-          reserves: 'Critère et nombre de Scruton ; amplitude, galop, flottement et sillage décrits. Texte de 2005 non détenu.',
+          reserves: 'Critère et nombre de Scruton ; amplitude, galop, flottement et sillage décrits. Texte de 2005 lu le 19/10/2026, sans A1:2010 ni AC:2010.',
         }),
         c('I', 'Pylônes en treillis et mâts haubanés (informative)', [], reporte('pylônes et mâts : reporté par l’auteur (05/10/2026)')),
       ],

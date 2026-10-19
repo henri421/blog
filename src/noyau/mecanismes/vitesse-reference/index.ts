@@ -4,8 +4,9 @@
  *
  * Unites : m/s, annees, Pa.
  *
- * Premiere generation (EN 1991-1-4:2005 + A1:2010, 4.2, (4.1), (4.2), (4.10),
- *   texte non detenu, a relire) : v_b = c_dir c_season v_b,0 ; c_prob =
+ * Premiere generation (EN 1991-1-4:2005, 4.2, (4.1), (4.2) en NOTE 4,
+ *   (4.10), lus sur le texte le 2026-10-19 ; A1:2010 et AC:2010 non detenus) :
+ *   v_b = c_dir c_season v_b,0 ; c_prob =
  *   [(1 - K ln(-ln(1 - p)))/(1 - K ln(-ln 0,98))]^n, K = 0,2, n = 0,5 ;
  *   q_b = 0,5 rho v_b2, rho = 1,25 kg/m3.
  * Deuxieme generation (EN 1991-1-4:2026, 6.2, (6.1) a (6.3)) : v_b = c_dir

@@ -2,20 +2,21 @@
 titre: Vent, coefficient structural
 ordre: 75
 statut: publie
-texte: EN 1991-1-4:2026 (NBN, version française), 7.6, article 8 et annexes E, F et H lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 + A1:2010 (6, annexes B, C et F) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; valeurs de l’exemple tirées de l’atelier JRC de juin 2025 ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1991-1-4:2026 (NBN, version française), 7.6, article 8 et annexes E, F et H lus sur le texte le 2026-10-18, sans amendement ni corrigendum pris en compte ; EN 1991-1-4:2005 (NF EN, novembre 2005) : 6 et 8.2 lus sur le texte le 2026-10-19, A1:2010 et AC:2010 non détenus ; valeurs de l’exemple tirées de l’atelier JRC de juin 2025 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
-resume: Les deux procédures de 2005 pour le coefficient structural sont fusionnées en une seule, avec de nouvelles fonctions de réponse. Les cheminées ne sont plus dispensées de calcul dynamique, mais les tabliers de ponts courants le sont.
+revise: 2026-10-19
+resume: Les deux procédures de 2005 pour le coefficient structural sont fusionnées en une seule, avec de nouvelles fonctions de réponse. Les cheminées ne sont plus dispensées de calcul dynamique ; les tabliers de ponts courants le restent, désormais dans la liste générale des dispenses.
 motscles: actions
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : 1re génération relue sur le texte de 2005 : la dispense des tabliers de ponts existait déjà (8.2) ; écart annoncé entre les procédures B et C.
 ---
 
 ## Ce qui change
 
 **Une notation unique.** Le coefficient structural s’écrit $c_{sd}$ ; on peut encore le séparer en coefficient de dimension $c_s$ et coefficient dynamique $c_d$ (7.6).
 
-**Une seule procédure (annexe E).** En 2005, l’annexe B (procédure 1) et l’annexe C (procédure 2) donnaient deux méthodes, au choix de l’annexe nationale, qui pouvaient différer sensiblement. L’annexe E de 2026 n’en garde qu’une, avec de nouvelles formules pour la réponse quasi statique ($B^2$) et résonante ($R^2$), une échelle de turbulence portée à 300 m et deux facteurs de pointe séparés ($g_B$, $g_R$). Le vent transversal et la torsion des bâtiments sensibles ont leur annexe propre (F), les caractéristiques dynamiques passent en annexe H.
+**Une seule procédure (annexe E).** En 2005, l’annexe B (procédure 1, recommandée) et l’annexe C (procédure 2) donnaient deux méthodes, au choix de l’annexe nationale ; le texte annonçait un écart d’environ 5 % au plus entre elles (6.3.1, NOTE 3). L’annexe D donnait en outre des abaques de $c_s c_d$ pour des types courants. L’annexe E de 2026 n’en garde qu’une, avec de nouvelles formules pour la réponse quasi statique ($B^2$) et résonante ($R^2$), une échelle de turbulence portée à 300 m et deux facteurs de pointe séparés ($g_B$, $g_R$). Le vent transversal et la torsion des bâtiments sensibles ont leur annexe propre (F), les caractéristiques dynamiques passent en annexe H.
 
 **Les dispenses (8.2).** $c_{sd}$ = 1,0 est admis pour :
 
@@ -25,7 +26,7 @@ historique:
 | Façades et toitures de fréquence propre > 5 Hz | oui | oui |
 | Bâtiments contreventés, $h$ < 100 m et $h$ < 4 $d$ | oui | oui |
 | Cheminées circulaires, $h$ < 60 m et $h$ < 6,5 $d$ | oui | **non** |
-| Tabliers de ponts courants sans calcul dynamique | non | **oui** |
+| Tabliers de ponts courants sans calcul dynamique | oui (8.2 ; travée < 40 m en général) | oui |
 
 **Forces moyennes.** La force moyenne s’obtient avec $q_m$ et $c_{sd}$ = 1, ou en remplaçant $c_{sd}$ par $1/(1 + g_u I_u)^2$ (7.6(6)).
 
@@ -56,7 +57,7 @@ En 2005, la cheminée entrait dans les dispenses : $c_s c_d$ = {{cheminee:en1991
 
 - Cheminées et structures élancées : calcul dynamique désormais obligatoire.
 - Bâtiments hauts : reprendre $c_{sd}$ avec l’annexe E ; l’écart avec 2005 dépend de la procédure utilisée.
-- Tabliers de ponts courants : simplification possible.
+- Tabliers de ponts courants : dispense maintenue ; son domaine se lit désormais en 5.4 et D.8.1, et non plus d’après la seule travée de 40 m.
 
 ## Ce qu’il faudra vérifier dans l’annexe nationale
 
