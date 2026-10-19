@@ -2,13 +2,14 @@
 titre: Propriétés des matériaux, géométrie et résistances de calcul
 ordre: 59
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 6.2, 6.3, 8.3.5 à 8.3.7 et 8.4.5, formules (8.18) à (8.23) lues sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (4.2, 4.3, 6.3.3 à 6.3.5) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 6.2, 6.3, 8.3.5 à 8.3.7 et 8.4.5, formules (8.18) à (8.23) lues sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 4.2, 4.3, 6.3.3 à 6.3.5, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
+revise: 2026-10-19
 resume: La deuxième génération nomme les deux façons d’appliquer le coefficient partiel de résistance, sur la propriété du matériau (MFA) ou sur la résistance (RFA), et ajoute une formule pour les éléments multi-matériaux analysés de façon non linéaire. Le choix compte quand la résistance n’est pas proportionnelle à la propriété.
 motscles: elu, materiaux-beton
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : première génération lue sur le texte de 2002 (6.3.3, 6.3.5) : **corrigé** : (6.6d) existait en 2002, (8.21) la reprend et ne l’ajoute pas.
 ---
 
 ## Ce qui change
@@ -29,7 +30,7 @@ $$
 R_d = R\left\{\eta\,\frac{X_k}{\gamma_M}\right\} \quad \text{(8.19, MFA)} \qquad\qquad R_d = \frac{R\left\{\eta\,X_k\right\}}{\gamma_R} \quad \text{(8.20, RFA)}
 $$
 
-Elles existaient en 2002 ((6.6a) à (6.6c)) ; la deuxième génération les nomme (« approche du facteur de matériau », « approche du facteur de résistance »), renvoie leur choix aux Eurocodes de matériau et ajoute (8.21) pour les éléments en plusieurs matériaux analysés de façon non linéaire. La fatigue a sa formule propre, $R_{fat,d} = R_{fat}/\gamma_{Mf}$ (8.22).
+Elles existaient en 2002 ((6.6) et (6.6a) à (6.6c)), avec la même séparation de $\gamma_m$ et $\gamma_{Rd}$ ; la deuxième génération les nomme (« approche du facteur de matériau », « approche du facteur de résistance ») et renvoie leur choix aux Eurocodes de matériau. La formule (8.21), pour les éléments en plusieurs matériaux analysés de façon non linéaire, reprend (6.6d) de 2002. La fatigue a sa formule propre, $R_{fat,d} = R_{fat}/\gamma_{Mf}$ (8.22).
 
 ## Pourquoi
 

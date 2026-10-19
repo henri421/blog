@@ -2,13 +2,14 @@
 titre: Combinaisons d’actions à l’ELU
 ordre: 47
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; EN 1990:2002 + A1:2005 lue au travers du tableau de synthèse NBN-CSTC (tableau A1.2(B), valeurs recommandées), le texte complet de 2002 n’étant pas détenu ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; expressions vérifiées sur le texte le 2026-10-09 ; EN 1990:2002 (version française), 6.4.3.2 et tableaux A1.1, A1.2(B), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-09
-revise: 2026-10-09
+revise: 2026-10-19
 resume: Les combinaisons fondamentales gardent leurs coefficients 1,35 et 1,5, mais ceux-ci dépendent désormais de la classe de conséquences, et une troisième méthode apparaît, où les actions permanentes seules forment une combinaison à part.
 motscles: combinaisons, actions, elu
 historique:
   - 2026-10-09 : première rédaction.
+  - 2026-10-19 : première génération lue sur le texte de 2002 (6.4.3.2, tableaux A1.1 et A1.2(B)) : valeurs et expressions confirmées ; origine de (8.14) dans la NOTE 1 du tableau A1.2(B).
 ---
 
 ## Ce qui change
@@ -16,7 +17,7 @@ historique:
 Pour un bâtiment, la vérification de la résistance structurale combine les actions permanentes, une action variable dominante et les actions variables d’accompagnement, chacune multipliée par un coefficient partiel. Trois changements :
 
 - **le facteur de conséquence $k_F$** multiplie les coefficients des actions défavorables : $\gamma_G = 1.35\,k_F$, $\gamma_Q = 1.5\,k_F$, avec $k_F$ = 0,9 pour la classe CC1, 1,0 pour CC2 et 1,1 pour CC3 (tableaux A.1.8 et A.1.9). En 2002, ce facteur ($K_{FI}$) existait seulement dans l’annexe B informative ;
-- **trois méthodes au lieu de deux** : (8.12) reprend (6.10), (8.13) reprend la paire (6.10a), (6.10b), et (8.14) est nouvelle ;
+- **trois méthodes au lieu de deux** : (8.12) reprend (6.10), (8.13) reprend la paire (6.10a), (6.10b), et (8.14) devient une méthode du texte, alors qu’en 2002 elle n’était qu’une variante ouverte à l’annexe nationale (tableau A1.2(B), NOTE 1 : (6.10a) réduite aux seules actions permanentes) ;
 - **la méthode par défaut** est (8.12), sauf choix contraire de l’annexe nationale. En 2002, le choix entre (6.10) et (6.10a/b) relevait de l’annexe nationale.
 
 $$

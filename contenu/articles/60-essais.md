@@ -2,13 +2,14 @@
 titre: Dimensionnement assisté par l’expérimentation
 ordre: 60
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 7.3 et annexe D (D.7, tableaux D.1 et D.2) lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (5.2, annexe D) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 7.3 et annexe D (D.7, tableaux D.1 et D.2) lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 5.2 et annexe D (D.7, tableaux D.1 et D.2), lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
-resume: L’évaluation statistique des essais ne change pas, mais la deuxième génération précise les hypothèses des tableaux de coefficients et recommande d’utiliser un coefficient de variation connu, estimé prudemment, plutôt que celui d’un petit échantillon.
+revise: 2026-10-19
+resume: L’évaluation statistique des essais ne change pas. Comme en 2002, le texte recommande d’utiliser un coefficient de variation connu, estimé prudemment, plutôt que celui d’un petit échantillon, et de ne pas le supposer inférieur à 0,10 quand il est inconnu.
 motscles: materiaux-beton, fiabilite
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : première génération lue sur le texte de 2002 (annexe D) : **corrigé** : les hypothèses des tableaux, la préférence pour « Vx connu » et le plancher Vx ≥ 0,10 figuraient déjà en D.7.1(5) de 2002 ; écart d’arrondi entre k_n calculé et tableau D.1 signalé. L’application du plancher par l’outil attend la décision de l’auteur.
 ---
 
 ## Ce qui change
@@ -25,9 +26,9 @@ $$
 X_d = \eta_d\,\frac{X_k}{\gamma_m} \qquad \text{(D.1)}
 $$
 
-Le tableau D.1 donne $k_n$ ; ses valeurs sont celles de 2002. Elles se recalculent : $k_n = 1.645\,\sqrt{1 + 1/n}$ si $V_x$ est connu, $k_n = t_{n-1;0.95}\,\sqrt{1 + 1/n}$ sinon. Le tableau D.2 donne de même $k_{d,n}$ pour une évaluation directe de la valeur de calcul (méthode B), avec $\alpha_R\,\beta$ = 0,8 × 3,8 = 3,04.
+Le tableau D.1 donne $k_n$ ; ses valeurs sont celles de 2002. Elles se recalculent : $k_n = 1.645\,\sqrt{1 + 1/n}$ si $V_x$ est connu, $k_n = t_{n-1;0.95}\,\sqrt{1 + 1/n}$ sinon. L’outil calcule $k_n$ au lieu de le lire : le tableau tronque plutôt qu’il n’arrondit, d’où un écart de 0,01 à 0,02 (2,33 contre 2,31 pour un essai, 1,84 contre 1,83 pour quatre essais avec $V_x$ connu, 2,01 contre 2,00 pour huit essais avec $V_x$ inconnu), sans effet sur $X_k$ au-delà du centième. Le tableau D.2 donne de même $k_{d,n}$ pour une évaluation directe de la valeur de calcul (méthode B), avec $\alpha_R\,\beta$ = 0,8 × 3,8 = 3,04.
 
-**Ce qui est précisé.** Les hypothèses des tableaux sont écrites : lois normale ou log-normale, aucune connaissance préalable de la moyenne, $V_x$ parfaitement connu ou totalement inconnu. Le texte recommande de préférer le cas « $V_x$ connu » avec une estimation prudente de $V_x$, et rappelle que $V_x$ inconnu ne doit pas être supposé inférieur à 0,10. La méthode A (valeur caractéristique puis coefficient partiel de l’Eurocode) est préférable à la méthode B si les essais ressemblent au domaine d’emploi habituel du coefficient.
+**Ce qui est reconduit.** Les hypothèses des tableaux (lois normale ou log-normale, aucune connaissance préalable de la moyenne, $V_x$ parfaitement connu ou totalement inconnu), la préférence pour le cas « $V_x$ connu » avec une estimation prudente de $V_x$, et la règle selon laquelle $V_x$ inconnu ne doit pas être supposé inférieur à 0,10 figuraient déjà en D.7.1(5) de 2002. La deuxième génération les garde. La méthode A (valeur caractéristique puis coefficient partiel de l’Eurocode) est préférable à la méthode B si les essais ressemblent au domaine d’emploi habituel du coefficient.
 
 ## Pourquoi
 

@@ -2,13 +2,14 @@
 titre: Classes de conséquences et facteur kF
 ordre: 49
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 4.3, 4.5, A.1.3, A.1.4, A.2.3 et tableaux A.1.8, A.1.9, A.2.11 lus sur le texte le 2026-10-18 ; EN 1990:2002 + A1:2005 (annexe B informative, tableau 2.1) citée de mémoire des valeurs usuelles, le texte complet de 2002 n’étant pas détenu ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; clauses 4.3, 4.5, A.1.3, A.1.4, A.2.3 et tableaux A.1.8, A.1.9, A.2.11 lus sur le texte le 2026-10-18 ; EN 1990:2002 (version française), 2.3, tableau 2.1 et annexe B (B.3, tableaux B.1 à B.3), lue sur le texte le 2026-10-19, sans l’A1:2005 ; la ligne « Ponts » du premier tableau relève de l’A1:2005, non détenu, et reste citée de mémoire ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
+revise: 2026-10-19
 resume: Les trois classes de conséquences de 2002 deviennent cinq, de CC0 à CC4. Elles passent de l’annexe informative au corps du texte, et leur facteur kF s’applique désormais d’office aux coefficients des actions défavorables.
 motscles: fiabilite, actions, elu
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : première génération lue sur le texte de 2002 (2.3, annexe B) : valeurs confirmées ; note de B.3.3 sur la classe RC3 et note du tableau 2.1 ajoutées.
 ---
 
 ## Ce qui change
@@ -26,9 +27,9 @@ La classe de conséquences mesure la gravité d’une défaillance : pertes huma
 
 **Des exemples, pas des définitions.** Le tableau A.1.1 classe les bâtiments par l’exemple : en CC3, les bâtiments où une défaillance toucherait un très grand nombre de personnes (tribunes, salles de concert, immeubles de grande hauteur) ; en CC1, ceux où elle n’en toucherait que très peu (bâtiments agricoles, de stockage) ; CC2 pour tout le reste. Une partie de bâtiment peut relever d’une autre classe que l’ensemble. Le tableau est un paramètre national : l’annexe nationale peut le remplacer.
 
-**Le facteur $k_F$.** Il multiplie les coefficients partiels des actions défavorables : $\gamma_G = 1.35\,k_F$, $\gamma_Q = 1.5\,k_F$ (cas VC1 et VC2). Il ne touche ni les actions favorables ($\gamma_{G,fav}$ = 1,0), ni la partie stabilisatrice d’une action de source unique ($\gamma_{G,stb}$). En 2002, le facteur $K_{FI}$ de l’annexe B avait les mêmes valeurs, mais il restait facultatif, et l’annexe B elle-même était informative.
+**Le facteur $k_F$.** Il multiplie les coefficients partiels des actions défavorables : $\gamma_G = 1.35\,k_F$, $\gamma_Q = 1.5\,k_F$ (cas VC1 et VC2). Il ne touche ni les actions favorables ($\gamma_{G,fav}$ = 1,0), ni la partie stabilisatrice d’une action de source unique ($\gamma_{G,stb}$). En 2002, le facteur $K_{FI}$ de l’annexe B (B.3.3, tableau B.3) avait les mêmes valeurs et ne visait déjà que les actions défavorables, mais il restait facultatif, l’annexe B elle-même était informative, et sa note préférait pour la classe RC3 d’autres mesures (supervision du projet, contrôle de l’exécution) à la majoration des coefficients.
 
-**La durée d’utilisation de projet** passe aussi en annexe A (tableau A.1.2), avec moins de catégories qu’en 2002 : 100 ans pour les bâtiments monumentaux, 50 ans pour les autres, 25 ans pour les structures agricoles et les parties remplaçables, au plus 10 ans pour les structures provisoires. Une structure démontable destinée au réemploi n’est pas provisoire (4.5(3)).
+**La durée d’utilisation de projet** passe aussi en annexe A (tableau A.1.2), avec moins de catégories qu’en 2002 : 100 ans pour les bâtiments monumentaux, 50 ans pour les autres, 25 ans pour les structures agricoles et les parties remplaçables, au plus 10 ans pour les structures provisoires. Une structure démontable destinée au réemploi n’est pas provisoire (4.5(3)), comme le disait déjà la note du tableau 2.1 de 2002.
 
 **Éléments autres que structuraux.** La deuxième génération définit les éléments de finition et d’équipement fixés à la structure (couverture, cloisons, faux plafonds, gaines, équipements) comme les éléments de plus faibles conséquences de défaillance (3.1.1.9).
 

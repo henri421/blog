@@ -2,13 +2,14 @@
 titre: États-limites, analyse et coefficients sur les actions ou les effets
 ordre: 57
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 5.1 à 5.5, 7.1, 7.2, 8.1 à 8.3.2 et 8.4.1, 8.4.2, formules (8.1) à (8.5) lues sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (3, 5, 6.3.2) citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 5.1 à 5.5, 7.1, 7.2, 8.1 à 8.3.2 et 8.4.1, 8.4.2, formules (8.1) à (8.5) lues sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), sections 3 et 5, 6.3.2, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
+revise: 2026-10-19
 resume: Le principe des états-limites ne change pas, mais la deuxième génération ajoute un état-limite ultime de déformation excessive et précise quand appliquer les coefficients partiels aux actions ou aux effets. Le choix compte pour les câbles et membranes.
 motscles: elu, analyse-structurale
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : première génération lue sur le texte de 2002 (3.2, 6.3.2) : situations de projet, (6.2a) et règles de 6.3.2(4) confirmées.
 ---
 
 ## Ce qui change

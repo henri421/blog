@@ -2,13 +2,14 @@
 titre: Combinaisons et critères à l’ELS des bâtiments
 ordre: 51
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 8.4.3, formules (8.29) à (8.32), A.1.6.3, A.1.8 et figure A.1.1 lus sur le texte le 2026-10-18 ; tableau A.1.7 lu sur la page rendue, dont l’alignement est ambigu pour les catégories H à T ; EN 1990:2002 + A1:2005 (6.5.3, A1.4) citée de mémoire des formules usuelles, le texte complet de 2002 n’étant pas détenu ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), sans autre amendement ni corrigendum pris en compte ; 8.4.3, formules (8.29) à (8.32), A.1.6.3, A.1.8 et figure A.1.1 lus sur le texte le 2026-10-18 ; tableau A.1.7 lu sur la page rendue, dont l’alignement est ambigu pour les catégories H à T ; EN 1990:2002 (version française), 6.5.3, A1.4 et figure A1.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
+revise: 2026-10-19
 resume: Les trois combinaisons de service ne changent pas. L’annexe A de l’EN 1990 propose désormais des limites de flèche, de déplacement et de mouvement des fondations, et redéfinit les parties de la flèche.
 motscles: combinaisons, els, fleche
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : première génération lue sur le texte de 2002 (6.5.3, A1.4.2, A1.4.3) : combinaisons et décomposition de la flèche confirmées, absence de limite chiffrée confirmée.
 ---
 
 ## Ce qui change
@@ -38,7 +39,7 @@ La combinaison caractéristique sert aux états-limites irréversibles, la fréq
 | $w_1$ | flèche initiale sous les charges permanentes | idem |
 | $w_2$ | partie à long terme sous les charges permanentes | partie à long terme sous les charges permanentes **et la partie quasi permanente des actions variables** |
 | $w_3$ | flèche due aux actions variables | flèche instantanée due aux actions variables, **hors partie quasi permanente** |
-| Limites | à convenir pour chaque projet | suggérées par le tableau A.1.10 (NDP) |
+| Limites | aucune valeur ; critères à convenir avec le client ou fixés par l’annexe nationale (A1.4.2(2)) | suggérées par le tableau A.1.10 (NDP) |
 
 **Des limites chiffrées.** Le tableau A.1.10 suggère des limites pour les bâtiments non industriels, selon l’élément (toiture, plancher, plafond, cloisons, carrelage, fenêtres) et selon trois critères : dommages aux éléments auxiliaires ($w_2 + w_3$, combinaison caractéristique), confort des usagers (combinaison fréquente) et apparence ($w_1 + w_2 - w_c$, combinaison quasi permanente). Pour une console, $l$ vaut deux fois la portée. L’annexe A.1 traite aussi les déplacements horizontaux (tableau A.1.11), les vibrations (A.1.8.3) et les mouvements des fondations, avec des classes de sensibilité de la structure (tableaux A.1.12 à A.1.16), alignés sur l’EN 1997.
 

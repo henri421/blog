@@ -2,18 +2,19 @@
 titre: Actions de fatigue et comptage des cycles
 ordre: 63
 statut: publie
-texte: EN 1990-1:2023+A1:2026 (NBN, version française), 5.2, 6.1.3.3, 8.3.3.6, 8.3.4.5, 8.3.5.4 et annexe F lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 citée de mémoire, le texte complet n’étant pas détenu et restant à relire ; état d’amendement non encore vérifié auprès de l’ILNAS.
+texte: EN 1990-1:2023+A1:2026 (NBN, version française), 5.2, 6.1.3.3, 8.3.3.6, 8.3.4.5, 8.3.5.4 et annexe F lus sur le texte le 2026-10-18, sans autre amendement ni corrigendum pris en compte ; EN 1990:2002 (version française), 3.1(5), 4.1.4 et 6.4.1, lue sur le texte le 2026-10-19, sans l’A1:2005 ; état d’amendement non encore vérifié auprès de l’ILNAS.
 redige: 2026-10-18
-revise: 2026-10-18
+revise: 2026-10-19
 resume: La fatigue devient une situation de projet de l’EN 1990, avec ses actions, sa combinaison et sa résistance de calcul. Une annexe nouvelle décrit les deux méthodes de comptage des cycles, par demi-cycles et par réservoir.
 motscles: fatigue
 historique:
   - 2026-10-18 : première rédaction.
+  - 2026-10-19 : première génération lue sur le texte de 2002 (3.1(5), 4.1.4, 6.4.1) : conforme ; renvois précisés.
 ---
 
 ## Ce qui change
 
-En 2002, l’EN 1990 mentionnait la fatigue parmi les états-limites ultimes et renvoyait pour le reste aux Eurocodes d’actions et de matériaux. La deuxième génération lui donne une place à chaque étape :
+En 2002, l’EN 1990 mentionnait la fatigue parmi les états-limites ultimes (6.4.1, FAT), demandait d’associer les effets dépendant du temps à la durée d’utilisation de projet (3.1(5)) et renvoyait pour le reste aux Eurocodes d’actions et de matériaux, y compris pour les modèles d’actions de fatigue (4.1.4). La deuxième génération lui donne une place à chaque étape :
 
 - une **situation de projet** de fatigue (5.2, tableau 5.1) ;
 - des **actions de fatigue** (6.1.3.3), définies par leur amplitude et leur nombre de répétitions, effets dynamiques compris ;
